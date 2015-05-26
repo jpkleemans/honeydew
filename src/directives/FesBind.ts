@@ -5,54 +5,99 @@ module Honeydew
     export class FesBind
     {
         private $compile:angular.ICompileService;
-        private variables:VariableRepository;
+        private variables:Fes.IVariableRepository;
 
-        constructor($compile:angular.ICompileService, variables:VariableRepository)
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository)
         {
             this.$compile = $compile;
             this.variables = variables;
         }
 
-        public link(scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes)
+        /**
+         *
+         * @param scope
+         * @param element
+         * @param attrs
+         */
+        public link(scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes):void
         {
-            var key:string = attrs['fes-bind'];
+            var variableKey:string = attrs['fes-bind'];
+            var variable:Fes.IVariable = this.variables.findByKey(variableKey);
+            var UIVariable:UIVariable = this.getUIVariable(variable);
+            scope['variable'] = UIVariable;
+
             var contextQuery:any = attrs['fes-bind-context'];
-
-            var variable:Variable = this.variables.findByKey(key);
             var context:Fes.IContext = variable.getContext(contextQuery);
+            var UIContext:UIContext = this.getUIContext(context);
+            scope['context'] = UIContext;
 
-            scope['variable'] = variable;
+            // set observers to watch for model and user changes of attributes
+            this.setAttributeObservers(scope, context);
 
-            // set observers to watch for model and user changes
-            this.setObservers();
-
-            // set attributes from variable on element
-            this.setAttributes(variable.attributes, element);
+            // set attributes from context on element
+            this.setAttributes(UIContext.attributes, element);
 
             element.removeAttr('fes-bind');
             this.$compile(element)(scope);
         }
 
-        private setObservers(scope:angular.IScope, variable:Fes.IVariable)
+        /**
+         *
+         * @param variable
+         * @returns {Honeydew.UIVariable}
+         */
+        private getUIVariable(variable:Fes.IVariable):UIVariable
+        {
+            var key:string = variable.getKey();
+            var title:string = variable.getTitle();
+
+            var UIVariable:Honeydew.UIVariable = new Honeydew.UIVariable(key, title);
+
+            return UIVariable;
+        }
+
+        /**
+         *
+         * @param context
+         * @returns {Honeydew.UIContext}
+         */
+        private getUIContext(context:Fes.IContext):UIContext
+        {
+            var attributes:any = context.getAttributes();
+
+            var UIContext:Honeydew.UIContext = new Honeydew.UIContext(attributes);
+
+            return UIContext;
+        }
+
+        /**
+         *
+         * @param scope
+         * @param context
+         */
+        private setAttributeObservers(scope:angular.IScope, context:Fes.IContext):void
         {
             // Listen for user changes
-            scope.$watch(variable.key, function (newAttrs)
+            scope.$watch('context.attributes', function (newAttrs)
             {
-                variable.setAttributes(column, newAttrs);
+                context.setAttributes(newAttrs);
             }, true);
 
             // Listen for model changes
-            variable.observe(function (newAttrs)
+            context.observe('change:attributes', function (newAttrs)
             {
-                var newAttrs = variable.getAttributes(column); // Moet uiteindelijk meegegeven worden als argument vd callback
-
-                if (scope[variable.key] !== newAttrs) {
-                    scope[variable.key] = newAttrs;
+                if (scope['context'].attributes !== newAttrs) {
+                    scope['context'].attributes = newAttrs;
                 }
             });
         }
 
-        private setAttributes(attrs:any, element:angular.IAugmentedJQuery)
+        /**
+         *
+         * @param attrs
+         * @param element
+         */
+        private setAttributes(attrs:any, element:angular.IAugmentedJQuery):void
         {
             for (var attr in attrs) {
                 if (attrs.hasOwnProperty(attr)) {

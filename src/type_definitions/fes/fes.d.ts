@@ -83,9 +83,9 @@ declare module Fes
         /**
          * Get columns
          *
-         * @returns {Array<IContext>}
+         * @returns {IContext}
          */
-        getContext(query:any):Array<IContext>;
+        getContext(query:any):IContext;
     }
 
     /**
