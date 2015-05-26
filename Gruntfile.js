@@ -2,14 +2,14 @@ module.exports = function (grunt) {
     grunt.initConfig({
         typescript: {
             src: {
-                src: ['src/viewmodels/*.ts', 'src/directives/*.ts'],
+                src: ['src/viewmodels/*.ts', 'src/directives/*.ts', 'src/DirectiveFactory.ts'],
                 dest: 'build/honeydew.js'
             }
         },
         uglify: {
             build: {
                 files: {
-                    'build/honeydew.min.js': ['build/honeydew.js', 'src/honeydew.js']
+                    'build/honeydew.min.js': ['build/honeydew.js', 'src/lib/Fes.min.js', 'src/honeydew.js']
                 }
             }
         },

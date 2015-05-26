@@ -5,21 +5,38 @@ module Honeydew
     export class FesBindAttributes
     {
         private $compile:angular.ICompileService;
+        //public link;
 
         constructor($compile:angular.ICompileService)
         {
             this.$compile = $compile;
+
+            //this.link = (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
+            //{
+            //    var variableKey:string = attrs['fesBindAttributes'];
+            //
+            //    if (scope[variableKey] === undefined) {
+            //        throw new Error('Variable ' + variableKey + ' not initialized');
+            //    }
+            //
+            //    var attributes:any = scope[variableKey].attributes;
+            //
+            //    this.setAttributes(variableKey, attributes, element);
+            //
+            //    element.removeAttr('fes-bind-attributes');
+            //    this.$compile(element)(scope);
+            //};
         }
 
         /**
-         *
-         * @param scope
-         * @param element
-         * @param attrs
-         */
+        *
+        * @param scope
+        * @param element
+        * @param attrs
+        */
         public link(scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes):void
         {
-            var variableKey:string = attrs['fes-bind-attributes'];
+            var variableKey:string = attrs['fesBindAttributes'];
 
             if (scope[variableKey] === undefined) {
                 throw new Error('Variable ' + variableKey + ' not initialized');

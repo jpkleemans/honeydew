@@ -6,12 +6,24 @@ module Honeydew
     {
         public static FesInit()
         {
-            var directive = (Fes.IVariableRepository) =>
+            var directive = (variables:Fes.IVariableRepository) =>
             {
-                return new FesInit();
+                return new FesInit(variables);
             };
 
-            directive['$inject'] = ['/*list of dependencies*/'];
+            directive['$inject'] = ['IVariableRepository'];
+
+            return directive;
+        }
+
+        public static FesBindAttributes()
+        {
+            var directive = ($compile:angular.ICompileService) =>
+            {
+                return new FesBindAttributes($compile);
+            };
+
+            directive['$inject'] = ['$compile'];
 
             return directive;
         }

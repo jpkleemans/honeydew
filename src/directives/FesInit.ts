@@ -6,21 +6,30 @@ module Honeydew
     export class FesInit
     {
         private variables:Fes.IVariableRepository;
+        //public link;
 
         constructor(variables:Fes.IVariableRepository)
         {
             this.variables = variables;
+
+            //this.link = (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
+            //{
+            //    var variableKey:string = attrs['fesInit'];
+            //    var variable:Fes.IVariable = this.variables.findByKey(variableKey);
+            //
+            //    scope['variable'] = this.getUIVariable(variable);
+            //};
         }
 
         /**
-         *
-         * @param scope
-         * @param element
-         * @param attrs
-         */
+        *
+        * @param scope
+        * @param element
+        * @param attrs
+        */
         public link(scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes):void
         {
-            var variableKey:string = attrs['fes-init'];
+            var variableKey:string = attrs['fesInit'];
             var variable:Fes.IVariable = this.variables.findByKey(variableKey);
 
             scope['variable'] = this.getUIVariable(variable);
