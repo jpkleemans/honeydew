@@ -23,6 +23,8 @@ module Honeydew
             var variableKey:string = attrs['fes-init'];
             var variable:Fes.IVariable = this.variables.findByKey(variableKey);
 
+            console.log('dasdasd');
+
             scope['variable'] = this.getUIVariable(variable);
         }
 
