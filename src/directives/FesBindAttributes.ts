@@ -2,7 +2,7 @@
 
 module Honeydew
 {
-    export class FesInit
+    export class FesBindAttributes
     {
         private $compile:angular.ICompileService;
 
