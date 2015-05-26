@@ -1,4 +1,4 @@
 angular.module('honeydew', [])
-    .constant('IVariableRepository', new Fes.Dummy.VariableRepository())
-    .directive('fesInit', Honeydew.DirectiveFactory.FesInit())
+    .constant('IVariableRepository', new VariableRepository())
+    //.directive('fesInit', Honeydew.DirectiveFactory.FesInit())
     .directive('fesBindAttributes', Honeydew.DirectiveFactory.FesBindAttributes());

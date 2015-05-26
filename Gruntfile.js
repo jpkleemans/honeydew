@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         uglify: {
             build: {
                 files: {
-                    'build/honeydew.min.js': ['build/honeydew.js', 'src/lib/Fes.min.js', 'src/honeydew.js']
+                    'build/honeydew.min.js': ['build/honeydew.js', 'src/engine.js', 'src/honeydew.js']
                 }
             }
         },
@@ -17,6 +17,12 @@ module.exports = function (grunt) {
         watch: {
             files: '**/*.ts',
             tasks: ['typescript']
+        },
+        concat: {
+            dist: {
+                src: ['src/engine.js', 'build/honeydew.js', 'src/honeydew.js'],
+                dest: 'dist/built.js'
+            }
         }
     });
 
@@ -24,6 +30,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
     grunt.registerTask('build', ['typescript', 'uglify', 'clean']);
 };
