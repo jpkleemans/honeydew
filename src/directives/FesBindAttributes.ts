@@ -25,7 +25,7 @@ module Honeydew
                 throw new Error('Variable ' + variableKey + ' not initialized');
             }
 
-            var attributes = scope[variableKey].attributes;
+            var attributes:any = scope[variableKey].attributes;
 
             this.setAttributes(variableKey, attributes, element);
 

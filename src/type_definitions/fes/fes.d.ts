@@ -1,104 +1,88 @@
-declare module Fes
-{
-    /**
-     *
-     */
-    interface IAttributes
-    {
+declare module Fes {
+    interface IAttributes {
         /**
          * Set HTML attribute(s)
          *
          * @param attributes
          */
-        setAttributes(attributes:any):void;
-
+        setAttributes(attributes: any): void;
         /**
          * Get HTML attributes
          *
          * @returns {any}
          */
-        getAttributes():any;
+        getAttributes(): any;
     }
-
-    /**
-     *
-     */
-    interface IObservable
-    {
+}
+declare module Fes {
+    interface IObservable {
         /**
          * Register for an event
          *
          * @param event
          * @param callback
          */
-        observe(event:string, callback:Function):void;
+        observe(event: string, callback: Function): void;
     }
-
-    /**
-     *
-     */
-    interface IContext extends IAttributes, IObservable
-    {
+}
+declare module Fes {
+    interface IContext extends IAttributes, IObservable {
         /**
          * Get the reference key
          *
          * @returns {string}
          */
-        getKey():string;
-
+        getKey(): string;
         /**
          * Get the title
          *
          * @returns {string}
          */
-        getTitle():string;
+        getTitle(): string;
     }
-
-    /**
-     *
-     */
-    interface IVariable extends IAttributes, IObservable
-    {
+}
+declare module Fes {
+    interface IVariable extends IAttributes, IObservable {
         /**
          * Get the reference key
          *
          * @returns {string}
          */
-        getKey():string;
-
+        getKey(): string;
         /**
          * Get the title
          *
          * @returns {string}
          */
-        getTitle():string;
-
+        getTitle(): string;
         /**
          * Get children
          *
          * @returns {Array<IVariable>}
          */
-        getChildren():Array<IVariable>;
-
+        getChildren(): Array<IVariable>;
+        /**
+         * Set children
+         *
+         * @param children
+         */
+        setChildren(children: Array<IVariable>): void;
         /**
          * Get columns
          *
          * @returns {IContext}
          */
-        getContext(query:any):IContext;
+        getContext(query: any): IContext;
     }
-
-    /**
-     *
-     */
-    interface IVariableRepository
-    {
+}
+declare module Fes {
+    interface IVariableRepository {
         /**
          * Find a variable by its key
          *
          * @param key
          * @returns {IVariable}
          */
-        findByKey(key:string): IVariable;
+        findByKey(key: string): IVariable;
     }
 }
