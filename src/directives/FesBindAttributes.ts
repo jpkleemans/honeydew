@@ -1,4 +1,5 @@
 /// <reference path="../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../type_definitions/fes/fes.d.ts" />
 
 module Honeydew
 {
@@ -7,7 +8,8 @@ module Honeydew
         private $compile:angular.ICompileService;
         public link;
         private variables;
-
+        public scope = {};
+        public terminal = true;
         constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository)
         {
             this.$compile = $compile;
@@ -16,27 +18,30 @@ module Honeydew
             this.link = (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
             {
                 var variableKey:string = attrs['fesBindAttributes'];
-                var variable:Fes.IVariable = this.variables.findByKey(variableKey);
-
+                var variable:any = this.variables.findByKey(variableKey);
                 scope[variableKey] = this.getUIVariable(variable);
-
-                variable.observe('change:attributes', () =>
-                {
-                    console.log('fired!');
-                });
-
-                //var variableKey:string = attrs['fesBindAttributes'];
-
                 if (scope[variableKey] === undefined) {
                     throw new Error('Variable ' + variableKey + ' not initialized');
                 }
 
+
+                /*
+                variable.observe('change:attributes', (newValue) =>
+                {
+                    console.log(newValue);
+                });
+
+                 scope.$watch(variableKey + '.attributes', function (newAttrs)
+                 {
+                 variable.setAttributes(newAttrs);
+                 }, true);
+
+                //var variableKey:string = attrs['fesBindAttributes'];
+
+                */
                 var attributes:any = scope[variableKey].attributes;
 
-                scope.$watch(variableKey + '.attributes', function (newAttrs)
-                {
-                    variable.setAttributes(newAttrs);
-                }, true);
+
 
                 this.setAttributes(variableKey, attributes, element);
 
@@ -80,13 +85,18 @@ module Honeydew
          * @param variable
          * @returns {Honeydew.UIVariable}
          */
-        private getUIVariable(variable:Fes.IVariable):UIVariable
+        private getUIVariable(variable:any):UIVariable
         {
             var key:string = variable.getKey();
             var title:string = variable.getTitle();
             var attributes:string = variable.getAttributes();
-
-            var UIVariable:Honeydew.UIVariable = new Honeydew.UIVariable(key, title, attributes);
+            var children:any = [];
+            var i = variable.getChildren().length;
+            while(i--)
+            {
+                children.push(this.getUIVariable(variable.getChildren()[i]));
+            }
+            var UIVariable:Honeydew.UIVariable = new Honeydew.UIVariable(key, title, children, attributes);
 
             return UIVariable;
         }

@@ -4,10 +4,10 @@ module Honeydew
     {
         public key:string;
         public title:string;
-        public children:Array<UIVariable>;
+        public children:any;
         public attributes:any;
 
-        constructor(key:string, title:string, attributes:any = {}, children:Array<UIVariable> = [])
+        constructor(key:string, title:string, children:any, attributes:any = {})
         {
             this.key = key;
             this.title = title;

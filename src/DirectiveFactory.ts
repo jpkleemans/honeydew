@@ -27,5 +27,17 @@ module Honeydew
 
             return directive;
         }
+
+        public static FesRepeat()
+        {
+            var directive = ($compile:angular.ICompileService,variables:Fes.IVariableRepository) =>
+            {
+                return new FesRepeat($compile, variables);
+            };
+
+            directive['$inject'] = ['$compile', 'IVariableRepository'];
+
+            return directive;
+        }
     }
 }
