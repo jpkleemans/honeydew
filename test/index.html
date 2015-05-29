@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="lib/built.js"></script>
-    <script>
-        angular.module('app', ['honeydew'])
-    </script>
+<meta charset="UTF-8">
+<title></title>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="../dist/built.js"></script>
+<script>
+	angular.module('app', [ 'honeydew' ])
+</script>
 </head>
 <body ng-app="app">
-
-<input fes-bind-attributes="OperatingProvisions">
-
-<!--<ul fes-init="balance" fes-bind-attributes="balance">-->
-<!--<li ng-repeat="child in balance.children">-->
-<!--{{child.title}}:-->
-<!--<span fes-context-query="{index: 1, variable: {{child}}}" ng-repeat="context in contexts">-->
-<!--<input fes-bind-attributes="context">-->
-<!--</span>-->
-<!--</li>-->
-<!--</ul>-->
-
+	<input fes-bind-attributes="OperatingProvisions">
+	<!--<ul fes-init="balance" fes-bind-attributes="balance">-->
+	<!--<li ng-repeat="child in balance.children">-->
+	<!--{{child.title}}:-->
+	<!--<span fes-context-query="{index: 1, variable: {{child}}}" ng-repeat="context in contexts">-->
+	<!--<input fes-bind-attributes="context">-->
+	<!--</span>-->
+	<!--</li>-->
+	<!--</ul>-->
 </body>
 </html>

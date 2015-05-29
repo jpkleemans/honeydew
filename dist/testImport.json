@@ -1,0 +1,184 @@
+{
+	"navalue": 0.0000000001,
+	"tupleMultiplier": 32768,
+	"nestedTupleMultiplier": "undefined",
+	"formulasets": 
+	[
+		{
+			"formulasetId": 0,
+			"name": "notrend"
+		},
+
+		{
+			"formulasetId": 1,
+			"name": "trend"
+		},
+
+		{
+			"formulasetId": 2,
+			"name": "aggregation"
+		}
+	],
+
+	"layout": 
+	{
+		"period": 
+		[
+			{
+				"t": 0,
+				"formulasetId": 0,
+				"idx": 14
+			},
+
+			{
+				"t": 1,
+				"formulasetId": 1,
+				"idx": 134
+			}
+		],
+
+		"idx": 134,
+		"size": 134,
+		"name": "all",
+		"no": 0,
+		"child345ren": 
+		[
+			{
+				"size": 100,
+				"name": "bkyr",
+				"children": 
+				[
+					{
+						"size": 1,
+						"name": "detl",
+						"children": 
+						[
+							
+						]
+					}
+				]
+			}
+		],
+
+		"children": 
+		[
+			{
+				"size": 19,
+				"name": "bkyr",
+				"children": 
+				[
+					{
+						"size": 9,
+						"name": "half",
+						"children": 
+						[
+							{
+								"size": 4,
+								"name": "qurt",
+								"children": 
+								[
+									{
+										"size": 1,
+										"name": "detl",
+										"children": 
+										[
+											
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+
+	"time": 
+	{
+		"columnSize": 156,
+		"periodSize": 2,
+		"periodMultiplier": 1,
+		"timelineSize": 5,
+		"timelineMultiplier": 256,
+		"columnMultiplier": 1,
+		"columns": 
+		[
+			{
+				"index": 0,
+				"name": "jan/p1"
+			},
+
+			{
+				"index": 1,
+				"name": "fes/p2"
+			},
+
+			{
+				"index": 2,
+				"name": "mar/p3"
+			}
+		],
+
+		"timelines": 
+		[
+			{
+				"index": 0,
+				"name": "ExpertOptie-level5"
+			},
+
+			{
+				"index": 1,
+				"name": "ExpertOptie-level4"
+			},
+
+			{
+				"index": 2,
+				"name": "ExpertOptie-level3"
+			},
+
+			{
+				"index": 3,
+				"name": "ExpertOptie-level2"
+			},
+
+			{
+				"index": 4,
+				"name": "Scenario-level1"
+			}
+		]
+	},
+
+	"variable": 
+	[
+		{
+			"name": "EnterVariableName",
+			"frequency": "Detail",
+			"formula": 
+			[
+				"2",
+				"default",
+				"0",
+				"default",
+				"default"
+			]
+		},
+
+		{
+			"name": "AdminMode",
+			"frequency": "Single",
+			"formula": 
+			[
+				"If(SectorTitle2==2,1,0)",
+				"0",
+				"0",
+				"0",
+				"DATAENTERED(variable,hIndex,T)"
+			]
+		}
+	],
+
+	"values": 
+	[
+	]
+}
