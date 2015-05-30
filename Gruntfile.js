@@ -13,7 +13,7 @@ module.exports = function(grunt)
 		},
 		concat : {
 			dist : {
-				src : [ 'build/EngineAdapter.js', 'build/honeydew.js' ],
+				src : [ 'build/honeydew.js' ],
 				dest : 'dist/built.js'
 			}
 		},
@@ -35,7 +35,7 @@ module.exports = function(grunt)
 						return filename.toLowerCase();
 					}
 				},
-				src: ['test/json/*.json'],
+				src : [ 'test/json/*.json' ],
 				dest : 'build/json.js'
 			}
 		}
@@ -48,5 +48,5 @@ module.exports = function(grunt)
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-json');
 	grunt.registerTask('build', [ 'typescript' ]);
-	grunt.registerTask('dev', [ 'concat' ]);
+	grunt.registerTask('dev', [ 'json', 'build', 'watch' ]);
 };
