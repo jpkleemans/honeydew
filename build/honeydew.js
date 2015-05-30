@@ -23,6 +23,64 @@ var Honeydew;
     Honeydew.UIVariable = UIVariable;
 })(Honeydew || (Honeydew = {}));
 /// <reference path="../type_definitions/angularjs/angular.d.ts" />
+var Honeydew;
+(function (Honeydew) {
+    var DirectiveFactory = (function () {
+        function DirectiveFactory() {
+        }
+        DirectiveFactory.FesBindAttributes = function () {
+            var directive = function ($compile, variables) {
+                return new Honeydew.FesBindAttributes($compile, variables);
+            };
+            directive['$inject'] = ['$compile', 'IVariableRepository'];
+            return directive;
+        };
+        DirectiveFactory.FesRepeat = function () {
+            var directive = function ($compile, variables) {
+                return new Honeydew.FesRepeat($compile, variables);
+            };
+            directive['$inject'] = ['$compile', 'IVariableRepository'];
+            return directive;
+        };
+        return DirectiveFactory;
+    })();
+    Honeydew.DirectiveFactory = DirectiveFactory;
+})(Honeydew || (Honeydew = {}));
+/// <reference path="../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../type_definitions/fes/fes.d.ts" />
+var Reload = (function () {
+    function Reload($compile) {
+        var _this = this;
+        this.$compile = $compile;
+        this.link = function (scope, element, attrs, ctrl) {
+            console.log(_this.$compile);
+        };
+    }
+    Reload.factory = function () {
+        var directive = function ($compile) { return new Reload($compile); };
+        directive.$inject = ['$compile'];
+        return directive;
+    };
+    return Reload;
+})();
+/// <reference path="../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../directives/reload.ts" />
+var App = (function () {
+    function App() {
+    }
+    App.createModule = function (angular) {
+        angular.module('app', ['honeydew']);
+        angular.module('honeydew', [])
+            .constant('IVariableRepository', new VariableRepository())
+            .directive('reload', Reload.factory())
+            .directive('fesBindAttributes', Honeydew.DirectiveFactory.FesBindAttributes())
+            .directive('fesRepeat', Honeydew.DirectiveFactory.FesRepeat());
+        console.info('Angular bindings done.');
+    };
+    return App;
+})();
+App.createModule(angular);
+/// <reference path="../type_definitions/angularjs/angular.d.ts" />
 /// <reference path="../type_definitions/fes/fes.d.ts" />
 var Honeydew;
 (function (Honeydew) {
@@ -151,39 +209,4 @@ var Honeydew;
         return FesRepeat;
     })();
     Honeydew.FesRepeat = FesRepeat;
-})(Honeydew || (Honeydew = {}));
-/// <reference path="type_definitions/angularjs/angular.d.ts" />
-var Honeydew;
-(function (Honeydew) {
-    var DirectiveFactory = (function () {
-        function DirectiveFactory() {
-        }
-        //public static FesInit()
-        //{
-        //    var directive = (variables:Fes.IVariableRepository) =>
-        //    {
-        //        return new FesInit(variables);
-        //    };
-        //
-        //    directive['$inject'] = ['IVariableRepository'];
-        //
-        //    return directive;
-        //}
-        DirectiveFactory.FesBindAttributes = function () {
-            var directive = function ($compile, variables) {
-                return new Honeydew.FesBindAttributes($compile, variables);
-            };
-            directive['$inject'] = ['$compile', 'IVariableRepository'];
-            return directive;
-        };
-        DirectiveFactory.FesRepeat = function () {
-            var directive = function ($compile, variables) {
-                return new Honeydew.FesRepeat($compile, variables);
-            };
-            directive['$inject'] = ['$compile', 'IVariableRepository'];
-            return directive;
-        };
-        return DirectiveFactory;
-    })();
-    Honeydew.DirectiveFactory = DirectiveFactory;
 })(Honeydew || (Honeydew = {}));

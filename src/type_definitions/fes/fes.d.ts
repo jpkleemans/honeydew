@@ -1,5 +1,10 @@
-declare module Fes {
-    interface IAttributes {
+declare class VariableRepository
+{
+}
+declare module Fes
+{
+    interface IAttributes
+    {
         /**
          * Set HTML attribute(s)
          *
@@ -13,9 +18,8 @@ declare module Fes {
          */
         getAttributes(): any;
     }
-}
-declare module Fes {
-    interface IObservable {
+    interface IObservable
+    {
         /**
          * Register for an event
          *
@@ -24,9 +28,8 @@ declare module Fes {
          */
         observe(event: string, callback: Function): void;
     }
-}
-declare module Fes {
-    interface IContext extends IAttributes, IObservable {
+    interface IContext extends IAttributes, IObservable
+    {
         /**
          * Get the reference key
          *
@@ -40,9 +43,8 @@ declare module Fes {
          */
         getTitle(): string;
     }
-}
-declare module Fes {
-    interface IVariable extends IAttributes, IObservable {
+    interface IVariable extends IAttributes, IObservable
+    {
         /**
          * Get the reference key
          *
@@ -74,9 +76,8 @@ declare module Fes {
          */
         getContext(query: any): IContext;
     }
-}
-declare module Fes {
-    interface IVariableRepository {
+    interface IVariableRepository
+    {
         /**
          * Find a variable by its key
          *

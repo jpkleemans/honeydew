@@ -1,3 +1,196 @@
+function VariableRepository()
+{
+	this.findByKey = function(key)
+	{
+		console.info('looking for: ' + key)
+		var observers = {};
+		return {
+			observe : function(event, callback)
+			{
+				if (observers[event] === undefined)
+				{
+					observers[event] = [];
+				}
+				observers[event].push(callback);
+			},
+			setAttributes : function(attributes)
+			{
+				var i = observers['change:attributes'].length;
+				while (i--)
+				{
+					observers['change:attributes'][i]();
+				}
+			},
+			getAttributes : function()
+			{
+				return {
+					value : 10,
+					style : "color:red;"
+				};
+			},
+			getKey : function()
+			{
+				return "ROOT";
+			},
+			getTitle : function()
+			{
+				return "ROOT";
+			},
+			getChildren : function()
+			{
+				return [ {
+					observe : function(event, callback)
+					{
+						if (observers[event] === undefined)
+						{
+							observers[event] = [];
+						}
+						observers[event].push(callback);
+					},
+					setAttributes : function(attributes)
+					{
+						var i = observers['change:attributes'].length;
+						while (i--)
+						{
+							observers['change:attributes'][i]();
+						}
+					},
+					getAttributes : function()
+					{
+						return {
+							value : 10,
+							style : "color:red;"
+						};
+					},
+					getKey : function()
+					{
+						return "CHILD1";
+					},
+					getTitle : function()
+					{
+						return "CHILD1";
+					},
+					getChildren : function()
+					{
+						return [];
+					},
+					getContext : function(query)
+					{
+						return {
+							observe : function(event, callback)
+							{
+								//
+							},
+							setAttributes : function(attributes)
+							{
+								//
+							},
+							getAttributes : function()
+							{
+								return {};
+							},
+							getKey : function()
+							{
+								return "";
+							},
+							getTitle : function()
+							{
+								return "";
+							}
+						};
+					}
+				}, {
+					observe : function(event, callback)
+					{
+						if (observers[event] === undefined)
+						{
+							observers[event] = [];
+						}
+						observers[event].push(callback);
+					},
+					setAttributes : function(attributes)
+					{
+						var i = observers['change:attributes'].length;
+						while (i--)
+						{
+							observers['change:attributes'][i]();
+						}
+					},
+					getAttributes : function()
+					{
+						return {
+							value : 10,
+							style : "color:red;"
+						};
+					},
+					getKey : function()
+					{
+						return "CHILD2";
+					},
+					getTitle : function()
+					{
+						return "CHILD2";
+					},
+					getChildren : function()
+					{
+						return [];
+					},
+					getContext : function(query)
+					{
+						return {
+							observe : function(event, callback)
+							{
+								//
+							},
+							setAttributes : function(attributes)
+							{
+								//
+							},
+							getAttributes : function()
+							{
+								return {};
+							},
+							getKey : function()
+							{
+								return "";
+							},
+							getTitle : function()
+							{
+								return "";
+							}
+						};
+					}
+				} ];
+			},
+			getContext : function(query)
+			{
+				return {
+					observe : function(event, callback)
+					{
+						//
+					},
+					setAttributes : function(attributes)
+					{
+						//
+					},
+					getAttributes : function()
+					{
+						return {};
+					},
+					getKey : function()
+					{
+						return "";
+					},
+					getTitle : function()
+					{
+						return "";
+					}
+				};
+			}
+		};
+	};
+}
+
 var Honeydew;
 (function (Honeydew) {
     var UIContext = (function () {
@@ -152,23 +345,33 @@ var Honeydew;
     })();
     Honeydew.FesRepeat = FesRepeat;
 })(Honeydew || (Honeydew = {}));
+/// <reference path="../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../type_definitions/fes/fes.d.ts" />
+var Reload = (function () {
+    function Reload($location) {
+        var _this = this;
+        this.$location = $location;
+        this.restrict = 'A';
+        this.require = 'ngModel';
+        this.templateUrl = 'myDirective.html';
+        this.replace = true;
+        this.link = function (scope, element, attrs, ctrl) {
+            console.log(_this.$location);
+        };
+    }
+    Reload.factory = function () {
+        var directive = function ($location) { return new Reload($location); };
+        directive.$inject = ['$location'];
+        return directive;
+    };
+    return Reload;
+})();
 /// <reference path="type_definitions/angularjs/angular.d.ts" />
 var Honeydew;
 (function (Honeydew) {
     var DirectiveFactory = (function () {
         function DirectiveFactory() {
         }
-        //public static FesInit()
-        //{
-        //    var directive = (variables:Fes.IVariableRepository) =>
-        //    {
-        //        return new FesInit(variables);
-        //    };
-        //
-        //    directive['$inject'] = ['IVariableRepository'];
-        //
-        //    return directive;
-        //}
         DirectiveFactory.FesBindAttributes = function () {
             var directive = function ($compile, variables) {
                 return new Honeydew.FesBindAttributes($compile, variables);
@@ -188,8 +391,26 @@ var Honeydew;
     Honeydew.DirectiveFactory = DirectiveFactory;
 })(Honeydew || (Honeydew = {}));
 
-angular.module('honeydew', [])
-    .constant('IVariableRepository', new Fes.DummyVariableRepository())
-    //.directive('fesInit', Honeydew.DirectiveFactory.FesInit())
-    .directive('fesBindAttributes', Honeydew.DirectiveFactory.FesBindAttributes())
-    .directive('fesRepeat', Honeydew.DirectiveFactory.FesRepeat());
+angular.module('app', [ 'honeydew' ]);
+var context = {};
+var app = angular.module('honeydew', []);
+app.constant('IVariableRepository', new VariableRepository(context));
+app.directive('fesBindAttributes', Honeydew.DirectiveFactory.FesBindAttributes());
+app.directive('fesRepeat', Honeydew.DirectiveFactory.FesRepeat());
+app.directive('reload', Reload.factory());
+console.info('new variablerepository')
+$.getJSON("V05.json", function(data)
+{
+	var activeCalcModel = undefined;
+	var activeModel = undefined;
+	modelBuilder = new FormulaBootstrap(data, {});
+	console.info('loading new datastore')
+	context.activeModel = new CalculationModel(data);
+	// $.getJSON("testImport.json", function(document)
+	// {
+	// var values = [];// document.values;
+	// activeModel._tContext = document;
+	// activeCalcModel = new CalculationDocument(document);
+	// });
+	// console.info('Bootstrapped model: [' + activeModel._modelName + ']');
+});

@@ -1,14 +1,8 @@
 function VariableRepository()
 {
-	console.info('new variablerepository')
-	var datastore = {};
-	$.getJSON("V05.json", function(data)
-	{
-		console.info('loading new datastore')
-		datastore = data;
-	});
 	this.findByKey = function(key)
 	{
+		console.info('looking for: ' + key)
 		var observers = {};
 		return {
 			observe : function(event, callback)
