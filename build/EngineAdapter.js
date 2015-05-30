@@ -22,7 +22,7 @@ function VariableRepository()
 	var countvariables = 0;
 	var parentVariable = undefined;
 	context.activeModel['Q_ROOT'].children = [];
-	for (var index = 0; index < context.activeModel._vars.length && index < 100; index++)
+	for (var index = 0; index < context.activeModel._vars.length && index < 600; index++)
 	{
 		var tvariable = context.activeModel._vars[index];
 		context.activeModel['Q_ROOT'].children.push(tvariable);
@@ -76,7 +76,6 @@ function VariableRepository()
 				},
 				getContext : function(query)
 				{
-					console.info('getContext called for ' + query)
 					return {
 						observe : function(event, callback)
 						{
@@ -99,12 +98,10 @@ function VariableRepository()
 				}
 			}
 		}
-		console.info('looking for: ' + key)
 		var tVar = templateVariable(key);
 		tVar.getChildren = function()
 		{
 			var variable = context.activeModel[key];
-			console.info('getchildren is called for  ' + key)
 			var childs = [];
 			if (variable !== undefined && variable.children !== undefined)
 			{

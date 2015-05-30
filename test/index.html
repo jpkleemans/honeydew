@@ -12,13 +12,13 @@
 </head>
 <body ng-app="app">
 	<div>Single Input</div>
-	<input fes-bind-attributes="OperatingProvisions"> 
+	<input fes-bind-attributes="OperatingProvisions">
 	<div>Simple list</div>
 	<ul fes-init="Q_ROOT" fes-bind-attributes="Q_ROOT">
-		<li ng-repeat="child in Q_ROOT.children">{{child.title}}:
-			<div fes-context-query="{index: 1, variable: {{child}}}" ng-repeat="context in contexts">
-				<input fes-bind-attributes="context">
-			</div>
+		<li ng-repeat="child in Q_ROOT.children">{{child.title}}: 
+		<!-- <div fes-context-query="{index: 1, variable: {{child}}}" ng-repeat="context in contexts"> --> 
+		<input fes-bind-attributes="{{child}}"> 
+		<!-- </div> -->
 		</li>
 	</ul>
 </body>
