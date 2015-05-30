@@ -1,5 +1,14 @@
 function VariableRepository()
-{
+{  
+	var context = {};
+	console.info('new variablerepository')
+	$.getJSON("json/V05.json", function(data)
+	{ 
+		context.modelBuilder = new FormulaBootstrap(data, {});
+		console.info('loading new datastore')
+		context.activeModel = new CalculationModel(data);
+	});
+
 	this.findByKey = function(key)
 	{
 		console.info('looking for: ' + key)
