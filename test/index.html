@@ -4,20 +4,22 @@
 <meta charset="UTF-8">
 <title></title>
 <script src="bower_components/angular/angular.min.js"></script>
+<script src="../build/json.js"></script>
 <script src="../build/e_full.js"></script>
 <script src="../build/EngineAdapter.js"></script>
 <script src="../dist/jquery.js"></script>
 <script src="../build/honeydew.js"></script>
 </head>
 <body ng-app="app">
-	<input fes-bind-attributes="OperatingProvisions">
-	<!--<ul fes-init="balance" fes-bind-attributes="balance">-->
-	<!--<li ng-repeat="child in balance.children">-->
-	<!--{{child.title}}:-->
-	<!--<span fes-context-query="{index: 1, variable: {{child}}}" ng-repeat="context in contexts">-->
-	<!--<input fes-bind-attributes="context">-->
-	<!--</span>-->
-	<!--</li>-->
-	<!--</ul>-->
+	<div>Single Input</div>
+	<input fes-bind-attributes="OperatingProvisions"> 
+	<div>Simple list</div>
+	<ul fes-init="Q_ROOT" fes-bind-attributes="Q_ROOT">
+		<li ng-repeat="child in Q_ROOT.children">{{child.title}}:
+			<div fes-context-query="{index: 1, variable: {{child}}}" ng-repeat="context in contexts">
+				<input fes-bind-attributes="context">
+			</div>
+		</li>
+	</ul>
 </body>
 </html>

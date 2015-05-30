@@ -1,0 +1,193 @@
+{
+	"NPV2": 
+	{
+		"args": "arg0,arg1,arg2,arg3,arg4",
+		"body": "{ var total = 0; if (!isNaN(arg0)) { total += arg1; } if (!isNaN(arg2)) { total += arg3; } if (!isNaN(arg4)) { total += arg4; } return total;}"
+	},
+
+	"DateToMonth": 
+	{
+		"args": "arg",
+		"body": "{ return 1;}"
+	},
+
+	"GuessTerm": 
+	{
+		"args": "arg0,arg1,arg2,arg3,arg4",
+		"body": "{ var rand = Math.floor(Math.random() * 5); if (rand == 0) { return arg0; } else if (rand == 1) { return arg1; } else if (rand == 2) { return arg2; } else if (rand == 3) { return arg3; } return arg4;}"
+	},
+
+	"IRR": 
+	{
+		"args": "arg0,arg1,arg2",
+		"body": "{ return 1;}"
+	},
+
+	"Exp": 
+	{
+		"args": "v",
+		"body": "{ return Math.pow(v, 2);}"
+	},
+
+	"PeriodFraction": 
+	{
+		"args": "arg0,arg1,arg2",
+		"body": "{ if (arg1 > 10) { return 1; } return 0.1;}"
+	},
+
+	"ExpandFraction": 
+	{
+		"args": "arg0,arg1",
+		"body": "{ return 0.6;}"
+	},
+
+	"ExpandGrowth": 
+	{
+		"args": "value,arg2,arg3",
+		"body": "{ return value;}"
+	},
+
+	"AddMonth": 
+	{
+		"args": "value,offset",
+		"body": "{ return value + offset;}"
+	},
+
+	"ExpandOriginalValue": 
+	{
+		"args": "arg0,arg1,arg2",
+		"body": "{ return arg0 + arg1 + arg2;}"
+	},
+
+	"DMYtoDate": 
+	{
+		"args": "arg0,arg1,arg2",
+		"body": "{ return 1;}"
+	},
+
+	"EvaluateAsString": 
+	{
+		"args": "arg0",
+		"body": "{ return arg0;}"
+	},
+
+	"DateToYear": 
+	{
+		"args": "arg0",
+		"body": "{ return 2011;}"
+	},
+
+	"NPV": 
+	{
+		"args": "arg0,arg1,arg2,arg3,arg4",
+		"body": "{ return EJS.NPV(arg0, arg1, arg2, arg3, arg4);}"
+	},
+
+	"PMT": 
+	{
+		"args": "arg0,arg1,arg2",
+		"body": "{ return 1;}"
+	},
+
+	"GetFrac": 
+	{
+		"args": "arg0,arg1",
+		"body": "{ if (arg0 == undefined || arg0 == 0 || isNaN(arg0)) { 0; } if (arg1 == undefined || arg1 == 0 || isNaN(arg1)) { 1; } return arg0 / arg1;}"
+	},
+
+	"MAX": 
+	{
+		"args": "v1,v2",
+		"body": "{ return Math.max(v1, v2);}"
+	},
+
+	"OnER": 
+	{
+		"args": "v,onerrv",
+		"body": "{ if (isNaN(v)) { return onerrv; } else { return v; }}"
+	},
+
+	"OnZero": 
+	{
+		"args": "v,onzerov",
+		"body": "{ if (v <= 0) { return onzerov; } return v;}"
+	},
+
+	"OnEr": 
+	{
+		"args": "v,onerrv",
+		"body": "{ if (isNaN(v)) { return v; } else { return onerrv; }}"
+	},
+
+	"Max": 
+	{
+		"args": "v1,v2",
+		"body": "{ return Math.max(v1, v2);}"
+	},
+
+	"Min": 
+	{
+		"args": "v1,v2",
+		"body": "{ return Math.min(v1, v2);}"
+	},
+
+	"Abs": 
+	{
+		"args": "v",
+		"body": "{ return Math.abs(v);}"
+	},
+
+	"OnNA": 
+	{
+		"args": "v,onnav",
+		"body": "{ if (v == undefined || isNaN(v)) { return onnav; } return v;}"
+	},
+
+	"Mut": 
+	{
+		"args": "previousValue,currentValue",
+		"body": "{ return previousValue - currentValue;}"
+	},
+
+	"SUM": 
+	{
+		"args": "args",
+		"body": "{ var total = 0; for (number in args) { total += args[number]; } return total;}"
+	},
+
+	"OnNeg": 
+	{
+		"args": "arg0,arg1",
+		"body": "{ if (arg0 < 0) { return arg1; } return arg0;}"
+	},
+
+	"OnZeroOrNA": 
+	{
+		"args": "arg0,arg1",
+		"body": "{ if (arg0 == undefined || isNaN(arg0)) { return arg1; } return arg0;}"
+	},
+
+	"OnZeroOrNa": 
+	{
+		"args": "v,arg1",
+		"body": "{ if (v == undefined || isNaN(v)) { return arg1; } return v;}"
+	},
+
+	"OnERorNA": 
+	{
+		"args": "v,onerrornav",
+		"body": "{ if (v == undefined || isNaN(v)) { return onerrornav; } return v;}"
+	},
+
+	"Round": 
+	{
+		"args": "v,decimals",
+		"body": "{ var pow = Math.pow(10, decimals); return Math.round(v * pow) / pow;}"
+	},
+
+	"AVG": 
+	{
+		"args": "vs",
+		"body": "EJS.AVERAGE(vs)"
+	}
+}

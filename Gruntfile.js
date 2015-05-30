@@ -26,6 +26,19 @@ module.exports = function(grunt)
 				}
 			}
 		},
+		json : {
+			main : {
+				options : {
+					namespace : 'json',
+					processName : function(filename)
+					{
+						return filename.toLowerCase();
+					}
+				},
+				src: ['test/json/*.json'],
+				dest : 'build/json.js'
+			}
+		}
 	});
 	grunt.loadNpmTasks('grunt-typescript');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -33,6 +46,7 @@ module.exports = function(grunt)
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-json');
 	grunt.registerTask('build', [ 'typescript' ]);
 	grunt.registerTask('dev', [ 'concat' ]);
 };
