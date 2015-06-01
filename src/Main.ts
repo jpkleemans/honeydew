@@ -3,7 +3,7 @@ declare class VariableRepository
 }
 
 module Honeydew
-{
+{ 
     export class Module
     {
         public static main(angular)
