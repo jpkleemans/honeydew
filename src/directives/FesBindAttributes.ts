@@ -11,26 +11,26 @@ module Honeydew
         public link;
 
         /**
-         * FES VariableRepository
+         * VariableInitializer
          */
-        private variables:Fes.IVariableRepository;
+        private variableInitializer:VariableInitializer;
 
         /**
          * Instantiate FesBindAttributes directive
          *
          * @param $compile
-         * @param variables
+         * @param variableInitializer
          */
-        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository)
+        constructor($compile:angular.ICompileService, variableInitializer:VariableInitializer)
         {
-            this.variables = variables;
+            this.variableInitializer = variableInitializer;
 
             this.link = (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
             {
                 var key = attrs['fesBindAttributes'];
 
                 if (scope[key] === undefined) {
-                    this.initVariable(key, scope);
+                    this.variableInitializer.init(key, scope);
                 }
 
                 this.setObservers(key, scope);
@@ -39,35 +39,6 @@ module Honeydew
                 element.removeAttr('fes-bind-attributes');
                 $compile(element)(scope);
             }
-        }
-
-        /**
-         * Init a variable on a scope
-         *
-         * @param key
-         * @param scope
-         */
-        private initVariable(key:string, scope:angular.IScope)
-        {
-            var variable = this.variables.findByKey(key);
-            scope[key] = this.createUIVariable(variable);
-        }
-
-        /**
-         * Create UIVariable from IVariable
-         *
-         * @param variable
-         * @returns {Honeydew.UIVariable}
-         */
-        private createUIVariable(variable:Fes.IVariable):UIVariable
-        {
-            var key = variable.getKey();
-            var title = variable.getTitle();
-            var attributes = variable.getAttributes();
-
-            var uiVariable = new UIVariable(key, title, attributes);
-
-            return uiVariable;
         }
 
         /**
