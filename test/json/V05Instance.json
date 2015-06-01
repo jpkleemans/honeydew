@@ -84,7 +84,7 @@
 			"name": "OperatingProvisions",
 			"formula": 
 			[
-				"3",
+				"FakeVariable+FakeVariable",
 				"default",
 				"default",
 				"default",
