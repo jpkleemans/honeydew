@@ -96,10 +96,10 @@
 
 	"time": 
 	{
-		"columnSize": 156,
+		"columnSize": 20,
 		"periodSize": 2,
 		"periodMultiplier": 1,
-		"timelineSize": 5,
+		"timelineSize": 2,
 		"timelineMultiplier": 256,
 		"columnMultiplier": 1,
 		"columns": 
