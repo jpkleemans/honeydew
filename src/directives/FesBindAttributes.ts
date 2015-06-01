@@ -11,6 +11,7 @@ module Honeydew
         public scope = {};
         public terminal = true;
         constructor($compile: angular.ICompileService, variables: Fes.IVariableRepository)
+ 
         {
             this.$compile = $compile;
             this.variables = variables;
