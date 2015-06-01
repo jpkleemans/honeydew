@@ -1,5 +1,5 @@
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
 
 //please insert Directives like this
 //or another "easier/cleaner" way, don't combine all Directives into one, will mess up the structure

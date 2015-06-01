@@ -90,7 +90,9 @@ function VariableRepository()
                             },
                             getAttributes : function()
                             {
-                                return {};
+                                return {
+                                    style:'color:green'
+                                };
                             },
                             // variable, final
                             getKey : function()
@@ -109,7 +111,9 @@ function VariableRepository()
                             },
                             getAttributes : function()
                             {
-                                return {};
+                                return {
+                                    style:'color:blue'
+                                };
                             },
                             // variable, final
                             getKey : function()
