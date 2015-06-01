@@ -91,6 +91,7 @@ function VariableRepository()
                             getAttributes : function()
                             {
                                 return {
+                                    value:10,
                                     style:'color:green'
                                 };
                             },
@@ -112,6 +113,7 @@ function VariableRepository()
                             getAttributes : function()
                             {
                                 return {
+                                    value:20,
                                     style:'color:blue'
                                 };
                             },

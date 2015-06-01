@@ -1,7 +1,8 @@
 var Honeydew;
 (function (Honeydew) {
     var UIContext = (function () {
-        function UIContext(attributes) {
+        function UIContext(context, attributes) {
+            this.context = context;
             this.attributes = attributes;
         }
         return UIContext;
@@ -11,10 +12,11 @@ var Honeydew;
 var Honeydew;
 (function (Honeydew) {
     var UIVariable = (function () {
-        function UIVariable(key, title, attributes, children, contexts) {
+        function UIVariable(variable, key, title, attributes, children, contexts) {
             if (attributes === void 0) { attributes = {}; }
             if (children === void 0) { children = []; }
             if (contexts === void 0) { contexts = []; }
+            this.variable = variable;
             this.key = key;
             this.title = title;
             this.attributes = attributes;
@@ -82,7 +84,7 @@ var Honeydew;
             var key = variable.getKey();
             var title = variable.getTitle();
             var attributes = variable.getAttributes();
-            var uiVariable = new Honeydew.UIVariable(key, title, attributes);
+            var uiVariable = new Honeydew.UIVariable(variable, key, title, attributes);
             return uiVariable;
         };
         /**
@@ -95,7 +97,7 @@ var Honeydew;
             //var key = variable.getKey();
             //var title = variable.getTitle();
             var attributes = context.getAttributes();
-            var uiContext = new Honeydew.UIContext(attributes);
+            var uiContext = new Honeydew.UIContext(context, attributes);
             return uiContext;
         };
         VariableInitializer.prototype.createUIChildren = function (children) {
@@ -140,8 +142,14 @@ var Honeydew;
                 if (scope[key] === undefined) {
                     _this.variableInitializer.init(key, scope);
                 }
-                var variable = _this.variables.findByKey(key); // TODO: put this as property inside UIVariable...
-                _this.setObservers(variable, key, scope);
+                var type;
+                if (scope[key].variable === undefined) {
+                    type = scope[key].context;
+                }
+                else {
+                    type = scope[key].variable;
+                }
+                _this.setObservers(type, key, scope);
                 _this.setAttributes(key, scope[key].attributes, element);
                 element.removeAttr('fes-bind-attributes');
                 $compile(element)(scope);
@@ -207,16 +215,15 @@ var Honeydew;
                 if (scope[key] === undefined) {
                     _this.variableInitializer.init(key, scope);
                 }
-                var variable = _this.variables.findByKey(key); // TODO: put this as property inside UIVariable...
                 switch (property) {
                     case 'children':
-                        var children = variable.getChildren();
+                        var children = scope[key].variable.getChildren();
                         var uiChildren = _this.variableInitializer.createUIChildren(children);
                         scope[key].children = uiChildren;
                         break;
                     case 'contexts':
                         var query = attrs['fesContextQuery'];
-                        var contexts = variable.getContexts(query);
+                        var contexts = scope[key].variable.getContexts(query);
                         var uiContexts = _this.variableInitializer.createUIContexts(contexts);
                         scope[key].contexts = uiContexts;
                         break;

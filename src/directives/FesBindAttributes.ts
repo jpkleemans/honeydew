@@ -39,9 +39,14 @@ module Honeydew
                     this.variableInitializer.init(key, scope);
                 }
 
-                var variable = this.variables.findByKey(key); // TODO: put this as property inside UIVariable...
+                var type; // TODO: ugly!!!
+                if (scope[key].variable === undefined) {
+                    type = scope[key].context;
+                } else {
+                    type = scope[key].variable;
+                }
 
-                this.setObservers(variable, key, scope);
+                this.setObservers(type, key, scope);
                 this.setAttributes(key, scope[key].attributes, element);
 
                 element.removeAttr('fes-bind-attributes');
