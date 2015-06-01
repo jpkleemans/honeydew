@@ -9,6 +9,13 @@ function VariableRepository()
 	var context = {
 		maxChildVariables : 600
 	};
+	var dummqueries = [ {
+		timelineidx : 0,
+		columnidx : 1
+	}, {
+		timelineidx : 0,
+		columnidx : 2
+	} ];
 	console.info('new VariableRepository constructed, expecting once during web-app lifecycle')
 	// we aqquire are a new Model instance from the json template, once resolved we inject it into the Service wrapper.
 	var v05Instance = json['v05instance'];
@@ -35,6 +42,31 @@ function VariableRepository()
 		function templateVariable(varname)
 		{
 			var variable = context.activeModel[varname];
+			function templateContext(query)
+			{
+				return {
+					observe : function(event, callback)
+					{
+						//
+					},
+					setAttributes : function(attributes)
+					{
+						//
+					},
+					getAttributes : function()
+					{
+						return {
+							value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]),
+							style : 'color:green'
+						};
+					},
+					// variable, final
+					getKey : function()
+					{
+						return "";
+					}
+				}
+			}
 			var observers = {};
 			// except the functions a node has to support, this is quite many, but possible
 			return {
@@ -79,49 +111,7 @@ function VariableRepository()
 				getContexts : function(query)
 				{
 					console.info('getContexts called with query ' + query)
-					return [ {
-						observe : function(event, callback)
-						{
-							//
-						},
-						setAttributes : function(attributes)
-						{
-							//
-						},
-						getAttributes : function()
-						{
-							return {
-								value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][1]),
-								style : 'color:green'
-							};
-						},
-						// variable, final
-						getKey : function()
-						{
-							return "";
-						}
-					}, {
-						observe : function(event, callback)
-						{
-							//
-						},
-						setAttributes : function(attributes)
-						{
-							//
-						},
-						getAttributes : function()
-						{
-							return {
-								value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][2]),
-								style : 'color:blue'
-							};
-						},
-						// variable, final
-						getKey : function()
-						{
-							return "";
-						}
-					} ];
+					return [ templateContext(dummqueries[0]), templateContext(dummqueries[1]) ];
 				}
 			}
 		}
@@ -134,7 +124,12 @@ function VariableRepository()
 			{
 				variable.children.forEach(function(child)
 				{
-					childs.push(templateVariable(child.name));
+					var childVariable = templateVariable(child.name);
+					childVariable.getChildren = function()
+					{
+						console.info('called children for ' + child.name)
+					};
+					childs.push(childVariable);
 				})
 			}
 			return childs;
