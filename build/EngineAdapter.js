@@ -76,27 +76,48 @@ function VariableRepository()
 				{
 					return [];
 				},
-				getContext : function(query)
+				getContexts : function(query)
 				{
-					return {
-						observe : function(event, callback)
-						{
-							//
-						},
-						setAttributes : function(attributes)
-						{
-							//
-						},
-						getAttributes : function()
-						{
-							return {};
-						},
-						// variable, final
-						getKey : function()
-						{
-							return "";
-						}
-					};
+					return [
+                        {
+                            observe : function(event, callback)
+                            {
+                                //
+                            },
+                            setAttributes : function(attributes)
+                            {
+                                //
+                            },
+                            getAttributes : function()
+                            {
+                                return {};
+                            },
+                            // variable, final
+                            getKey : function()
+                            {
+                                return "";
+                            }
+                        },
+                        {
+                            observe : function(event, callback)
+                            {
+                                //
+                            },
+                            setAttributes : function(attributes)
+                            {
+                                //
+                            },
+                            getAttributes : function()
+                            {
+                                return {};
+                            },
+                            // variable, final
+                            getKey : function()
+                            {
+                                return "";
+                            }
+                        }
+                    ];
 				}
 			}
 		}
