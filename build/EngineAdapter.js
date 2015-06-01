@@ -6,7 +6,9 @@
 function VariableRepository()
 {
 	// variabeltje gaat waarschijnlijk via constructor oid
-	var context = {};
+	var context = {
+		maxChildVariables : 600
+	};
 	console.info('new VariableRepository constructed, expecting once during web-app lifecycle')
 	// we aqquire are a new Model instance from the json template, once resolved we inject it into the Service wrapper.
 	var v05Instance = json['v05instance'];
@@ -22,7 +24,7 @@ function VariableRepository()
 	var countvariables = 0;
 	var parentVariable = undefined;
 	context.activeModel['Q_ROOT'].children = [];
-	for (var index = 0; index < context.activeModel._vars.length && index < 600; index++)
+	for (var index = 0; index < context.activeModel._vars.length && index < context.maxChildVariables; index++)
 	{
 		var tvariable = context.activeModel._vars[index];
 		context.activeModel['Q_ROOT'].children.push(tvariable);

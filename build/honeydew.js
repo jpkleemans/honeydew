@@ -48,6 +48,9 @@ var Honeydew;
 })(Honeydew || (Honeydew = {}));
 /// <reference path="../type_definitions/angularjs/angular.d.ts" />
 /// <reference path="../type_definitions/fes/fes.d.ts" />
+//please insert Directives like this
+//or another "easier/cleaner" way, don't combine all Directives into one, will mess up the structure
+//not sure if Directive is the correct way to make a Reload, i want a button to reload a Directive.
 var Reload = (function () {
     function Reload($compile) {
         var _this = this;
@@ -98,36 +101,12 @@ var Honeydew;
                 if (scope[variableKey] === undefined) {
                     throw new Error('Variable ' + variableKey + ' not initialized');
                 }
-                /*
-                variable.observe('change:attributes', (newValue) =>
-                {
-                    console.log(newValue);
-                });
-
-                 scope.$watch(variableKey + '.attributes', function (newAttrs)
-                 {
-                 variable.setAttributes(newAttrs);
-                 }, true);
-
-                //var variableKey:string = attrs['fesBindAttributes'];
-
-                */
                 var attributes = scope[variableKey].attributes;
                 _this.setAttributes(variableKey, attributes, element);
                 element.removeAttr('fes-bind-attributes');
                 _this.$compile(element)(scope);
             };
         }
-        ///**
-        // *
-        // * @param scope
-        // * @param element
-        // * @param attrs
-        // */
-        //public link(scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes):void
-        //{
-        //
-        //}
         /**
          *
          * @param attrs
