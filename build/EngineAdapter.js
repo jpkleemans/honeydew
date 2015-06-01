@@ -58,7 +58,7 @@ function VariableRepository()
 				{
 					return {
 						// just test if the structure works
-						value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.bkyr.columns[0][1]),
+						value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.bkyr.columns[0][0]),
 						style : "color:red;"
 					};
 				},
