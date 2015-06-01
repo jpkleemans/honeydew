@@ -19,7 +19,8 @@ module Honeydew
          * VariableInitializer
          */
         private variableInitializer:VariableInitializer;
-
+        public priority = 1005;
+        public terminal = true;
         /**
          * Instantiate FesRepeat directive
          *
@@ -35,7 +36,7 @@ module Honeydew
             this.link = (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
             {
                 var expression = attrs['fesRepeat'];
-
+                console.log(expression);
                 var key = expression.match(new RegExp("in (\\S[^.\\s]*)(?:.*)$"))[1];
                 var property = expression.match(new RegExp("in (?:\\S[^.]*).(\\S*)(?:.*)$"))[1];
 

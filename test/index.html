@@ -23,8 +23,9 @@
 <h3>Simple list</h3>
 <ul fes-bind-attributes="Q_ROOT">
     <li fes-repeat="child in Q_ROOT.children">
-        {{child.title}}:
-        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
+
+        <span fes-repeat="context in child.contexts">
+            {{context}}<br /><br /></span>
     </li>
 </ul>
 

@@ -195,10 +195,13 @@ var Honeydew;
          */
         function FesRepeat($compile, variables, variableInitializer) {
             var _this = this;
+            this.priority = 1005;
+            this.terminal = true;
             this.variables = variables;
             this.variableInitializer = variableInitializer;
             this.link = function (scope, element, attrs) {
                 var expression = attrs['fesRepeat'];
+                console.log(expression);
                 var key = expression.match(new RegExp("in (\\S[^.\\s]*)(?:.*)$"))[1];
                 var property = expression.match(new RegExp("in (?:\\S[^.]*).(\\S*)(?:.*)$"))[1];
                 if (scope[key] === undefined) {
@@ -227,6 +230,26 @@ var Honeydew;
     })();
     Honeydew.FesRepeat = FesRepeat;
 })(Honeydew || (Honeydew = {}));
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
+//please insert Directives like this
+//or another "easier/cleaner" way, don't combine all Directives into one, will mess up the structure
+//not sure if Directive is the correct way to make a Reload, i want a button to reload a Directive.
+var Reload = (function () {
+    function Reload($compile) {
+        var _this = this;
+        this.$compile = $compile;
+        this.link = function (scope, element, attrs, ctrl) {
+            console.log(_this.$compile);
+        };
+    }
+    Reload.factory = function () {
+        var directive = function ($compile) { return new Reload($compile); };
+        directive.$inject = ['$compile'];
+        return directive;
+    };
+    return Reload;
+})();
 var Honeydew;
 (function (Honeydew) {
     var Module = (function () {
