@@ -24,7 +24,7 @@
 <ul fes-bind-attributes="Q_ROOT">
     <li fes-repeat="child in Q_ROOT.children">
         {{child.title}}:
-        <input fes-bind-attributes="child">
+        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
     </li>
 </ul>
 
