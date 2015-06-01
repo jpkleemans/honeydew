@@ -1,5 +1,5 @@
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
 
 module Honeydew
 {
@@ -36,14 +36,14 @@ module Honeydew
             {
                 var expression = attrs['fesRepeat'];
 
-                var key = expression.match(new RegExp("in (\S[^.\s]*)(?:.*)$"))[1];
-                var property = 'children'; // property from bernard
+                var key = expression.match(new RegExp("in (\\S[^.\\s]*)(?:.*)$"))[1];
+                var property = expression.match(new RegExp("in (?:\\S[^.]*).(\\S*)(?:.*)$"))[1];
 
                 if (scope[key] === undefined) {
                     this.variableInitializer.init(key, scope);
                 }
 
-                var variable = this.variables.findByKey(key); // TODO: maybe put this as property inside UIVariable...
+                var variable = this.variables.findByKey(key); // TODO: put this as property inside UIVariable...
 
                 switch (property) {
                     case 'children':

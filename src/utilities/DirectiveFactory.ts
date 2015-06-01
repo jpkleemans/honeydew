@@ -1,4 +1,4 @@
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
 
 module Honeydew
 {
@@ -8,7 +8,7 @@ module Honeydew
         {
             var directive = ($compile:angular.ICompileService, variables:Fes.IVariableRepository) =>
             {
-                return new FesBindAttributes($compile, new VariableInitializer(variables));
+                return new FesBindAttributes($compile, variables, new VariableInitializer(variables));
             };
 
             directive['$inject'] = ['$compile', 'IVariableRepository'];

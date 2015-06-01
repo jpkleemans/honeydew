@@ -11,33 +11,36 @@ var Honeydew;
 var Honeydew;
 (function (Honeydew) {
     var UIVariable = (function () {
-        function UIVariable(key, title, children, attributes) {
+        function UIVariable(key, title, attributes, children, contexts) {
             if (attributes === void 0) { attributes = {}; }
+            if (children === void 0) { children = []; }
+            if (contexts === void 0) { contexts = []; }
             this.key = key;
             this.title = title;
             this.attributes = attributes;
             this.children = children;
+            this.contexts = contexts;
         }
         return UIVariable;
     })();
     Honeydew.UIVariable = UIVariable;
 })(Honeydew || (Honeydew = {}));
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
 var Honeydew;
 (function (Honeydew) {
     var DirectiveFactory = (function () {
         function DirectiveFactory() {
         }
-        DirectiveFactory.FesBindAttributes = function () {
+        DirectiveFactory.createFesBindAttributes = function () {
             var directive = function ($compile, variables) {
-                return new Honeydew.FesBindAttributes($compile, variables);
+                return new Honeydew.FesBindAttributes($compile, variables, new Honeydew.VariableInitializer(variables));
             };
             directive['$inject'] = ['$compile', 'IVariableRepository'];
             return directive;
         };
-        DirectiveFactory.FesRepeat = function () {
+        DirectiveFactory.createFesRepeat = function () {
             var directive = function ($compile, variables) {
-                return new Honeydew.FesRepeat($compile, variables);
+                return new Honeydew.FesRepeat($compile, variables, new Honeydew.VariableInitializer(variables));
             };
             directive['$inject'] = ['$compile', 'IVariableRepository'];
             return directive;
@@ -46,167 +49,197 @@ var Honeydew;
     })();
     Honeydew.DirectiveFactory = DirectiveFactory;
 })(Honeydew || (Honeydew = {}));
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
-var Reload = (function () {
-    function Reload($compile) {
-        var _this = this;
-        this.$compile = $compile;
-        this.link = function (scope, element, attrs, ctrl) {
-            console.log(_this.$compile);
-        };
-    }
-    Reload.factory = function () {
-        var directive = function ($compile) { return new Reload($compile); };
-        directive.$inject = ['$compile'];
-        return directive;
-    };
-    return Reload;
-})();
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../directives/reload.ts" />
-var App = (function () {
-    function App() {
-    }
-    App.createModule = function (angular) {
-        angular.module('app', ['honeydew']);
-        angular.module('honeydew', [])
-            .constant('IVariableRepository', new VariableRepository())
-            .directive('reload', Reload.factory())
-            .directive('fesBindAttributes', Honeydew.DirectiveFactory.FesBindAttributes())
-            .directive('fesRepeat', Honeydew.DirectiveFactory.FesRepeat());
-        console.info('Angular bindings done.');
-    };
-    return App;
-})();
-App.createModule(angular);
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
 var Honeydew;
 (function (Honeydew) {
-    var FesBindAttributes = (function () {
-        function FesBindAttributes($compile, variables) {
-            var _this = this;
-            this.scope = {};
-            this.terminal = true;
-            this.$compile = $compile;
-            this.variables = variables;
-            this.link = function (scope, element, attrs) {
-                var variableKey = attrs['fesBindAttributes'];
-                var variable = _this.variables.findByKey(variableKey);
-                scope[variableKey] = _this.getUIVariable(variable);
-                if (scope[variableKey] === undefined) {
-                    throw new Error('Variable ' + variableKey + ' not initialized');
-                }
-                /*
-                 variable.observe('change:attributes', (newValue) =>
-                 {
-                 console.log(newValue);
-                 });
-
-                 scope.$watch(variableKey + '.attributes', function (newAttrs)
-                 {
-                 variable.setAttributes(newAttrs);
-                 }, true);
-
-                 //var variableKey:string = attrs['fesBindAttributes'];
-
-                 */
-                var attributes = scope[variableKey].attributes;
-                _this.setAttributes(variableKey, attributes, element);
-                element.removeAttr('fes-bind-attributes');
-                _this.$compile(element)(scope);
-            };
-        }
-        ///**
-        // *
-        // * @param scope
-        // * @param element
-        // * @param attrs
-        // */
-        //public link(scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes):void
-        //{
-        //
-        //}
+    var VariableInitializer = (function () {
         /**
+         * Instantiate FesRepeat directive
          *
-         * @param attrs
-         * @param element
+         * @param variables
          */
-        FesBindAttributes.prototype.setAttributes = function (variableKey, attrs, element) {
-            for (var attr in attrs) {
-                if (attrs.hasOwnProperty(attr)) {
-                    element.attr('ng-attr-' + attr, '{{' + variableKey + '.attributes.' + attr + '}}');
-                }
-            }
-            // Additional attribute to sync the value with ng-model
-            element.attr('ng-model', variableKey + '.attributes.value');
+        function VariableInitializer(variables) {
+            this.variables = variables;
+        }
+        /**
+         * Init a variable on a scope
+         *
+         * @param key
+         * @param scope
+         */
+        VariableInitializer.prototype.init = function (key, scope) {
+            var variable = this.variables.findByKey(key);
+            scope[key] = this.createUIVariable(variable);
         };
         /**
+         * Create UIVariable from IVariable
          *
          * @param variable
          * @returns {Honeydew.UIVariable}
          */
-        FesBindAttributes.prototype.getUIVariable = function (variable) {
+        VariableInitializer.prototype.createUIVariable = function (variable) {
             var key = variable.getKey();
             var title = variable.getTitle();
             var attributes = variable.getAttributes();
-            var children = [];
-            var i = variable.getChildren().length;
+            var uiVariable = new Honeydew.UIVariable(key, title, attributes);
+            return uiVariable;
+        };
+        /**
+         * Create UIContext from IContext
+         *
+         * @param context
+         * @returns {Honeydew.UIContext}
+         */
+        VariableInitializer.prototype.createUIContext = function (context) {
+            //var key = variable.getKey();
+            //var title = variable.getTitle();
+            var attributes = context.getAttributes();
+            var uiContext = new Honeydew.UIContext(attributes);
+            return uiContext;
+        };
+        VariableInitializer.prototype.createUIChildren = function (children) {
+            var uiChildren = [];
+            var i = children.length;
             while (i--) {
-                children.push(this.getUIVariable(variable.getChildren()[i]));
+                var uiChild = this.createUIVariable(children[i]);
+                uiChildren.push(uiChild);
             }
-            var UIVariable = new Honeydew.UIVariable(key, title, children, attributes);
-            return UIVariable;
+            return uiChildren;
+        };
+        VariableInitializer.prototype.createUIContexts = function (contexts) {
+            var uiContexts = [];
+            var i = contexts.length;
+            while (i--) {
+                var uiContext = this.createUIContext(contexts[i]);
+                uiContexts.push(uiContext);
+            }
+            return uiContexts;
+        };
+        return VariableInitializer;
+    })();
+    Honeydew.VariableInitializer = VariableInitializer;
+})(Honeydew || (Honeydew = {}));
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
+var Honeydew;
+(function (Honeydew) {
+    var FesBindAttributes = (function () {
+        /**
+         * Instantiate FesBindAttributes directive
+         *
+         * @param $compile
+         * @param variableInitializer
+         */
+        function FesBindAttributes($compile, variables, variableInitializer) {
+            var _this = this;
+            this.variables = variables;
+            this.variableInitializer = variableInitializer;
+            this.link = function (scope, element, attrs) {
+                var key = attrs['fesBindAttributes'];
+                if (scope[key] === undefined) {
+                    _this.variableInitializer.init(key, scope);
+                }
+                var variable = _this.variables.findByKey(key); // TODO: put this as property inside UIVariable...
+                _this.setObservers(variable, key, scope);
+                _this.setAttributes(key, scope[key].attributes, element);
+                element.removeAttr('fes-bind-attributes');
+                $compile(element)(scope);
+            };
+        }
+        /**
+         * Set observers for variable on scope
+         *
+         * @param key
+         * @param scope
+         */
+        FesBindAttributes.prototype.setObservers = function (variable, key, scope) {
+            variable.observe('change:attributes', function (newAttrs) {
+                console.log(newAttrs);
+            });
+            scope.$watch(key + '.attributes', function (newAttrs) {
+                variable.setAttributes(newAttrs);
+            }, true);
+        };
+        /**
+         * Set attributes on element
+         *
+         * @param key
+         * @param attributes
+         * @param element
+         */
+        FesBindAttributes.prototype.setAttributes = function (key, attributes, element) {
+            for (var attr in attributes) {
+                if (attributes.hasOwnProperty(attr)) {
+                    element.attr('ng-attr-' + attr, '{{' + key + '.attributes.' + attr + '}}');
+                }
+            }
+            // Additional attribute to sync the value with ng-model
+            element.attr('ng-model', key + '.attributes.value');
         };
         return FesBindAttributes;
     })();
     Honeydew.FesBindAttributes = FesBindAttributes;
 })(Honeydew || (Honeydew = {}));
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
-var Honeydew;
-(function (Honeydew) {
-    var FesInit = (function () {
-        function FesInit(variables) {
-            var _this = this;
-            this.variables = variables;
-            this.link = function (scope, element, attrs) {
-                var variableKey = attrs['fesInit'];
-                var variable = _this.variables.findByKey(variableKey);
-                scope[variableKey] = _this.getUIVariable(variable);
-            };
-        }
-        FesInit.prototype.getUIVariable = function (variable) {
-            var key = variable.getKey();
-            var title = variable.getTitle();
-            var children = variable.getChildren();
-            var UIVariable = new Honeydew.UIVariable(key, title, children);
-            return UIVariable;
-        };
-        return FesInit;
-    })();
-    Honeydew.FesInit = FesInit;
-})(Honeydew || (Honeydew = {}));
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
 var Honeydew;
 (function (Honeydew) {
     var FesRepeat = (function () {
-        function FesRepeat($compile, variables) {
+        /**
+         * Instantiate FesRepeat directive
+         *
+         * @param $compile
+         * @param variables
+         * @param variableInitializer
+         */
+        function FesRepeat($compile, variables, variableInitializer) {
             var _this = this;
-            this.priority = 1005;
-            this.$compile = $compile;
             this.variables = variables;
+            this.variableInitializer = variableInitializer;
             this.link = function (scope, element, attrs) {
-                var repeat = attrs['ngRepeat'];
-                var repeatvariable = repeat.match('in (.*)$')[1];
-                var variable = _this.variables.findByKey('ROOT');
-                scope['ROOT'] = variable;
-                console.log(scope['ROOT']);
+                var expression = attrs['fesRepeat'];
+                var key = expression.match(new RegExp("in (\\S[^.\\s]*)(?:.*)$"))[1];
+                var property = expression.match(new RegExp("in (?:\\S[^.]*).(\\S*)(?:.*)$"))[1];
+                if (scope[key] === undefined) {
+                    _this.variableInitializer.init(key, scope);
+                }
+                var variable = _this.variables.findByKey(key); // TODO: put this as property inside UIVariable...
+                switch (property) {
+                    case 'children':
+                        var children = variable.getChildren();
+                        var uiChildren = _this.variableInitializer.createUIChildren(children);
+                        scope[key].children = uiChildren;
+                        break;
+                    case 'contexts':
+                        var query = attrs['fesContextQuery'];
+                        var contexts = variable.getContexts(query);
+                        var uiContexts = _this.variableInitializer.createUIContexts(contexts);
+                        scope[key].contexts = uiContexts;
+                        break;
+                }
+                element.attr('ng-repeat', expression);
+                element.removeAttr('fes-repeat');
+                $compile(element)(scope);
             };
         }
         return FesRepeat;
     })();
     Honeydew.FesRepeat = FesRepeat;
 })(Honeydew || (Honeydew = {}));
+var Honeydew;
+(function (Honeydew) {
+    var Module = (function () {
+        function Module() {
+        }
+        Module.main = function (angular) {
+            return angular.module('honeydew', [])
+                .constant('IVariableRepository', new VariableRepository())
+                .directive('fesBindAttributes', Honeydew.DirectiveFactory.createFesBindAttributes())
+                .directive('fesRepeat', Honeydew.DirectiveFactory.createFesRepeat());
+        };
+        return Module;
+    })();
+    Honeydew.Module = Module;
+})(Honeydew || (Honeydew = {}));
+Honeydew.Module.main(angular);

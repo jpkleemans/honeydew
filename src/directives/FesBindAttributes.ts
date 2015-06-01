@@ -1,5 +1,5 @@
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
 
 module Honeydew
 {
@@ -9,6 +9,11 @@ module Honeydew
          * Modify the DOM
          */
         public link;
+
+        /**
+         * FES VariableRepository
+         */
+        private variables:Fes.IVariableRepository;
 
         /**
          * VariableInitializer
@@ -21,8 +26,9 @@ module Honeydew
          * @param $compile
          * @param variableInitializer
          */
-        constructor($compile:angular.ICompileService, variableInitializer:VariableInitializer)
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, variableInitializer:VariableInitializer)
         {
+            this.variables = variables;
             this.variableInitializer = variableInitializer;
 
             this.link = (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
@@ -33,7 +39,9 @@ module Honeydew
                     this.variableInitializer.init(key, scope);
                 }
 
-                this.setObservers(key, scope);
+                var variable = this.variables.findByKey(key); // TODO: put this as property inside UIVariable...
+
+                this.setObservers(variable, key, scope);
                 this.setAttributes(key, scope[key].attributes, element);
 
                 element.removeAttr('fes-bind-attributes');
@@ -47,16 +55,16 @@ module Honeydew
          * @param key
          * @param scope
          */
-        private setObservers(key:string, scope:angular.IScope)
+        private setObservers(variable:Fes.IVariable, key:string, scope:angular.IScope)
         {
-            scope[key].observe('change:attributes', (newValue) =>
+            variable.observe('change:attributes', (newAttrs) =>
             {
-                console.log(newValue);
+                console.log(newAttrs);
             });
 
             scope.$watch(key + '.attributes', function (newAttrs)
             {
-                scope[key].setAttributes(newAttrs);
+                variable.setAttributes(newAttrs);
             }, true);
         }
 
