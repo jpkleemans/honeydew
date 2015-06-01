@@ -36,7 +36,7 @@ module Honeydew
             {
                 var expression = attrs['fesRepeat'];
 
-                var key = 'balance'; // key from bernard
+                var key = expression.match(new RegExp("in (\S[^.\s]*)(?:.*)$"))[1];
                 var property = 'children'; // property from bernard
 
                 if (scope[key] === undefined) {
@@ -47,11 +47,15 @@ module Honeydew
 
                 switch (property) {
                     case 'children':
-                        scope[key].children = variable.getChildren();
+                        var children = variable.getChildren();
+                        var uiChildren = this.variableInitializer.createUIChildren(children);
+                        scope[key].children = uiChildren;
                         break;
                     case 'contexts':
                         var query = attrs['fesContextQuery'];
-                        scope[key].contexts = variable.getContexts(query);
+                        var contexts = variable.getContexts(query);
+                        var uiContexts = this.variableInitializer.createUIContexts(contexts);
+                        scope[key].contexts = uiContexts;
                         break;
                 }
 
