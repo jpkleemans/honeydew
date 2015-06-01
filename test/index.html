@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-<meta charset="UTF-8">
-<title></title>
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="../build/json.js"></script>
-<script src="../build/e_full.js"></script>
-<script src="../build/EngineAdapter.js"></script>
-<script src="../dist/jquery.js"></script>
-<script src="../build/honeydew.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="../build/json.js"></script>
+    <script src="../build/e_full.js"></script>
+    <script src="../build/EngineAdapter.js"></script>
+    <script src="../dist/jquery.js"></script>
+    <script src="../build/honeydew.js"></script>
+    <script>
+        var app = angular.module('app', ['honeydew']);
+    </script>
 </head>
 <body ng-app="app">
-	<div>Single Input</div>
-	<input fes-bind-attributes="OperatingProvisions">
-	<div>Simple list</div>
-	<ul fes-init="Q_ROOT" fes-bind-attributes="Q_ROOT">
-		<li ng-repeat="child in Q_ROOT.children">{{child.title}}: 
-		<!-- <div fes-context-query="{index: 1, variable: {{child}}}" ng-repeat="context in contexts"> --> 
-		<input fes-bind-attributes="{{child}}"> 
-		<!-- </div> -->
-		</li>
-	</ul>
+
+<h3>Single Input</h3>
+<input fes-bind-attributes="OperatingProvisions">
+
+<hr>
+
+<h3>Simple list</h3>
+<ul fes-bind-attributes="Q_ROOT">
+    <li fes-repeat="child in Q_ROOT.children">
+        {{child.title}}:
+        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
+    </li>
+</ul>
+
 </body>
 </html>

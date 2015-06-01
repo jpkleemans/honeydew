@@ -1,78 +1,90 @@
-/// <reference path="../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../type_definitions/angularjs/angular.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
 
 module Honeydew
 {
     export class FesBindAttributes
     {
-        private $compile: angular.ICompileService;
+        /**
+         * Modify the DOM
+         */
         public link;
-        private variables;
-        public scope = {};
-        public terminal = true;
-        constructor($compile: angular.ICompileService, variables: Fes.IVariableRepository)
- 
-        {
-            this.$compile = $compile;
-            this.variables = variables;
 
-            this.link = (scope: angular.IScope, element: angular.IAugmentedJQuery, attrs: angular.IAttributes) =>
+        /**
+         * FES VariableRepository
+         */
+        private variables:Fes.IVariableRepository;
+
+        /**
+         * VariableInitializer
+         */
+        private variableInitializer:VariableInitializer;
+
+        /**
+         * Instantiate FesBindAttributes directive
+         *
+         * @param $compile
+         * @param variableInitializer
+         */
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, variableInitializer:VariableInitializer)
+        {
+            this.variables = variables;
+            this.variableInitializer = variableInitializer;
+
+            this.link = (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
             {
-                var variableKey: string = attrs['fesBindAttributes'];
-                var variable: any = this.variables.findByKey(variableKey);
-                scope[variableKey] = this.getUIVariable(variable);
-                if (scope[variableKey] === undefined)
-                {
-                    throw new Error('Variable ' + variableKey + ' not initialized');
+                var key = attrs['fesBindAttributes'];
+
+                if (scope[key] === undefined) {
+                    this.variableInitializer.init(key, scope);
                 }
 
-                var attributes: any = scope[variableKey].attributes;
+                var variable = this.variables.findByKey(key); // TODO: put this as property inside UIVariable...
 
-                this.setAttributes(variableKey, attributes, element);
+                this.setObservers(variable, key, scope);
+                this.setAttributes(key, scope[key].attributes, element);
 
                 element.removeAttr('fes-bind-attributes');
-                this.$compile(element)(scope);
-            };
+                $compile(element)(scope);
+            }
         }
 
         /**
+         * Set observers for variable on scope
          *
-         * @param attrs
+         * @param key
+         * @param scope
+         */
+        private setObservers(variable:Fes.IVariable, key:string, scope:angular.IScope)
+        {
+            variable.observe('change:attributes', (newAttrs) =>
+            {
+                console.log(newAttrs);
+            });
+
+            scope.$watch(key + '.attributes', function (newAttrs)
+            {
+                variable.setAttributes(newAttrs);
+            }, true);
+        }
+
+        /**
+         * Set attributes on element
+         *
+         * @param key
+         * @param attributes
          * @param element
          */
-        private setAttributes(variableKey: string, attrs: any, element: angular.IAugmentedJQuery): void
+        private setAttributes(key:string, attributes:any, element:angular.IAugmentedJQuery):void
         {
-            for (var attr in attrs)
-            {
-                if (attrs.hasOwnProperty(attr))
-                {
-                    element.attr('ng-attr-' + attr, '{{' + variableKey + '.attributes.' + attr + '}}');
+            for (var attr in attributes) {
+                if (attributes.hasOwnProperty(attr)) {
+                    element.attr('ng-attr-' + attr, '{{' + key + '.attributes.' + attr + '}}');
                 }
             }
 
             // Additional attribute to sync the value with ng-model
-            element.attr('ng-model', variableKey + '.attributes.value');
-        }
-
-        /**
-         *
-         * @param variable
-         * @returns {Honeydew.UIVariable}
-         */
-        private getUIVariable(variable: any): UIVariable
-        {
-            var key: string = variable.getKey();
-            var title: string = variable.getTitle();
-            var attributes: string = variable.getAttributes();
-            var children: any = [];
-            var i = variable.getChildren().length;
-            while (i--)
-            {
-                children.push(this.getUIVariable(variable.getChildren()[i]));
-            }
-            var UIVariable: Honeydew.UIVariable = new Honeydew.UIVariable(key, title, children, attributes);
-
-            return UIVariable;
+            element.attr('ng-model', key + '.attributes.value');
         }
     }
 }
