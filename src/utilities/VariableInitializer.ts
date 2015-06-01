@@ -44,7 +44,7 @@ module Honeydew
             var title = variable.getTitle();
             var attributes = variable.getAttributes();
 
-            var uiVariable = new UIVariable(key, title, attributes);
+            var uiVariable = new UIVariable(variable, key, title, attributes);
 
             return uiVariable;
         }
@@ -61,7 +61,7 @@ module Honeydew
             //var title = variable.getTitle();
             var attributes = context.getAttributes();
 
-            var uiContext = new UIContext(attributes);
+            var uiContext = new UIContext(context, attributes);
 
             return uiContext;
         }

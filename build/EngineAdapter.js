@@ -56,11 +56,9 @@ function VariableRepository()
 				},
 				getAttributes : function()
 				{
-					var realvalue = (variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0]));
-					console.info('value called for varname ' + varname + ' value ' + realvalue)
 					return {
 						// just test if the structure works
-						value : realvalue,
+						value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.bkyr.columns[0][1]),
 						style : "color:red;"
 					};
 				},
@@ -80,47 +78,52 @@ function VariableRepository()
 				},
 				getContexts : function(query)
 				{
-					return [ {
-						observe : function(event, callback)
-						{
-							//
-						},
-						setAttributes : function(attributes)
-						{
-							//
-						},
-						getAttributes : function()
-						{
-							return {
-								style : 'color:green'
-							};
-						},
-						// variable, final
-						getKey : function()
-						{
-							return "";
-						}
-					}, {
-						observe : function(event, callback)
-						{
-							//
-						},
-						setAttributes : function(attributes)
-						{
-							//
-						},
-						getAttributes : function()
-						{
-							return {
-								style : 'color:blue'
-							};
-						},
-						// variable, final
-						getKey : function()
-						{
-							return "";
-						}
-					} ];
+					return [
+                        {
+                            observe : function(event, callback)
+                            {
+                                //
+                            },
+                            setAttributes : function(attributes)
+                            {
+                                //
+                            },
+                            getAttributes : function()
+                            {
+                                return {
+                                    value:10,
+                                    style:'color:green'
+                                };
+                            },
+                            // variable, final
+                            getKey : function()
+                            {
+                                return "";
+                            }
+                        },
+                        {
+                            observe : function(event, callback)
+                            {
+                                //
+                            },
+                            setAttributes : function(attributes)
+                            {
+                                //
+                            },
+                            getAttributes : function()
+                            {
+                                return {
+                                    value:20,
+                                    style:'color:blue'
+                                };
+                            },
+                            // variable, final
+                            getKey : function()
+                            {
+                                return "";
+                            }
+                        }
+                    ];
 				}
 			}
 		}
