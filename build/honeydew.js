@@ -99,19 +99,19 @@ var Honeydew;
                     throw new Error('Variable ' + variableKey + ' not initialized');
                 }
                 /*
-                variable.observe('change:attributes', (newValue) =>
-                {
-                    console.log(newValue);
-                });
+                 variable.observe('change:attributes', (newValue) =>
+                 {
+                 console.log(newValue);
+                 });
 
                  scope.$watch(variableKey + '.attributes', function (newAttrs)
                  {
                  variable.setAttributes(newAttrs);
                  }, true);
 
-                //var variableKey:string = attrs['fesBindAttributes'];
+                 //var variableKey:string = attrs['fesBindAttributes'];
 
-                */
+                 */
                 var attributes = scope[variableKey].attributes;
                 _this.setAttributes(variableKey, attributes, element);
                 element.removeAttr('fes-bind-attributes');

@@ -10,6 +10,7 @@ module Honeydew
         private variables;
         public scope = {};
         public terminal = true;
+
         constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository)
         {
             this.$compile = $compile;
@@ -26,21 +27,20 @@ module Honeydew
 
 
                 /*
-                variable.observe('change:attributes', (newValue) =>
-                {
-                    console.log(newValue);
-                });
+                 variable.observe('change:attributes', (newValue) =>
+                 {
+                 console.log(newValue);
+                 });
 
                  scope.$watch(variableKey + '.attributes', function (newAttrs)
                  {
                  variable.setAttributes(newAttrs);
                  }, true);
 
-                //var variableKey:string = attrs['fesBindAttributes'];
+                 //var variableKey:string = attrs['fesBindAttributes'];
 
-                */
+                 */
                 var attributes:any = scope[variableKey].attributes;
-
 
 
                 this.setAttributes(variableKey, attributes, element);
@@ -92,8 +92,7 @@ module Honeydew
             var attributes:string = variable.getAttributes();
             var children:any = [];
             var i = variable.getChildren().length;
-            while(i--)
-            {
+            while (i--) {
                 children.push(this.getUIVariable(variable.getChildren()[i]));
             }
             var UIVariable:Honeydew.UIVariable = new Honeydew.UIVariable(key, title, children, attributes);
