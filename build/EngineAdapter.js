@@ -128,6 +128,7 @@ function VariableRepository()
 					childVariable.getChildren = function()
 					{
 						console.info('called children for ' + child.name)
+						return [];
 					};
 					childs.push(childVariable);
 				})
