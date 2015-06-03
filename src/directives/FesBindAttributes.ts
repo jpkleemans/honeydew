@@ -8,7 +8,7 @@ module Honeydew
         /**
          * Modify the DOM
          */
-        public link;
+        public compile;
 
         /**
          * FES VariableRepository
@@ -24,6 +24,7 @@ module Honeydew
          * Instantiate FesBindAttributes directive
          *
          * @param $compile
+         * @param variables
          * @param variableInitializer
          */
         constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, variableInitializer:VariableInitializer)
@@ -31,32 +32,38 @@ module Honeydew
             this.variables = variables;
             this.variableInitializer = variableInitializer;
 
-            this.link = (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
+            this.compile = () =>
             {
-                var key = attrs['fesBindAttributes'];
+                return {
+                    pre: (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
+                    {
+                        var key = attrs['fesBindAttributes'];
 
-                if (scope[key] === undefined) {
-                    this.variableInitializer.init(key, scope);
-                }
+                        if (scope[key] === undefined) {
+                            this.variableInitializer.init(key, scope);
+                        }
 
-                var type; // TODO: ugly!!!
-                if (scope[key].variable === undefined) {
-                    type = scope[key].context;
-                } else {
-                    type = scope[key].variable;
-                }
+                        var type; // TODO: ugly!!!
+                        if (scope[key].variable === undefined) {
+                            type = scope[key].context;
+                        } else {
+                            type = scope[key].variable;
+                        }
 
-                this.setObservers(type, key, scope);
-                this.setAttributes(key, scope[key].attributes, element);
+                        this.setObservers(type, key, scope);
+                        this.setAttributes(key, scope[key].attributes, element);
 
-                element.removeAttr('fes-bind-attributes');
-                $compile(element)(scope);
+                        element.removeAttr('fes-bind-attributes');
+                        $compile(element)(scope);
+                    }
+                };
             }
         }
 
         /**
          * Set observers for variable on scope
          *
+         * @param variable
          * @param key
          * @param scope
          */
