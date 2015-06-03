@@ -71,7 +71,7 @@ module Honeydew
         {
             variable.observe('change:attributes', (newAttrs) =>
             {
-                console.log(newAttrs);
+                console.log("change:attributes fired for: "+ key + " contents: " + newAttrs);
             });
 
             scope.$watch(key + '.attributes', function (newAttrs)
