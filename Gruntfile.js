@@ -17,12 +17,6 @@ module.exports = function(grunt)
 				tasks : [ 'json' ]
 			}
 		},
-		// concat: {
-		// dist: {
-		// src: ['build/honeydew.js'],
-		// dest: 'dist/built.js'
-		// }
-		// },
 		connect : {
 			server : {
 				options : {
@@ -51,7 +45,6 @@ module.exports = function(grunt)
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-json');
 	grunt.registerTask('build', [ 'typescript' ]);
 	grunt.registerTask('dev', [ 'build', 'watch' ]);
