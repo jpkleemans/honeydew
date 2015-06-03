@@ -24,7 +24,12 @@
 <ul fes-bind-attributes="Q_ROOT">
     <li fes-repeat="child in Q_ROOT.children">
         <span style="display:inline-block;width:500px;">{{child.title}}:</span>
-        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
+
+        <ul>
+            <li fes-repeat="child in child.children">
+                <span style="display:inline-block;width:500px;">{{child.title}}:</span>
+            </li>
+        </ul>
     </li>
 </ul>
 

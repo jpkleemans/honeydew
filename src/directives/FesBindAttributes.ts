@@ -35,7 +35,7 @@ module Honeydew
             this.compile = () =>
             {
                 return {
-                    pre: (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
+                    post: (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
                     {
                         var key = attrs['fesBindAttributes'];
 
