@@ -27,5 +27,17 @@ module Honeydew
 
             return directive;
         }
+
+        public static createInlineTemplate()
+        {
+            var directive = ($templateCache) =>
+            {
+                return new InlineTemplate($templateCache);
+            };
+
+            directive['$inject'] = ['$templateCache'];
+
+            return directive;
+        }
     }
 }
