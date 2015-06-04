@@ -21,6 +21,7 @@ function VariableRepository()
 	var v05Instance = json['v05instance'];
 	var userFormulas = json['defaultmath'];
 	var importData = json['v05baseimportinstance'];
+	var v05layout = json['v05layout'];
 	// Retrieve user-formula's.
 	// FormulaBootstrap is responsible for parsing the String formula's into javascript functions
 	context.modelBuilder = new FormulaBootstrap(v05Instance, userFormulas);
@@ -28,12 +29,7 @@ function VariableRepository()
 	context.activeModel = new CalculationModel(v05Instance);
 	context.calcDocument = new CalculationDocument(importData);
 	// have to do something with the parent/child relation here too
-	context.activeModel['Q_ROOT'].children = [];
-	for (var index = 0; index < context.activeModel._vars.length && index < context.maxChildVariables; index++)
-	{
-		var tvariable = context.activeModel._vars[index];
-		context.activeModel['Q_ROOT'].children.push(tvariable);
-	}
+	// from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
 	function templateContext(variable, query)
 	{
 		return {
@@ -110,29 +106,30 @@ function VariableRepository()
 			}
 		}
 	}
+	function proxyChildren(parentChildname)
+	{
+		return function()
+		{
+			var variable = context.activeModel[parentChildname];
+			var childs = [];
+			if (variable !== undefined && v05layout[parentChildname] !== undefined)
+			{
+				for ( var childname in v05layout[parentChildname])
+				{
+					var childVariable = templateVariable(childname);
+					childVariable.getChildren = proxyChildren(childname);
+					childs.push(childVariable);
+				}
+			}
+			console.info('called children for ' + parentChildname + ' returned ' + childs.length)
+			return childs;
+		};
+	}
 	// from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
 	this.findByKey = function(key)
 	{
 		var tVar = templateVariable(key);
-		tVar.getChildren = function()
-		{
-			var variable = context.activeModel[key];
-			var childs = [];
-			if (variable !== undefined && variable.children !== undefined)
-			{
-				variable.children.forEach(function(child)
-				{
-					var childVariable = templateVariable(child.name);
-					childVariable.getChildren = function()
-					{
-						console.info('called children for ' + child.name)
-						return [];
-					};
-					childs.push(childVariable);
-				})
-			}
-			return childs;
-		};
+		tVar.getChildren = proxyChildren(key);
 		return tVar;
 	};
 }
