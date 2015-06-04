@@ -16,12 +16,14 @@
 <body ng-app="app">
 
 <h3>Single Input, without columns</h3>
-<input fes-bind-attributes="OperatingProvisions">
+<input fes-bind-attributes="FakeVariable">
 
 <hr>
 <h3>Single Input, with columns</h3>
-<hr>
-<h3>Single Input, without columns</h3>
+<div fes-repeat="child in Q_ROOT_VARIABLE_ONE.contexts">
+    context {{$index}}:&nbsp;
+    <input fes-bind-attributes="child">
+</div>
 <hr>
 <h3>Simple list, with columns</h3>
 <ul fes-bind-attributes="Q_ROOT">
@@ -34,18 +36,28 @@
 </ul>
 <hr>
 <h3>Tree, without columns</h3>
+<ul fes-bind-attributes="Q_ROOT">
+    <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumns">
+        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
+        <input fes-bind-attributes="child">
+        <ul>
+            <li fes-repeat="child in child.children" ng-include="'withoutcolumns'">
 
+            </li>
+        </ul>
+    </li>
+</ul>
 <hr>
 <h3>Tree, with columns</h3>
 <ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children" inline-template="template">
+    <li fes-repeat="child in Q_ROOT.children" inline-template="withcolumns">
         <span style="display:inline-block;width:300px;">{{child.title}}:</span>
 
         Contexts: <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
         &nbsp;
         Aantal children: {{child.children.length}}
         <ul>
-            <li fes-repeat="child in child.children" ng-include="template">
+            <li fes-repeat="child in child.children" ng-include="'withcolumns'">
 
             </li>
         </ul>
