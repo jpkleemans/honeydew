@@ -3,6 +3,31 @@
  * Een gedeelte gaat de javascript engine in.<br>
  * Ander gedeelte als er iets over blijft in een soort van adaptertje in TypeScript jullie kant op
  */
+function templateContext(context, variable, query)
+{
+	return {
+		observe : function(event, callback)
+		{
+			//
+		},
+		setAttributes : function(attributes)
+		{
+			//
+		},
+		getAttributes : function()
+		{
+			return {
+				value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]),
+				style : 'color:green'
+			};
+		},
+		// variable, final
+		getKey : function()
+		{
+			return "";
+		}
+	}
+}
 function VariableRepository()
 {
 	// variabeltje gaat waarschijnlijk via constructor oid
@@ -30,31 +55,6 @@ function VariableRepository()
 	context.calcDocument = new CalculationDocument(importData);
 	// have to do something with the parent/child relation here too
 	// from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
-	function templateContext(variable, query)
-	{
-		return {
-			observe : function(event, callback)
-			{
-				//
-			},
-			setAttributes : function(attributes)
-			{
-				//
-			},
-			getAttributes : function()
-			{
-				return {
-					value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]),
-					style : 'color:green'
-				};
-			},
-			// variable, final
-			getKey : function()
-			{
-				return "";
-			}
-		}
-	}
 	function templateVariable(varname)
 	{
 		var variable = context.activeModel[varname];
@@ -95,14 +95,10 @@ function VariableRepository()
 			{
 				return varname;
 			},
-			getChildren : function()
-			{
-				return [];
-			},
 			getContexts : function(query)
 			{
 				console.info('getContexts called with query ' + query)
-				return [ templateContext(variable, dummqueries[0]), templateContext(variable, dummqueries[1]) ];
+				return [ templateContext(context, variable, dummqueries[0]), templateContext(context, variable, dummqueries[1]) ];
 			}
 		}
 	}
