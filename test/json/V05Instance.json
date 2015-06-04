@@ -76,7 +76,7 @@
 				"default",
 				"default"
 			],
-  
+
 			"account": 1058
 		},
 
@@ -85,6 +85,20 @@
 			"formula": 
 			[
 				"FakeVariable+FakeVariable",
+				"default",
+				"default",
+				"default",
+				"default"
+			],
+
+			"account": 1058
+		},
+
+		{
+			"name": "Q_ROOT_MAP01",
+			"formula": 
+			[
+				"10",
 				"default",
 				"default",
 				"default",
@@ -137,7 +151,7 @@
 			"formula": 
 			[
 				[
-					"T.t", 
+					"T.t",
 					"inherit",
 					"aggdefault"
 				],
