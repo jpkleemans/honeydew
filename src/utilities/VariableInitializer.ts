@@ -28,7 +28,7 @@ module Honeydew
          */
         public init(key:string, scope:angular.IScope)
         {
-            var variable = this.variables.findByKey(key);
+            var variable = this.variables.findByKey(key, scope);
             scope[key] = this.createUIVariable(variable);
         }
 
