@@ -15,12 +15,28 @@
 </head>
 <body ng-app="app">
 
-<h3>Single Input</h3>
+<h3>Single Input, without columns</h3>
 <input fes-bind-attributes="OperatingProvisions">
 
 <hr>
+<h3>Single Input, with columns</h3>
+<hr>
+<h3>Single Input, without columns</h3>
+<hr>
+<h3>Simple list, with columns</h3>
+<ul fes-bind-attributes="Q_ROOT">
+    <li fes-repeat="child in Q_ROOT.children">
+        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
 
-<h3>Simple list</h3>
+        Contexts: <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
+        &nbsp;
+    </li>
+</ul>
+<hr>
+<h3>Tree, without columns</h3>
+
+<hr>
+<h3>Tree, with columns</h3>
 <ul fes-bind-attributes="Q_ROOT">
     <li fes-repeat="child in Q_ROOT.children" inline-template="template">
         <span style="display:inline-block;width:300px;">{{child.title}}:</span>

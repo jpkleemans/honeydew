@@ -15,6 +15,6 @@ module Honeydew
                 .directive('inlineTemplate', Honeydew.DirectiveFactory.createInlineTemplate());
         }
     }
-}
+} 
 
 Honeydew.Module.main(angular);
