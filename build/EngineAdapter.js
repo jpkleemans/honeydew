@@ -3,9 +3,9 @@
  * Een gedeelte gaat de javascript engine in.<br>
  * Ander gedeelte als er iets over blijft in een soort van adaptertje in TypeScript jullie kant op
  */
+var observers = {};
 function templateContext(context, variable, query)
 {
-	var observers = [];
 	return {
 		observe : function(event, callback)
 		{
@@ -17,15 +17,29 @@ function templateContext(context, variable, query)
 		},
 		setAttributes : function(attributes)
 		{
-			console.info('change attributes' + attributes)
-			var i = observers['change:attributes'].length;
-			while (i--)
+			console.info('templateContext change attributes' + JSON.stringify(attributes))
+				var e = new Error('dummy');
+			  var stack = e.stack.replace(/^[^\(]+?[\n$]/gm, '')
+			      .replace(/^\s+at\s+/gm, '')
+			      .replace(/^Object.<anonymous>\s*\(/gm, '{anonymous}()@')
+			      .split('\n');
+			  console.log(stack);
+			if (variable !== undefined)
 			{
-				observers['change:attributes'][i]();
+				variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx], parseFloat(attributes.value));
+			}
+			for ( var observetype in observers)
+			{
+				var i = observers[observetype].length;
+				while (i--)
+				{
+					observers[observetype][i]();
+				}
 			}
 		},
 		getAttributes : function()
 		{
+			console.info('templateContext getattributes called for [' + variable.name + ']')
 			return {
 				value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]),
 				style : 'color:green'
@@ -68,9 +82,8 @@ function VariableRepository()
 	function templateVariable(varname)
 	{
 		var variable = context.activeModel[varname];
-		var observers = [];
 		// except the functions a node has to support, this is quite many, but possible
-		return { 
+		return {
 			observe : function(event, callback)
 			{
 				if (observers[event] === undefined)
@@ -81,15 +94,23 @@ function VariableRepository()
 			},
 			setAttributes : function(attributes)
 			{
-				console.info('change attributes' + attributes)
-				var i = observers['change:attributes'].length;
-				while (i--)
+				console.info('templateVariable change attributes' + JSON.stringify(attributes))
+				if (variable !== undefined)
 				{
-					observers['change:attributes'][i]();
+					variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0], parseFloat(attributes.value));
+				}
+				for ( var observetype in observers)
+				{
+					var i = observers[observetype].length;
+					while (i--)
+					{
+						observers[observetype][i]();
+					}
 				}
 			},
 			getAttributes : function()
 			{
+				console.info('templateVariable getattributes called')
 				return {
 					// just test if the structure works
 					value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0]),

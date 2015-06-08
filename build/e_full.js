@@ -28655,6 +28655,8 @@ function CalculationModel(modelData)
 			{
 				variable.references[v].values = {};
 			}
+		
+			console.info('expecting variables to be changed : ' +  Object.keys(variable.references));
 		}
 		variable.values = [];// new Array(268435456); new Array 700ms slower... when doing getValues...
 		variable.evalues = [];
@@ -28717,6 +28719,7 @@ function CalculationModel(modelData)
 		};
 		variable.setValue = function(hIndex, fIndex, T, newValue)
 		{
+			console.info('setvalue invoked..')
 			var t = hIndex.ti + T.t + (fIndex * 2048);
 			model._newCalculationRound();
 			variable._newCalculationRound();
