@@ -83,6 +83,6 @@ declare module Fes {
          * @param key
          * @returns {IVariable}
          */
-        findByKey(key: string): IVariable;
+        findByKey(key: string, scope:angular.IScope): IVariable;
     }
 }

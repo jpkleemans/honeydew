@@ -5,14 +5,24 @@
  */
 function templateContext(context, variable, query)
 {
+	var observers = [];
 	return {
 		observe : function(event, callback)
 		{
-			//
+			if (observers[event] === undefined)
+			{
+				observers[event] = [];
+			}
+			observers[event].push(callback);
 		},
 		setAttributes : function(attributes)
 		{
-			//
+			console.info('change attributes' + attributes)
+			var i = observers['change:attributes'].length;
+			while (i--)
+			{
+				observers['change:attributes'][i]();
+			}
 		},
 		getAttributes : function()
 		{
@@ -24,7 +34,7 @@ function templateContext(context, variable, query)
 		// variable, final
 		getKey : function()
 		{
-			return "";
+			return query.columnidx;
 		}
 	}
 }
@@ -58,9 +68,9 @@ function VariableRepository()
 	function templateVariable(varname)
 	{
 		var variable = context.activeModel[varname];
-		var observers = {};
+		var observers = [];
 		// except the functions a node has to support, this is quite many, but possible
-		return {
+		return { 
 			observe : function(event, callback)
 			{
 				if (observers[event] === undefined)
@@ -71,6 +81,7 @@ function VariableRepository()
 			},
 			setAttributes : function(attributes)
 			{
+				console.info('change attributes' + attributes)
 				var i = observers['change:attributes'].length;
 				while (i--)
 				{
@@ -122,7 +133,7 @@ function VariableRepository()
 		};
 	}
 	// from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
-	this.findByKey = function(key)
+	this.findByKey = function(key, scope)
 	{
 		var tVar = templateVariable(key);
 		tVar.getChildren = proxyChildren(key);
