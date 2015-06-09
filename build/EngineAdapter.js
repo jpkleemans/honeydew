@@ -42,7 +42,7 @@ function templateContext(context, variable, query)
 			console.info('templateContext getattributes called for [' + variable.name + ']')
 			return {
 				value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]),
-				style : 'color:green'
+				style : {color: 'green'}
 			};
 		},
 		// variable, final
@@ -114,7 +114,7 @@ function VariableRepository()
 				return {
 					// just test if the structure works
 					value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0]),
-					style : "color:red;"
+					style : {color: 'red'}
 				};
 			},
 			// would expect this just to be an variable, they should not modify and initialized 'final' way
