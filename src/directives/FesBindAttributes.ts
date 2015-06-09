@@ -69,9 +69,9 @@ module Honeydew
          */
         private setObservers(variable:Fes.IVariable, key:string, scope:angular.IScope)
         {
-            variable.observe('change:attributes', (newAttrs) =>
+            variable.observe('change:attributes', () =>
             {
-                console.log("change:attributes fired for: " + key + " contents: " + newAttrs);
+                //console.log("change:attributes fired for: " + key + " contents: " + newAttrs);
                 scope[key].attributes = variable.getAttributes();
             });
 

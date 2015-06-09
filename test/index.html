@@ -13,13 +13,14 @@
         var app = angular.module('app', ['honeydew']);
     </script>
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-model-options="{ updateOn: 'blur' }">
 
 <h3>Single Input, without columns</h3>
 <input fes-bind-attributes="FakeVariable">
 
 <hr>
 <h3>Single Input, with columns</h3>
+
 <div fes-repeat="child in Q_ROOT_VARIABLE_ONE.contexts">
     context {{$index}}:&nbsp;
     <input fes-bind-attributes="child">
