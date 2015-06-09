@@ -49,8 +49,8 @@ module Honeydew
                         } else {
                             type = scope[key].variable;
                         }
-
                         this.setObservers(type, key, scope);
+
                         this.setAttributes(key, scope[key].attributes, element);
 
                         element.removeAttr('fes-bind-attributes');
@@ -72,6 +72,7 @@ module Honeydew
             variable.observe('change:attributes', (newAttrs) =>
             {
                 console.log("change:attributes fired for: " + key + " contents: " + newAttrs);
+                scope[key].attributes = variable.getAttributes();
             });
 
             scope.$watch(key + '.attributes', function (newAttrs)
