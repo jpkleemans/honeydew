@@ -8,6 +8,7 @@ module Honeydew
         public priority = 1010;
         public restrict = 'A';
         public compile;
+
         constructor($templateCache:angular.ITemplateCacheService)
         {
             this.compile = (element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
