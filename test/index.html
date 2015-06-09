@@ -43,22 +43,19 @@
         <span style="display:inline-block;width:300px;">{{child.title}}:</span>
         <input fes-bind-attributes="child">
         <ul>
-            <li fes-repeat="child in child.children" ng-include="'withoutcolumns'">
-
-            </li>
+            <li fes-repeat="child in child.children" ng-include="'withoutcolumns'"></li>
         </ul>
     </li>
 </ul>
 <hr>
-<h3>Tree, without columns</h3>
+<h3>Tree, without columns, with lazy loading</h3>
 <ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumns">
-        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
+    <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumnslazy">
+        <span style="display:inline-block;width:300px;" ng-init="showChildren = false">{{child.title}}:</span>
         <input fes-bind-attributes="child">
-        <ul>
-            <li fes-repeat="child in child.children" ng-include="'withoutcolumns'">
-
-            </li>
+        <input type="checkbox" ng-model="showChildren" ng-model-options="{ updateOn: 'default' }">
+        <ul ng-if="showChildren">
+            <li fes-repeat="child in child.children" ng-include="'withoutcolumnslazy'"></li>
         </ul>
     </li>
 </ul>
