@@ -1,3 +1,5 @@
+/// <reference path="../src/factories/DirectiveFactory.ts" />
+
 declare class VariableRepository
 {
 }

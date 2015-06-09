@@ -8,7 +8,7 @@ module Honeydew
         {
             var directive = ($compile:angular.ICompileService, variables:Fes.IVariableRepository) =>
             {
-                return new FesBindAttributes($compile, variables, new VariableInitializer(variables));
+                return new FesBindAttributes($compile, variables, new ViewModelFactory());
             };
 
             directive['$inject'] = ['$compile', 'IVariableRepository'];
@@ -20,7 +20,7 @@ module Honeydew
         {
             var directive = ($compile:angular.ICompileService, variables:Fes.IVariableRepository) =>
             {
-                return new FesRepeat($compile, variables, new VariableInitializer(variables));
+                return new FesRepeat($compile, variables, new ViewModelFactory());
             };
 
             directive['$inject'] = ['$compile', 'IVariableRepository'];

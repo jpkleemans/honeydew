@@ -1,5 +1,6 @@
 /// <reference path="../../type_definitions/angularjs/angular.d.ts" />
 /// <reference path="../../type_definitions/fes/fes.d.ts" />
+/// <reference path="../factories/ViewModelFactory.ts" />
 
 module Honeydew
 {
@@ -18,7 +19,7 @@ module Honeydew
         /**
          * VariableInitializer
          */
-        private variableInitializer:VariableInitializer;
+        private viewModelFactory:ViewModelFactory;
         public priority = 1005;
         public terminal = true;
 
@@ -29,10 +30,10 @@ module Honeydew
          * @param variables
          * @param variableInitializer
          */
-        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, variableInitializer:VariableInitializer)
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, viewModelFactory:ViewModelFactory)
         {
             this.variables = variables;
-            this.variableInitializer = variableInitializer;
+            this.viewModelFactory = viewModelFactory;
 
             this.compile = () =>
             {
@@ -44,19 +45,20 @@ module Honeydew
                         var property = expression.match(new RegExp("in (?:\\S[^.]*).(\\S*)(?:.*)$"))[1];
 
                         if (scope[key] === undefined) {
-                            this.variableInitializer.init(key, scope);
+                            var variable = this.variables.findByKey(key, scope);
+                            scope[key] = this.viewModelFactory.createUIVariable(variable);
                         }
 
                         switch (property) {
                             case 'children':
                                 var children = scope[key].variable.getChildren();
-                                var uiChildren = this.variableInitializer.createUIChildren(children);
+                                var uiChildren = this.viewModelFactory.createUIChildren(children);
                                 scope[key].children = uiChildren;
                                 break;
                             case 'contexts':
                                 var query = attrs['fesContextQuery'];
                                 var contexts = scope[key].variable.getContexts(query);
-                                var uiContexts = this.variableInitializer.createUIContexts(contexts);
+                                var uiContexts = this.viewModelFactory.createUIContexts(contexts);
                                 scope[key].contexts = uiContexts;
                                 break;
                         }

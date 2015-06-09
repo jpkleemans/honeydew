@@ -18,7 +18,7 @@ module Honeydew
         /**
          * VariableInitializer
          */
-        private variableInitializer:VariableInitializer;
+        private viewModelFactory:ViewModelFactory;
 
         /**
          * Instantiate FesBindAttributes directive
@@ -27,10 +27,10 @@ module Honeydew
          * @param variables
          * @param variableInitializer
          */
-        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, variableInitializer:VariableInitializer)
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, viewModelFactory:ViewModelFactory)
         {
             this.variables = variables;
-            this.variableInitializer = variableInitializer;
+            this.viewModelFactory = viewModelFactory;
 
             this.compile = () =>
             {
@@ -40,7 +40,8 @@ module Honeydew
                         var key = attrs['fesBindAttributes'];
 
                         if (scope[key] === undefined) {
-                            this.variableInitializer.init(key, scope);
+                            var variable = this.variables.findByKey(key, scope);
+                            scope[key] = this.viewModelFactory.createUIVariable(variable);
                         }
 
                         var type; // TODO: ugly!!!
