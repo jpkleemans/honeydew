@@ -52,7 +52,7 @@ module Honeydew
                         switch (property) {
                             case 'children':
                                 var children = scope[key].variable.getChildren();
-                                var uiChildren = this.viewModelFactory.createUIChildren(children);
+                                var uiChildren = this.viewModelFactory.createUIVariables(children);
                                 scope[key].children = uiChildren;
                                 break;
                             case 'contexts':

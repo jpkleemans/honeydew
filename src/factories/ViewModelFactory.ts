@@ -19,6 +19,18 @@ module Honeydew
             return uiVariable;
         }
 
+        public createUIVariables(variables:Array<Fes.IVariable>)
+        {
+            var uiVariables = [];
+            var i = variables.length;
+            while (i--) {
+                var uiChild = this.createUIVariable(variables[i]);
+                uiVariables.push(uiChild);
+            }
+
+            return uiVariables;
+        }
+
         /**
          * Create UIContext from IContext
          *
@@ -34,18 +46,6 @@ module Honeydew
             var uiContext = new UIContext(context, attributes);
 
             return uiContext;
-        }
-
-        public createUIChildren(children:Array<Fes.IVariable>)
-        {
-            var uiChildren = [];
-            var i = children.length;
-            while (i--) {
-                var uiChild = this.createUIVariable(children[i]);
-                uiChildren.push(uiChild);
-            }
-
-            return uiChildren;
         }
 
         public createUIContexts(contexts:Array<Fes.IContext>)
