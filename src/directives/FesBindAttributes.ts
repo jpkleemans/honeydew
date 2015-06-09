@@ -82,9 +82,11 @@ module Honeydew
                 scope[key].attributes = entity.getAttributes();
             });
 
-            scope.$watch(key + '.attributes', function (newAttrs)
+            scope.$watch(key + '.attributes', function (newAttrs, oldAttrs)
             {
-                entity.setAttributes(newAttrs);
+                if (newAttrs !== oldAttrs) {
+                    entity.setAttributes(newAttrs);
+                }
             }, true);
         }
 
