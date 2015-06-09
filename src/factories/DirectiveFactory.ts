@@ -6,12 +6,12 @@ module Honeydew
     {
         public static createFesBindAttributes()
         {
-            var directive = ($compile:angular.ICompileService, variables:Fes.IVariableRepository) =>
+            var directive = ($compile:angular.ICompileService, variables:Fes.IVariableRepository, $injector:angular.auto.IInjectorService) =>
             {
-                return new FesBindAttributes($compile, variables, new ViewModelFactory());
+                return new FesBindAttributes($compile, variables, new ViewModelFactory(), $injector);
             };
 
-            directive['$inject'] = ['$compile', 'IVariableRepository'];
+            directive['$inject'] = ['$compile', 'IVariableRepository', '$injector'];
 
             return directive;
         }

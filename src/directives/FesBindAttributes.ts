@@ -21,16 +21,22 @@ module Honeydew
         private viewModelFactory:ViewModelFactory;
 
         /**
+         * Angular $injector
+         */
+        private $injector:angular.auto.IInjectorService;
+
+        /**
          * Instantiate FesBindAttributes directive
          *
          * @param $compile
          * @param variables
          * @param variableInitializer
          */
-        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, viewModelFactory:ViewModelFactory)
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, viewModelFactory:ViewModelFactory, $injector:angular.auto.IInjectorService)
         {
             this.variables = variables;
             this.viewModelFactory = viewModelFactory;
+            this.$injector = $injector;
 
             this.compile = () =>
             {
@@ -44,13 +50,13 @@ module Honeydew
                             scope[key] = this.viewModelFactory.createUIVariable(variable);
                         }
 
-                        var type; // TODO: ugly!!!
+                        var entity; // TODO: ugly!!!
                         if (scope[key].variable === undefined) {
-                            type = scope[key].context;
+                            entity = scope[key].context;
                         } else {
-                            type = scope[key].variable;
+                            entity = scope[key].variable;
                         }
-                        this.setObservers(type, key, scope);
+                        this.setObservers(entity, key, scope);
 
                         this.setAttributes(key, scope[key].attributes, element);
 
@@ -62,23 +68,23 @@ module Honeydew
         }
 
         /**
-         * Set observers for variable on scope
+         * Set observers for entity on scope
          *
-         * @param variable
+         * @param entity
          * @param key
          * @param scope
          */
-        private setObservers(variable:Fes.IVariable, key:string, scope:angular.IScope)
+        private setObservers(entity, key:string, scope:angular.IScope)
         {
-            variable.observe('change:attributes', () =>
+            entity.observe('change:attributes', (newAttrs) =>
             {
                 //console.log("change:attributes fired for: " + key + " contents: " + newAttrs);
-                scope[key].attributes = variable.getAttributes();
+                scope[key].attributes = entity.getAttributes();
             });
 
             scope.$watch(key + '.attributes', function (newAttrs)
             {
-                variable.setAttributes(newAttrs);
+                entity.setAttributes(newAttrs);
             }, true);
         }
 
@@ -93,7 +99,12 @@ module Honeydew
         {
             for (var attr in attributes) {
                 if (attributes.hasOwnProperty(attr)) {
-                    element.attr('ng-attr-' + attr, '{{' + key + '.attributes.' + attr + '}}');
+                    var directive = 'ng' + String.ucfirst(attr) + 'Directive';
+                    if (this.$injector.has(directive)) {
+                        element.attr('ng-' + attr, key + '.attributes.' + attr);
+                    } else {
+                        element.attr('ng-attr-' + attr, '{{' + key + '.attributes.' + attr + '}}');
+                    }
                 }
             }
 
