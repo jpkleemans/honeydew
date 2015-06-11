@@ -70,7 +70,7 @@
 			"name": "FakeVariable",
 			"formula": 
 			[
-				"2",
+				"1000",
 				"default",
 				"default",
 				"default",
@@ -84,7 +84,7 @@
 			"name": "OperatingProvisions",
 			"formula": 
 			[
-				"FakeVariable+FakeVariable",
+				"FakeVariable+Q_ROOT_VARIABLE_ONE/2",
 				"default",
 				"default",
 				"default",

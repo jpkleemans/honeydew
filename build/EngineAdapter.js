@@ -114,7 +114,8 @@ function VariableRepository()
 				return {
 					// just test if the structure works
 					value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0]),
-					style : {color: 'red'}
+					style : {color: 'blue'},
+                    disabled:true
 				};
 			},
 			// would expect this just to be an variable, they should not modify and initialized 'final' way
