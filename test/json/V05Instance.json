@@ -84,7 +84,7 @@
 			"name": "OperatingProvisions",
 			"formula": 
 			[
-				"FakeVariable+Q_ROOT_VARIABLE_ONE/2",
+				"FakeVariable+Root/2",
 				"default",
 				"default",
 				"default",
