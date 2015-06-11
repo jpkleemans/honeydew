@@ -117,7 +117,7 @@ function VariableRepository()
                 for (var childname in v05layout[parentChildname])
                 {
                     var childVariable = templateVariable(childname);
-                    childVariable.getChildren = proxyChildren(childVariable, childname);
+                    childVariable.expandChildren = proxyChildren(childVariable, childname);
                     childs.push(childVariable);
                 }
             }
