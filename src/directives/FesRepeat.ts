@@ -16,10 +16,6 @@ module Honeydew
          */
         private variables:Fes.IVariableRepository;
 
-        /**
-         * VariableInitializer
-         */
-        private viewModelFactory:ViewModelFactory;
         public priority = 1005;
         public terminal = true;
 
@@ -30,10 +26,9 @@ module Honeydew
          * @param variables
          * @param variableInitializer
          */
-        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, viewModelFactory:ViewModelFactory)
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository)
         {
             this.variables = variables;
-            this.viewModelFactory = viewModelFactory;
 
             this.compile = () =>
             {
@@ -46,20 +41,16 @@ module Honeydew
 
                         if (scope[key] === undefined) {
                             var variable = this.variables.findByKey(key, scope);
-                            scope[key] = this.viewModelFactory.createUIVariable(variable);
+                            scope[key] = variable;
                         }
 
                         switch (property) {
                             case 'children':
-                                var children = scope[key].variable.getChildren();
-                                var uiChildren = this.viewModelFactory.createUIVariables(children);
-                                scope[key].children = uiChildren;
+                                scope[key].expandChildren();
                                 break;
                             case 'contexts':
                                 var query = attrs['fesContextQuery'];
-                                var contexts = scope[key].variable.getContexts(query);
-                                var uiContexts = this.viewModelFactory.createUIContexts(contexts);
-                                scope[key].contexts = uiContexts;
+                                scope[key].getContexts(query);
                                 break;
                         }
 

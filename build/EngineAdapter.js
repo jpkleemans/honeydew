@@ -19,7 +19,7 @@ function templateContext(context, variable, query)
         attributes: {},
         setAttributes: function (attributes)
         {
-            console.info('templateContext change attributes' + JSON.stringify(attributes))
+            //console.info('templateContext change attributes' + JSON.stringify(attributes))
             if (variable !== undefined)
             {
                 variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx], parseFloat(attributes.value));
@@ -51,7 +51,7 @@ function VariableRepository()
         timelineidx: 0,
         columnidx: 2
     }];
-    console.info('new VariableRepository constructed, expecting once during web-app lifecycle.')
+    //console.info('new VariableRepository constructed, expecting once during web-app lifecycle.')
     // we aqquire are a new Model instance from the json template, once resolved we inject it into the Service wrapper.
     var v05Instance = json['v05instance'];
     var userFormulas = json['defaultmath'];
@@ -77,7 +77,7 @@ function VariableRepository()
             contexts: [],
             setAttributes: function (attributes)
             {
-                console.info('templateVariable change attributes' + JSON.stringify(attributes))
+                //console.info('templateVariable change attributes' + JSON.stringify(attributes))
                 if (variable !== undefined)
                 {
                     variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0], parseFloat(attributes.value));
@@ -87,7 +87,7 @@ function VariableRepository()
             },
             getContexts: function (query)
             {
-                console.info('getContexts called with query ' + query)
+                //console.info('getContexts called with query ' + query)
                 this.contexts = [templateContext(context, variable, dummqueries[0]), templateContext(context, variable, dummqueries[1])];
             },
             update: function ()
@@ -121,7 +121,7 @@ function VariableRepository()
                     childs.push(childVariable);
                 }
             }
-            console.info('called children for ' + parentChildname + ' returned ' + childs.length)
+            //console.info('called children for ' + parentChildname + ' returned ' + childs.length)
             tVar.children = childs;
         };
     }

@@ -16,11 +16,6 @@ module Honeydew
         private variables:Fes.IVariableRepository;
 
         /**
-         * VariableInitializer
-         */
-        private viewModelFactory:ViewModelFactory;
-
-        /**
          * Angular $injector
          */
         private $injector:angular.auto.IInjectorService;
@@ -30,12 +25,10 @@ module Honeydew
          *
          * @param $compile
          * @param variables
-         * @param variableInitializer
          */
-        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, viewModelFactory:ViewModelFactory, $injector:angular.auto.IInjectorService)
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, $injector:angular.auto.IInjectorService)
         {
             this.variables = variables;
-            this.viewModelFactory = viewModelFactory;
             this.$injector = $injector;
 
             this.compile = () =>
@@ -47,17 +40,10 @@ module Honeydew
 
                         if (scope[key] === undefined) {
                             var variable = this.variables.findByKey(key, scope);
-                            scope[key] = this.viewModelFactory.createUIVariable(variable);
+                            scope[key] = variable;
                         }
 
-                        var entity; // TODO: ugly!!!
-                        if (scope[key].variable === undefined) {
-                            entity = scope[key].context;
-                        } else {
-                            entity = scope[key].variable;
-                        }
-                        this.setObservers(entity, key, scope);
-
+                        this.setObservers(key, scope);
                         this.setAttributes(key, scope[key].attributes, element);
 
                         element.removeAttr('fes-bind-attributes');
@@ -70,22 +56,15 @@ module Honeydew
         /**
          * Set observers for entity on scope
          *
-         * @param entity
          * @param key
          * @param scope
          */
-        private setObservers(entity, key:string, scope:angular.IScope)
+        private setObservers(key:string, scope:angular.IScope)
         {
-            entity.observe('change:attributes', (newAttrs) =>
-            {
-                //console.log("change:attributes fired for: " + key + " contents: " + newAttrs);
-                scope[key].attributes = entity.getAttributes();
-            });
-
             scope.$watch(key + '.attributes', function (newAttrs, oldAttrs)
             {
                 if (newAttrs !== oldAttrs) {
-                    entity.setAttributes(newAttrs);
+                    scope[key].setAttributes(newAttrs);
                 }
             }, true);
         }

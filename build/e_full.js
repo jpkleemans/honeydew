@@ -27918,7 +27918,7 @@ function FormulaBootstrap(data, math)
 		}
 	}
 	// initialize functions from math
-	console.time('formula_init_math')
+	//console.time('formula_init_math')
 	var userfuncs = [];
 	for ( var func in math)
 	{
@@ -27940,9 +27940,9 @@ function FormulaBootstrap(data, math)
 			}
 		}
 	}
-	console.info('Userfunctions: ' + userfuncs);
-	console.timeEnd('formula_init_math')
-	console.time('formula_init_vars')
+	//console.info('Userfunctions: ' + userfuncs);
+	//console.timeEnd('formula_init_math')
+	//console.time('formula_init_vars')
 	var variableLength = variables.length;
 	// first give all variables an id to refer to later on,
 	// and place them in a hashMap to refer quicker
@@ -27960,43 +27960,43 @@ function FormulaBootstrap(data, math)
 		variable.calctype = data.calcTypes[((variable.account >> data.calctypeaccount[0]) & data.calctypeaccount[1]) - 1];
 		if (variable.frequency == undefined || variable.dataType == undefined || variable.calctype === undefined)// last null is valid
 		{
-			console.info('variable:' + variable.name + " :" + JSON.stringify(variable, null, '\t'));
-			console.info(data.dataTypes);
-			console.info(data.frequencies);
-			console.info(data.calcTypes);
-			console.info(variable.tuple);
-			console.info('datatype: ' + data.datatypeaccount[0] + ":" + data.datatypeaccount[1] + ":" + (variable.dataType + ">>" + ((variable.account >> data.datatypeaccount[0]) & data.datatypeaccount[1]) - 1));
-			console.info('frequency ' + (variable.frequency + ">>" + ((variable.account >> data.freqaccount[0]) & data.freqaccount[1])));
-			console.info(variable.calctype + ">>" + ((variable.account >> data.calctypeaccount[0]) & data.calctypeaccount[1]) - 1);
+			//console.info('variable:' + variable.name + " :" + JSON.stringify(variable, null, '\t'));
+			//console.info(data.dataTypes);
+			//console.info(data.frequencies);
+			//console.info(data.calcTypes);
+			//console.info(variable.tuple);
+			//console.info('datatype: ' + data.datatypeaccount[0] + ":" + data.datatypeaccount[1] + ":" + (variable.dataType + ">>" + ((variable.account >> data.datatypeaccount[0]) & data.datatypeaccount[1]) - 1));
+			//console.info('frequency ' + (variable.frequency + ">>" + ((variable.account >> data.freqaccount[0]) & data.freqaccount[1])));
+			//console.info(variable.calctype + ">>" + ((variable.account >> data.calctypeaccount[0]) & data.calctypeaccount[1]) - 1);
 			throw Error('' + variable.account);
 		}
 		variable.dependencies = {};
 		variable.references = {};
 	}
-	console.timeEnd('formula_init_vars')
+	//console.timeEnd('formula_init_vars')
 	// now modify all formula's
-	console.time('formula_parse')
+	//console.time('formula_parse')
 	for (var i = 0; i < variableLength; i++)
 	{
 		// console.time('formula compile:_' + variables[i].name)
 		this.compileFormula(variables[i]);
 		// console.timeEnd('formula compile:_' + variables[i].name)
 	}
-	console.timeEnd('formula_parse')
+	//console.timeEnd('formula_parse')
 	// now modify all choice formula's
-	console.time('formula_parse_choice')
+	//console.time('formula_parse_choice')
 	for (var i = 0; i < variableLength; i++)
 	{
 		this.parseChoice(variables[i]);
 	}
-	console.timeEnd('formula_parse_choice')
+	//console.timeEnd('formula_parse_choice')
 	// now we can consolidate all references, choices and formula's are compiled
-	console.time('formula_consolidate')
+	//console.time('formula_consolidate')
 	for (var i = 0; i < variableLength; i++)
 	{
 		this.consolidateReferences(variables[i]);
 	}
-	console.timeEnd('formula_consolidate')
+	//console.timeEnd('formula_consolidate')
 }
 // NodeJS support..
 // unit tests and such..
@@ -28268,7 +28268,7 @@ var X = {};
 //Document can only refer to itsself
 function CalculationDocument(data)
 {
-	console.time('init_calculation_document');
+	//console.time('init_calculation_document');
 	this.tContext = data;
 	var formulasets = data.formulasets;
 	var formulasetsCount = data.formulasets.length;
@@ -28656,7 +28656,7 @@ function CalculationModel(modelData)
 				variable.references[v].values = {};
 			}
 		
-			console.info('expecting variables to be changed : ' +  Object.keys(variable.references));
+			//console.info('expecting variables to be changed : ' +  Object.keys(variable.references));
 		}
 		variable.values = [];// new Array(268435456); new Array 700ms slower... when doing getValues...
 		variable.evalues = [];
@@ -28719,7 +28719,7 @@ function CalculationModel(modelData)
 		};
 		variable.setValue = function(hIndex, fIndex, T, newValue)
 		{
-			console.info('setvalue invoked..')
+			//console.info('setvalue invoked..')
 			var t = hIndex.ti + T.t + (fIndex * 2048);
 			model._newCalculationRound();
 			variable._newCalculationRound();
