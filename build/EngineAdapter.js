@@ -32,6 +32,9 @@ function templateContext(context, variable, query)
         {
 
             this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
+            this.attributes.required = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 2, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
+            this.attributes.entered = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 4, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
+            this.attributes.visible = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 1, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
             this.attributes.style = {
                 color: 'green'
             }
