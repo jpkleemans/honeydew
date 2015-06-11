@@ -23,14 +23,13 @@ function templateContext(context, variable, query)
             console.info('templateContext change attributes' + JSON.stringify(attributes))
             if (variable !== undefined)
             {
-                variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx], parseFloat(attributes.value));
+                variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx], attributes.value == null ? null : parseFloat(attributes.value));
             }
             this.attributes = attributes;
             updateAll();
         },
         update: function ()
         {
-
             this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
             this.attributes.required = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 2, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
             this.attributes.entered = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 4, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
