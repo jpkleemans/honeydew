@@ -3,54 +3,40 @@
  * Een gedeelte gaat de javascript engine in.<br>
  * Ander gedeelte als er iets over blijft in een soort van adaptertje in TypeScript jullie kant op
  */
-var observers = {};
+var cacheVars = {};
+function updateAll()
+{
+	for ( var variableName in cacheVars)
+	{
+		cacheVars[variableName].update();
+	}
+}
 function templateContext(context, variable, query)
 {
-	return {
-		observe : function(event, callback)
-		{
-			if (observers[event] === undefined)
-			{
-				observers[event] = [];
-			}
-			observers[event].push(callback);
-		},
+	var prototype = {
+		key : query.columnidx,
+		title : varname,
+		attributes : {},
 		setAttributes : function(attributes)
 		{
 			console.info('templateContext change attributes' + JSON.stringify(attributes))
-				var e = new Error('dummy');
-			  var stack = e.stack.replace(/^[^\(]+?[\n$]/gm, '')
-			      .replace(/^\s+at\s+/gm, '')
-			      .replace(/^Object.<anonymous>\s*\(/gm, '{anonymous}()@')
-			      .split('\n');
-			  console.log(stack);
 			if (variable !== undefined)
 			{
 				variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx], parseFloat(attributes.value));
 			}
-			for ( var observetype in observers)
-			{
-				var i = observers[observetype].length;
-				while (i--)
-				{
-					observers[observetype][i]();
-				}
+			this.attributes = attributes;
+			updateAll();
+		},
+		update : function()
+		{
+			this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
+			this.attributes.style = {
+				color : 'green'
 			}
-		},
-		getAttributes : function()
-		{
-			console.info('templateContext getattributes called for [' + variable.name + ']')
-			return {
-				value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]),
-				style : {color: 'green'}
-			};
-		},
-		// variable, final
-		getKey : function()
-		{
-			return query.columnidx;
 		}
-	}
+	};
+	prototype.update();
+	return prototype;
 }
 function VariableRepository()
 {
@@ -83,15 +69,12 @@ function VariableRepository()
 	{
 		var variable = context.activeModel[varname];
 		// except the functions a node has to support, this is quite many, but possible
-		return {
-			observe : function(event, callback)
-			{
-				if (observers[event] === undefined)
-				{
-					observers[event] = [];
-				}
-				observers[event].push(callback);
-			},
+		var prototype = {
+			key : varname,
+			title : varname,
+			attributes : {},
+			children : [],
+			contexts : [],
 			setAttributes : function(attributes)
 			{
 				console.info('templateVariable change attributes' + JSON.stringify(attributes))
@@ -99,42 +82,29 @@ function VariableRepository()
 				{
 					variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0], parseFloat(attributes.value));
 				}
-				for ( var observetype in observers)
-				{
-					var i = observers[observetype].length;
-					while (i--)
-					{
-						observers[observetype][i]();
-					}
-				}
-			},
-			getAttributes : function()
-			{
-				console.info('templateVariable getattributes called')
-				return {
-					// just test if the structure works
-					value : variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0]),
-					style : {color: 'red'}
-				};
-			},
-			// would expect this just to be an variable, they should not modify and initialized 'final' way
-			getKey : function()
-			{
-				return varname;
-			},
-			// would expect this to be an attribute
-			getTitle : function()
-			{
-				return varname;
+				this.attributes = attributes;
+				updateAll();
 			},
 			getContexts : function(query)
 			{
 				console.info('getContexts called with query ' + query)
-				return [ templateContext(context, variable, dummqueries[0]), templateContext(context, variable, dummqueries[1]) ];
+				this.contexts = [ templateContext(context, variable, dummqueries[0]), templateContext(context, variable, dummqueries[1]) ];
+			},
+			update : function()
+			{
+				this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0]);
+				this.attributes.style = {
+					color : 'red'
+				}
+				this.contexts.forEach(function(elem)
+				{
+					elem.update();
+				});
 			}
-		}
+		};
+		prototype.update();
 	}
-	function proxyChildren(parentChildname)
+	function proxyChildren(tVar, parentChildname)
 	{
 		return function()
 		{
@@ -145,19 +115,24 @@ function VariableRepository()
 				for ( var childname in v05layout[parentChildname])
 				{
 					var childVariable = templateVariable(childname);
-					childVariable.getChildren = proxyChildren(childname);
+					childVariable.getChildren = proxyChildren(childVariable, childname);
 					childs.push(childVariable);
 				}
 			}
 			console.info('called children for ' + parentChildname + ' returned ' + childs.length)
-			return childs;
+			tVar.children = childs;
 		};
 	}
 	// from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
 	this.findByKey = function(key, scope)
 	{
-		var tVar = templateVariable(key);
-		tVar.getChildren = proxyChildren(key);
+		var tVar = cacheVars[key];
+		if (tVar == undefined)
+		{
+			tVar = templateVariable(key);
+			tVar.expandChildren = proxyChildren(tVar, key);
+			cacheVars[key] = tVar;
+		}
 		return tVar;
 	};
 }
