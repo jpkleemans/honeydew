@@ -15,7 +15,7 @@ function templateContext(context, variable, query)
 {
     var prototype = {
         key: query.columnidx,
-        title: varname,
+        title: query.columnidx,
         attributes: {},
         setAttributes: function (attributes)
         {
