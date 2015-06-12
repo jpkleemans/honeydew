@@ -1,78 +1,57 @@
 declare module Fes {
     interface IAttributes {
         /**
+         * HTML attributes
+         */
+        attributes: any;
+        /**
          * Set HTML attribute(s)
          *
          * @param attributes
          */
         setAttributes(attributes: any): void;
-        /**
-         * Get HTML attributes
-         *
-         * @returns {any}
-         */
-        getAttributes(): any;
     }
 }
 declare module Fes {
-    interface IObservable {
+    interface IContext extends IAttributes {
         /**
-         * Register for an event
-         *
-         * @param event
-         * @param callback
+         * Reference key
          */
-        observe(event: string, callback: Function): void;
+        key: string;
+        /**
+         * Title
+         */
+        title: string;
     }
 }
 declare module Fes {
-    interface IContext extends IAttributes, IObservable {
+    interface IVariable extends IAttributes {
         /**
-         * Get the reference key
-         *
-         * @returns {string}
+         * Reference key
          */
-        getKey(): string;
+        key: string;
         /**
-         * Get the title
-         *
-         * @returns {string}
+         * Title
          */
-        getTitle(): string;
-    }
-}
-declare module Fes {
-    interface IVariable extends IAttributes, IObservable {
+        title: string;
         /**
-         * Get the reference key
-         *
-         * @returns {string}
+         * Children
          */
-        getKey(): string;
+        children: Array<IVariable>;
         /**
-         * Get the title
-         *
-         * @returns {string}
+         * All possible contexts
          */
-        getTitle(): string;
+        contexts: Array<IContext>;
         /**
-         * Get children
-         *
-         * @returns {Array<IVariable>}
+         * Initialize children property
          */
-        getChildren(): Array<IVariable>;
+        initChildren(): void;
         /**
-         * Set children
+         * Initialize contexts property
          *
-         * @param children
+         * @param query
          */
-        setChildren(children: Array<IVariable>): void;
-        /**
-         * Get contexts
-         *
-         * @returns {Array<IContext>}
-         */
-        getContexts(query: any): Array<IContext>;
+        initContexts(query: any): void;
     }
 }
 declare module Fes {
@@ -83,6 +62,6 @@ declare module Fes {
          * @param key
          * @returns {IVariable}
          */
-        findByKey(key: string, scope:angular.IScope): IVariable;
+        findByKey(key: string): IVariable;
     }
 }
