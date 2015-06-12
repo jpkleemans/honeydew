@@ -51,7 +51,6 @@ module Honeydew
                             case 'contexts':
                                 scope.$watch('columnQuery', function(value)
                                 {
-                                    console.log("watch triggered");
                                     scope[key].getContexts(value);
                                 })
                                 break;
