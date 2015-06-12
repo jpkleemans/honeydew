@@ -7,7 +7,7 @@ var cacheVars = {};
 var busy = false;
 function updateAll()
 {
-    console.info('update all:  ' + Object.keys(cacheVars))
+    console.info('update all:  ' + Object.keys(cacheVars));
     for (var variableName in cacheVars)
     {
         cacheVars[variableName].update();
@@ -22,7 +22,7 @@ function templateContext(variable, context)
         attributes: {},
         setAttributes: function (attributes)
         {
-            console.info('templateContext change attributes: ' + JSON.stringify(attributes))
+            console.info('templateContext change attributes: ' + JSON.stringify(attributes));
             if (variable !== undefined)
             {
                 variable.setValue(variable.hIndex[0], 0, context, attributes.value == null ? null : parseFloat(attributes.value));
@@ -42,7 +42,7 @@ function templateContext(variable, context)
                 display: variable.getValue(variable.hIndex[0], 1, context) ? undefined : 'none',
                 //just add some dynamics..
                 width: (variable.account == 1058) ? '400px' : undefined
-            }
+            };
             console.info('update attributes : ' + JSON.stringify(this.attributes))
         }
     };
@@ -99,7 +99,7 @@ function VariableRepository()
                 this.attributes = attributes;
                 updateAll();
             },
-            getContexts: function (query)
+            initContexts: function (query)
             {
                 console.info(query);
                 query = query === undefined ? defaultQuery : JSON.parse(query);
@@ -118,11 +118,11 @@ function VariableRepository()
             },
             update: function ()
             {
-                console.info('update variable : ' + varname)
+                console.info('update variable : ' + varname);
                 this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, ctx0);
                 this.attributes.style = {
                     color: 'red'
-                }
+                };
                 this.contexts.forEach(function (elem)
                 {
                     elem.update();
@@ -148,7 +148,7 @@ function VariableRepository()
                     if (childVariable == undefined)
                     {
                         childVariable = templateVariable(childname);
-                        childVariable.expandChildren = proxyChildren(childVariable, childname);
+                        childVariable.initChildren = proxyChildren(childVariable, childname);
                         cacheVars[childname] = childVariable;
                     }
                     children.push(childVariable);
@@ -160,13 +160,13 @@ function VariableRepository()
     }
 
     // from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
-    this.findByKey = function (variableName, scope)
+    this.findByKey = function (variableName)
     {
         var foundVariable = cacheVars[variableName];
         if (foundVariable === undefined)
         {
             foundVariable = templateVariable(variableName);
-            foundVariable.expandChildren = proxyChildren(foundVariable, variableName);
+            foundVariable.initChildren = proxyChildren(foundVariable, variableName);
             cacheVars[variableName] = foundVariable;
         }
         return foundVariable;

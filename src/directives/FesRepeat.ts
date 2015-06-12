@@ -15,8 +15,19 @@ module Honeydew
          */
         private variables:Fes.IVariableRepository;
 
-        public priority = 1005;
-        public terminal = true;
+        /**
+         * Order in which the directive will be applied
+         *
+         * @type {number}
+         */
+        public priority:number = 1005;
+
+        /**
+         * Skip lower priority directives on the element
+         *
+         * @type {boolean}
+         */
+        public terminal:boolean = true;
 
         /**
          * Instantiate FesRepeat directive
@@ -38,21 +49,20 @@ module Honeydew
                         var key = expression.match(new RegExp("in (\\S[^.\\s]*)(?:.*)$"))[1];
                         var property = expression.match(new RegExp("in (?:\\S[^.]*).(\\S*)(?:.*)$"))[1];
 
-                        if (scope[key] === undefined)
-                        {
-                            var variable = this.variables.findByKey(key);
-                            scope[key] = variable;
+                        if (scope[key] === undefined) {
+                            scope[key] = this.variables.findByKey(key);
                         }
-                        switch (property)
-                        {
+
+                        // Lazy loading
+                        switch (property) {
                             case 'children':
-                                scope[key].expandChildren();
+                                scope[key].initChildren();
                                 break;
                             case 'contexts':
-                                scope.$watch('columnQuery', function(value)
+                                scope.$watch('columnQuery', function (value)
                                 {
-                                    scope[key].getContexts(value);
-                                })
+                                    scope[key].initContexts(value);
+                                });
                                 break;
                         }
 
