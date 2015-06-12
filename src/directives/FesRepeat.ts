@@ -50,8 +50,11 @@ module Honeydew
                                 scope[key].expandChildren();
                                 break;
                             case 'contexts':
-                                var columnQuery = scope['colulmnQuery'];
-                                scope[key].getContexts(columnQuery);
+                                scope.$watch('columnQuery', function(value)
+                                {
+                                    console.log("watch triggered");
+                                    scope[key].getContexts(value);
+                                })
                                 break;
                         }
 

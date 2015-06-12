@@ -13,9 +13,10 @@
         var app = angular.module('app', ['honeydew']);
     </script>
 </head>
-<body ng-app="app" ng-model-options="{ updateOn: 'blur' }" ng-controller="ExampleController">
 
-<input type="text" name="colulmnQuery" ng-model="colulmnQuer">
+<body ng-app="app" ng-model-options="{ updateOn: 'blur' }" ng-controller="FesController">
+
+<input type="text" ng-model="columnQuery">
 
 <h3>Single Input, without columns</h3>
 <input fes-bind-attributes="FakeVariable">

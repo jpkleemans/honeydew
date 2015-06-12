@@ -3,7 +3,7 @@ module.exports = function(grunt)
 	grunt.initConfig({
 		typescript : {
 			src : {
-				src : [ 'src/viewmodels/*.ts', 'src/utilities/*.ts', 'src/directives/*.ts', 'src/Main.ts' ],
+				src : [ 'src/viewmodels/*.ts', 'src/utilities/*.ts', 'src/controllers/*.ts', 'src/directives/*.ts', 'src/Main.ts' ],
 				dest : 'build/honeydew.js'
 			}
 		},
