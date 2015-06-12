@@ -35,7 +35,7 @@ module.exports = function(grunt)
 						return filename.toLowerCase();
 					}
 				},
-				src : [ 'test/json/*.json' ],
+				src : [ 'json/*.json' ],
 				dest : 'build/json.js'
 			}
 		}

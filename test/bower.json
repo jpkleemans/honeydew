@@ -1,0 +1,6 @@
+{
+  "name": "Honeydew Testproject",
+  "dependencies": {
+    "angular": "~1.3.15"
+  }
+}

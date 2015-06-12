@@ -1,5 +1,6 @@
 .idea/
 node_modules/
 .externalToolBuilders/
-build/honeydew.js
-build/json.js
+build/
+test/bower_components/
+
