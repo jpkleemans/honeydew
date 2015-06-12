@@ -1,6 +1,5 @@
 /// <reference path="../../type_definitions/angularjs/angular.d.ts" />
 /// <reference path="../../type_definitions/fes/fes.d.ts" />
-/// <reference path="../factories/ViewModelFactory.ts" />
 
 module Honeydew
 {
@@ -41,7 +40,7 @@ module Honeydew
 
                         if (scope[key] === undefined)
                         {
-                            var variable = this.variables.findByKey(key, scope);
+                            var variable = this.variables.findByKey(key);
                             scope[key] = variable;
                         }
                         switch (property)

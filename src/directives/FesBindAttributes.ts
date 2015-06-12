@@ -34,7 +34,7 @@ module Honeydew {
                         var key = attrs['fesBindAttributes'];
 
                         if (scope[key] === undefined) {
-                            var variable = this.variables.findByKey(key, scope);
+                            var variable = this.variables.findByKey(key);
                             scope[key] = variable;
                         }
 
