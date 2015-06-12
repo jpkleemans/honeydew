@@ -39,8 +39,7 @@ module Honeydew
                         var key = attrs['fesBindAttributes'];
 
                         if (scope[key] === undefined) {
-                            var variable = this.variables.findByKey(key);
-                            scope[key] = variable;
+                            scope[key] = this.variables.findByKey(key);
                         }
 
                         this.setWatch(key, scope);
@@ -54,7 +53,7 @@ module Honeydew
         }
 
         /**
-         * Set observers for entity on scope
+         * Set watch for user changes of attributes
          *
          * @param key
          * @param scope
@@ -80,11 +79,15 @@ module Honeydew
         {
             for (var attr in attributes) {
                 if (attributes.hasOwnProperty(attr)) {
-                    var directive = 'ng' + String.ucfirst(attr) + 'Directive';
-                    if (this.$injector.has(directive)) {
-                        element.attr('ng-' + attr, key + '.attributes.' + attr);
+                    if (String.contains(attr, 'ng-')) {
+                        element.attr(attr, key + '.attributes.' + attr);
                     } else {
-                        element.attr('ng-attr-' + attr, '{{' + key + '.attributes.' + attr + '}}');
+                        var directive = 'ng' + String.ucfirst(attr) + 'Directive';
+                        if (this.$injector.has(directive)) {
+                            element.attr('ng-' + attr, key + '.attributes.' + attr);
+                        } else {
+                            element.attr('ng-attr-' + attr, '{{' + key + '.attributes.' + attr + '}}');
+                        }
                     }
                 }
             }
