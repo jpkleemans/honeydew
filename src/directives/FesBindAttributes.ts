@@ -1,8 +1,10 @@
 /// <reference path="../../type_definitions/angularjs/angular.d.ts" />
 /// <reference path="../../type_definitions/fes/fes.d.ts" />
 
-module Honeydew {
-    export class FesBindAttributes {
+module Honeydew
+{
+    export class FesBindAttributes
+    {
         /**
          * Modify the DOM
          */
@@ -24,13 +26,16 @@ module Honeydew {
          * @param $compile
          * @param variables
          */
-        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, $injector:angular.auto.IInjectorService) {
+        constructor($compile:angular.ICompileService, variables:Fes.IVariableRepository, $injector:angular.auto.IInjectorService)
+        {
             this.variables = variables;
             this.$injector = $injector;
 
-            this.compile = () => {
+            this.compile = () =>
+            {
                 return {
-                    post: (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) => {
+                    post: (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
+                    {
                         var key = attrs['fesBindAttributes'];
 
                         if (scope[key] === undefined) {
@@ -38,7 +43,7 @@ module Honeydew {
                             scope[key] = variable;
                         }
 
-                        this.setObservers(key, scope);
+                        this.setWatch(key, scope);
                         this.setAttributes(key, scope[key].attributes, element);
 
                         element.removeAttr('fes-bind-attributes');
@@ -54,9 +59,11 @@ module Honeydew {
          * @param key
          * @param scope
          */
-        private setObservers(key:string, scope:angular.IScope) {
-            scope.$watch(key + '.attributes', function (newAttrs, oldAttrs) {
-                if (newAttrs !== oldAttrs) {
+        private setWatch(key:string, scope:angular.IScope)
+        {
+            scope.$watch(key + '.attributes', function (newAttrs, oldAttrs)
+            {
+                if (angular.equals(oldAttrs, newAttrs) === false) {
                     scope[key].setAttributes(newAttrs);
                 }
             }, true);
@@ -69,7 +76,8 @@ module Honeydew {
          * @param attributes
          * @param element
          */
-        private setAttributes(key:string, attributes:any, element:angular.IAugmentedJQuery):void {
+        private setAttributes(key:string, attributes:any, element:angular.IAugmentedJQuery):void
+        {
             for (var attr in attributes) {
                 if (attributes.hasOwnProperty(attr)) {
                     var directive = 'ng' + String.ucfirst(attr) + 'Directive';

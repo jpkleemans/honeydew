@@ -1,10 +1,9 @@
 /// <reference path="../src/factories/DirectiveFactory.ts" />
 /// <reference path="../src/factories/ControllerFactory.ts" />
-declare
-class VariableRepository
+
+declare class VariableRepository
 {
 }
-
 
 module Honeydew
 {
@@ -17,8 +16,7 @@ module Honeydew
                 .controller('FesController', Honeydew.ControllerFactory.createFesController())
                 .directive('fesBindAttributes', Honeydew.DirectiveFactory.createFesBindAttributes())
                 .directive('fesRepeat', Honeydew.DirectiveFactory.createFesRepeat())
-                .directive('inlineTemplate', Honeydew.DirectiveFactory.createInlineTemplate())
-                ;
+                .directive('inlineTemplate', Honeydew.DirectiveFactory.createInlineTemplate());
         }
     }
 }
