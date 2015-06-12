@@ -8,7 +8,7 @@ module Honeydew {
         public columnQuery:any;
 
         constructor($scope:angular.IScope) {
-            $scope['columnQuery'] = '';
+            $scope['columnQuery'] = '{"timeline": 0, "start": 0, "end": 4}';
         }
     }
 }
