@@ -84,8 +84,8 @@
 			"name": "OperatingProvisions",
 			"formula": 
 			[
-				"FakeVariable+Root/2",
-				"default",
+				"FakeVariable + 1+T.t",
+				"If(T.t==1,false,true)",
 				"default",
 				"default",
 				"default"
@@ -132,14 +132,14 @@
 			"formula": 
 			[
 				[
-					"2",
+					"T.t",
 					"inherit",
 					"aggdefault"
 				],
 
+				"FakeVariable>3",
 				"default",
-				"default",
-				"default",
+				"true",
 				"default"
 			],
 

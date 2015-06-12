@@ -4,6 +4,7 @@
  * Ander gedeelte als er iets over blijft in een soort van adaptertje in TypeScript jullie kant op
  */
 var cacheVars = {};
+var busy = false;
 function updateAll()
 {
     console.info('update all:  ' + Object.keys(cacheVars))
@@ -11,31 +12,36 @@ function updateAll()
     {
         cacheVars[variableName].update();
     }
+    busy = false;
 }
-function templateContext(context, variable, query)
+function templateContext(variable, context)
 {
     var prototype = {
-        key: query.columnidx,
-        title: query.columnidx,
+        key: context.t,
+        title: context.t,
         attributes: {},
         setAttributes: function (attributes)
         {
-            console.info('templateContext change attributes' + JSON.stringify(attributes))
+            console.info('templateContext change attributes: ' + JSON.stringify(attributes))
             if (variable !== undefined)
             {
-                variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx], attributes.value == null ? null : parseFloat(attributes.value));
+                variable.setValue(variable.hIndex[0], 0, context, attributes.value == null ? null : parseFloat(attributes.value));
+                //this.attributes = attributes;
+                updateAll();
             }
-            this.attributes = attributes;
-            updateAll();
         },
         update: function ()
         {
-            this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
-            this.attributes.required = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 2, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
-            this.attributes.entered = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 4, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
-            this.attributes.visible = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 1, context.calcDocument.viewmodes.detl.columns[query.timelineidx][query.columnidx]);
+            this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context);
+            this.attributes.required = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 2, context);
+            this.attributes.entered = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 4, context);
+            this.attributes.disabled = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 3, context);
+
             this.attributes.style = {
-                color: 'green'
+                color: 'green',
+                display: variable.getValue(variable.hIndex[0], 1, context) ? undefined : 'none',
+                //just add some dynamics..
+                width: (variable.account == 1058) ? '400px' : undefined
             }
             console.info('update attributes : ' + JSON.stringify(this.attributes))
         }
@@ -49,13 +55,6 @@ function VariableRepository()
     var context = {
         maxChildVariables: 600
     };
-    var dummqueries = [{
-        timelineidx: 0,
-        columnidx: 1
-    }, {
-        timelineidx: 0,
-        columnidx: 2
-    }];
     // console.info('new VariableRepository constructed, expecting once during web-app lifecycle.')
     // we aqquire are a new Model instance from the json template, once resolved we inject it into the Service wrapper.
     var v05Instance = json['v05instance'];
@@ -70,6 +69,16 @@ function VariableRepository()
     context.calcDocument = new CalculationDocument(importData);
     // have to do something with the parent/child relation here too
     // from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
+
+    var timeline0Columns = context.calcDocument.viewmodes.detl.columns[0];
+    var ctx0 = timeline0Columns[0];
+    var ctx0 = timeline0Columns[1];
+    var defaultQuery = {
+        "timeline": 0,
+        "start": 0,
+        "end": 4
+    };
+
     function templateVariable(varname)
     {
         var variable = context.activeModel[varname];
@@ -85,20 +94,32 @@ function VariableRepository()
                 // console.info('templateVariable change attributes' + JSON.stringify(attributes))
                 if (variable !== undefined)
                 {
-                    variable.setValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0], parseFloat(attributes.value));
+                    variable.setValue(variable.hIndex[0], 0, ctx0, parseFloat(attributes.value));
                 }
                 this.attributes = attributes;
                 updateAll();
             },
             getContexts: function (query)
             {
+                console.info(query);
+                query = query === undefined ? defaultQuery : JSON.parse(query);
+
+                console.info(query);
+                //for now just quick fix (variable.account == 1058 ? 'doc' : 'detl')
+                //doc type should just return two entrees, TITLE,DOCVALUE
+                var cols = context.calcDocument.viewmodes.detl.columns[query.timeline].slice(query.start, (variable.account == 1058 ? 1 : query.end));
                 // console.info('getContexts called with query ' + query)
-                this.contexts = [templateContext(context, variable, dummqueries[0]), templateContext(context, variable, dummqueries[1])];
+                var contexts = [];
+                cols.forEach(function (elem)
+                {
+                    contexts.push(templateContext(variable, elem));
+                });
+                this.contexts = contexts;
             },
             update: function ()
             {
                 console.info('update variable : ' + varname)
-                this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context.calcDocument.viewmodes.detl.columns[0][0]);
+                this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, ctx0);
                 this.attributes.style = {
                     color: 'red'
                 }
@@ -118,7 +139,7 @@ function VariableRepository()
         return function ()
         {
             var variable = context.activeModel[parentChildname];
-            var childs = [];
+            var children = [];
             if (variable !== undefined && v05layout[parentChildname] !== undefined)
             {
                 for (var childname in v05layout[parentChildname])
@@ -130,24 +151,24 @@ function VariableRepository()
                         childVariable.expandChildren = proxyChildren(childVariable, childname);
                         cacheVars[childname] = childVariable;
                     }
-                    childs.push(childVariable);
+                    children.push(childVariable);
                 }
             }
-            // console.info('called children for ' + parentChildname + ' returned ' + childs.length)
-            tVar.children = childs;
+            // console.info('called children for ' + parentChildname + ' returned ' + children.length)
+            tVar.children = children;
         };
     }
 
     // from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
-    this.findByKey = function (key, scope)
+    this.findByKey = function (variableName, scope)
     {
-        var tVar = cacheVars[key];
-        if (tVar === undefined)
+        var foundVariable = cacheVars[variableName];
+        if (foundVariable === undefined)
         {
-            tVar = templateVariable(key);
-            tVar.expandChildren = proxyChildren(tVar, key);
-            cacheVars[key] = tVar;
+            foundVariable = templateVariable(variableName);
+            foundVariable.expandChildren = proxyChildren(foundVariable, variableName);
+            cacheVars[variableName] = foundVariable;
         }
-        return tVar;
+        return foundVariable;
     };
 }

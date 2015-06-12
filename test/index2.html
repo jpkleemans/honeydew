@@ -13,7 +13,9 @@
         var app = angular.module('app', ['honeydew']);
     </script>
 </head>
-<body ng-app="app" ng-model-options="{ updateOn: 'blur' }">
+<body ng-app="app" ng-model-options="{ updateOn: 'blur' }" ng-controller="ExampleController">
+
+<input type="text" name="colulmnQuery" ng-model="colulmnQuer">
 
 <h3>Single Input, without columns</h3>
 <input fes-bind-attributes="FakeVariable">
@@ -33,7 +35,7 @@
     <li fes-repeat="child in Q_ROOT.children">
         <span style="display:inline-block;width:300px;">{{child.title}}:</span>
 
-        Contexts: <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
+        <span fes-repeat="context in child.contexts">-<input fes-bind-attributes="context">*</span>
         &nbsp;
     </li>
 </ul>
@@ -53,7 +55,7 @@
 <ul fes-bind-attributes="Q_ROOT">
     <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumnslazy">
         <span style="display:inline-block;width:300px;" ng-init="showChildren = false">{{child.title}}:</span>
-        <input fes-bind-attributes="child">
+        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
         <input type="checkbox" ng-model="showChildren" ng-model-options="{ updateOn: 'default' }">
         <ul ng-if="showChildren">
             <li fes-repeat="child in child.children" ng-include="'withoutcolumnslazy'"></li>
@@ -66,9 +68,9 @@
     <li fes-repeat="child in Q_ROOT.children" inline-template="withcolumns">
         <span style="display:inline-block;width:300px;">{{child.title}}:</span>
 
-        Contexts: <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
+        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
         &nbsp;
-        Aantal children: {{child.children.length}}
+        ({{child.children.length}})
         <ul>
             <li fes-repeat="child in child.children" ng-include="'withcolumns'">
 
