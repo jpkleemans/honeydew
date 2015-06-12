@@ -39,18 +39,22 @@ module Honeydew
                         var key = expression.match(new RegExp("in (\\S[^.\\s]*)(?:.*)$"))[1];
                         var property = expression.match(new RegExp("in (?:\\S[^.]*).(\\S*)(?:.*)$"))[1];
 
-                        if (scope[key] === undefined) {
+                        if (scope[key] === undefined)
+                        {
                             var variable = this.variables.findByKey(key, scope);
                             scope[key] = variable;
                         }
-
-                        switch (property) {
+                        switch (property)
+                        {
                             case 'children':
                                 scope[key].expandChildren();
                                 break;
                             case 'contexts':
-                                var query = attrs['fesContextQuery'];
-                                scope[key].getContexts(query);
+                                scope.$watch('columnQuery', function(value)
+                                {
+                                    console.log("watch triggered");
+                                    scope[key].getContexts(value);
+                                })
                                 break;
                         }
 
