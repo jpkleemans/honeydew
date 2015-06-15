@@ -2,56 +2,54 @@ declare module Fes {
     interface IAttributes {
         /**
          * HTML attributes
-         */
-        attributes: any;
-        /**
-         * Set HTML attribute(s)
          *
-         * @param attributes
+         * @returns {any}
          */
-        setAttributes(attributes: any): void;
+        attributes(): any;
     }
 }
 declare module Fes {
     interface IContext extends IAttributes {
         /**
          * Reference key
+         *
+         * @returns {string}
          */
-        key: string;
+        key(): string;
         /**
          * Title
+         *
+         * @returns {string}
          */
-        title: string;
+        title(): string;
     }
 }
 declare module Fes {
     interface IVariable extends IAttributes {
         /**
          * Reference key
+         *
+         * @returns {string}
          */
-        key: string;
+        key(): string;
         /**
          * Title
+         *
+         * @returns {string}
          */
-        title: string;
+        title(): string;
         /**
          * Children
+         *
+         * @returns {Array<IVariable>}
          */
-        children: Array<IVariable>;
+        children(): Array<IVariable>;
         /**
          * All possible contexts
-         */
-        contexts: Array<IContext>;
-        /**
-         * Initialize children property
-         */
-        initChildren(): void;
-        /**
-         * Initialize contexts property
          *
-         * @param query
+         * @returns {Array<IContext>}
          */
-        initContexts(query: any): void;
+        contexts(): Array<IContext>;
     }
 }
 declare module Fes {

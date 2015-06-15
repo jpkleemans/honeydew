@@ -63,6 +63,7 @@ module Honeydew
             scope.$watch(key + '.attributes', function (newAttrs, oldAttrs)
             {
                 if (angular.equals(oldAttrs, newAttrs) === false) {
+                    //console.log('setAttributes called for: ' + scope[key].key);
                     scope[key].setAttributes(newAttrs);
                 }
             }, true);
@@ -80,7 +81,7 @@ module Honeydew
             for (var attr in attributes) {
                 if (attributes.hasOwnProperty(attr)) {
                     if (String.contains(attr, 'ng-')) {
-                        element.attr(attr, key + '.attributes.' + attr);
+                        element.attr(attr, attributes[attr]);
                     } else {
                         var directive = 'ng' + String.ucfirst(attr) + 'Directive';
                         if (this.$injector.has(directive)) {
