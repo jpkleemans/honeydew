@@ -121,9 +121,30 @@ function VariableRepository() {
             },
             _children: [],
             children: function (newValue) {
-                if (typeof newValue === 'undefined') {
-                    return this._children;
+                //if (typeof newValue === 'undefined') {
+                //    return this._children;
+                //}
+
+                //
+                var variable = context.activeModel[this._key];
+                var children = [];
+                if (variable !== undefined && v05layout[this._key] !== undefined) {
+                    for (var childname in v05layout[this._key]) {
+                        var childVariable = cacheVars[childname];
+                        if (childVariable == undefined) {
+                            childVariable = templateVariable(childname);
+                            //childVariable.children = this.children(childVariable, childname);
+                            cacheVars[childname] = childVariable;
+                        }
+                        children.push(childVariable);
+                    }
                 }
+                // console.info('called children for ' + parentChildname + ' returned ' + children.length)
+                this._children = children;
+                //
+
+                return this._children;
+
             },
             _contexts: [],
             contexts: function (query) {
@@ -160,32 +181,12 @@ function VariableRepository() {
         return prototype;
     }
 
-    function proxyChildren(tVar, parentChildname) {
-        return function () {
-            var variable = context.activeModel[parentChildname];
-            var children = [];
-            if (variable !== undefined && v05layout[parentChildname] !== undefined) {
-                for (var childname in v05layout[parentChildname]) {
-                    var childVariable = cacheVars[childname];
-                    if (childVariable == undefined) {
-                        childVariable = templateVariable(childname);
-                        childVariable.initChildren = proxyChildren(childVariable, childname);
-                        cacheVars[childname] = childVariable;
-                    }
-                    children.push(childVariable);
-                }
-            }
-            // console.info('called children for ' + parentChildname + ' returned ' + children.length)
-            tVar.children = children;
-        };
-    }
-
 // from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
     this.findByKey = function (variableName) {
         var foundVariable = cacheVars[variableName];
         if (foundVariable === undefined) {
             foundVariable = templateVariable(variableName);
-            foundVariable.initChildren = proxyChildren(foundVariable, variableName);
+            //foundVariable.children = proxyChildren(foundVariable, variableName);
             cacheVars[variableName] = foundVariable;
         }
         return foundVariable;
