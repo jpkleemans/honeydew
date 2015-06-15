@@ -30,9 +30,10 @@ module Honeydew
                 return {
                     post: (scope:angular.IScope, element:angular.IAugmentedJQuery, attrs:angular.IAttributes) =>
                     {
-                        var attributes = attrs['bindAttributes'];
+                        var key = attrs['bindAttributes'];
+                        var attributes = scope.$eval(key);
 
-                        this.setAttributes(attributes, element);
+                        this.setAttributes(key, attributes, element);
 
                         element.removeAttr('bind-attributes');
                         $compile(element)(scope);
@@ -47,7 +48,7 @@ module Honeydew
          * @param attributes
          * @param element
          */
-        private setAttributes(attributes:any, element:angular.IAugmentedJQuery):void
+        private setAttributes(key:string, attributes:any, element:angular.IAugmentedJQuery):void
         {
             for (var attr in attributes) {
                 if (attributes.hasOwnProperty(attr)) {
@@ -56,16 +57,16 @@ module Honeydew
                     } else {
                         var directive = 'ng' + String.ucfirst(attr) + 'Directive';
                         if (this.$injector.has(directive)) {
-                            element.attr('ng-' + attr, attr);
+                            element.attr('ng-' + attr, key + '.' + attr);
                         } else {
-                            element.attr('ng-attr-' + attr, '{{' + attr + '}}');
+                            element.attr('ng-attr-' + attr, '{{' + key + '.' + attr + '}}');
                         }
                     }
                 }
             }
 
             // Additional attribute to sync the value with ng-model
-            element.attr('ng-model', 'value');
+            element.attr('ng-model', key + '.value');
         }
     }
 }

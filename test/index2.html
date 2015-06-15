@@ -23,13 +23,12 @@
     </style>
 </head>
 
-<body ng-app="app" ng-model-options="{ updateOn: 'blur' }" ng-controller="FesController">
+<body ng-app="app" ng-model-options="{ updateOn: 'blur', getterSetter: true }" ng-controller="FesController">
 
-<input fes-init="FakeVariable" bind-attributes="FakeVariable.attributes()">
-
-<pre>
-{{FakeVariable|json}}
-</pre>
+<div fes-init="FakeVariable">
+    <input bind-attributes="FakeVariable.attributes()">
+    <input bind-attributes="FakeVariable.attributes()">
+</div>
 
 </body>
 </html>
