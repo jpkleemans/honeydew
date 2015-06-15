@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="../build/json.js"></script>
+    <script src="../lib/e_full.js"></script>
+    <script src="../src/EngineAdapter.js"></script>
+    <script src="../build/honeydew.js"></script>
+    <script>
+        var app = angular.module('app', ['honeydew']);
+    </script>
+
+    <style>
+        [entered="true"] {
+            background-color: #fffec9;
+        }
+
+        [required="required"] {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body ng-app="app" ng-model-options="{ updateOn: 'blur' }" ng-controller="FesController">
+
+<input fes-init="FakeVariable" bind-attributes="FakeVariable.attributes()">
+
+<pre>
+{{FakeVariable|json}}
+</pre>
+
+</body>
+</html>

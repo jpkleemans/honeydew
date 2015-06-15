@@ -4,26 +4,26 @@ module Honeydew
 {
     export class DirectiveFactory
     {
-        public static createFesBindAttributes()
+        public static createBindAttributes()
         {
-            var directive = ($compile:angular.ICompileService, variables:Fes.IVariableRepository, $injector:angular.auto.IInjectorService) =>
+            var directive = ($compile:angular.ICompileService, $injector:angular.auto.IInjectorService) =>
             {
-                return new FesBindAttributes($compile, variables, $injector);
+                return new BindAttributes($compile, $injector);
             };
 
-            directive['$inject'] = ['$compile', 'IVariableRepository', '$injector'];
+            directive['$inject'] = ['$compile', '$injector'];
 
             return directive;
         }
 
-        public static createFesRepeat()
+        public static createFesInit()
         {
-            var directive = ($compile:angular.ICompileService, variables:Fes.IVariableRepository) =>
+            var directive = (variables:Fes.IVariableRepository) =>
             {
-                return new FesRepeat($compile, variables);
+                return new FesInit(variables);
             };
 
-            directive['$inject'] = ['$compile', 'IVariableRepository'];
+            directive['$inject'] = ['IVariableRepository'];
 
             return directive;
         }

@@ -14,8 +14,8 @@ module Honeydew
             return angular.module('honeydew', [])
                 .constant('IVariableRepository', new VariableRepository())
                 .controller('FesController', Honeydew.ControllerFactory.createFesController())
-                .directive('fesBindAttributes', Honeydew.DirectiveFactory.createFesBindAttributes())
-                .directive('fesRepeat', Honeydew.DirectiveFactory.createFesRepeat())
+                .directive('fesInit', Honeydew.DirectiveFactory.createFesInit())
+                .directive('bindAttributes', Honeydew.DirectiveFactory.createBindAttributes())
                 .directive('inlineTemplate', Honeydew.DirectiveFactory.createInlineTemplate());
         }
     }

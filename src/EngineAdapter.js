@@ -7,7 +7,7 @@ var cacheVars = {};
 var busy = false;
 function updateAll()
 {
-    console.info('update all:  ' + Object.keys(cacheVars));
+    //console.info('update all:  ' + Object.keys(cacheVars));
     for (var variableName in cacheVars)
     {
         cacheVars[variableName].update();
@@ -22,7 +22,7 @@ function templateContext(variable, context)
         attributes: {},
         setAttributes: function (attributes)
         {
-            console.info('templateContext change attributes: ' + JSON.stringify(attributes));
+            //console.info('templateContext change attributes: ' + JSON.stringify(attributes));
             if (variable !== undefined)
             {
                 variable.setValue(variable.hIndex[0], 0, context, attributes.value == null ? null : parseFloat(attributes.value));
@@ -43,7 +43,7 @@ function templateContext(variable, context)
                 //just add some dynamics..
                 width: (variable.account == 1058) ? '400px' : undefined
             };
-            console.info('update attributes : ' + JSON.stringify(this.attributes))
+            //console.info('update attributes : ' + JSON.stringify(this.attributes))
         }
     };
     prototype.update();
@@ -95,16 +95,16 @@ function VariableRepository()
                 if (variable !== undefined)
                 {
                     variable.setValue(variable.hIndex[0], 0, ctx0, parseFloat(attributes.value));
+                    //this.attributes = attributes;
+                    updateAll();
                 }
-                this.attributes = attributes;
-                updateAll();
             },
             initContexts: function (query)
             {
-                console.info(query);
+                //console.info(query);
                 query = query === undefined ? defaultQuery : JSON.parse(query);
 
-                console.info(query);
+                //console.info(query);
                 //for now just quick fix (variable.account == 1058 ? 'doc' : 'detl')
                 //doc type should just return two entrees, TITLE,DOCVALUE
                 var cols = context.calcDocument.viewmodes.detl.columns[query.timeline].slice(query.start, (variable.account == 1058 ? 1 : query.end));
@@ -118,7 +118,7 @@ function VariableRepository()
             },
             update: function ()
             {
-                console.info('update variable : ' + varname);
+                //console.info('update variable : ' + varname);
                 this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, ctx0);
                 this.attributes.style = {
                     color: 'red'
