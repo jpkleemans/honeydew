@@ -19,15 +19,20 @@ function templateContext(variable, context) {
             if (typeof newValue === 'undefined') {
                 return this._key;
             }
+
+            this._key = newValue;
         },
         _title: context.t,
         title: function (newValue) {
             if (typeof newValue === 'undefined') {
                 return this._title;
             }
+
+            this._title = newValue;
         },
         _attributes: {},
         attributes: function (newValue) {
+            console.count();
             if (typeof newValue === 'undefined') {
                 return this._attributes;
             }
@@ -97,12 +102,16 @@ function VariableRepository() {
                 if (typeof newValue === 'undefined') {
                     return this._key;
                 }
+
+                this._key = newValue;
             },
             _title: varname,
             title: function (newValue) {
                 if (typeof newValue === 'undefined') {
                     return this._title;
                 }
+
+                this._title = newValue;
             },
             _attributes: {},
             attributes: function (newValue) {
@@ -121,30 +130,24 @@ function VariableRepository() {
             },
             _children: [],
             children: function (newValue) {
-                //if (typeof newValue === 'undefined') {
-                //    return this._children;
-                //}
-
-                //
-                var variable = context.activeModel[this._key];
-                var children = [];
-                if (variable !== undefined && v05layout[this._key] !== undefined) {
-                    for (var childname in v05layout[this._key]) {
-                        var childVariable = cacheVars[childname];
-                        if (childVariable == undefined) {
-                            childVariable = templateVariable(childname);
-                            //childVariable.children = this.children(childVariable, childname);
-                            cacheVars[childname] = childVariable;
+                if (this._children.length <= 0) {
+                    var variable = context.activeModel[this._key];
+                    var children = [];
+                    if (variable !== undefined && v05layout[this._key] !== undefined) {
+                        for (var childname in v05layout[this._key]) {
+                            var childVariable = cacheVars[childname];
+                            if (childVariable == undefined) {
+                                childVariable = templateVariable(childname);
+                                cacheVars[childname] = childVariable;
+                            }
+                            children.push(childVariable);
                         }
-                        children.push(childVariable);
                     }
+
+                    this._children = children;
                 }
-                // console.info('called children for ' + parentChildname + ' returned ' + children.length)
-                this._children = children;
-                //
 
                 return this._children;
-
             },
             _contexts: [],
             contexts: function (query) {
@@ -161,6 +164,7 @@ function VariableRepository() {
                     cols.forEach(function (elem) {
                         contexts.push(templateContext(variable, elem));
                     });
+
                     this._contexts = contexts;
                 }
 
@@ -186,7 +190,6 @@ function VariableRepository() {
         var foundVariable = cacheVars[variableName];
         if (foundVariable === undefined) {
             foundVariable = templateVariable(variableName);
-            //foundVariable.children = proxyChildren(foundVariable, variableName);
             cacheVars[variableName] = foundVariable;
         }
         return foundVariable;
