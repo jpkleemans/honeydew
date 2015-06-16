@@ -2,94 +2,217 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Modelviewer | Finan</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/app.css" type="text/css">
+    <link rel="icon" href="favicon.ico">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="../build/json.js"></script>
     <script src="../lib/e_full.js"></script>
     <script src="../src/EngineAdapter.js"></script>
     <script src="../build/honeydew.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         var app = angular.module('app', ['honeydew']);
+
+        // function singles(){
+        //     var singles = $('.single-input');
+        //     var splitSingles = (singles.width()/singles.length)*Math.pow(.95 , (singles.length/2));
+        //     singles.width(splitSingles);
+        //     singles.css("display","inline");
+        // };
+
+        // function singlesWith(){
+        //     var singlesW = $('.single-inputwith');
+        //     var splitSinglesW = singlesW.width()*.94;
+        //     singlesW.width(splitSinglesW);
+        //     singlesW.css("display","inline");
+        // };
+
+        // function singles4(){
+        //     var singlesL = $('.single-input4');
+        //     var splitSinglesL = singlesL.width()/4*.91;
+        //     singlesL.width(splitSinglesL);
+        //     singlesL.css("display","inline");
+        // };
+        // function singles5(){
+        //     var singlesL = $('.single-input5');
+        //     var splitSinglesL = singlesL.width()/6*.91;
+        //     singlesL.width(splitSinglesL);
+        //     singlesL.css("display","inline");
+        // };
     </script>
-
-    <style>
-        [entered="true"] {
-            background-color: #fffec9;
-        }
-
-        [required="required"] {
-            border: 1px solid red;
-        }
-    </style>
 </head>
 
 <body ng-app="app" ng-model-options="{ updateOn: 'blur' }" ng-controller="FesController">
+    <div class="fullwidth">
+        <div class="container">
+            <div class="header">
+                <div class="col-sm-4"> 
+                </div>
+                <div class="col-sm-5"> 
+                    <h1>Finan Modelviewer</h1>
+                </div>
+                <div class="col-sm-3 logo"> 
+                </div>
+            </div>
+        </div>
+    </div>
 
-<input type="text" size="50" ng-model="columnQuery">
+    <div class="container form-part">
+    <h3>Column Query</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="form-row">
+                    <span class="col-sm-12">
+                        <input class="form-control" type="text" ng-model="columnQuery">
+                    </span>
+                </label>
+            </div>
+        </form>
+    </div>
 
-<h3>Single Input, without columns</h3>
-<input fes-bind-attributes="FakeVariable">
+    <div class="container form-part">
+    <h3>Single Input, without columns</h3>
+        <form class="form-horizontal">
+            <div class="form-group form-inline">
+                <label class="form-row">
+                    <span class="col-sm-12">
+                        <input class="form-control" fes-bind-attributes="FakeVariable">
+                        <input class="form-control" ng-model="FakeVariable.attributes.style.color">
+                    </span>
+                </label>
+            </div>
+        </form>
+    </div>
 
-<input ng-model="FakeVariable.attributes.style.color">
+    <div class="container form-part">
+        <h3>Single Input, with columns</h3>
+        <form class="form-horizontal">
+            <div class="form-group form-inline">
+                <div fes-repeat="child in Q_ROOT_VARIABLE_ONE.contexts">
+                    <label class="form-row">
+                        <span class="col-md-2 ">
+                            <span class="vertical-align">context {{$index}}:</span>
+                        </span>
+                        <span>
+                            <input class="form-control" fes-bind-attributes="child">
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
 
-<hr>
-<h3>Single Input, with columns</h3>
+    <div class="container form-part">
+        <h3>Simple list, with columns</h3>
+        <form class="form-horizontal">
+            <div class="form-group form-inline">
+                <div fes-bind-attributes="Q_ROOT">
+                    <div fes-repeat="child in Q_ROOT.children">
+                    <label class="form-row">
+                        <span class="col-md-2">
+                            <span class="vertical-align">{{child.title}}:</span>
+                        </span>
+                        <span>
+                            <span fes-repeat="context in child.contexts"/>
+                            <input class="form-control" fes-bind-attributes="context">
+                        </span>
+                    </label>
 
-<div fes-repeat="child in Q_ROOT_VARIABLE_ONE.contexts">
-    context {{$index}}:&nbsp;
-    <input fes-bind-attributes="child">
-</div>
-<hr>
-<h3>Simple list, with columns</h3>
-<ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children">
-        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
-        <span fes-repeat="context in child.contexts">-<input fes-bind-attributes="context">*</span>
-        &nbsp;
-    </li>
-</ul>
-<hr>
-<h3>Tree, without columns</h3>
-<ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumns">
-        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
-        <input fes-bind-attributes="child">
-        <button ng-click="addChild(child)">Add child</button>
-        <ul>
-            <li fes-repeat="child in child.children" ng-include="'withoutcolumns'"></li>
-        </ul>
-    </li>
-</ul>
-<hr>
-<h3>Tree, without columns, with lazy loading</h3>
-<ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumnslazy">
-        <input type="checkbox" ng-model="showChildren" ng-show="child.children.length > 0"
-               ng-model-options="{ updateOn: 'default' }">
-        <span style="display:inline-block;width:300px;" ng-init="showChildren = false">{{child.title}}:</span>
-        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
-        <ul ng-if="showChildren">
-            <li fes-repeat="child in child.children" ng-include="'withoutcolumnslazy'"></li>
-        </ul>
-    </li>
-</ul>
-<hr>
-<h3>Tree, with columns</h3>
-<ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children" inline-template="withcolumns">
-        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
+    <div class="container form-part">
+        <h3>Tree, without columns</h3>
+        <form class="form-horizontal">
+            <div class="form-group form-inline">
+                <div fes-bind-attributes="Q_ROOT">
+                    <div fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumns">
+                        <label class="form-row">
+                            <span class="col-md-2">
+                                <span class="vertical-align">{{child.title}}:</span>
+                            </span>
+                            <span>
+                                <input class="form-control" fes-bind-attributes="child"/>
+                                <button class="btn btn-default" ng-click="addChild(child)">
+                                    Add child
+                                </button>
+                            </span>
+                            <div>
+                                <div class="childOf" fes-repeat="child in child.children" ng-include="'withoutcolumns'">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
-        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
-        &nbsp;
-        ({{child.children.length}})
-        <ul>
-            <li fes-repeat="child in child.children" ng-include="'withcolumns'">
+   <div class="container form-part">
+        <h3>Tree, without columns, with lazy loading</h3>
+        <form class="form-horizontal">
+            <div class="form-group form-inline">
+                  <div fes-bind-attributes="Q_ROOT">
+                    <div fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumnslazy">
+                        <label class="form-row">
+                            <span class="col-md-2">
+                                <span g-init="showChildren = false">
+                                    <span class="vertical-align">
+                                        <input class="form-control" type="checkbox" ng-model="showChildren" ng-show="child.children.length > 0"
+                                           ng-model-options="{ updateOn: 'default' }">
+                                        {{child.title}}:
+                                   </span>
+                                </span>
+                            </span>
+                            <span fes-repeat="context in child.contexts">
+                                <input class="form-control" fes-bind-attributes="context">
+                            </span>
+                            <div ng-if="showChildren">
+                                <div class="childOf" fes-repeat="child in child.children" ng-include="'withoutcolumnslazy'">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>                  
+            </div>
+        </form>
+    </div>
 
-            </li>
-        </ul>
-    </li>
-</ul>
+   <div class="container form-part">
+        <h3>Tree, with columns</h3>
+        <form class="form-horizontal">
+            <div class="form-group form-inline">
+                <div fes-bind-attributes="Q_ROOT">
+                    <div fes-repeat="child in Q_ROOT.children" inline-template="withcolumns">
+                        <label class="form-row">
+                            <span class="col-md-2">
+                                <span class="vertical-align">{{child.title}}:</span>
+                            </span>
 
+                            <span fes-repeat="context in child.contexts">
+                                <input class="form-control" fes-bind-attributes="context"/>
+                                    ({{child.children.length}})
+                            </span>
+
+                            <div>
+                                 <div class="childOf" fes-repeat="child in child.children" ng-include="'withcolumns'">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>   
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <div class="container">
+        </div>
+    </div>
 </body>
 </html>

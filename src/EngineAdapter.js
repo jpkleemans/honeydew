@@ -38,10 +38,7 @@ function templateContext(variable, context)
             this.attributes.disabled = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 3, context);
 
             this.attributes.style = {
-                color: 'green',
                 display: variable.getValue(variable.hIndex[0], 1, context) ? undefined : 'none',
-                //just add some dynamics..
-                width: (variable.account == 1058) ? '400px' : undefined
             };
             console.info('update attributes : ' + JSON.stringify(this.attributes))
         }
