@@ -8,8 +8,8 @@ module Honeydew.Spec
 
         beforeEach(() =>
         {
-            variable = new Variable("FakeVariable", null);
-            spyOn(variable, "changed")
+            variable = new Variable("FakeVariable");
+            spyOn(variable, "changed");
         });
 
         it("should have a key", () =>
