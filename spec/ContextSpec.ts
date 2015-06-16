@@ -4,7 +4,7 @@ module Honeydew.Spec
 {
     describe("Context", () =>
     {
-        var context:Context;
+        var context:Fes.IContext;
 
         beforeEach(() =>
         {
