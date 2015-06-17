@@ -34,14 +34,14 @@ module Honeydew.Spec
             var v05layout = json['v05layout'];
             var context = {
                 maxChildVariables: 600,
-                //modelBuilder: new FormulaBootstrap(v05Instance, userFormulas),
-                //activeModel: new CalculationModel(v05Instance),
-                //calcDocument: new CalculationDocument(importData),
+                modelBuilder: new FormulaBootstrap(v05Instance, userFormulas),
+                activeModel: new CalculationModel(v05Instance),
+                calcDocument: new CalculationDocument(importData),
                 layout: v05layout
             };
-            spyOn(context, "modelBuilder");
-            spyOn(context, "activeModel");
-            spyOn(context, "calcDocument");
+            //spyOn(context, "modelBuilder");
+            //spyOn(context, "activeModel");
+            //spyOn(context, "calcDocument");
 
             variable = new Variable("Q_ROOT", context);
             spyOn(variable, "changed");

@@ -2,14 +2,18 @@ module Honeydew
 {
     export class Context implements Fes.IContext
     {
+        private key: string;
+        private title: string;
+        private attributes: any;
+
         key():string
         {
-            return undefined;
+            return this.key;
         }
 
         title():string
         {
-            return undefined;
+            return this.title;
         }
 
         attributes():any

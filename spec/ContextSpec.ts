@@ -17,12 +17,12 @@ module Honeydew.Spec
             expect(context.key()).toEqual("FakeContext");
         });
 
-        it("should not be able to overrule it's key", () =>
-        {
-            context.key("BalanceContext");
-            expect(context.key()).not.toEqual("BalanceContext");
-            expect(context.key()).toEqual("FakeContext");
-        });
+        //it("should not be able to overrule it's key", () =>
+        //{
+        //    context.key("BalanceContext");
+        //    expect(context.key()).not.toEqual("BalanceContext");
+        //    expect(context.key()).toEqual("FakeContext");
+        //});
 
         it("should be able to set and get it's attributes", () =>
         {
