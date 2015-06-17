@@ -1,8 +1,3 @@
-/**
- * Dit is ons discussie stuk,<br>
- * Een gedeelte gaat de javascript engine in.<br>
- * Ander gedeelte als er iets over blijft in een soort van adaptertje in TypeScript jullie kant op
- */
 var cacheVars = {};
 var busy = false;
 function updateAll() {
