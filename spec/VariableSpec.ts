@@ -32,7 +32,7 @@ module Honeydew.Spec
             var userFormulas = json['defaultmath'];
             var importData = json['v05baseimportinstance'];
             var v05layout = json['v05layout'];
-            var context = {
+            var engine = {
                 maxChildVariables: 600,
                 modelBuilder: new FormulaBootstrap(v05Instance, userFormulas),
                 activeModel: new CalculationModel(v05Instance),
@@ -43,7 +43,7 @@ module Honeydew.Spec
             //spyOn(context, "activeModel");
             //spyOn(context, "calcDocument");
 
-            variable = new Variable("Q_ROOT", context);
+            variable = new Variable("Q_ROOT", engine);
             spyOn(variable, "changed");
         });
 

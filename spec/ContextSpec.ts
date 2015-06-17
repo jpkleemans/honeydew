@@ -38,6 +38,7 @@ module Honeydew.Spec
             expect(attributes.type).toEqual("number");
         });
 
+        // Nog overnadenken!
         it("should call the update callback when it's attributes are changed", () =>
         {
             context.attributes({
