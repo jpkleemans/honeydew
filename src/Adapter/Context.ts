@@ -1,55 +1,57 @@
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
+
 module Honeydew
 {
     export class Context implements Fes.IContext
     {
-        private key:string;
-        private title:string;
-        private attributes:any;
-        private instancevariable: any;
-        private engine: any;
-        private variables: VariableRepository;
+        private _key:string;
+        private _title:string;
+        private _attributes:any;
+        private _instancevariable: any;
+        private _engine: any;
+        private _variables: VariableRepository;
 
         constructor(instancevariable: any, engine: any, variables: VariableRepository)
         {
-            this.instancevariable = instancevariable;
-            this.engine = engine;
-            this.variables = variables;
+            this._instancevariable = instancevariable;
+            this._engine = engine;
+            this._variables = variables;
         }
 
         key():string
         {
-            return this.key;
+            return this._key;
         }
 
         title():string
         {
-            return this.title;
+            return this._title;
         }
 
         attributes(attributes:any = null):any
         {
             if (attributes === null) {
-                return this.attributes;
+                return this._attributes;
             }
-            this.instancevariable.setValue(this.instancevariable.hIndex[0], 0, this.engine, attributes.value == null ? null : parseFloat(attributes.value));
+            this._instancevariable.setValue(this._instancevariable.hIndex[0], 0, this._engine, attributes.value == null ? null : parseFloat(attributes.value));
 
-            this.variables.updateAll();
+            this._variables.updateAll();
 
-            this.attributes = attributes;
+            this._attributes = attributes;
         }
 
         update()
         {
-            this.attributes.value = this.instancevariable == undefined ? 0 : this.instancevariable.getValue(this.instancevariable.hIndex[0], 0, this.engine);
-            this.attributes.required = this.instancevariable == undefined ? 0 : this.instancevariable.getValue(this.instancevariable.hIndex[0], 2, this.engine);
-            this.attributes.entered = this.instancevariable == undefined ? 0 : this.instancevariable.getValue(this.instancevariable.hIndex[0], 4, this.engine);
-            this.attributes.disabled = this.instancevariable == undefined ? 0 : this.instancevariable.getValue(this.instancevariable.hIndex[0], 3, this.engine);
+            this._attributes.value = this._instancevariable == undefined ? 0 : this._instancevariable.getValue(this._instancevariable.hIndex[0], 0, this._engine);
+            this._attributes.required = this._instancevariable == undefined ? 0 : this._instancevariable.getValue(this._instancevariable.hIndex[0], 2, this._engine);
+            this._attributes.entered = this._instancevariable == undefined ? 0 : this._instancevariable.getValue(this._instancevariable.hIndex[0], 4, this._engine);
+            this._attributes.disabled = this._instancevariable == undefined ? 0 : this._instancevariable.getValue(this._instancevariable.hIndex[0], 3, this._engine);
 
-            this.attributes.style = {
+            this._attributes.style = {
                 color: 'green',
-                display: this.instancevariable.getValue(this.instancevariable.hIndex[0], 1, this.engine) ? undefined : 'none',
+                display: this._instancevariable.getValue(this._instancevariable.hIndex[0], 1, this._engine) ? undefined : 'none',
                 //just add some dynamics..
-                width: (this.instancevariable.account == 1058) ? '400px' : undefined
+                width: (this._instancevariable.account == 1058) ? '400px' : undefined
             }
         }
     }

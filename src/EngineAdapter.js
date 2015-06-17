@@ -80,7 +80,6 @@ function VariableRepository() {
     // from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
 
     var timeline0Columns = context.calcDocument.viewmodes.detl.columns[0];
-    var ctx0 = timeline0Columns[0];
     var ctx0 = timeline0Columns[1];
     var defaultQuery = {
         "timeline": 0,

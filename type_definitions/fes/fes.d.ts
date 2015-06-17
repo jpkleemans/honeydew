@@ -6,7 +6,7 @@ declare module Fes {
          * @param attributes
          * @returns {any}
          */
-        attributes(attributes: any): any;
+        attributes(attributes?: any): any;
     }
 }
 declare module Fes {
@@ -23,6 +23,8 @@ declare module Fes {
          * @returns {string}
          */
         title(): string;
+
+        update();
     }
 }
 declare module Fes {
@@ -52,6 +54,8 @@ declare module Fes {
          * @returns {Array<IContext>}
          */
         contexts(query: any): Array<IContext>;
+
+        update();
     }
 }
 declare module Fes {
@@ -63,5 +67,7 @@ declare module Fes {
          * @returns {IVariable}
          */
         findByKey(key: string): IVariable;
+
+        updateAll();
     }
 }

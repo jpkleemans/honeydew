@@ -2,70 +2,70 @@ module Honeydew
 {
     export class Variable implements Fes.IVariable
     {
-        private key:string;
-        private title:string;
-        private attributes:any;
-        private engine:any;
-        private instancevariable:any;
-        private ctx0:any;
-        private children:Array<Fes.IVariable>;
-        private contexts:Array<Fes.IContext>;
-        private variables:VariableRepository;
+        private _key:string;
+        private _title:string;
+        private _attributes:any;
+        private _engine:any;
+        private _instancevariable:any;
+        private _ctx0:any;
+        private _children:Array<Fes.IVariable>;
+        private _contexts:Array<Fes.IContext>;
+        private _variables:VariableRepository;
 
         constructor(key:string, engine:any, variables:VariableRepository)
         {
-            this.key = key;
-            this.title = key;
-            this.engine = engine;
-            this.variables = variables;
-            this.children = [];
-            this.contexts = [];
-            this.instancevariable = engine.activeModel[this.key];
+            this._key = key;
+            this._title = key;
+            this._engine = engine;
+            this._variables = variables;
+            this._children = [];
+            this._contexts = [];
+            this._instancevariable = engine.activeModel[this._key];
 
             var timeline0Columns = engine.calcDocument.viewmodes.detl.columns[0];
-            this.ctx0 = timeline0Columns[1];
+            this._ctx0 = timeline0Columns[1];
 
             this.update();
         }
 
         key():string
         {
-            return this.key;
+            return this._key;
         }
 
         title():string
         {
-            return this.title;
+            return this._title;
         }
 
-        attributes(attributes:any = null):any
+        attributes(attributes?:any):any
         {
-            if (attributes === null) {
-                return this.attributes;
+            if (typeof attributes === "undefined") {
+                return this._attributes;
             }
-            this.instancevariable.setValue(this.instancevariable.hIndex[0], 0, this.ctx0, parseFloat(attributes.value));
+            this._instancevariable.setValue(this._instancevariable.hIndex[0], 0, this._ctx0, parseFloat(attributes.value));
 
-            this.variables.updateAll();
+            this._variables.updateAll();
 
-            this.attributes = attributes;
+            this._attributes = attributes;
         }
 
         children():Array<Fes.IVariable>
         {
-            if (this.children().length === 0) {
-                var layout = this.engine.layout[this.key];
+            if (this._children.length === 0) {
+                var layout = this._engine.layout[this._key];
                 var children = [];
-                if (this.instancevariable !== undefined && layout !== undefined) {
+                if (this._instancevariable !== undefined && layout !== undefined) {
                     for (var childkey in layout) {
                         if (layout.hasOwnProperty(childkey)) {
-                            var childVariable = this.variables.findByKey(childkey);
+                            var childVariable = this._variables.findByKey(childkey);
                             children.push(childVariable);
                         }
                     }
                 }
-                this.children = children;
+                this._children = children;
             }
-            return this.children;
+            return this._children;
         }
 
         contexts(query:any = null):Array<Fes.IContext>
@@ -73,15 +73,15 @@ module Honeydew
             if (query !== null) {
                 //for now just quick fix (variable.account == 1058 ? 'doc' : 'detl')
                 //doc type should just return two entrees, TITLE,DOCVALUE
-                var cols = this.engine.calcDocument.viewmodes.detl.columns[query.timeline].slice(query.start, (this.instancevariable.account == 1058 ? 1 : query.end));
+                var cols = this._engine.calcDocument.viewmodes.detl.columns[query.timeline].slice(query.start, (this._instancevariable.account == 1058 ? 1 : query.end));
                 var contexts = [];
                 cols.forEach(function (col)
                 {
-                    var context = new Context(this.instancevariable, col);
+                    var context = new Context(this._instancevariable, col, this.variables);
                     contexts.push(context);
                 });
 
-                this.contexts = contexts;
+                this._contexts = contexts;
             }
 
             return undefined;
@@ -89,14 +89,14 @@ module Honeydew
 
         update()
         {
-            this.attributes = {
-                value: this.instancevariable == undefined ? 0 : this.instancevariable.getValue(this.instancevariable.hIndex[0], 0, this.ctx0),
+            this._attributes = {
+                value: this._instancevariable == undefined ? 0 : this._instancevariable.getValue(this._instancevariable.hIndex[0], 0, this._ctx0),
                 style: {
                     color: "red"
                 }
             };
 
-            this.contexts.forEach(function (context)
+            this._contexts.forEach(function (context)
             {
                 context.update();
             });

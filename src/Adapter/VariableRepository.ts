@@ -1,3 +1,21 @@
+/// <reference path="../Adapter/VariableCache.ts" />
+
+declare var json;
+declare class FormulaBootstrap
+{
+    constructor(var1, var2);
+}
+
+declare class CalculationModel
+{
+    constructor(var1);
+}
+
+declare class CalculationDocument
+{
+    constructor(var1);
+}
+
 module Honeydew
 {
     export class VariableRepository implements Fes.IVariableRepository
