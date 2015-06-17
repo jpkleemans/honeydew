@@ -48,9 +48,10 @@ declare module Fes {
         /**
          * All possible contexts
          *
+         * @param query
          * @returns {Array<IContext>}
          */
-        contexts(): Array<IContext>;
+        contexts(query: any): Array<IContext>;
     }
 }
 declare module Fes {
