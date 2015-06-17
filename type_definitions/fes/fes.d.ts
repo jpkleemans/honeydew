@@ -3,9 +3,10 @@ declare module Fes {
         /**
          * HTML attributes
          *
+         * @param attributes
          * @returns {any}
          */
-        attributes(): any;
+        attributes(attributes: any): any;
     }
 }
 declare module Fes {
