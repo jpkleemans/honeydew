@@ -7,16 +7,21 @@ module Honeydew.Spec
 {
     describe("VariableRepository", () =>
     {
+        // SUT
         var variables:Fes.IVariableRepository;
+
+        // Mocks
+        var contextRepo;
 
         beforeEach(() =>
         {
-            var v05Instance = json['v05instance'];
-            var userFormulas = json['defaultmath'];
-            var importData = json['v05baseimportinstance'];
+            var v05instance = json['v05instance'];
             var v05layout = json['v05layout'];
 
-            variables = new VariableRepository(v05Instance, userFormulas, importData, v05layout);
+            // Mock ContextRepository
+            contextRepo = jasmine.createSpyObj('ContextRepository', []);
+
+            variables = new VariableRepository(v05instance, v05layout, contextRepo);
         });
 
         it("should find a variable by its key", () =>

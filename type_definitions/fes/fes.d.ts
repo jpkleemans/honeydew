@@ -10,25 +10,32 @@ declare module Fes {
     }
 }
 declare module Fes {
-    interface IContext extends IAttributes {
-        /**
-         * Reference key
-         *
-         * @returns {string}
-         */
-        key(): string;
-        /**
-         * Title
-         *
-         * @returns {string}
-         */
-        title(): string;
-
-        update();
+    interface IContext extends IAttributes, IUpdatable {
     }
 }
 declare module Fes {
-    interface IVariable extends IAttributes {
+    interface IContextRepository {
+        /**
+         * Find contexts by query
+         *
+         * @param key
+         * @returns {IVariable}
+         */
+        where(query: string): Array<IContext>;
+    }
+}
+declare module Fes {
+    interface IUpdatable {
+        /**
+         * Update HTML attributes
+         *
+         * @returns {void}
+         */
+        update(): void;
+    }
+}
+declare module Fes {
+    interface IVariable extends IAttributes, IUpdatable {
         /**
          * Reference key
          *
@@ -54,8 +61,6 @@ declare module Fes {
          * @returns {Array<IContext>}
          */
         contexts(query: any): Array<IContext>;
-
-        update();
     }
 }
 declare module Fes {
@@ -67,7 +72,5 @@ declare module Fes {
          * @returns {IVariable}
          */
         findByKey(key: string): IVariable;
-
-        updateAll();
     }
 }

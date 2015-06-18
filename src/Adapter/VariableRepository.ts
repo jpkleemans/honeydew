@@ -1,17 +1,7 @@
 /// <reference path="../Adapter/VariableCache.ts" />
-
-declare var json;
-declare class FormulaBootstrap
-{
-    constructor(var1, var2);
-}
+/// <reference path="../Adapter/Variable.ts" />
 
 declare class CalculationModel
-{
-    constructor(var1);
-}
-
-declare class CalculationDocument
 {
     constructor(var1);
 }
@@ -20,18 +10,16 @@ module Honeydew
 {
     export class VariableRepository implements Fes.IVariableRepository
     {
-        private v05Instance:any;
-        private userFormulas:any;
-        private importData:any;
+        private v05instance:any;
         private v05layout:any;
+        private contextRepo:ContextRepository;
         private cache:VariableCache;
 
-        constructor(v05Instance:any, userFormulas:any, importData:any, v05layout:any)
+        constructor(v05instance:any, v05layout:any, contextRepo:ContextRepository)
         {
-            this.v05Instance = v05Instance;
-            this.userFormulas = userFormulas;
-            this.importData = importData;
+            this.v05instance = v05instance;
             this.v05layout = v05layout;
+            this.contextRepo = ContextRepository;
             this.cache = new VariableCache();
         }
 
@@ -41,21 +29,24 @@ module Honeydew
                 return this.cache.get(key);
             }
 
-            var engine = {
-                maxChildVariables: 600,
-                modelBuilder: new FormulaBootstrap(this.v05Instance, this.userFormulas),
-                activeModel: new CalculationModel(this.v05Instance),
-                calcDocument: new CalculationDocument(this.importData),
-                layout: this.v05layout
-            };
+            var calculationModel = new CalculationModel(this.v05instance);
+            var activeModel = calculationModel[key];
 
-            if (engine.activeModel[key] === undefined) {
+            if (activeModel === undefined) {
                 throw new RangeError("This variable does not exist");
             }
 
-            var variable = new Variable(key, engine, this);
+            var childrenKeys = this.v05layout[key];
+
+            var variable = new Variable(key, childrenKeys, this, this.contextRepo, activeModel);
+
             this.cache.add(variable);
             return variable;
+        }
+
+        findRangeByKeys(keys:Array<string>)
+        {
+            // TODO: to remove for-loop from Variable::children()
         }
 
         updateAll()
