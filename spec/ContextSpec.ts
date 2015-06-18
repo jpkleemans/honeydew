@@ -11,6 +11,7 @@ module Honeydew.Spec
     {
         var context:Fes.IContext;
         var variableRepo;
+        var instancevariable;
 
         beforeEach(() =>
         {
@@ -26,20 +27,19 @@ module Honeydew.Spec
                 layout: v05layout
             };
 
-            var instancevariable = {};
-            spyOn(instancevariable, 'setValue');
-            spyOn(instancevariable, 'getValue');
+            instancevariable = jasmine.createSpyObj('instancevariable', ['setValue', 'getValue']);
+            instancevariable.hIndex = [];
+            instancevariable.hIndex[0] = null;
 
-            variableRepo = new VariableRepository({}, {}, {}, {});
-            spyOn(variableRepo, 'updateAll');
+            variableRepo = jasmine.createSpyObj('VariableRepository', ['updateAll', 'findByKey']);
 
             context = new Context(instancevariable, engine, variableRepo);
         });
 
-        it("should have a key", () =>
-        {
-            expect(context.key()).toEqual("FakeContext");
-        });
+        //it("should have a key", () =>
+        //{
+        //    expect(context.key()).toEqual("FakeContext");
+        //});
 
         //it("should not be able to overrule it's key", () =>
         //{
@@ -60,6 +60,8 @@ module Honeydew.Spec
             var attributes = context.attributes();
             expect(attributes.style.color).toEqual("blue");
             expect(attributes.type).toEqual("number");
+
+            expect(instancevariable.setValue).toHaveBeenCalled();
         });
 
         it("should call the update callback when it's attributes are changed", () =>
@@ -67,7 +69,7 @@ module Honeydew.Spec
             context.attributes({
                 value: 3
             });
-            expect(variableRepo.updateAll()).toHaveBeenCalled();
+            expect(variableRepo.updateAll).toHaveBeenCalled();
         });
     });
 }

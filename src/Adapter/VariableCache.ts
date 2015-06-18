@@ -2,9 +2,14 @@ module Honeydew
 {
     export class VariableCache
     {
-        private variables: any;
+        private variables:any;
 
-        add(variable: Fes.IVariable)
+        constructor()
+        {
+            this.variables = {};
+        }
+
+        add(variable:Fes.IVariable)
         {
             this.variables[variable.key()] = variable;
         }
@@ -14,7 +19,7 @@ module Honeydew
             return this.variables[key];
         }
 
-        has (key:string)
+        has(key:string)
         {
             return (typeof this.variables[key] !== "undefined");
         }

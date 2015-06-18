@@ -63,6 +63,7 @@ module Honeydew
                         }
                     }
                 }
+
                 this._children = children;
             }
             return this._children;
@@ -84,7 +85,7 @@ module Honeydew
                 this._contexts = contexts;
             }
 
-            return undefined;
+            return this._contexts;
         }
 
         update()

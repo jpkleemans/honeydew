@@ -8,6 +8,7 @@ module Honeydew.Spec
     {
         var variable:Fes.IVariable;
         var variableRepo;
+        var engine;
 
         beforeEach(() =>
         {
@@ -15,19 +16,22 @@ module Honeydew.Spec
             var userFormulas = json['defaultmath'];
             var importData = json['v05baseimportinstance'];
             var v05layout = json['v05layout'];
-            var engine = {
+            engine = {
                 maxChildVariables: 600,
                 modelBuilder: new FormulaBootstrap(v05Instance, userFormulas),
                 activeModel: new CalculationModel(v05Instance),
                 calcDocument: new CalculationDocument(importData),
                 layout: v05layout
             };
-            //spyOn(context, "modelBuilder");
-            //spyOn(context, "activeModel");
-            //spyOn(context, "calcDocument");
 
-            variableRepo = new VariableRepository({}, {}, {}, {});
-            spyOn(variableRepo, 'updateAll');
+            variableRepo = jasmine.createSpyObj('VariableRepository', ['updateAll', 'findByKey']);
+
+            variableRepo.findByKey.and.callFake((key) =>
+            {
+                return {
+                    key: () => key
+                };
+            });
 
             variable = new Variable("Q_ROOT", engine, variableRepo);
         });
@@ -63,12 +67,35 @@ module Honeydew.Spec
             expect(children[0].key()).toEqual("OperatingProvisions");
         });
 
+        it("should be able to get it's contexts", () =>
+        {
+            var timeline = 0;
+
+            engine.calcDocument.viewmodes.detl.columns[timeline] = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+
+            var query = {
+                "timeline": timeline,
+                "start": 1,
+                "end": 4
+            };
+            var contexts = variable.contexts(query);
+            expect(contexts.length).toEqual(3);
+
+            var query = {
+                "timeline": timeline,
+                "start": 0,
+                "end": 6
+            };
+            var contexts = variable.contexts(query);
+            expect(contexts.length).toEqual(6);
+        });
+
         it("should call the update callback when it's attributes are changed", () =>
         {
             variable.attributes({
                 value: 3
             });
-            expect(variableRepo.updateAll()).toHaveBeenCalled();
+            expect(variableRepo.updateAll).toHaveBeenCalled();
         });
 
     });

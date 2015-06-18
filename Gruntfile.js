@@ -28,6 +28,10 @@ module.exports = function (grunt) {
             json: {
                 files: 'test/json/*.json',
                 tasks: ['json']
+            },
+            spec: {
+                files: '**/*.ts',
+                tasks: ['testsuite']
             }
         },
         connect: {
@@ -71,4 +75,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-json');
     grunt.registerTask('build', ['typescript']);
     grunt.registerTask('dev', ['build', 'watch']);
+    grunt.registerTask('testsuite', ['typescript:adapter', 'typescript:spec']);
 };
