@@ -16,15 +16,20 @@ module Honeydew
         {
             this.link = (scope, element, attrs) =>
             {
-
+                //Naam van de variable op de scope.
                 var variablename = attrs['variableName'];
                 if(variablename == null)
                 {
                     return;
                 }
+
+
                 var displayTypes = ['input', 'textarea', 'div'];
+                //Pakt een random displaytype.
                 var rand = displayTypes[Math.floor(Math.random() * displayTypes.length)];
+
                 var scopeobjvar = scope[variablename];
+
                 switch(rand)
                 {
                     case "input" :

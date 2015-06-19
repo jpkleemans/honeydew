@@ -41,7 +41,6 @@ module Honeydew
             {
                 return templateURL;
             }
-            console.log(variable);
             this.$templateCache.put(templateURL, '<div>{{'+variable+'.key}} : {{'+variable+'.attributes.value}}</div>')
             return templateURL;
         }
