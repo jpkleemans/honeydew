@@ -25,9 +25,9 @@ module Honeydew
 
             var variableModel = this.calculationModel[key];
 
-            //if (variableModel === undefined) {
-            //    throw new RangeError("This variable does not exist");
-            //}
+            if (variableModel === undefined) {
+                throw new RangeError("This variable does not exist");
+            }
 
             var childrenKeys = this.v05layout[key];
 

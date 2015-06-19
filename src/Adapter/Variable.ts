@@ -8,6 +8,7 @@ module Honeydew
         private variableRepo:VariableRepository;
         private contextRepo:ContextRepository;
         private variableModel;
+        private prevQuery:string;
 
         // Backing fields
         private _key:string;
@@ -76,7 +77,8 @@ module Honeydew
 
         contexts(query:any = null):Array<Fes.IContext>
         {
-            if (query !== null) {
+            if (query !== this.prevQuery) {
+                this.prevQuery = query;
                 query = typeof query === "string" ? JSON.parse(query) : query;
 
                 //for now just quick fix (variable.account == 1058 ? 'doc' : 'detl')
