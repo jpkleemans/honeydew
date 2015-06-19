@@ -11,20 +11,33 @@ module Honeydew
         public link;
         public replace = true;
         public templateUrl = '';
-        constructor()
+        public priority = 5;
+        constructor(ElementTemplates: ElementTemplates)
         {
             this.link = (scope, element, attrs) =>
             {
 
                 var variablename = attrs['variableName'];
+                if(variablename == null)
+                {
+                    return;
+                }
+                var displayTypes = ['input', 'textarea', 'div'];
+                var rand = displayTypes[Math.floor(Math.random() * displayTypes.length)];
                 var scopeobjvar = scope[variablename];
-                switch(scopeobjvar['displayType'])
+                switch(rand)
                 {
                     case "input" :
-                        this.templateUrl = 'defaultInput.html';
+                        this.templateUrl = ElementTemplates.getInput(variablename);
+                        break;
+                    case "textarea" :
+                        this.templateUrl = ElementTemplates.getTextArea(variablename);
+                        break;
+                    case "div" :
+                        this.templateUrl = ElementTemplates.getDiv(variablename);
                         break;
                     default :
-                        this.templateUrl = 'defaultInput.html';
+                        this.templateUrl = ElementTemplates.getInput(variablename);
                         break;
                 }
             }

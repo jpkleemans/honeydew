@@ -28,9 +28,14 @@
 <input type="text" size="50" ng-model="columnQuery">
 
 <h3>Single Input, without columns</h3>
+<input fes-bind-attributes="FakeVariable" />
 
-<fes-element fes-bind-attributes="FakeVariable" />
-{{FakeVariable.key}}
+<div fes-bind-attributes="FakeVariable" fes-element /></div>
+<div fes-bind-attributes="FakeVariable" fes-element /></div>
+<div fes-bind-attributes="FakeVariable" fes-element /></div>
+<div fes-bind-attributes="FakeVariable" fes-element /></div>
+<div fes-bind-attributes="FakeVariable" fes-element /></div>
+
 
 </body>
 </html>

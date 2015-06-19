@@ -30,9 +30,9 @@ module Honeydew
 
         public static createFesElement()
         {
-            var directive = () =>
+            var directive = (ElementTemplates: ElementTemplates) =>
             {
-                return new FesElement();
+                return new FesElement(ElementTemplates);
             };
 
             directive['$inject'] = ['ElementTemplates'];
