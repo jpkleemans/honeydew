@@ -1,5 +1,3 @@
-/// <reference path="Context.ts" />
-
 module Honeydew
 {
     export class Variable implements Fes.IVariable
@@ -33,7 +31,7 @@ module Honeydew
             this._children = [];
             this._contexts = [];
 
-            // Initial update to get attributes from calculationModel
+            // Initial update to get the attributes from calculationModel
             this.update();
         }
 

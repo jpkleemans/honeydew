@@ -1,6 +1,3 @@
-/// <reference path="../Adapter/VariableCache.ts" />
-/// <reference path="../Adapter/Variable.ts" />
-
 declare class CalculationModel
 {
     constructor(var1);
