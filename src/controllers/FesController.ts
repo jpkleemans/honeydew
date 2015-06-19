@@ -10,15 +10,15 @@ module Honeydew
         {
             $scope['columnQuery'] = '{"timeline": 0, "start": 0, "end": 4}';
 
-            $scope['addChild'] = (variable) =>
-            {
-                variable.children.push({
-                    attributes: {
-                        value: 1000
-                    },
-                    children:[]
-                });
-            }
+            //$scope['addChild'] = (variable) =>
+            //{
+            //    variable.children.push({
+            //        attributes: {
+            //            value: 1000
+            //        },
+            //        children:[]
+            //    });
+            //}
         }
     }
 }

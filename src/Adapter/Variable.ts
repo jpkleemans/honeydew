@@ -7,7 +7,7 @@ module Honeydew
         private childrenKeys:any;
         private variableRepo:VariableRepository;
         private contextRepo:ContextRepository;
-        private calculationModel;
+        private variableModel;
 
         // Backing fields
         private _key:string;
@@ -20,12 +20,12 @@ module Honeydew
                     childrenKeys:any,
                     variableRepo:VariableRepository,
                     contextRepo:ContextRepository,
-                    calculationModel)
+                    variableModel)
         {
             this.childrenKeys = childrenKeys;
             this.variableRepo = variableRepo;
             this.contextRepo = contextRepo;
-            this.calculationModel = calculationModel;
+            this.variableModel = variableModel;
 
             this._key = key;
             this._title = key;
@@ -55,7 +55,7 @@ module Honeydew
 
             this._attributes = attributes; // TODO: maybe unnecessary
 
-            this.calculationModel.setValue(this.calculationModel['hIndex'][0], 0, null, parseFloat(attributes.value)); // TODO: 3th param = ctx0
+            this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.contextRepo.first(), parseFloat(attributes.value));
             this.variableRepo.updateAll();
         }
 
@@ -80,7 +80,7 @@ module Honeydew
                 query = typeof query === "string" ? JSON.parse(query) : query;
 
                 //for now just quick fix (variable.account == 1058 ? 'doc' : 'detl')
-                query.end = this.calculationModel['account'] == 1058 ? 1 : query.end;
+                query.end = this.variableModel['account'] == 1058 ? 1 : query.end;
 
                 query.variableKey = this._key;
 
@@ -92,11 +92,10 @@ module Honeydew
 
         update()
         {
-            this._attributes = {
-                value: this.calculationModel.getValue(this.calculationModel['hIndex'][0], 0, null), // TODO: 3th param = ctx0
-                style: {
-                    color: "red"
-                }
+            this._attributes.value = this.variableModel.getValue(this.variableModel['hIndex'][0], 0, this.contextRepo.first());
+
+            this._attributes.style = {
+                color: "red"
             };
 
             this._contexts.forEach(function (context)

@@ -51,7 +51,7 @@ module.exports = function (grunt) {
                         return filename.toLowerCase();
                     }
                 },
-                src: ['json/*.json'],
+                src: ['spec/json/*.json'],
                 dest: 'build/json.js'
             },
             spec: {

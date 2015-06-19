@@ -22,10 +22,10 @@ module Honeydew.Spec
             calculationModel.hIndex = [];
             calculationModel.hIndex[0] = null;
 
-            // Mock VariableRepository
-            variableRepo = jasmine.createSpyObj('VariableRepository', ['updateAll']);
+            // Mock column
+            var column = {};
 
-            context = new Context(calculationModel, variableRepo);
+            context = new Context(column, calculationModel);
         });
 
         it("should be able to set and get it's attributes", () =>

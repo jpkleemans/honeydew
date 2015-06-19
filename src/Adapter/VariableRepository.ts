@@ -23,15 +23,15 @@ module Honeydew
                 return this.cache.get(key);
             }
 
-            var activeModel = this.calculationModel[key];
+            var variableModel = this.calculationModel[key];
 
-            if (activeModel === undefined) {
-                throw new RangeError("This variable does not exist");
-            }
+            //if (variableModel === undefined) {
+            //    throw new RangeError("This variable does not exist");
+            //}
 
             var childrenKeys = this.v05layout[key];
 
-            var variable = new Variable(key, childrenKeys, this, this.contextRepo, activeModel);
+            var variable = new Variable(key, childrenKeys, this, this.contextRepo, variableModel);
 
             this.cache.add(variable);
             return variable;

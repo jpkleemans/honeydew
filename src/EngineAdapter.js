@@ -59,7 +59,7 @@ function templateContext(variable, context) {
     prototype.update();
     return prototype;
 }
-function VariableRepository() {
+function VariableRepositoryOld() {
     // variabeltje gaat waarschijnlijk via constructor oid
     var context = {
         maxChildVariables: 600

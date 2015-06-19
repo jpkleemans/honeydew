@@ -6,18 +6,16 @@ module Honeydew
     {
         private calculationDocument;
         private calculationModel;
-        private variableRepo:VariableRepository;
 
-        constructor(calculationDocument, calculationModel, variableRepo:VariableRepository)
+        constructor(calculationDocument, calculationModel)
         {
             this.calculationDocument = calculationDocument;
             this.calculationModel = calculationModel;
-            this.variableRepo = variableRepo;
         }
 
         where(query:any):Array<Fes.IContext>
         {
-            var columns = this.calculationDocument['viewmodes']['detl']['columns'][query.timeline];
+            var columns = this.calculationDocument.viewmodes.detl.columns[query.timeline];
             var selection = columns.slice(query.start, query.end);
 
             var contexts = [];
@@ -25,11 +23,19 @@ module Honeydew
             var i;
             var length = selection.length;
             for (i = 0; i < length; i++) {
-                var context = new Context(this.calculationModel[query.variableKey], this.variableRepo);
+                var context = new Context(selection[i], this.calculationModel[query.variableKey]);
                 contexts.push(context);
             }
 
             return contexts;
+        }
+
+        first()
+        {
+            var timeline0Columns = this.calculationDocument.viewmodes.detl.columns[0];
+            var ctx0 = timeline0Columns[1];
+
+            return ctx0;
         }
     }
 }
