@@ -11,7 +11,7 @@ module Honeydew
         public link;
         public replace = true;
         public templateUrl = '';
-        public priority = 5;
+
         constructor(ElementTemplates: ElementTemplates)
         {
             this.link = (scope, element, attrs) =>

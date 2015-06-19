@@ -30,7 +30,7 @@ module Honeydew
             {
                 return templateURL;
             }
-            this.$templateCache.put(templateURL, '<textarea rows="10" cols="20"></textarea>')
+            this.$templateCache.put(templateURL, '<textarea rows="2" cols="20"></textarea>')
             return templateURL;
         }
 

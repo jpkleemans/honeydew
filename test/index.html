@@ -36,6 +36,18 @@
 <div fes-bind-attributes="FakeVariable" fes-element /></div>
 <div fes-bind-attributes="FakeVariable" fes-element /></div>
 
+<h3>Tree, without columns</h3>
+<ul fes-bind-attributes="Q_ROOT">
+    <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumns">
+        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
+        <div fes-bind-attributes="child" fes-element></div>
+        <button ng-click="addChild(child)">Add child</button>
+        <ul>
+            <li fes-repeat="child in child.children" ng-include="'withoutcolumns'"></li>
+        </ul>
+    </li>
+</ul>
+<hr>
 
 </body>
 </html>
