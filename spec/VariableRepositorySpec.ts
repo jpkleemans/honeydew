@@ -3,6 +3,11 @@
 
 declare var json;
 
+declare class CalculationModel
+{
+    constructor(var1);
+}
+
 module Honeydew.Spec
 {
     describe("VariableRepository", () =>
@@ -15,13 +20,22 @@ module Honeydew.Spec
 
         beforeEach(() =>
         {
-            var v05instance = json['v05instance'];
-            var v05layout = json['v05layout'];
+            var v05instance = testjson['v05instance'];
+            var v05layout = testjson['v05layout'];
+
+            var calculationModel = {};
+            calculationModel['OperatingProvisions'] = jasmine.createSpyObj('CalculationModel', ['getValue', 'setValue']);
+            calculationModel['OperatingProvisions'].hIndex = [];
+            calculationModel['OperatingProvisions'].hIndex[0] = null;
+
+            calculationModel['FakeVariable'] = jasmine.createSpyObj('CalculationModel', ['getValue', 'setValue']);
+            calculationModel['FakeVariable'].hIndex = [];
+            calculationModel['FakeVariable'].hIndex[0] = null;
 
             // Mock ContextRepository
-            contextRepo = jasmine.createSpyObj('ContextRepository', []);
+            contextRepo = jasmine.createSpyObj('ContextRepository', ['where']);
 
-            variables = new VariableRepository(v05instance, v05layout, contextRepo);
+            variables = new VariableRepository(v05layout, contextRepo, calculationModel);
         });
 
         it("should find a variable by its key", () =>

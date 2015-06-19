@@ -1,3 +1,5 @@
+/// <reference path="ContextRepository.ts" />
+
 module Honeydew
 {
     export class Variable implements Fes.IVariable

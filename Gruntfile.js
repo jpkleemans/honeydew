@@ -15,7 +15,7 @@ module.exports = function (grunt) {
             }
         },
         jasmine: {
-            src: ['lib/e_full.js','build/json.js', 'build/adapter.js'],
+            src: ['lib/e_full.js', 'build/spec-json.js', 'build/adapter.js'],
             options: {
                 specs: 'build/adapter.spec.js'
             }
@@ -56,7 +56,7 @@ module.exports = function (grunt) {
             },
             spec: {
                 options: {
-                    namespace: 'json',
+                    namespace: 'testjson',
                     processName: function (filename) {
                         return filename.toLowerCase();
                     }
@@ -75,5 +75,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-json');
     grunt.registerTask('build', ['typescript']);
     grunt.registerTask('dev', ['build', 'watch']);
-    grunt.registerTask('testsuite', ['typescript:adapter', 'typescript:spec']);
+    grunt.registerTask('testsuite', ['json:spec', 'typescript:adapter', 'typescript:spec']);
 };

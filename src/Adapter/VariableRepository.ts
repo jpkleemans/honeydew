@@ -1,23 +1,20 @@
-declare class CalculationModel
-{
-    constructor(var1);
-}
+/// <reference path="VariableCache.ts" />
 
 module Honeydew
 {
     export class VariableRepository implements Fes.IVariableRepository
     {
-        private v05instance:any;
         private v05layout:any;
         private contextRepo:ContextRepository;
         private cache:VariableCache;
+        private calculationModel;
 
-        constructor(v05instance:any, v05layout:any, contextRepo:ContextRepository)
+        constructor(v05layout:any, contextRepo:ContextRepository, calculationModel)
         {
-            this.v05instance = v05instance;
             this.v05layout = v05layout;
             this.contextRepo = contextRepo;
             this.cache = new VariableCache();
+            this.calculationModel = calculationModel;
         }
 
         findByKey(key:string):Fes.IVariable
@@ -26,8 +23,7 @@ module Honeydew
                 return this.cache.get(key);
             }
 
-            var calculationModel = new CalculationModel(this.v05instance);
-            var activeModel = calculationModel[key];
+            var activeModel = this.calculationModel[key];
 
             if (activeModel === undefined) {
                 throw new RangeError("This variable does not exist");

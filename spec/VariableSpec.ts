@@ -16,6 +16,8 @@ module Honeydew.Spec
         {
             // Mock CalculationModel
             calculationModel = jasmine.createSpyObj('CalculationModel', ['setValue', 'getValue']);
+            calculationModel.hIndex = [];
+            calculationModel.hIndex[0] = null;
 
             // Mock VariableRepository
             variableRepo = jasmine.createSpyObj('VariableRepository', ['updateAll', 'findByKey']);
@@ -27,8 +29,8 @@ module Honeydew.Spec
             });
 
             // Mock ContextRepository
-            contextRepo = jasmine.createSpyObj('ContextRepository', ['findByQuery']);
-            contextRepo.findByQuery.and.callFake((query) =>
+            contextRepo = jasmine.createSpyObj('ContextRepository', ['where']);
+            contextRepo.where.and.callFake((query) =>
             {
                 var contexts = [];
                 var total = query.end - query.start;
