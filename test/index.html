@@ -28,68 +28,9 @@
 <input type="text" size="50" ng-model="columnQuery">
 
 <h3>Single Input, without columns</h3>
-<input fes-bind-attributes="FakeVariable">
 
-<input ng-model="FakeVariable.attributes.style.color">
-
-<hr>
-<h3>Single Input, with columns</h3>
-
-<div fes-repeat="child in Q_ROOT_VARIABLE_ONE.contexts">
-    context {{$index}}:&nbsp;
-    <input fes-bind-attributes="child">
-</div>
-<hr>
-<h3>Simple list, with columns</h3>
-<ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children">
-        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
-
-        <span fes-repeat="context in child.contexts">-<input fes-bind-attributes="context">*</span>
-        &nbsp;
-    </li>
-</ul>
-<hr>
-<h3>Tree, without columns</h3>
-<ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumns">
-        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
-        <input fes-bind-attributes="child">
-        <button ng-click="addChild(child)">Add child</button>
-        <ul>
-            <li fes-repeat="child in child.children" ng-include="'withoutcolumns'"></li>
-        </ul>
-    </li>
-</ul>
-<hr>
-<h3>Tree, without columns, with lazy loading</h3>
-<ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children" inline-template="withoutcolumnslazy">
-        <input type="checkbox" ng-model="showChildren" ng-show="child.children.length > 0"
-               ng-model-options="{ updateOn: 'default' }">
-        <span style="display:inline-block;width:300px;" ng-init="showChildren = false">{{child.title}}:</span>
-        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
-        <ul ng-if="showChildren">
-            <li fes-repeat="child in child.children" ng-include="'withoutcolumnslazy'"></li>
-        </ul>
-    </li>
-</ul>
-<hr>
-<h3>Tree, with columns</h3>
-<ul fes-bind-attributes="Q_ROOT">
-    <li fes-repeat="child in Q_ROOT.children" inline-template="withcolumns">
-        <span style="display:inline-block;width:300px;">{{child.title}}:</span>
-
-        <span fes-repeat="context in child.contexts"><input fes-bind-attributes="context"></span>
-        &nbsp;
-        ({{child.children.length}})
-        <ul>
-            <li fes-repeat="child in child.children" ng-include="'withcolumns'">
-
-            </li>
-        </ul>
-    </li>
-</ul>
+<fes-element fes-bind-attributes="FakeVariable" />
+{{FakeVariable.key}}
 
 </body>
 </html>

@@ -28,6 +28,18 @@ module Honeydew
             return directive;
         }
 
+        public static createFesElement()
+        {
+            var directive = () =>
+            {
+                return new FesElement();
+            };
+
+            directive['$inject'] = ['ElementTemplates'];
+
+            return directive;
+        }
+
         public static createInlineTemplate()
         {
             var directive = ($templateCache) =>
