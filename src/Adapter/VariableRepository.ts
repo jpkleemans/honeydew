@@ -16,7 +16,7 @@ module Honeydew
         {
             this.v05instance = v05instance;
             this.v05layout = v05layout;
-            this.contextRepo = ContextRepository;
+            this.contextRepo = contextRepo;
             this.cache = new VariableCache();
         }
 
