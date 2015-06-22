@@ -55,18 +55,19 @@ module Honeydew
                     if (String.contains(attr, 'ng-')) {
                         element.attr(attr, attributes[attr]);
                     } else {
-                        var directive = 'ng' + String.ucfirst(attr) + 'Directive';
-                        if (this.$injector.has(directive)) {
-                            element.attr('ng-' + attr, key + '.' + attr);
+                        if (attr === 'value') {
+                            element.attr('ng-model', key + '.value');
                         } else {
-                            element.attr('ng-attr-' + attr, '{{' + key + '.' + attr + '}}');
+                            var directive = 'ng' + String.ucfirst(attr) + 'Directive';
+                            if (this.$injector.has(directive)) {
+                                element.attr('ng-' + attr, key + '.' + attr);
+                            } else {
+                                element.attr('ng-attr-' + attr, '{{' + key + '.' + attr + '}}');
+                            }
                         }
                     }
                 }
             }
-
-            // Additional attribute to sync the value with ng-model
-            element.attr('ng-model', key + '.value');
         }
     }
 }

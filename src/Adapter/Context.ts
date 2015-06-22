@@ -7,6 +7,8 @@ module Honeydew
         private column;
         private variableModel;
 
+        //public attributes:any;
+
         // Backing fields
         private _attributes:any;
 
@@ -15,6 +17,7 @@ module Honeydew
             this.column = column;
             this.variableModel = variableModel;
 
+            //this.attributes = {};
             this._attributes = {};
 
             this.update();
@@ -28,13 +31,24 @@ module Honeydew
 
             this._attributes = attributes; // TODO: maybe unnecessary
 
-            this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.column, attributes.value == null ? null : parseFloat(attributes.value));
+            //this.update();
+
             //this.variableRepo.updateAll();
         }
 
         update()
         {
-            this._attributes.value = this.variableModel.getValue(this.variableModel['hIndex'][0], 0, this.column);
+            this._attributes.value = (value) =>
+            {
+                if (typeof value === "undefined") {
+                    return this.variableModel.getValue(this.variableModel['hIndex'][0], 0, this.column);
+                }
+
+                this._attributes.entered = "true";
+
+                this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.column, value == null ? null : parseFloat(value));
+            };
+
             this._attributes.required = this.variableModel.getValue(this.variableModel['hIndex'][0], 2, this.column);
             this._attributes.entered = this.variableModel.getValue(this.variableModel['hIndex'][0], 4, this.column);
             this._attributes.disabled = this.variableModel.getValue(this.variableModel['hIndex'][0], 3, this.column);

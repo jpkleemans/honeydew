@@ -46,9 +46,9 @@ module Honeydew
         {
             var allvariables = this.cache.all();
             for (var variable in allvariables) {
-                if (allvariables.hasOwnProperty(variable)) {
-                    variable.update();
-                }
+                // if (allvariables.hasOwnProperty(variable)) {
+                variable.update();
+                // }
             }
         }
     }

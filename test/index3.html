@@ -23,30 +23,30 @@
     </style>
 </head>
 
-<body ng-app="app" ng-model-options="{ updateOn: 'blur' }" ng-controller="FesController">
+<body ng-app="app" ng-model-options="{ updateOn: 'blur', getterSetter: true }" ng-controller="FesController">
 
 <input type="text" size="50" ng-model="columnQuery">
 
-<!--<input fes-init="Q_ROOT" ng-model="Q_ROOT.attributes().style.color">-->
+<input fes-init="Q_ROOT" ng-model="Q_ROOT.attributes().style.color">
 
-<ul fes-init="Q_ROOT">
-    <li ng-repeat="child in Q_ROOT.children()" inline-template="withoutcolumnslazy">
-        <span style="display:inline-block;width:300px;">{{child.title()}}:</span>
-        <span ng-repeat="context in child.contexts(columnQuery)">
-            <input bind-attributes="context.attributes()">
-        </span>
+<div fes-init="Q_ROOT">
+    <ul>
+        <li ng-repeat="child in Q_ROOT.children()" inline-template="withoutcolumnslazy">
+            <span style="display:inline-block;width:300px;">{{child.title()}}:</span>
+            <span ng-repeat="context in child.contexts(columnQuery)">
+                <input bind-attributes="context.attributes()">
+            </span>
 
-        <ul>
-            <li ng-repeat="child in child.children()" ng-include="'withoutcolumnslazy'"></li>
-        </ul>
-    </li>
-</ul>
+            <ul>
+                <li ng-repeat="child in child.children()" ng-include="'withoutcolumnslazy'"></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
-<!--<div fes-init="Q_ROOT">-->
-<!--<span ng-repeat="ctx in Q_ROOT.contexts(columnQuery)">-->
-<!--<input bind-attributes="ctx.attributes()">-->
-<!--</span>-->
-<!--</div>-->
+<div fes-init="OperatingProvisions">
+    {{OperatingProvisions.contexts(columnQuery)[0].attributes.value}}
+</div>
 
 </body>
 </html>
