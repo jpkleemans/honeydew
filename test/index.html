@@ -80,14 +80,17 @@
 </div>
 
 <div class="container form-part">
-    <h3>Single Input (FakeVariable), without columns</h3>
+    <h3>Single Input, without columns</h3>
 
     <form class="form-horizontal">
         <div class="form-group form-inline">
             <label class="form-row">
                     <span class="col-sm-12">
-                        <input class="form-control" fes-init="FakeVariable" bind-attributes="FakeVariable.attributes()">
-                        <input class="form-control" ng-model="FakeVariable.attributes().style.color">
+                        FakeVariable: <input class="form-control" fes-init="FakeVariable"
+                                             bind-attributes="FakeVariable.attributes()">
+                        Color FakeVariable: <input class="form-control"
+                                                   ng-model="FakeVariable.attributes().style.color">
+                        Color Q_ROOT: <input class="form-control" ng-model="Q_ROOT.attributes().style.color">
                     </span>
             </label>
         </div>
@@ -95,7 +98,8 @@
 </div>
 
 <div class="container form-part">
-    <h3>Single Input (Q_ROOT_VARIABLE_ONE), with columns</h3>
+    <h3>Single Input, with columns</h3>
+    <small>Q_ROOT_VARIABLE_ONE</small>
 
     <form class="form-horizontal">
         <div class="form-group form-inline">
