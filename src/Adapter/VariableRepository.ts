@@ -29,7 +29,10 @@ module Honeydew
                 throw new RangeError("This variable does not exist");
             }
 
-            var childrenKeys = this.v05layout[key];
+            var childrenKeys = [];
+            if (this.v05layout[key] !== undefined) {
+                childrenKeys = Object.keys(this.v05layout[key]);
+            }
 
             var variable = new Variable(key, childrenKeys, this, this.contextRepo, variableModel);
 

@@ -4,7 +4,7 @@ module Honeydew
 {
     export class Variable implements Fes.IVariable
     {
-        private childrenKeys:any;
+        private childrenKeys:Array<string>;
         private variableRepo:VariableRepository;
         private contextRepo:ContextRepository;
         private variableModel;
@@ -18,7 +18,7 @@ module Honeydew
         private _contexts:Array<Fes.IContext>;
 
         constructor(key:string,
-                    childrenKeys:any,
+                    childrenKeys:Array<string>,
                     variableRepo:VariableRepository,
                     contextRepo:ContextRepository,
                     variableModel)
@@ -64,12 +64,15 @@ module Honeydew
         {
             if (this._children.length === 0) {
                 var children = [];
-                for (var childKey in this.childrenKeys) {
-                    if (this.childrenKeys.hasOwnProperty(childKey)) {
-                        var childVariable = this.variableRepo.findByKey(childKey);
-                        children.push(childVariable);
-                    }
+
+                var i;
+                var length = this.childrenKeys.length;
+                for (i = 0; i < length; i++) {
+                    var childKey = this.childrenKeys[i];
+                    var childVariable = this.variableRepo.findByKey(childKey);
+                    children.push(childVariable);
                 }
+
                 this._children = children;
             }
             return this._children;
@@ -104,6 +107,11 @@ module Honeydew
             {
                 context.update();
             });
+        }
+
+        hasChildren()
+        {
+            return (this.childrenKeys.length > 0);
         }
     }
 }

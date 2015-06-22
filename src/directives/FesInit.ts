@@ -5,6 +5,7 @@ module Honeydew
 {
     export class FesInit
     {
+        public priority = 1001;
         public compile;
 
         /**
