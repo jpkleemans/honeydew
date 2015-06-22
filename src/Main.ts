@@ -17,8 +17,7 @@ module Honeydew
                 .constant('IVariableRepository', new VariableRepository())
                 .controller('FesController', Honeydew.ControllerFactory.createFesController())
                 .directive('fesElement', Honeydew.DirectiveFactory.createFesElement())
-                .directive('fesBindAttributes', Honeydew.DirectiveFactory.createFesBindAttributes())
-                .directive('fesRepeat', Honeydew.DirectiveFactory.createFesRepeat())
+                .directive('bindAttributes', Honeydew.DirectiveFactory.createBindAttributes())
                 .directive('inlineTemplate', Honeydew.DirectiveFactory.createInlineTemplate());
         }
     }
