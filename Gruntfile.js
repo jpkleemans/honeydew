@@ -64,6 +64,13 @@ module.exports = function (grunt) {
                 src: ['spec/json/*.json'],
                 dest: 'build/spec-json.js'
             }
+        },
+        sass: {
+            dist: {
+                files: {
+                    'css/app.css': 'scss/app.scss'
+                }
+            }
         }
     });
     grunt.loadNpmTasks('grunt-typescript');
@@ -72,6 +79,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-json');
     grunt.registerTask('build', ['typescript']);
     grunt.registerTask('dev', ['build', 'watch']);
