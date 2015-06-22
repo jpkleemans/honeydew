@@ -1,56 +1,65 @@
-/**
- * Dit is ons discussie stuk,<br>
- * Een gedeelte gaat de javascript engine in.<br>
- * Ander gedeelte als er iets over blijft in een soort van adaptertje in TypeScript jullie kant op
- */
 var cacheVars = {};
 var busy = false;
-function updateAll()
-{
-    console.info('update all:  ' + Object.keys(cacheVars));
-    for (var variableName in cacheVars)
-    {
+function updateAll() {
+    //console.info('update all:  ' + Object.keys(cacheVars));
+    for (var variableName in cacheVars) {
         cacheVars[variableName].update();
     }
     busy = false;
 }
-function templateContext(variable, context)
-{
+function templateContext(variable, context) {
     var prototype = {
-        key: context.t,
-        title: context.t,
-        attributes: {},
-        setAttributes: function (attributes)
-        {
-            console.info('templateContext change attributes: ' + JSON.stringify(attributes));
-            if (variable !== undefined)
-            {
-                variable.setValue(variable.hIndex[0], 0, context, attributes.value == null ? null : parseFloat(attributes.value));
-                //this.attributes = attributes;
+        _key: context.t,
+        key: function (newValue) {
+            if (typeof newValue === 'undefined') {
+                return this._key;
+            }
+
+            this._key = newValue;
+        },
+        _title: context.t,
+        title: function (newValue) {
+            if (typeof newValue === 'undefined') {
+                return this._title;
+            }
+
+            this._title = newValue;
+        },
+        _attributes: {},
+        attributes: function (newValue) {
+            console.count();
+            if (typeof newValue === 'undefined') {
+                return this._attributes;
+            }
+
+            //
+            if (variable !== undefined) {
+                variable.setValue(variable.hIndex[0], 0, context, newValue.value == null ? null : parseFloat(newValue.value));
                 updateAll();
             }
-        },
-        update: function ()
-        {
-            this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context);
-            this.attributes.required = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 2, context);
-            this.attributes.entered = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 4, context);
-            this.attributes.disabled = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 3, context);
+            //
 
-            this.attributes.style = {
+            this._attributes = newValue;
+        },
+        update: function () {
+            this._attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, context);
+            this._attributes.required = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 2, context);
+            this._attributes.entered = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 4, context);
+            this._attributes.disabled = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 3, context);
+
+            this._attributes.style = {
                 color: 'green',
                 display: variable.getValue(variable.hIndex[0], 1, context) ? undefined : 'none',
                 //just add some dynamics..
                 width: (variable.account == 1058) ? '400px' : undefined
             };
-            console.info('update attributes : ' + JSON.stringify(this.attributes))
+            //console.info('update attributes : ' + JSON.stringify(this.attributes))
         }
     };
     prototype.update();
     return prototype;
 }
-function VariableRepository()
-{
+function VariableRepositoryOld() {
     // variabeltje gaat waarschijnlijk via constructor oid
     var context = {
         maxChildVariables: 600
@@ -71,7 +80,6 @@ function VariableRepository()
     // from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
 
     var timeline0Columns = context.calcDocument.viewmodes.detl.columns[0];
-    var ctx0 = timeline0Columns[0];
     var ctx0 = timeline0Columns[1];
     var defaultQuery = {
         "timeline": 0,
@@ -79,94 +87,103 @@ function VariableRepository()
         "end": 4
     };
 
-    function templateVariable(varname)
-    {
+    function templateVariable(varname) {
         var variable = context.activeModel[varname];
         // except the functions a node has to support, this is quite many, but possible
         var prototype = {
-            key: varname,
-            title: varname,
-            attributes: {},
-            children: [],
-            contexts: [],
-            setAttributes: function (attributes)
-            {
-                // console.info('templateVariable change attributes' + JSON.stringify(attributes))
-                if (variable !== undefined)
-                {
-                    variable.setValue(variable.hIndex[0], 0, ctx0, parseFloat(attributes.value));
+            _key: varname,
+            key: function (newValue) {
+                if (typeof newValue === 'undefined') {
+                    return this._key;
                 }
-                this.attributes = attributes;
-                updateAll();
-            },
-            initContexts: function (query)
-            {
-                console.info(query);
-                query = query === undefined ? defaultQuery : JSON.parse(query);
 
-                console.info(query);
-                //for now just quick fix (variable.account == 1058 ? 'doc' : 'detl')
-                //doc type should just return two entrees, TITLE,DOCVALUE
-                var cols = context.calcDocument.viewmodes.detl.columns[query.timeline].slice(query.start, (variable.account == 1058 ? 1 : query.end));
-                // console.info('getContexts called with query ' + query)
-                var contexts = [];
-                cols.forEach(function (elem)
-                {
-                    contexts.push(templateContext(variable, elem));
-                });
-                this.contexts = contexts;
+                this._key = newValue;
             },
-            update: function ()
-            {
-                console.info('update variable : ' + varname);
-                this.attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, ctx0);
-                this.attributes.style = {
+            _title: varname,
+            title: function (newValue) {
+                if (typeof newValue === 'undefined') {
+                    return this._title;
+                }
+
+                this._title = newValue;
+            },
+            _attributes: {},
+            attributes: function (newValue) {
+                if (typeof newValue === 'undefined') {
+                    return this._attributes;
+                }
+
+                //
+                if (variable !== undefined) {
+                    variable.setValue(variable.hIndex[0], 0, ctx0, parseFloat(newValue.value));
+                    updateAll();
+                }
+                //
+
+                this._attributes = newValue;
+            },
+            _children: [],
+            children: function (newValue) {
+                if (this._children.length <= 0) {
+                    var variable = context.activeModel[this._key];
+                    var children = [];
+                    if (variable !== undefined && v05layout[this._key] !== undefined) {
+                        for (var childname in v05layout[this._key]) {
+                            var childVariable = cacheVars[childname];
+                            if (childVariable == undefined) {
+                                childVariable = templateVariable(childname);
+                                cacheVars[childname] = childVariable;
+                            }
+                            children.push(childVariable);
+                        }
+                    }
+
+                    this._children = children;
+                }
+
+                return this._children;
+            },
+            _contexts: [],
+            contexts: function (query) {
+                if (typeof query !== 'undefined') {
+                    //console.info(query);
+                    query = query === undefined ? defaultQuery : JSON.parse(query);
+
+                    //console.info(query);
+                    //for now just quick fix (variable.account == 1058 ? 'doc' : 'detl')
+                    //doc type should just return two entrees, TITLE,DOCVALUE
+                    var cols = context.calcDocument.viewmodes.detl.columns[query.timeline].slice(query.start, (variable.account == 1058 ? 1 : query.end));
+                    // console.info('getContexts called with query ' + query)
+                    var contexts = [];
+                    cols.forEach(function (elem) {
+                        contexts.push(templateContext(variable, elem));
+                    });
+
+                    this._contexts = contexts;
+                }
+
+                return this._contexts;
+            },
+            update: function () {
+                //console.info('update variable : ' + varname);
+                this._attributes.value = variable == undefined ? 0 : variable.getValue(variable.hIndex[0], 0, ctx0);
+                this._attributes.style = {
                     color: 'red'
                 };
-                this.contexts.forEach(function (elem)
-                {
+                this._contexts.forEach(function (elem) {
                     elem.update();
                 });
-
             }
         };
         prototype.update();
         return prototype;
     }
 
-    function proxyChildren(tVar, parentChildname)
-    {
-        return function ()
-        {
-            var variable = context.activeModel[parentChildname];
-            var children = [];
-            if (variable !== undefined && v05layout[parentChildname] !== undefined)
-            {
-                for (var childname in v05layout[parentChildname])
-                {
-                    var childVariable = cacheVars[childname];
-                    if (childVariable == undefined)
-                    {
-                        childVariable = templateVariable(childname);
-                        childVariable.initChildren = proxyChildren(childVariable, childname);
-                        cacheVars[childname] = childVariable;
-                    }
-                    children.push(childVariable);
-                }
-            }
-            // console.info('called children for ' + parentChildname + ' returned ' + children.length)
-            tVar.children = children;
-        };
-    }
-
-    // from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
-    this.findByKey = function (variableName)
-    {
+// from here the one and only IVariableRepository Interface function was exposed, which is am very happy with.
+    this.findByKey = function (variableName) {
         var foundVariable = cacheVars[variableName];
-        if (foundVariable === undefined)
-        {
+        if (foundVariable === undefined) {
             foundVariable = templateVariable(variableName);
-            foundVariable.initChildren = proxyChildren(foundVariable, variableName);
             cacheVars[variableName] = foundVariable;
         }
         return foundVariable;
