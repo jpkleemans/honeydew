@@ -1,0 +1,168 @@
+{
+	"modelName": "V05",
+	"datatypeaccount": 
+	[
+		0,
+		15
+	],
+
+	"freqaccount": 
+	[
+		5,
+		15
+	],
+
+	"istupleaccount": 
+	[
+		9,
+		1
+	],
+
+	"calctypeaccount": 
+	[
+		10,
+		15
+	],
+
+	"dataTypes": 
+	[
+		"Object",
+		"Currency",
+		"Number",
+		"String",
+		"NoData"
+	],
+
+	"frequencies": 
+	[
+		"Detail",
+		"Period",
+		"Single",
+		"None"
+	],
+
+	"formulasets": 
+	[
+		"NoTrend",
+		"Trend",
+		"aggregation"
+	],
+
+	"calcTypes": 
+	[
+		"Sum",
+		"Ultimo",
+		"None",
+		"Calc",
+		"Max",
+		"Mean",
+		"MeanCalc"
+	],
+
+	"m": 
+	[
+		
+	],
+
+	"variables": 
+	[
+		{
+			"name": "FakeVariable",
+			"formula": 
+			[
+				"1000",
+				"default",
+				"default",
+				"default",
+				"default"
+			],
+
+			"account": 1058
+		},
+
+		{
+			"name": "OperatingProvisions",
+			"formula": 
+			[
+				"FakeVariable + 1+T.t",
+				"If(T.t==1,false,true)",
+				"default",
+				"default",
+				"default"
+			],
+
+			"account": 1058
+		},
+
+		{
+			"name": "Q_ROOT_MAP01",
+			"formula": 
+			[
+				"10",
+				"default",
+				"default",
+				"default",
+				"default"
+			],
+
+			"account": 1058
+		},
+
+		{
+			"name": "Q_ROOT",
+			"formula": 
+			[
+				[
+					"FakeVariable+FakeVariable",
+					"inherit",
+					"aggdefault"
+				],
+
+				"default",
+				"default",
+				"default",
+				"default"
+			],
+
+			"account": 2082
+		},
+
+		{
+			"name": "Root",
+			"formula": 
+			[
+				[
+					"T.t",
+					"inherit",
+					"aggdefault"
+				],
+
+				"FakeVariable>3",
+				"default",
+				"true",
+				"default"
+			],
+
+			"account": 2082
+		},
+
+		{
+			"name": "Q_ROOT_VARIABLE_ONE",
+			"formula": 
+			[
+				[
+					"T.t",
+					"inherit",
+					"aggdefault"
+				],
+
+				"default",
+				"default",
+				"default",
+				"default"
+			],
+
+			"account": 2082
+		}
+	]
+}

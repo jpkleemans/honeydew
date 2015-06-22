@@ -2,36 +2,18 @@ module.exports = function (grunt) {
     grunt.initConfig({
         typescript: {
             src: {
-                src: ['src/viewmodels/*.ts', 'src/utilities/*.ts', 'src/controllers/*.ts', 'src/directives/*.ts', 'src/Main.ts'],
+                src: ['src/**/*.ts'],
                 dest: 'build/honeydew.js'
-            },
-            adapter: {
-                src: ['src/Adapter/*.ts'],
-                dest: 'build/adapter.js'
             },
             spec: {
                 src: ['spec/*.ts'],
-                dest: 'build/adapter.spec.js'
+                dest: 'build/honeydew.spec.js'
             }
         },
         jasmine: {
-            src: ['lib/e_full.js', 'build/spec-json.js', 'build/adapter.js'],
+            src: ['lib/e_full.js', 'build/json.spec.js'],
             options: {
-                specs: 'build/adapter.spec.js'
-            }
-        },
-        watch: {
-            ts: {
-                files: 'src/**/*.ts',
-                tasks: ['typescript']
-            },
-            json: {
-                files: 'test/json/*.json',
-                tasks: ['json']
-            },
-            spec: {
-                files: '**/*.ts',
-                tasks: ['testsuite']
+                specs: 'build/honeydew.spec.js'
             }
         },
         connect: {
@@ -51,7 +33,7 @@ module.exports = function (grunt) {
                         return filename.toLowerCase();
                     }
                 },
-                src: ['spec/json/*.json'],
+                src: ['test/json/*.json'],
                 dest: 'build/json.js'
             },
             spec: {
@@ -71,8 +53,23 @@ module.exports = function (grunt) {
                     'css/app.css': 'scss/app.scss'
                 }
             }
+        },
+        watch: {
+            src: {
+                files: 'src/**/*.ts',
+                tasks: ['typescript:src']
+            },
+            spec: {
+                files: 'spec/**/*.ts',
+                tasks: ['typescript:spec']
+            },
+            json: {
+                files: '**/*.json',
+                tasks: ['json']
+            }
         }
     });
+
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -81,7 +78,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-json');
-    grunt.registerTask('build', ['typescript']);
-    grunt.registerTask('dev', ['build', 'watch']);
-    grunt.registerTask('testsuite', ['json:spec', 'typescript:adapter', 'typescript:spec']);
+
+    grunt.registerTask('test', ['json:spec', 'typescript:spec', 'jasmine']);
+    grunt.registerTask('build', ['json:main', 'typescript:src']);
 };
