@@ -12,26 +12,23 @@ module Honeydew
         public replace = true;
         public templateUrl = '';
 
-        constructor(ElementTemplates: ElementTemplates)
+        constructor(ElementTemplates:ElementTemplates)
         {
             this.link = (scope, element, attrs) =>
             {
                 //Naam van de variable op de scope.
                 var variablename = attrs['variableName'];
-                if(variablename == null)
-                {
+                if (variablename == null) {
                     return;
                 }
-
 
                 var displayTypes = ['input', 'textarea', 'div'];
                 //Pakt een random displaytype.
                 var rand = displayTypes[Math.floor(Math.random() * displayTypes.length)];
 
-                var scopeobjvar = scope[variablename];
+                //var scopeobjvar = scope[variablename];
 
-                switch(rand)
-                {
+                switch (rand) {
                     case "input" :
                         this.templateUrl = ElementTemplates.getInput(variablename);
                         break;

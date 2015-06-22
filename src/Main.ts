@@ -1,9 +1,30 @@
 /// <reference path="../src/factories/DirectiveFactory.ts" />
 /// <reference path="../src/factories/ControllerFactory.ts" />
 /// <reference path="../src/factories/ServiceFactory.ts" />
+/// <reference path="../src/Adapter/VariableRepository.ts" />
+/// <reference path="../src/Adapter/ContextRepository.ts" />
+/// <reference path="../src/Adapter/Context.ts" />
+/// <reference path="../src/Adapter/Variable.ts" />
 
-declare class VariableRepository
+declare var json;
+
+declare class VariableRepositoryOld
 {
+}
+
+declare class CalculationDocument
+{
+    constructor(var1);
+}
+
+declare class CalculationModel
+{
+    constructor(var1);
+}
+
+declare class FormulaBootstrap
+{
+    constructor(var1, var2);
 }
 
 module Honeydew
@@ -12,11 +33,25 @@ module Honeydew
     {
         public static main(angular)
         {
+            var v05Instance = json['v05instance'];
+            var userFormulas = json['defaultmath'];
+            var importData = json['v05baseimportinstance'];
+            var v05layout = json['v05layout'];
+
+            new FormulaBootstrap(v05Instance, userFormulas);
+
+            var calcModel = new CalculationModel(v05Instance);
+            var calcDocument = new CalculationDocument(importData);
+
+            var contextRepo = new ContextRepository(calcDocument, calcModel);
+            var variableRepository = new VariableRepository(v05layout, contextRepo, calcModel);
+
             return angular.module('honeydew', [])
                 .factory('ElementTemplates', Honeydew.ServiceFactory.createElementTemplates())
-                .constant('IVariableRepository', new VariableRepository())
+                .constant('IVariableRepository', variableRepository)
                 .controller('FesController', Honeydew.ControllerFactory.createFesController())
                 .directive('fesElement', Honeydew.DirectiveFactory.createFesElement())
+                .directive('fesInit', Honeydew.DirectiveFactory.createFesInit())
                 .directive('bindAttributes', Honeydew.DirectiveFactory.createBindAttributes())
                 .directive('inlineTemplate', Honeydew.DirectiveFactory.createInlineTemplate());
         }

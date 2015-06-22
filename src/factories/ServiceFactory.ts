@@ -1,5 +1,6 @@
 /// <reference path="../../type_definitions/angularjs/angular.d.ts" />
 /// <reference path="../services/ElementTemplates.ts" />
+
 module Honeydew
 {
     export class ServiceFactory
@@ -15,6 +16,5 @@ module Honeydew
 
             return service;
         }
-
     }
 }
