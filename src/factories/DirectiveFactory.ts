@@ -39,5 +39,17 @@ module Honeydew
 
             return directive;
         }
+
+        public static createFesElement()
+        {
+            var directive = (ElementTemplates:ElementTemplates) =>
+            {
+                return new FesElement(ElementTemplates);
+            };
+
+            directive['$inject'] = ['ElementTemplates'];
+
+            return directive;
+        }
     }
 }

@@ -1,5 +1,6 @@
 /// <reference path="../src/factories/DirectiveFactory.ts" />
 /// <reference path="../src/factories/ControllerFactory.ts" />
+/// <reference path="../src/factories/ServiceFactory.ts" />
 /// <reference path="../src/Adapter/VariableRepository.ts" />
 /// <reference path="../src/Adapter/ContextRepository.ts" />
 /// <reference path="../src/Adapter/Context.ts" />
@@ -37,7 +38,7 @@ module Honeydew
             var importData = json['v05baseimportinstance'];
             var v05layout = json['v05layout'];
 
-            var modelBuilder = new FormulaBootstrap(v05Instance, userFormulas); // ???? TODO: Uitleg Michael
+            new FormulaBootstrap(v05Instance, userFormulas);
 
             var calcModel = new CalculationModel(v05Instance);
             var calcDocument = new CalculationDocument(importData);
@@ -46,9 +47,10 @@ module Honeydew
             var variableRepository = new VariableRepository(v05layout, contextRepo, calcModel);
 
             return angular.module('honeydew', [])
-                //.constant('IVariableRepository', new VariableRepositoryOld())
+                .factory('ElementTemplates', Honeydew.ServiceFactory.createElementTemplates())
                 .constant('IVariableRepository', variableRepository)
                 .controller('FesController', Honeydew.ControllerFactory.createFesController())
+                .directive('fesElement', Honeydew.DirectiveFactory.createFesElement())
                 .directive('fesInit', Honeydew.DirectiveFactory.createFesInit())
                 .directive('bindAttributes', Honeydew.DirectiveFactory.createBindAttributes())
                 .directive('inlineTemplate', Honeydew.DirectiveFactory.createInlineTemplate());
