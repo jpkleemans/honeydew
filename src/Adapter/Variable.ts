@@ -123,7 +123,7 @@ module Honeydew
 
         displayType()
         {
-            return "div";
+            return "dropdown";
         }
     }
 }

@@ -39,6 +39,9 @@ module Honeydew
                     case "div" :
                         this.templateUrl = ElementTemplates.getDiv(scopeName);
                         break;
+                    case "dropdown" :
+                        this.templateUrl = ElementTemplates.getDropdown(scopeName);
+                        break;
                     default :
                         this.templateUrl = ElementTemplates.getInput();
                         break;

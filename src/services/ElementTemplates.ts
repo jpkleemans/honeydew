@@ -42,5 +42,15 @@ module Honeydew
             return templateURL;
         }
 
+        public getDropdown(key):string
+        {
+            var templateURL = 'default'+key+'Dropdown.html';
+            if (this.$templateCache.get(templateURL)) {
+                return templateURL;
+            }
+            this.$templateCache.put(templateURL, '<select ng-options="item.attributes().value() as item.key() for item in '+key+'.children()"></select>');
+            return templateURL;
+        }
+
     }
 }
