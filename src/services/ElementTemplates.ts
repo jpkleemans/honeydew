@@ -38,7 +38,7 @@ module Honeydew
             if (this.$templateCache.get(templateURL)) {
                 return templateURL;
             }
-            this.$templateCache.put(templateURL, '<div>{{' + key + '.attributes().value}}</div>');
+            this.$templateCache.put(templateURL, '<div>{{' + key + '.attributes().value()}}</div>');
             return templateURL;
         }
 

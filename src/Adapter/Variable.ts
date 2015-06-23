@@ -97,7 +97,14 @@ module Honeydew
 
         update()
         {
-            this._attributes.value = this.variableModel.getValue(this.variableModel['hIndex'][0], 0, this.contextRepo.first());
+            this._attributes.value = (value) =>
+            {
+                if (typeof value === "undefined") {
+                    return this.variableModel.getValue(this.variableModel['hIndex'][0], 0, this.contextRepo.first());
+                }
+
+                this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.contextRepo.first(), parseFloat(value));
+            };
 
             this._attributes.style = {
                 color: "red"
@@ -112,6 +119,11 @@ module Honeydew
         hasChildren()
         {
             return (this.childrenKeys.length > 0);
+        }
+
+        displayType()
+        {
+            return "div";
         }
     }
 }
