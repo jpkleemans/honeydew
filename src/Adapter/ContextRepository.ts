@@ -20,10 +20,16 @@ module Honeydew
 
             var contexts = [];
 
+            var variableModel = this.calculationModel[query.variableKey];
+
+            if (variableModel === undefined) {
+                variableModel = this.calculationModel["Q_MAP02_VALIDATION"];
+            }
+
             var i;
             var length = selection.length;
             for (i = 0; i < length; i++) {
-                var context = new Context(selection[i], this.calculationModel[query.variableKey]);
+                var context = new Context(selection[i], variableModel);
                 contexts.push(context);
             }
 

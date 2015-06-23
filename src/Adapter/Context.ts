@@ -46,7 +46,7 @@ module Honeydew
 
                 this._attributes.entered = "true";
 
-                this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.column, value == null ? null : parseFloat(value));
+                this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.column, value == undefined ? null : value);
             };
 
             this._attributes.required = this.variableModel.getValue(this.variableModel['hIndex'][0], 2, this.column);

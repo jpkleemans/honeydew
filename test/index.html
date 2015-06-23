@@ -79,43 +79,43 @@
     </form>
 </div>
 
-<div class="container form-part">
-    <h3>Single Input, without columns</h3>
+<!--<div class="container form-part">-->
+    <!--<h3>Single Input, without columns</h3>-->
 
-    <form class="form-horizontal">
-        <div class="form-group form-inline">
-            <label class="form-row">
-                    <span class="col-sm-12">
-                        FakeVariable: <input class="form-control" fes-init="FakeVariable"
-                                             bind-attributes="FakeVariable.attributes()">
-                        Color FakeVariable: <input class="form-control"
-                                                   ng-model="FakeVariable.attributes().style.color">
-                        Color Q_ROOT: <input class="form-control" ng-model="Q_ROOT.attributes().style.color">
-                    </span>
-            </label>
-        </div>
-    </form>
-</div>
+    <!--<form class="form-horizontal">-->
+        <!--<div class="form-group form-inline">-->
+            <!--<label class="form-row">-->
+                    <!--<span class="col-sm-12">-->
+                        <!--FakeVariable: <input class="form-control" fes-init="FakeVariable"-->
+                                             <!--bind-attributes="FakeVariable.attributes()">-->
+                        <!--Color FakeVariable: <input class="form-control"-->
+                                                   <!--ng-model="FakeVariable.attributes().style.color">-->
+                        <!--Color Q_ROOT: <input class="form-control" ng-model="Q_ROOT.attributes().style.color">-->
+                    <!--</span>-->
+            <!--</label>-->
+        <!--</div>-->
+    <!--</form>-->
+<!--</div>-->
 
-<div class="container form-part">
-    <h3>Single Input, with columns</h3>
-    <small>Q_ROOT_VARIABLE_ONE</small>
+<!--<div class="container form-part">-->
+    <!--<h3>Single Input, with columns</h3>-->
+    <!--<small>Q_ROOT_VARIABLE_ONE</small>-->
 
-    <form class="form-horizontal">
-        <div class="form-group form-inline">
-            <div fes-init="Q_ROOT_VARIABLE_ONE" ng-repeat="context in Q_ROOT_VARIABLE_ONE.contexts(columnQuery)">
-                <label class="form-row">
-                    <span class="col-md-2 ">
-                        <span class="vertical-align">context {{$index}}:</span>
-                    </span>
-                    <span>
-                        <input class="form-control" bind-attributes="context.attributes()">
-                    </span>
-                </label>
-            </div>
-        </div>
-    </form>
-</div>
+    <!--<form class="form-horizontal">-->
+        <!--<div class="form-group form-inline">-->
+            <!--<div fes-init="Q_ROOT_VARIABLE_ONE" ng-repeat="context in Q_ROOT_VARIABLE_ONE.contexts(columnQuery)">-->
+                <!--<label class="form-row">-->
+                    <!--<span class="col-md-2 ">-->
+                        <!--<span class="vertical-align">context {{$index}}:</span>-->
+                    <!--</span>-->
+                    <!--<span>-->
+                        <!--<input class="form-control" bind-attributes="context.attributes()">-->
+                    <!--</span>-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</form>-->
+<!--</div>-->
 
 <div class="container form-part">
     <h3>Simple list, with columns</h3>
@@ -126,11 +126,7 @@
                 <div ng-repeat="child in Q_ROOT.children()">
                     <label class="form-row">
                         <span class="col-md-2">
-                            <span class="vertical-align">{{child.title()}}:</span>
-                        </span>
-
-                        <span ng-repeat="context in child.contexts(columnQuery)">
-                            <input class="form-control" bind-attributes="context.attributes()">
+                            <button class="btn btn-default">{{child.title()}}:</button>
                         </span>
                     </label>
                 </div>
@@ -144,8 +140,8 @@
 
     <form class="form-horizontal">
         <div class="form-group form-inline">
-            <div fes-init="Q_ROOT" bind-attributes="Q_ROOT.attributes()">
-                <div ng-repeat="child in Q_ROOT.children()" inline-template="withoutcolumnslazy">
+            <div fes-init="Q_MAP01" bind-attributes="Q_MAP01.attributes()">
+                <div ng-repeat="child in Q_MAP01.children()" inline-template="withoutcolumnslazy">
                     <label class="form-row">
                         <span class="col-md-2">
                             <span ng-init="showChildren = false">

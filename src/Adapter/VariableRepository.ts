@@ -26,12 +26,13 @@ module Honeydew
             var variableModel = this.calculationModel[key];
 
             if (variableModel === undefined) {
-                throw new RangeError("This variable does not exist");
+                variableModel = this.calculationModel["Q_MAP02_VALIDATION"];
+                //throw new RangeError("This variable does not exist");
             }
 
             var childrenKeys = [];
             if (this.v05layout[key] !== undefined) {
-                childrenKeys = Object.keys(this.v05layout[key]);
+                childrenKeys = this.v05layout[key].children;
             }
 
             var variable = new Variable(key, childrenKeys, this, this.contextRepo, variableModel);

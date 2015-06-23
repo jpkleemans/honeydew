@@ -1,40 +1,4103 @@
 {
-	"Q_ROOT": 
-	{
-		"OperatingProvisions": 
-		{
-			
-		},
-
-		"Root": 
-		{
-			
-		},
-
-		"Q_ROOT_MAP01": 
-		{
-			
-		}
-	},
-
-	"Q_ROOT_MAP01": 
-	{
-		"Q_ROOT_VARIABLE_ONE": 
-		{
-			
-		},
-
-		"OperatingProvisions": 
-		{
-			
-		}
-	},
-
-	"Q_ROOT_VARIABLE_ONE": 
-	{
-		"FakeVariable": 
-		{
-			
-		}
-	}
+  "Q_MAP07_ENTEREDREQUIREDVARS": {
+	"hash": 299,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (7)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_Paragraaf051": {
+	"hash": 130,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 5 (alleen prognose kolommen incl. header)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par14_Vr01": {
+	"hash": 279,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 4 - Vraag 1"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par14_Vr01_sub1",
+	  "Q_MAP07_Par14_Vr01_sub2",
+	  "Q_MAP07_Par14_Vr01_totaal"
+	]
+  },
+  "Q_MAP07_Par14_Vr02": {
+	"hash": 283,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 4 - Vraag 2"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par14_Vr02_sub1",
+	  "Q_MAP07_Par14_Vr02_sub2",
+	  "Q_MAP07_Par14_Vr02_totaal"
+	]
+  },
+  "FPS_FINAN_USER": {
+	"hash": 36,
+	"dataType": "String",
+	"titleformula": [
+	  "FPS_FINAN_USER"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_A_XLS": {
+	"hash": 196,
+	"dataType": "String",
+	"titleformula": [
+	  "XLS name"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_Paragraaf02_HINT": {
+	"hash": 94,
+	"dataType": "String",
+	"title": false,
+	"className": "PARAGRAPH-HINT",
+	"titleformula": [
+	  "Flipflop voorbeeld. X+Y=Z[br][/br]Wanneer een waarde wordt ingevuld in Z, dan wordt de waarde in Y verwijderd. Y rekent vervolgens de waarde (Z-X = Y) uit. De opteling blijft correct."
+	],
+	"hint": "Flipflop voorbeeld. X+Y=Z[br][/br]Wanneer een waarde wordt ingevuld in Z, dan wordt de waarde in Y verwijderd. Y rekent vervolgens de waarde (Z-X = Y) uit. De opteling blijft correct.",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_ENTEREDREQUIREDVARS": {
+	"hash": 139,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (3)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_RESTRICTIESTXT": {
+	"hash": 380,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"titleformula": [
+	  "Restricties tekst"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Straat": {
+	"hash": 26,
+	"dataType": "String",
+	"titleformula": [
+	  "STREET"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_Paragraaf041": {
+	"hash": 128,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 4 (alleen historische kolommen incl. header)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP01_REQUIREDVARS": {
+	"hash": 82,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (1)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Provisions": {
+	"hash": 116,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Voorzieningen"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "StringInputmax": {
+	"hash": 151,
+	"dataType": "String",
+	"titleformula": [
+	  "Maximaal 10 karakters"
+	],
+	"hint": "Maximaal 10 karakters$$MaxLength=10",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_Paragraaf01": {
+	"hash": 88,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 1"
+	],
+	"hint": "Flipflop voorbeeld. A+B=C[br][/br]Wanneer een waarde wordt ingevuld in C, dan wordt de waarde in B verwijderd. B rekent vervolgens de waarde (C-A = B) uit. De opteling blijft correct.",
+	"frequency": 1,
+	"children": [
+	  "Q_MAP02_Paragraaf01_HINT",
+	  "Q_MAP02_A",
+	  "Q_MAP02_B",
+	  "Q_MAP02_C"
+	]
+  },
+  "FES_LAYOUTNR": {
+	"hash": 3,
+	"dataType": "Number",
+	"titleformula": [
+	  "Layout"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_WARNING": {
+	"hash": 141,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 4"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Telefoon": {
+	"hash": 33,
+	"dataType": "String",
+	"titleformula": [
+	  "Telefoonnummer"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_Paragraaf03": {
+	"hash": 98,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 3"
+	],
+	"hint": "Hieronder de tekstvelden die panel boven in beeld verschijnen",
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP02_Paragraaf02": {
+	"hash": 93,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 2"
+	],
+	"hint": "Flipflop voorbeeld. X+Y=Z[br][/br]Wanneer een waarde wordt ingevuld in Z, dan wordt de waarde in Y verwijderd. Y rekent vervolgens de waarde (Z-X = Y) uit. De opteling blijft correct.",
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP02_Paragraaf02_HINT",
+	  "Q_MAP02_X",
+	  "Q_MAP02_Y",
+	  "Q_MAP02_Z"
+	]
+  },
+  "Q_MAP06_Hulpvariabelen": {
+	"hash": 225,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP06_REQUIREDVARS",
+	  "Q_MAP06_ENTEREDREQUIREDVARS"
+	]
+  },
+  "Q_MAP01_Verplicht": {
+	"hash": 54,
+	"dataType": "Number",
+	"titleformula": [
+	  "Zijn de vragen in deze paragraaf verplicht?"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_Hulpvariabelen": {
+	"hash": 100,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP02_REQUIREDVARS",
+	  "Q_MAP02_ENTEREDREQUIREDVARS"
+	]
+  },
+  "FPS_VAR_GridId": {
+	"hash": 23,
+	"dataType": "String",
+	"titleformula": [
+	  "GRIDID"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_Hulpvariabelen": {
+	"hash": 137,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP03_REQUIREDVARS",
+	  "Q_MAP03_ENTEREDREQUIREDVARS"
+	]
+  },
+  "Q_MAP08_ENTEREDREQUIREDVARS": {
+	"hash": 353,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (8)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tcvTest4Country": {
+	"hash": 309,
+	"dataType": "Number",
+	"titleformula": [
+	  "Test 4: Choice step 1 Country"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_BIK_CODE": {
+	"hash": 21,
+	"dataType": "String",
+	"titleformula": [
+	  "SECTOROFINDUSTRYCODE"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FES_BASECURRENCYPERIOD": {
+	"hash": 12,
+	"dataType": "Number",
+	"titleformula": [
+	  "Base Currency Period"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par07_Vr01": {
+	"hash": 260,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 7 - Vraag 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par07_Vr02": {
+	"hash": 261,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 7 - Vraag 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par16_Vr01": {
+	"hash": 291,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 6 (leeg) - Vraag 1"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par16_Vr02": {
+	"hash": 292,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 6 (leeg) - Vraag 2"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP03_VALIDATION": {
+	"hash": 106,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 3"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_Paragraaf09": {
+	"hash": 99,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigenschappen van de stap"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_RESTRICTIES": {
+	"hash": 377,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"titleformula": [
+	  "Restricties"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_RESTRICTIES_01",
+	  "Q_RESTRICTIES_02",
+	  "Q_RESTRICTIESTXT"
+	]
+  },
+  "Q_MAP07_Par13_Vr02_totaal": {
+	"hash": 277,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Totaal"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Emailadres": {
+	"hash": 34,
+	"dataType": "String",
+	"titleformula": [
+	  "Emailadres"
+	],
+	"frequency": 1,
+	"children": [
+	  "FPS_FINAN_USER_ROLES",
+	  "FPS_FINAN_USER"
+	]
+  },
+  "tplFirstT": {
+	"hash": 324,
+	"dataType": "Number",
+	"titleformula": [
+	  "FirstT"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par17_Vr01": {
+	"hash": 294,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 7 (leeg) - Vraag 1"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestP": {
+	"hash": 344,
+	"dataType": "Number",
+	"titleformula": [
+	  "T<LastTinFormulaSet(Trend,MainPeriod)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestO": {
+	"hash": 343,
+	"dataType": "Number",
+	"titleformula": [
+	  "T<>LastTinFormulaSet(Trend,MainPeriod)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "FPS_VAR_Provincie": {
+	"hash": 30,
+	"dataType": "String",
+	"titleformula": [
+	  "STATEORPROVINCE"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Paragraaf01": {
+	"hash": 42,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 1"
+	],
+	"hint": "Hinttekst voor paragraaf 1",
+	"frequency": 1,
+	"children": [
+	  "Q_MAP01_Paragraaf01_HINT",
+	  "Q_MAP01_Vraag01",
+	  "Q_MAP01_Vraag02",
+	  "Q_MAP01_Vraag03",
+	  "Q_MAP01_Vraag04",
+	  "Q_MAP01_Vraag05",
+	  "Q_MAP01_Vraag06",
+	  "Q_MAP01_Vraag07",
+	  "Q_MAP01_Vraag08"
+	]
+  },
+  "Q_MAP01_Paragraaf02": {
+	"hash": 52,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 2"
+	],
+	"hint": "Alle vragen in deze paragraaf zijn verplicht afhankelijk van onderstaande schakelaar.",
+	"frequency": 1,
+	"children": [
+	  "Q_MAP01_Paragraaf02_HINT",
+	  "Q_MAP01_Verplicht",
+	  "Q_MAP01_Vraag11",
+	  "Q_MAP01_Vraag12",
+	  "Q_MAP01_Vraag13",
+	  "Q_MAP01_Vraag14",
+	  "Q_MAP01_Vraag15",
+	  "Q_MAP01_Vraag16",
+	  "Q_MAP01_Vraag17",
+	  "Q_MAP01_Vraag18"
+	]
+  },
+  "Q_MAP01_Paragraaf03": {
+	"hash": 63,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 3"
+	],
+	"hint": "Alle vragen in deze paragraaf zijn verplicht.[br][/br]Echter alle velden bevatten al een default waarde.",
+	"frequency": 1,
+	"children": [
+	  "Q_MAP01_Paragraaf03_HINT",
+	  "Q_MAP01_Vraag21",
+	  "Q_MAP01_Vraag22",
+	  "Q_MAP01_Vraag23",
+	  "Q_MAP01_Vraag24",
+	  "Q_MAP01_Vraag25",
+	  "Q_MAP01_Vraag26",
+	  "Q_MAP01_Vraag27",
+	  "Q_MAP01_Vraag28"
+	]
+  },
+  "tplFirstTInFormaSetTrend": {
+	"hash": 318,
+	"dataType": "Number",
+	"titleformula": [
+	  "FirstTInFormulaSet(Trend,MainPeriod)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Paragraaf04": {
+	"hash": 74,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 4 (Locked)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Paragraaf05": {
+	"hash": 75,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 5: Model info"
+	],
+	"frequency": 1,
+	"children": [
+	  "WindowsUserName",
+	  "CurrentDate",
+	  "FinanFullVersion",
+	  "ModelCode"
+	]
+  },
+  "Q_MAP07_Par01_Vr02": {
+	"hash": 237,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 1 - Vraag 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Kantoor": {
+	"hash": 25,
+	"dataType": "String",
+	"titleformula": [
+	  "OFFICENUMBER"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tcvTest2String": {
+	"hash": 306,
+	"dataType": "String",
+	"titleformula": [
+	  "Test 2: Enter a choice string here"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par01_Vr01": {
+	"hash": 236,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 1 - Vraag 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Paragraaf09": {
+	"hash": 80,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigenschappen van de stap"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Accountmanager": {
+	"hash": 24,
+	"dataType": "String",
+	"titleformula": [
+	  "ACCOUNTMANAGER"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Hulpvariabelen": {
+	"hash": 297,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_REQUIREDVARS",
+	  "Q_MAP07_ENTEREDREQUIREDVARS"
+	]
+  },
+  "Q_MAP07_Par06_Vr02": {
+	"hash": 258,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 6 - Vraag 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_A_ColIndex": {
+	"hash": 199,
+	"dataType": "Number",
+	"titleformula": [
+	  "Col index"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_C": {
+	"hash": 92,
+	"dataType": "Currency",
+	"titleformula": [
+	  "C"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_B": {
+	"hash": 91,
+	"dataType": "Currency",
+	"titleformula": [
+	  "B"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_INFO": {
+	"hash": 105,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 3"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_A": {
+	"hash": 90,
+	"dataType": "Currency",
+	"titleformula": [
+	  "A"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "NetSalesLock": {
+	"hash": 134,
+	"dataType": "Number",
+	"titleformula": [
+	  "(T=LastTinFormulaSet(Trend))"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "SOMOmzetgroepOmzet": {
+	"hash": 188,
+	"dataType": "Currency",
+	"titleformula": [
+	  "SOM: Omzet"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP06_P02Vraag03": {
+	"hash": 221,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 3: Naar volgende vraag?"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP06_P02Vraag02": {
+	"hash": 220,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 2: Naar volgende vraag?"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_X": {
+	"hash": 95,
+	"dataType": "Currency",
+	"titleformula": [
+	  "X"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP06_P02Vraag01": {
+	"hash": 219,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 1: Naar volgende vraag?"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_Y": {
+	"hash": 96,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Y"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP02_Z": {
+	"hash": 97,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Z"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP06_P02Vraag05": {
+	"hash": 223,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 5: Naar volgende vraag?"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP06_P02Vraag04": {
+	"hash": 222,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 4: Naar volgende vraag?"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag28": {
+	"hash": 72,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"titleformula": [
+	  "Vraag 8 (Memoveld)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "FES_ENDDATEPERIOD": {
+	"hash": 11,
+	"dataType": "Number",
+	"titleformula": [
+	  "End Date Period"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP01_Vraag27": {
+	"hash": 71,
+	"dataType": "Number",
+	"attribute": "date",
+	"titleformula": [
+	  "Vraag 7 (Datumveld)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_FINAN_USER_ROLES": {
+	"hash": 35,
+	"dataType": "String",
+	"titleformula": [
+	  "FPS_FINAN_USER_ROLES"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tclTestE": {
+	"hash": 333,
+	"dataType": "Number",
+	"titleformula": [
+	  "T=1"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestF": {
+	"hash": 334,
+	"dataType": "Number",
+	"titleformula": [
+	  "T=2"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestC": {
+	"hash": 331,
+	"dataType": "Number",
+	"titleformula": [
+	  "T=3"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tplLastTInFormaSetNoTrend": {
+	"hash": 317,
+	"dataType": "Number",
+	"titleformula": [
+	  "LastTInFormulaSet(NoTrend,MainPeriod)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tclTestD": {
+	"hash": 332,
+	"dataType": "Number",
+	"titleformula": [
+	  "T<=3"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestA": {
+	"hash": 329,
+	"dataType": "Number",
+	"titleformula": [
+	  "Value 0 (unlock expected)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestB": {
+	"hash": 330,
+	"dataType": "Number",
+	"titleformula": [
+	  "Value 1 (lock expected)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestM": {
+	"hash": 341,
+	"dataType": "Number",
+	"titleformula": [
+	  "T<=LastTinYear(FirstTinFormulaSet(Trend,MainPeriod))"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestN": {
+	"hash": 342,
+	"dataType": "Number",
+	"titleformula": [
+	  "T=LastTinFormulaSet(Trend,MainPeriod)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP01_VALIDATION": {
+	"hash": 41,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tclTestK": {
+	"hash": 339,
+	"dataType": "Number",
+	"titleformula": [
+	  "T<>3"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestL": {
+	"hash": 340,
+	"dataType": "Number",
+	"titleformula": [
+	  "T<>4"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP01_Paragraaf02_HINT": {
+	"hash": 53,
+	"dataType": "String",
+	"title": false,
+	"className": "PARAGRAPH-HINT",
+	"titleformula": [
+	  "Alle vragen in deze paragraaf zijn verplicht afhankelijk van onderstaande schakelaar."
+	],
+	"hint": "Alle vragen in deze paragraaf zijn verplicht afhankelijk van onderstaande schakelaar.",
+	"frequency": 1,
+	"children": []
+  },
+  "tclTestI": {
+	"hash": 337,
+	"dataType": "Number",
+	"titleformula": [
+	  "T<>1"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestJ": {
+	"hash": 338,
+	"dataType": "Number",
+	"titleformula": [
+	  "T<>2"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestG": {
+	"hash": 335,
+	"dataType": "Number",
+	"titleformula": [
+	  "T=3"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tclTestH": {
+	"hash": 336,
+	"dataType": "Number",
+	"titleformula": [
+	  "T=4"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par17_Vr02": {
+	"hash": 295,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 7 (leeg) - Vraag 2"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par02": {
+	"hash": 238,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 2"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par02_Vr01",
+	  "Q_MAP07_Par02_Vr02"
+	]
+  },
+  "MaterialFixedAssets": {
+	"hash": 109,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Materiële vaste activa"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par01": {
+	"hash": 235,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 1"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par01_Vr01",
+	  "Q_MAP07_Par01_Vr02"
+	]
+  },
+  "Q_MAP07_Par04": {
+	"hash": 250,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 4"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par04_Vr01",
+	  "Q_MAP07_Par04_Vr02"
+	]
+  },
+  "Q_MAP07_Par03": {
+	"hash": 241,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par03_Vr01",
+	  "Q_MAP07_Par03_Vr02"
+	]
+  },
+  "Q_MAP07_Par11_Vr01": {
+	"hash": 264,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 1 - Vraag 1"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par06": {
+	"hash": 256,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 6 (leeg)"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par06_Vr01",
+	  "Q_MAP07_Par06_Vr02"
+	]
+  },
+  "Q_MAP07_Par05": {
+	"hash": 253,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 5"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par05_Vr01",
+	  "Q_MAP07_Par05_Vr02"
+	]
+  },
+  "Q_MAP07_Par11_Vr02": {
+	"hash": 265,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 1 - Vraag 2"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par07": {
+	"hash": 259,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 7 (leeg)"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par07_Vr01",
+	  "Q_MAP07_Par07_Vr02"
+	]
+  },
+  "Q_MAP06_REQUIREDVARS": {
+	"hash": 226,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (6)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_WARNING": {
+	"hash": 104,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 3"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Vraag03": {
+	"hash": 173,
+	"dataType": "String",
+	"titleformula": [
+	  "Vraag 3"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tplMaxT": {
+	"hash": 315,
+	"dataType": "Number",
+	"titleformula": [
+	  "MaxT"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Vraag01": {
+	"hash": 171,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FES_FLATINPUT": {
+	"hash": 6,
+	"dataType": "Number",
+	"titleformula": [
+	  "Is flat input used? (1=yes)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Vraag02": {
+	"hash": 172,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Paragraaf03_HINT": {
+	"hash": 64,
+	"dataType": "String",
+	"title": false,
+	"className": "PARAGRAPH-HINT",
+	"titleformula": [
+	  "Alle vragen in deze paragraaf zijn verplicht.[br][/br]Echter alle velden bevatten al een default waarde."
+	],
+	"hint": "Alle vragen in deze paragraaf zijn verplicht.[br][/br]Echter alle velden bevatten al een default waarde.",
+	"frequency": 1,
+	"children": []
+  },
+  "PhotoUpload": {
+	"hash": 160,
+	"dataType": "String",
+	"titleformula": [
+	  "PhotoUpload"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "CurrentDate": {
+	"hash": 77,
+	"dataType": "Number",
+	"attribute": "date",
+	"titleformula": [
+	  "Gemaakt op"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Lijst02": {
+	"hash": 177,
+	"dataType": "Number",
+	"titleformula": [
+	  "Omschrijving"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Lijst03": {
+	"hash": 178,
+	"dataType": "Number",
+	"titleformula": [
+	  "Omschrijving"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "IntangibleFixedAssets": {
+	"hash": 108,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Immateriële vaste activa& &(TEST)"
+	],
+	"hint": "Dit is een test om te controleren of alles tussen quotes wordt vertaald.",
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP05_Lijst01": {
+	"hash": 176,
+	"dataType": "Number",
+	"titleformula": [
+	  "Omschrijving"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_A_Range": {
+	"hash": 197,
+	"dataType": "String",
+	"titleformula": [
+	  "Range name"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par15": {
+	"hash": 287,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 5"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par15_Vr01",
+	  "Q_MAP07_Par15_Vr02"
+	]
+  },
+  "Q_MAP07_Par14": {
+	"hash": 278,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 4"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par14_Vr01",
+	  "Q_MAP07_Par14_Vr02"
+	]
+  },
+  "Q_MAP07_Par13": {
+	"hash": 269,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par13_Vr01",
+	  "Q_MAP07_Par13_Vr02"
+	]
+  },
+  "Q_MAP07_Par12": {
+	"hash": 266,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 2"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par12_Vr01",
+	  "Q_MAP07_Par12_Vr02"
+	]
+  },
+  "FinancialFixedAssets": {
+	"hash": 110,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Financiële vaste activa"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par17": {
+	"hash": 293,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 7 (leeg)"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par17_Vr01",
+	  "Q_MAP07_Par17_Vr02"
+	]
+  },
+  "Q_MAP07_Par16": {
+	"hash": 290,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 6 (leeg)"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par16_Vr01",
+	  "Q_MAP07_Par16_Vr02"
+	]
+  },
+  "Q_MAP07_Par06_Vr01": {
+	"hash": 257,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 6 - Vraag 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par11": {
+	"hash": 263,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 1"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par11_Vr01",
+	  "Q_MAP07_Par11_Vr02"
+	]
+  },
+  "Q_MAP04_Vraag01": {
+	"hash": 145,
+	"dataType": "Number",
+	"titleformula": [
+	  "Lock variabel Map 5 Vraag 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tplFirstTInPeriod": {
+	"hash": 320,
+	"dataType": "Number",
+	"titleformula": [
+	  "FirstTInPeriod(MainPeriod)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP06_Vraag01": {
+	"hash": 216,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 1: Vul een getal tussen -10 en 10 in."
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_Paragraaf07": {
+	"hash": 132,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 7 (prognose kolommen locken)"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "KolomT",
+	  "NetSalesLock",
+	  "NetSalesLock2"
+	]
+  },
+  "Q_MAP06_Vraag02": {
+	"hash": 217,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 2: Is er een knockout van toepassing?"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "TestColumnLocking": {
+	"hash": 328,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Test Column Locking"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "tclTestA",
+	  "tclTestB",
+	  "tclTestC",
+	  "tclTestD",
+	  "tclTestE",
+	  "tclTestF",
+	  "tclTestG",
+	  "tclTestH",
+	  "tclTestI",
+	  "tclTestJ",
+	  "tclTestK",
+	  "tclTestL",
+	  "tclTestM",
+	  "tclTestN",
+	  "tclTestO",
+	  "tclTestP"
+	]
+  },
+  "Q_MAP03_Paragraaf03": {
+	"hash": 126,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 3 (alle kolommen)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Zekerheid_DekkingsWaarde_SUM": {
+	"hash": 191,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Totale dekkingswaarde zekerheden"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "WindowsUserName": {
+	"hash": 76,
+	"dataType": "String",
+	"titleformula": [
+	  "Gemaakt door"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_Paragraaf04": {
+	"hash": 127,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 4 (alleen historische kolommen)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP03_Paragraaf05": {
+	"hash": 129,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 5 (alleen prognose kolommen)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "OnroerendGoedTupleMin": {
+	"hash": 182,
+	"dataType": "Currency",
+	"titleformula": [
+	  "TupleMin Aanschafwaarde"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_Paragraaf06": {
+	"hash": 131,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 6 (geen history en prognose kolommen)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP03": {
+	"hash": 103,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 3 (Jaarrekening)"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP03_WARNING",
+	  "Q_MAP03_INFO",
+	  "Q_MAP03_VALIDATION",
+	  "Q_MAP03_Paragraaf01",
+	  "IncomeStatement",
+	  "Q_MAP03_Paragraaf03",
+	  "Q_MAP03_Paragraaf04",
+	  "Q_MAP03_Paragraaf041",
+	  "Q_MAP03_Paragraaf05",
+	  "Q_MAP03_Paragraaf051",
+	  "Q_MAP03_Paragraaf06",
+	  "Q_MAP03_Paragraaf07",
+	  "Q_MAP03_Paragraaf09",
+	  "Q_MAP03_Hulpvariabelen"
+	]
+  },
+  "Q_MAP02": {
+	"hash": 84,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 2"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP02_WARNING",
+	  "Q_MAP02_INFO",
+	  "Q_MAP02_VALIDATION",
+	  "Q_MAP02_Paragraaf01",
+	  "Q_MAP02_Paragraaf02",
+	  "Q_MAP02_Paragraaf03",
+	  "Q_MAP02_Paragraaf09",
+	  "Q_MAP02_Hulpvariabelen"
+	]
+  },
+  "Q_MAP05": {
+	"hash": 165,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 5 Tuples"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP05_WARNING",
+	  "Q_MAP05_INFO",
+	  "Q_MAP05_VALIDATION",
+	  "Q_MAP05_Paragraaf01",
+	  "Q_MAP05_Paragraaf03",
+	  "Q_MAP05_Paragraaf04",
+	  "Q_MAP05_Paragraaf05",
+	  "Q_MAP05_Paragraaf06a",
+	  "Q_MAP05_Paragraaf06",
+	  "Q_MAP05_Paragraaf07",
+	  "Q_MAP05_Paragraaf08A",
+	  "Q_MAP05_Paragraaf08B",
+	  "Q_MAP05_Paragraaf09",
+	  "Q_MAP05_Hulpvariabelen"
+	]
+  },
+  "Q_MAP03_Paragraaf09": {
+	"hash": 136,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigenschappen van de stap"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04": {
+	"hash": 140,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 4 Locking / Visible en Type variabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP04_WARNING",
+	  "Q_MAP04_INFO",
+	  "Q_MAP04_VALIDATION",
+	  "Q_MAP04_Paragraaf01",
+	  "Q_MAP04_Paragraaf03",
+	  "Q_MAP04_Paragraaf04",
+	  "Q_MAP04_Paragraaf05",
+	  "Q_MAP04_Paragraaf09",
+	  "Q_MAP04_Hulpvariabelen"
+	]
+  },
+  "Q_MAP07": {
+	"hash": 228,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 7: Rapportage"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_WARNING",
+	  "Q_MAP07_INFO",
+	  "Q_MAP07_VALIDATION",
+	  "Q_MAP07_Paragraaf01",
+	  "Q_MAP07_Paragraaf02",
+	  "Q_MAP07_Paragraaf03",
+	  "Q_MAP07_Paragraaf09",
+	  "Q_MAP07_Hulpvariabelen"
+	]
+  },
+  "Q_MAP06": {
+	"hash": 211,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 6"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP06_WARNING",
+	  "Q_MAP06_INFO",
+	  "Q_MAP06_VALIDATION",
+	  "Q_MAP06_Paragraaf01",
+	  "Q_MAP06_Paragraaf02",
+	  "Q_MAP06_Paragraaf09",
+	  "Q_MAP06_Hulpvariabelen"
+	]
+  },
+  "Q_MAP09": {
+	"hash": 300,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 7,5 Includefiles EJS"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP09_WARNING",
+	  "Q_MAP09_INFO",
+	  "Q_MAP09_VALIDATION",
+	  "TestChoiceVars",
+	  "TestColumnFunctions",
+	  "TestColumnLocking"
+	]
+  },
+  "Q_MAP08": {
+	"hash": 345,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 8 knopppen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP08_WARNING",
+	  "Q_MAP08_INFO",
+	  "Q_MAP08_VALIDATION",
+	  "Q_MAP08_Paragraaf03",
+	  "Q_MAP08_Paragraaf09",
+	  "Q_MAP08_Hulpvariabelen",
+	  "Q_MAP09_Hulpvariabelen"
+	]
+  },
+  "tplLastTInPeriod": {
+	"hash": 321,
+	"dataType": "Number",
+	"titleformula": [
+	  "LastTInPeriod(MainPeriod)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP09_WARNING": {
+	"hash": 301,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 9"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "ValCheck": {
+	"hash": 121,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Balans uitevenwicht?"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tplLastTinYear": {
+	"hash": 322,
+	"dataType": "Number",
+	"titleformula": [
+	  "LastTinYear"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "TotalAssets2": {
+	"hash": 114,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Totaal activa"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP05_B_XLS": {
+	"hash": 202,
+	"dataType": "String",
+	"titleformula": [
+	  "XLS name"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par02_Vr01": {
+	"hash": 239,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 2 - Vraag 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_Vraag02": {
+	"hash": 146,
+	"dataType": "Number",
+	"titleformula": [
+	  "Laat variabel Map 5 Vraag 2 zien"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par02_Vr02": {
+	"hash": 240,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 2 - Vraag 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_Vraag03": {
+	"hash": 147,
+	"dataType": "Number",
+	"titleformula": [
+	  "Laat paragraaf Map 5 Paragraaf 1 zien"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Paragraaf03_HINT": {
+	"hash": 175,
+	"dataType": "String",
+	"title": false,
+	"className": "PARAGRAPH-HINT",
+	"titleformula": [
+	  "Hieronder wordt een lijstje getoond. Vul één regel in automatisch verschijnt er een nieuwe regel getoond. Je kunt de omschrijving aanpassen door op het pennetje te klikken."
+	],
+	"hint": "Hieronder wordt een lijstje getoond. Vul één regel in automatisch verschijnt er een nieuwe regel getoond. Je kunt de omschrijving aanpassen door op het pennetje te klikken.",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_RESULT": {
+	"hash": 357,
+	"dataType": "String",
+	"titleformula": [
+	  "Resultaat"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_Vraag04": {
+	"hash": 148,
+	"dataType": "Number",
+	"titleformula": [
+	  "Laat Map 5 zien"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_Paragraaf01": {
+	"hash": 107,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Balans"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "IntangibleFixedAssets",
+	  "MaterialFixedAssets",
+	  "FinancialFixedAssets",
+	  "Inventories",
+	  "Receivables2",
+	  "CashAndEquivalents",
+	  "TotalAssets2",
+	  "NetWorth",
+	  "Provisions",
+	  "NonCurrentLiabilities",
+	  "CurrentLiabilities",
+	  "TotalEquityAndLiabilities",
+	  "OffBalance",
+	  "ValCheck"
+	]
+  },
+  "Q_MAP07_Par13_Vr01_sub2": {
+	"hash": 272,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par13_Vr01_sub1": {
+	"hash": 271,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01": {
+	"hash": 38,
+	"dataType": "Number",
+	"className": "NAVIGATOR",
+	"titleformula": [
+	  "Map 1"
+	],
+	"hint": "Dit is de hinttekst van ' Map 1'",
+	"frequency": 1,
+	"children": [
+	  "Q_MAP01_WARNING",
+	  "Q_MAP01_INFO",
+	  "Q_MAP01_VALIDATION",
+	  "Q_MAP01_Paragraaf01",
+	  "Q_MAP01_Paragraaf02",
+	  "Q_MAP01_Paragraaf03",
+	  "Q_MAP01_Paragraaf03_2",
+	  "Q_MAP01_Paragraaf04",
+	  "Q_MAP01_Paragraaf05",
+	  "Q_MAP01_Paragraaf09",
+	  "Q_MAP01_Hulpvariabelen"
+	]
+  },
+  "NonCurrentLiabilities": {
+	"hash": 117,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Langlopende schulden"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tcvTest5": {
+	"hash": 311,
+	"dataType": "Number",
+	"titleformula": [
+	  "Test 5: Choice (0:zero\\r\\n10:ten\\r\\n11:eleven\\r\\n20:twenty)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "CostOfSales": {
+	"hash": 124,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Inkoopwaarde"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tcvTest3": {
+	"hash": 308,
+	"dataType": "Number",
+	"titleformula": [
+	  "Test 3: Choice (zero\\r\\none\\r\\n\\r\\n\\r\\nfour)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "NetWorth": {
+	"hash": 115,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigen vermogen"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "tcvTest2": {
+	"hash": 307,
+	"dataType": "Number",
+	"titleformula": [
+	  "Test 2: Make your choice"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_WARNING_01": {
+	"hash": 375,
+	"dataType": "String",
+	"titleformula": [
+	  "Map6 - Vraag 6"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tcvTest1": {
+	"hash": 305,
+	"dataType": "Number",
+	"titleformula": [
+	  "Test 1: Choice (zero\\r\\none\\r\\ntwo\\r\\nthree\\r\\nfour)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP09_INFO": {
+	"hash": 302,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 9"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP08_VALIDATION": {
+	"hash": 348,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 8"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Rechtsvorm_nr": {
+	"hash": 19,
+	"dataType": "String",
+	"titleformula": [
+	  "LEGALSTATUSCODE"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par03_Vr02_sub1": {
+	"hash": 247,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 2 - Sub 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par13_Vr01_totaal": {
+	"hash": 273,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Totaal"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Receivables2": {
+	"hash": 112,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Vorderingen"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par03_Vr02_sub2": {
+	"hash": 248,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 2 - Sub 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_STATUS": {
+	"hash": 358,
+	"dataType": "Number",
+	"titleformula": [
+	  "Status"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Rechtsvorm_omschr": {
+	"hash": 20,
+	"dataType": "String",
+	"titleformula": [
+	  "LEGALSTATUSDESCRIPTION"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_REQUIREDVARS": {
+	"hash": 209,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (5)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "GrossProfit": {
+	"hash": 125,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Bruto winst"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "StringInputmin": {
+	"hash": 152,
+	"dataType": "String",
+	"titleformula": [
+	  "Minimaal 5 karakters"
+	],
+	"hint": "Minimaal 5 karakters (incl 5)$$MinLength=5",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_CONCEPT_REPORT_VISIBLE": {
+	"hash": 370,
+	"dataType": "Number",
+	"titleformula": [
+	  "Concept rapport"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_STATUS_FINAL_ON": {
+	"hash": 359,
+	"dataType": "Number",
+	"attribute": "date",
+	"titleformula": [
+	  "Definitief gemaakt op:"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par13_Vr02_sub1": {
+	"hash": 275,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par13_Vr02_sub2": {
+	"hash": 276,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par12_Vr02": {
+	"hash": 268,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 2 - Vraag 2"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par12_Vr01": {
+	"hash": 267,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 2 - Vraag 1"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "FES_PROJECTION_PROFILE": {
+	"hash": 7,
+	"dataType": "Number",
+	"titleformula": [
+	  "Projection Profile"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par14_Vr02_sub1": {
+	"hash": 284,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par14_Vr02_sub2": {
+	"hash": 285,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tplLastTInFormaSetTrend": {
+	"hash": 319,
+	"dataType": "Number",
+	"titleformula": [
+	  "LastTInFormulaSet(Trend,MainPeriod)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "OnroerendGoedTupleSumJonger6Mnd": {
+	"hash": 186,
+	"dataType": "Number",
+	"titleformula": [
+	  "TupleSum 'Datum vaststelling WOZ jonger dan 6 maand?'"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_ENTEREDREQUIREDVARS": {
+	"hash": 83,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (1)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Paragraaf06a": {
+	"hash": 190,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Zekerheden (Niet gealloceerd)"
+	],
+	"frequency": 1,
+	"children": [
+	  "Zekerheid_DekkingsWaarde_SUM"
+	]
+  },
+  "InputminExclInputMaxExcl": {
+	"hash": 156,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Vul een getal in tussen > 5 en < 10"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "NetSales": {
+	"hash": 123,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Netto omzet"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "KolomT": {
+	"hash": 133,
+	"dataType": "Number",
+	"titleformula": [
+	  "(T)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "InputminExclInputMaxIncl": {
+	"hash": 158,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Vul een getal in tussen > 5 en <=10"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "TestColumnFunctions": {
+	"hash": 312,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Test column functions"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "tplT",
+	  "tplTsY",
+	  "tplMaxT",
+	  "tplFirstTInFormaSetNoTrend",
+	  "tplLastTInFormaSetNoTrend",
+	  "tplFirstTInFormaSetTrend",
+	  "tplLastTInFormaSetTrend",
+	  "tplFirstTInPeriod",
+	  "tplLastTInPeriod",
+	  "tplLastTinYear",
+	  "tplValues",
+	  "tplFirstT",
+	  "tplLastT",
+	  "tplFirstValueT",
+	  "tplLastValueT"
+	]
+  },
+  "SOMOmzetgroepBrutowinst": {
+	"hash": 189,
+	"dataType": "Currency",
+	"titleformula": [
+	  "SOM: Brutowinst"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP08_REQUIREDVARS": {
+	"hash": 352,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (8)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Inventories": {
+	"hash": 111,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Voorraden"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP06_ENTEREDREQUIREDVARS": {
+	"hash": 227,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (6)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_ENTEREDREQUIREDVARS": {
+	"hash": 164,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (4)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "EmailAdres": {
+	"hash": 153,
+	"dataType": "String",
+	"titleformula": [
+	  "Email adres"
+	],
+	"hint": "Door middel van een reguliere expressie wordt gecontroleerd of het ingevuld veld een emailadres is.$$Pattern=^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\\\.[A-Za-z]{2,4}$",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_VALIDATION": {
+	"hash": 87,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "TestChoiceVars": {
+	"hash": 304,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Test Choice Variables"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "tcvTest1",
+	  "tcvTest2String",
+	  "tcvTest2",
+	  "tcvTest3",
+	  "tcvTest4Country",
+	  "tcvTest4City",
+	  "tcvTest5"
+	]
+  },
+  "CurrentLiabilities": {
+	"hash": 118,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Kortlopende schulden"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP08_WARNING": {
+	"hash": 346,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 8"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tplLastT": {
+	"hash": 325,
+	"dataType": "Number",
+	"titleformula": [
+	  "LastT"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "IncomeStatement": {
+	"hash": 122,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Resultatenrekening"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "NetSales",
+	  "CostOfSales",
+	  "GrossProfit"
+	]
+  },
+  "Q_MAP08_Paragraaf09": {
+	"hash": 350,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigenschappen van de stap"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_B_Range": {
+	"hash": 203,
+	"dataType": "String",
+	"titleformula": [
+	  "Range name"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP08_Paragraaf03": {
+	"hash": 349,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Knoppen"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_STATUS_FINAL_BY_NAME": {
+	"hash": 361,
+	"dataType": "String",
+	"titleformula": [
+	  "Definitief gemaakt door (volledige naam):"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_ROOT": {
+	"hash": 37,
+	"dataType": "Number",
+	"titleformula": [
+	  "Scorecard Test Model"
+	],
+	"hint": "Dit is een model om de scorecard applicatie te testen.",
+	"frequency": 1,
+	"children": [
+	  "Q_MAP01",
+	  "Q_MAP02",
+	  "Q_MAP03",
+	  "Q_MAP04",
+	  "Q_MAP05",
+	  "Q_MAP06",
+	  "Q_MAP07",
+	  "Q_MAP09",
+	  "Q_MAP08"
+	]
+  },
+  "Q_MAP05_VALIDATION": {
+	"hash": 168,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 5"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Paragraaf01": {
+	"hash": 232,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Layout"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Keuze"
+	]
+  },
+  "NetSalesLock2": {
+	"hash": 135,
+	"dataType": "Number",
+	"titleformula": [
+	  "(T<>LastTinFormulaSet(Trend))"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "InputminInclInputMaxIncl": {
+	"hash": 155,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Vul een getal in tussen >=5 en <=10"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP09_REQUIREDVARS": {
+	"hash": 355,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (8)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Paragraaf02": {
+	"hash": 234,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Eénkolomsvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par01",
+	  "Q_MAP07_Par02",
+	  "Q_MAP07_Par03",
+	  "Q_MAP07_Par04",
+	  "Q_MAP07_Par05",
+	  "Q_MAP07_Par06",
+	  "Q_MAP07_Par07"
+	]
+  },
+  "Q_MAP07_Paragraaf03": {
+	"hash": 262,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Jaarkolomvariabelen"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par11",
+	  "Q_MAP07_Par12",
+	  "Q_MAP07_Par13",
+	  "Q_MAP07_Par14",
+	  "Q_MAP07_Par15",
+	  "Q_MAP07_Par16",
+	  "Q_MAP07_Par17"
+	]
+  },
+  "tplLastValueT": {
+	"hash": 327,
+	"dataType": "Number",
+	"titleformula": [
+	  "LastValueT(Values,FirstT,LastT)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "StringInputpattern": {
+	"hash": 150,
+	"dataType": "String",
+	"titleformula": [
+	  "Alleen getallen"
+	],
+	"hint": "Een tekstveld waarin alleen numerieke waarden ingevuld mogen worden$$Pattern=([0-9]*)",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_WARNING": {
+	"hash": 229,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 7"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAKE_FINAL_VISIBLE": {
+	"hash": 371,
+	"dataType": "Number",
+	"titleformula": [
+	  "Definitief maken"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Paragraaf09": {
+	"hash": 296,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigenschappen van de stap"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP06_WARNING": {
+	"hash": 212,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 6"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par04_Vr01": {
+	"hash": 251,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 4 - Vraag 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP06_VALIDATION": {
+	"hash": 214,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 6"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP09_VALIDATION": {
+	"hash": 303,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 9"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par04_Vr02": {
+	"hash": 252,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 4 - Vraag 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_B_ColIndex": {
+	"hash": 205,
+	"dataType": "Number",
+	"titleformula": [
+	  "Col index"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FES_EXCHANGE_RATES": {
+	"hash": 4,
+	"dataType": "String",
+	"titleformula": [
+	  "Exchange Rates"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_REQUIREDVARS": {
+	"hash": 298,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (7)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "OffBalance": {
+	"hash": 120,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Off balance"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP01_INFO": {
+	"hash": 40,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tplFirstValueT": {
+	"hash": 326,
+	"dataType": "Number",
+	"titleformula": [
+	  "FirstValueT(Values,FirstT,LastT)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP05_WARNING": {
+	"hash": 166,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 5"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "RootSub1": {
+	"hash": 2,
+	"dataType": "NoData",
+	"titleformula": [
+	  "General variables for webclient"
+	],
+	"frequency": 0,
+	"children": [
+	  "FES_LAYOUTNR",
+	  "FES_EXCHANGE_RATES",
+	  "FES_LAYOUT",
+	  "FES_FLATINPUT",
+	  "FES_PROJECTION_PROFILE",
+	  "FES_COLUMN_ORDER",
+	  "FES_COLUMN_VISIBLE",
+	  "FES_STARTDATEPERIOD",
+	  "FES_ENDDATEPERIOD",
+	  "FES_BASECURRENCYPERIOD",
+	  "FES_VIEWCURRENCYPERIOD",
+	  "FES_COLUMNTYPE"
+	]
+  },
+  "RootSub2": {
+	"hash": 15,
+	"dataType": "NoData",
+	"titleformula": [
+	  "General variables for FPS database"
+	],
+	"frequency": 0,
+	"children": [
+	  "FPS_VAR_Naam",
+	  "FPS_VAR_Relatienummer",
+	  "FPS_VAR_KVKnr",
+	  "FPS_VAR_Rechtsvorm_nr",
+	  "FPS_VAR_Rechtsvorm_omschr",
+	  "FPS_VAR_BIK_CODE",
+	  "FPS_VAR_BIK_Omschr",
+	  "FPS_VAR_GridId",
+	  "FPS_VAR_Accountmanager",
+	  "FPS_VAR_Kantoor",
+	  "FPS_VAR_Straat",
+	  "FPS_VAR_Housenumber",
+	  "FPS_VAR_Postcode",
+	  "FPS_VAR_Woonplaats",
+	  "FPS_VAR_Provincie",
+	  "FPS_VAR_Land",
+	  "FPS_VAR_BvDID",
+	  "FPS_VAR_Telefoon",
+	  "FPS_VAR_Emailadres"
+	]
+  },
+  "CashAndEquivalents": {
+	"hash": 113,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Liquide middelen"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Keuze": {
+	"hash": 233,
+	"dataType": "Number",
+	"titleformula": [
+	  "Welke regels tonen?"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "HULPVARS": {
+	"hash": 373,
+	"dataType": "String",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_WARNING_GLOBAL",
+	  "Q_RESTRICTIES"
+	]
+  },
+  "Q_MAP07_Par14_Vr01_totaal": {
+	"hash": 282,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Totaal"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "OnroerendGoedTupleSumGroter0": {
+	"hash": 185,
+	"dataType": "Number",
+	"titleformula": [
+	  "TupleSum 'Aanschafwaarde registergoed > 0 euro?'"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "ModelVersion": {
+	"hash": 365,
+	"dataType": "String",
+	"titleformula": [
+	  "Modelversie"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_B_MatrixLookupResult": {
+	"hash": 206,
+	"dataType": "String",
+	"titleformula": [
+	  "Result"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_Paragraaf01": {
+	"hash": 144,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 1"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP04_Vraag01",
+	  "Q_MAP04_Vraag02",
+	  "Q_MAP04_Vraag03",
+	  "Q_MAP04_Vraag04"
+	]
+  },
+  "Q_MAP07_Par03_Vr01_sub1": {
+	"hash": 243,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par03_Vr01_sub2": {
+	"hash": 244,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Postcode": {
+	"hash": 28,
+	"dataType": "String",
+	"titleformula": [
+	  "ZIPCODE"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_VALIDATION": {
+	"hash": 231,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 7"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Housenumber": {
+	"hash": 27,
+	"dataType": "String",
+	"titleformula": [
+	  "HOUSENUMBER"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_Paragraaf09": {
+	"hash": 161,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigenschappen van de stap"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Paragraaf08B": {
+	"hash": 201,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Matrixlookup (alfanumeriek)"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP05_B_XLS",
+	  "Q_MAP05_B_Range",
+	  "Q_MAP05_B_SearchKey",
+	  "Q_MAP05_B_ColIndex",
+	  "Q_MAP05_B_MatrixLookupResult"
+	]
+  },
+  "Q_MAP02_INFO": {
+	"hash": 86,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_Paragraaf03": {
+	"hash": 149,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Sting types"
+	],
+	"frequency": 1,
+	"children": [
+	  "StringInputpattern",
+	  "StringInputmax",
+	  "StringInputmin",
+	  "EmailAdres"
+	]
+  },
+  "Q_WARNING_GLOBAL": {
+	"hash": 374,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"titleformula": [
+	  "Knock-out(s)?"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_WARNING_01",
+	  "Q_WARNING_GLOBALTXT"
+	]
+  },
+  "Q_MAP07_Par15_Vr02": {
+	"hash": 289,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 5 - Vraag 2"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP05_Paragraaf08A": {
+	"hash": 195,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Matrixlookup (numeriek)"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP05_A_XLS",
+	  "Q_MAP05_A_Range",
+	  "Q_MAP05_A_SearchKey",
+	  "Q_MAP05_A_ColIndex",
+	  "Q_MAP05_A_MatrixLookupResult"
+	]
+  },
+  "Q_MAP07_Par15_Vr01": {
+	"hash": 288,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 5 - Vraag 1"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP04_Paragraaf05": {
+	"hash": 159,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Foto type"
+	],
+	"frequency": 1,
+	"children": [
+	  "PhotoUpload"
+	]
+  },
+  "Q_PREVIOUS_BUTTON_VISIBLE": {
+	"hash": 368,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vorige"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_B_SearchKey": {
+	"hash": 204,
+	"dataType": "String",
+	"titleformula": [
+	  "Search key (alfanumeriek)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_Paragraaf04": {
+	"hash": 154,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Currency types"
+	],
+	"frequency": 1,
+	"children": [
+	  "InputminInclInputMaxIncl",
+	  "InputminExclInputMaxExcl",
+	  "InputminInclInputMaxExcl",
+	  "InputminExclInputMaxIncl"
+	]
+  },
+  "Q_STATUS_STARTED_BY_NAME": {
+	"hash": 364,
+	"dataType": "String",
+	"titleformula": [
+	  "Aangemaakt door (volledige naam):"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Hulpvariabelen": {
+	"hash": 208,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP05_REQUIREDVARS",
+	  "Q_MAP05_ENTEREDREQUIREDVARS"
+	]
+  },
+  "FinanFullVersion": {
+	"hash": 78,
+	"dataType": "String",
+	"titleformula": [
+	  "Gemaakt met FINAN versie"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tcvTest4City": {
+	"hash": 310,
+	"dataType": "Number",
+	"titleformula": [
+	  "Test 4: Choice step 2 City depends on country"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_WARNING_GLOBALTXT": {
+	"hash": 376,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"titleformula": [
+	  "Knock-out tekst"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FES_VIEWCURRENCYPERIOD": {
+	"hash": 13,
+	"dataType": "Number",
+	"titleformula": [
+	  "View Currency Period"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP04_INFO": {
+	"hash": 142,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 4"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_LijstTotaal": {
+	"hash": 179,
+	"dataType": "Number",
+	"titleformula": [
+	  "Totaal"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "OnroerendGoedTupleSum": {
+	"hash": 181,
+	"dataType": "Currency",
+	"titleformula": [
+	  "TupleSum Aanschafwaarde"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Paragraaf01_HINT": {
+	"hash": 170,
+	"dataType": "String",
+	"title": false,
+	"className": "PARAGRAPH-HINT",
+	"titleformula": [
+	  "De invoer bij vraag 2 wordt automatisch ook ingevuld bij vraag 1."
+	],
+	"hint": "De invoer bij vraag 2 wordt automatisch ook ingevuld bij vraag 1.",
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Woonplaats": {
+	"hash": 29,
+	"dataType": "String",
+	"titleformula": [
+	  "CITY"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_KVKnr": {
+	"hash": 18,
+	"dataType": "String",
+	"titleformula": [
+	  "CHAMBEROFCOMMERCENUMBER"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP09_Hulpvariabelen": {
+	"hash": 354,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP09_REQUIREDVARS",
+	  "Q_MAP09_ENTEREDREQUIREDVARS"
+	]
+  },
+  "Q_MAP07_Par03_Vr02_totaal": {
+	"hash": 249,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 2 - Totaal"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag15": {
+	"hash": 59,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 15 (Keuzelijst J/N)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag14": {
+	"hash": 58,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 14 (Keuzelijst)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "MatrixVersion": {
+	"hash": 367,
+	"dataType": "String",
+	"titleformula": [
+	  "Parametersversie"
+	],
+	"hint": "Bij het definitief maken wordt de waarde 'vastgezet'.",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag13": {
+	"hash": 57,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 13 (Getal, dus geen bedrag)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "OnroerendGoedTupleSumVerschil": {
+	"hash": 184,
+	"dataType": "Currency",
+	"titleformula": [
+	  "TupleSum 'Verschil aanschafwaarde <> WOZ'"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag12": {
+	"hash": 56,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Vraag 12 (Bedrag)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag11": {
+	"hash": 55,
+	"dataType": "String",
+	"titleformula": [
+	  "Vraag 11 (String)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_Hulpvariabelen": {
+	"hash": 162,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP04_REQUIREDVARS",
+	  "Q_MAP04_ENTEREDREQUIREDVARS"
+	]
+  },
+  "TotalEquityAndLiabilities": {
+	"hash": 119,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Totaal passiva"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP02_Paragraaf01_HINT": {
+	"hash": 89,
+	"dataType": "String",
+	"title": false,
+	"className": "PARAGRAPH-HINT",
+	"titleformula": [
+	  "Flipflop voorbeeld. A+B=C[br][/br]Wanneer een waarde wordt ingevuld in C, dan wordt de waarde in B verwijderd. B rekent vervolgens de waarde (C-A = B) uit. De opteling blijft correct."
+	],
+	"hint": "Flipflop voorbeeld. A+B=C[br][/br]Wanneer een waarde wordt ingevuld in C, dan wordt de waarde in B verwijderd. B rekent vervolgens de waarde (C-A = B) uit. De opteling blijft correct.",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_STATUS_FINAL_BY": {
+	"hash": 360,
+	"dataType": "String",
+	"titleformula": [
+	  "Definitief gemaakt door (gebruikersnaam):"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP08_Hulpvariabelen": {
+	"hash": 351,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP08_REQUIREDVARS",
+	  "Q_MAP08_ENTEREDREQUIREDVARS"
+	]
+  },
+  "Q_MAP01_Vraag07": {
+	"hash": 50,
+	"dataType": "Number",
+	"attribute": "date",
+	"titleformula": [
+	  "Vraag 7 (Datumveld)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag08": {
+	"hash": 51,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"titleformula": [
+	  "Vraag 8 (Memoveld)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag05": {
+	"hash": 48,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 5 (Keuzelijst J/N)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tplTsY": {
+	"hash": 314,
+	"dataType": "Number",
+	"titleformula": [
+	  "TsY(T)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP01_Vraag06": {
+	"hash": 49,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 6 (Percentage)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_REQUIREDVARS": {
+	"hash": 163,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (4)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP09_ENTEREDREQUIREDVARS": {
+	"hash": 356,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (8)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FES_COLUMN_VISIBLE": {
+	"hash": 9,
+	"dataType": "Number",
+	"titleformula": [
+	  "Column visible"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP05_Paragraaf06": {
+	"hash": 192,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Leningen (Tuple in Tuple in Tuple)"
+	],
+	"frequency": 1,
+	"children": [
+	  "OVK_LeningHoofdsomSum"
+	]
+  },
+  "Q_MAP07_Par13_Vr01": {
+	"hash": 270,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par13_Vr01_sub1",
+	  "Q_MAP07_Par13_Vr01_sub2",
+	  "Q_MAP07_Par13_Vr01_totaal"
+	]
+  },
+  "FES_COLUMNTYPE": {
+	"hash": 14,
+	"dataType": "Number",
+	"titleformula": [
+	  "Column Type"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP05_Paragraaf05": {
+	"hash": 187,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Tuple Omzetgroep"
+	],
+	"frequency": 1,
+	"children": [
+	  "SOMOmzetgroepOmzet",
+	  "SOMOmzetgroepBrutowinst"
+	]
+  },
+  "Q_MAP05_A_MatrixLookupResult": {
+	"hash": 200,
+	"dataType": "String",
+	"titleformula": [
+	  "Result"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Hulpvariabelen": {
+	"hash": 81,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Hulpvariabelen"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP01_REQUIREDVARS",
+	  "Q_MAP01_ENTEREDREQUIREDVARS"
+	]
+  },
+  "Q_MAP05_Paragraaf07": {
+	"hash": 194,
+	"dataType": "Currency",
+	"titleformula": [
+	  "(KOPIE) Leningen (Tuple in Tuple in Tuple)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Paragraaf01_HINT": {
+	"hash": 43,
+	"dataType": "String",
+	"title": false,
+	"className": "PARAGRAPH-HINT",
+	"titleformula": [
+	  "Hinttekst voor paragraaf 1"
+	],
+	"hint": "Hinttekst voor paragraaf 1",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Paragraaf01": {
+	"hash": 169,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 1"
+	],
+	"hint": "De invoer bij vraag 2 wordt automatisch ook ingevuld bij vraag 1.",
+	"frequency": 1,
+	"children": [
+	  "Q_MAP05_Paragraaf01_HINT",
+	  "Q_MAP05_Vraag01",
+	  "Q_MAP05_Vraag02",
+	  "Q_MAP05_Vraag03"
+	]
+  },
+  "tplT": {
+	"hash": 313,
+	"dataType": "Number",
+	"titleformula": [
+	  "ValueT(T)"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP07_Par13_Vr02": {
+	"hash": 274,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 2"
+	],
+	"frequency": "infinit",
+	"children": [
+	  "Q_MAP07_Par13_Vr02_sub1",
+	  "Q_MAP07_Par13_Vr02_sub2",
+	  "Q_MAP07_Par13_Vr02_totaal"
+	]
+  },
+  "Q_MAP05_Paragraaf04": {
+	"hash": 180,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Tuple Onroerend goed"
+	],
+	"frequency": 1,
+	"children": [
+	  "OnroerendGoedTupleSum",
+	  "OnroerendGoedTupleMin",
+	  "OnroerendGoedTupleMax",
+	  "OnroerendGoedTupleSumVerschil",
+	  "OnroerendGoedTupleSumGroter0",
+	  "OnroerendGoedTupleSumJonger6Mnd"
+	]
+  },
+  "Q_MAP02_ENTEREDREQUIREDVARS": {
+	"hash": 102,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (2)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_Paragraaf03": {
+	"hash": 174,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Lijstje"
+	],
+	"hint": "Hieronder wordt een lijstje getoond. Vul één regel in automatisch verschijnt er een nieuwe regel getoond. Je kunt de omschrijving aanpassen door op het pennetje te klikken.",
+	"frequency": 1,
+	"children": [
+	  "Q_MAP05_Paragraaf03_HINT",
+	  "Q_MAP05_Lijst01",
+	  "Q_MAP05_Lijst02",
+	  "Q_MAP05_Lijst03",
+	  "Q_MAP05_LijstTotaal"
+	]
+  },
+  "Q_MAP01_Vraag24": {
+	"hash": 68,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 4 (Keuzelijst)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag23": {
+	"hash": 67,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 3 (Getal, dus geen bedrag)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag26": {
+	"hash": 70,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 6 (Percentage)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag25": {
+	"hash": 69,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 5 (Keuzelijst J/N)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Naam": {
+	"hash": 16,
+	"dataType": "String",
+	"titleformula": [
+	  "NAME"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FES_STARTDATEPERIOD": {
+	"hash": 10,
+	"dataType": "Number",
+	"titleformula": [
+	  "Start Date Period"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP05_Paragraaf09": {
+	"hash": 207,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigenschappen van de stap"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag22": {
+	"hash": 66,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Vraag 2 (Bedrag)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_STATUS_STARTED_ON": {
+	"hash": 362,
+	"dataType": "Number",
+	"attribute": "date",
+	"titleformula": [
+	  "Aangemaakt op:"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag21": {
+	"hash": 65,
+	"dataType": "String",
+	"titleformula": [
+	  "Vraag 1 (String)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP08_INFO": {
+	"hash": 347,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 8"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Land": {
+	"hash": 31,
+	"dataType": "String",
+	"titleformula": [
+	  "COUNTRY"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par03_Vr01": {
+	"hash": 242,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par03_Vr01_sub1",
+	  "Q_MAP07_Par03_Vr01_sub2",
+	  "Q_MAP07_Par03_Vr01_totaal"
+	]
+  },
+  "Q_MAP07_Par03_Vr02": {
+	"hash": 246,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 2"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP07_Par03_Vr02_sub1",
+	  "Q_MAP07_Par03_Vr02_sub2",
+	  "Q_MAP07_Par03_Vr02_totaal"
+	]
+  },
+  "OnroerendGoedTupleMax": {
+	"hash": 183,
+	"dataType": "Currency",
+	"titleformula": [
+	  "TupleMax Aanschafwaarde"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag16": {
+	"hash": 60,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 16 (Percentage)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag17": {
+	"hash": 61,
+	"dataType": "Number",
+	"attribute": "date",
+	"titleformula": [
+	  "Vraag 17 (Datumveld)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag18": {
+	"hash": 62,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"titleformula": [
+	  "Vraag 18 (Memoveld)"
+	],
+	"hint": "Verplicht veld",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_WARNING": {
+	"hash": 39,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tplValues": {
+	"hash": 323,
+	"dataType": "Number",
+	"titleformula": [
+	  "Values"
+	],
+	"frequency": "infinit",
+	"children": []
+  },
+  "Q_MAP02_WARNING": {
+	"hash": 85,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_WARNING",
+	"titleformula": [
+	  "Warning voor map 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP04_VALIDATION": {
+	"hash": 143,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_VALIDATION",
+	"titleformula": [
+	  "Validatie stap 4"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par14_Vr02_totaal": {
+	"hash": 286,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Totaal"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_A_SearchKey": {
+	"hash": 198,
+	"dataType": "Number",
+	"titleformula": [
+	  "Search key (numeriek)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_RESTRICTIES_02": {
+	"hash": 379,
+	"dataType": "String",
+	"titleformula": [],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_RESTRICTIES_01": {
+	"hash": 378,
+	"dataType": "String",
+	"titleformula": [],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_Relatienummer": {
+	"hash": 17,
+	"dataType": "String",
+	"titleformula": [
+	  "CUSTOMERNUMBER"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FES_LAYOUT": {
+	"hash": 5,
+	"dataType": "String",
+	"titleformula": [
+	  "Layout name"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par03_Vr01_totaal": {
+	"hash": 245,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Totaal"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_NEXT_BUTTON_VISIBLE": {
+	"hash": 369,
+	"dataType": "Number",
+	"titleformula": [
+	  "Volgende"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "ModelCode": {
+	"hash": 79,
+	"dataType": "String",
+	"titleformula": [
+	  "Modelcode"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_STATUS_STARTED_BY": {
+	"hash": 363,
+	"dataType": "String",
+	"titleformula": [
+	  "Aangemaakt door (gebruikersnaam):"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP06_Paragraaf01": {
+	"hash": 215,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 1: Restrictie en Knockout"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP06_Vraag01",
+	  "Q_MAP06_Vraag02"
+	]
+  },
+  "Q_MAP06_Paragraaf02": {
+	"hash": 218,
+	"dataType": "Currency",
+	"title": false,
+	"className": "PARAGRPAH",
+	"titleformula": [
+	  "Paragraaf 2:Visibility and Required"
+	],
+	"frequency": 1,
+	"children": [
+	  "Q_MAP06_P02Vraag01",
+	  "Q_MAP06_P02Vraag02",
+	  "Q_MAP06_P02Vraag03",
+	  "Q_MAP06_P02Vraag04",
+	  "Q_MAP06_P02Vraag05"
+	]
+  },
+  "Q_MAP07_INFO": {
+	"hash": 230,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 7"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_INFO": {
+	"hash": 167,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 5"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP06_Paragraaf09": {
+	"hash": 224,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Eigenschappen van de stap"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FES_COLUMN_ORDER": {
+	"hash": 8,
+	"dataType": "Number",
+	"titleformula": [
+	  "Column order"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par05_Vr01": {
+	"hash": 254,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 5 - Vraag 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par05_Vr02": {
+	"hash": 255,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 5 - Vraag 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "tplFirstTInFormaSetNoTrend": {
+	"hash": 316,
+	"dataType": "Number",
+	"titleformula": [
+	  "FirstTInFormulaSet(NoTrend,MainPeriod)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP05_ENTEREDREQUIREDVARS": {
+	"hash": 210,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal ingevulde verplichte velden (5)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "OVK_LeningHoofdsomSum": {
+	"hash": 193,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Totaal leningen"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "//ROOT": {
+	"hash": 0,
+	"dataType": "Default",
+	"titleformula": [],
+	"frequency": 1,
+	"children": [
+	  "Root"
+	]
+  },
+  "ModelType": {
+	"hash": 366,
+	"dataType": "String",
+	"titleformula": [
+	  "Modeltype"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_FINAL_REPORT_VISIBLE": {
+	"hash": 372,
+	"dataType": "Number",
+	"titleformula": [
+	  "Definitief rapport"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP06_INFO": {
+	"hash": 213,
+	"displayAs": "textarea",
+	"dataType": "String",
+	"title": false,
+	"className": "INFO_INFO",
+	"titleformula": [
+	  "Info bij stap 6"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_BvDID": {
+	"hash": 32,
+	"dataType": "String",
+	"titleformula": [
+	  "Bureau van Dijk ID"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag02": {
+	"hash": 45,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Vraag 2 (Bedrag)"
+	],
+	"hint": "Hinttekst voor vraag 2",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag01": {
+	"hash": 44,
+	"dataType": "String",
+	"titleformula": [
+	  "Vraag 1 (String)"
+	],
+	"hint": "Hinttekst voor vraag 1",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag04": {
+	"hash": 47,
+	"dataType": "Number",
+	"url": true,
+	"titleformula": [
+	  "Vraag 4 (Keuzelijst)"
+	],
+	"hint": "http://www.finan.nl Hinttekst voor vraag 4. Inclusief een URL naar www.finan.nl",
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Vraag03": {
+	"hash": 46,
+	"dataType": "Number",
+	"titleformula": [
+	  "Vraag 3 (Getal, dus geen bedrag)"
+	],
+	"hint": "Hinttekst voor vraag 3",
+	"frequency": 1,
+	"children": []
+  },
+  "InputminInclInputMaxExcl": {
+	"hash": 157,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Vul een getal in tussen >=5 en < 10"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP03_REQUIREDVARS": {
+	"hash": 138,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (3)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "FPS_VAR_BIK_Omschr": {
+	"hash": 22,
+	"dataType": "String",
+	"titleformula": [
+	  "SECTOROFINDUSTRYDESCRIPTION"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Root": {
+	"hash": 1,
+	"dataType": "NoData",
+	"titleformula": [
+	  "Scorecard Test Model v1.14.19"
+	],
+	"frequency": 0,
+	"children": [
+	  "RootSub1",
+	  "RootSub2",
+	  "Q_ROOT",
+	  "HULPVARS"
+	]
+  },
+  "Q_MAP07_Par14_Vr01_sub1": {
+	"hash": 280,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 1"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP07_Par14_Vr01_sub2": {
+	"hash": 281,
+	"dataType": "Number",
+	"titleformula": [
+	  "Paragraaf 3 - Vraag 1 - Sub 2"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP02_REQUIREDVARS": {
+	"hash": 101,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Aantal verplichte velden (2)"
+	],
+	"frequency": 1,
+	"children": []
+  },
+  "Q_MAP01_Paragraaf03_2": {
+	"hash": 73,
+	"dataType": "Currency",
+	"titleformula": [
+	  "Paragraaf 3 (deel 2)"
+	],
+	"hint": "Dit is een paragraaf om de BBcodes te testen[br][/br]Hier onder een opsomming van stijlen:[br][/br][b]bolded text[/b][br][/br][i]italicized text[/i][br][/br][u]underlined text[/u][br][/br][url=http://www.finan.nl]Website FINAN[/url][br][/br][p]paragraph[/p][br][/br]",
+	"frequency": 1,
+	"children": []
+  }
 }

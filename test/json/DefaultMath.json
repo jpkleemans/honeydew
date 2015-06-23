@@ -1,193 +1,400 @@
 {
-	"NPV2": 
-	{
-		"args": "arg0,arg1,arg2,arg3,arg4",
-		"body": "{ var total = 0; if (!isNaN(arg0)) { total += arg1; } if (!isNaN(arg2)) { total += arg3; } if (!isNaN(arg4)) { total += arg4; } return total;}"
-	},
+  "Pos":
+  {
+	"args": "v1,v2",
+	"body": "{ return 1;}"
+  },
+  "getlastbkyr":
+  {
+	"args": "v1",
+	"body": "{ return 1;}"
+  },
 
-	"DateToMonth": 
-	{
-		"args": "arg",
-		"body": "{ return 1;}"
-	},
+  "TupleSum":
+  {
+	"args": "v1",
+	"body": "{ return 1;}"
+  },
 
-	"GuessTerm": 
-	{
-		"args": "arg0,arg1,arg2,arg3,arg4",
-		"body": "{ var rand = Math.floor(Math.random() * 5); if (rand == 0) { return arg0; } else if (rand == 1) { return arg1; } else if (rand == 2) { return arg2; } else if (rand == 3) { return arg3; } return arg4;}"
-	},
+  "TupleMin":
+  {
+	"args": "v1",
+	"body": "{ return 1;}"
+  },
+  "MaxT":
+  {
+	"args": "v1",
+	"body": "{ return 1;}"
+  },
 
-	"IRR": 
-	{
-		"args": "arg0,arg1,arg2",
-		"body": "{ return 1;}"
-	},
+  "TupleMax":
+  {
+	"args": "v1",
+	"body": "{ return 1;}"
+  },
 
-	"Exp": 
-	{
-		"args": "v",
-		"body": "{ return Math.pow(v, 2);}"
-	},
+  "ValueT":
+  {
+	"args": "v1",
+	"body": "{ return 1;}"
+  },
 
-	"PeriodFraction": 
-	{
-		"args": "arg0,arg1,arg2",
-		"body": "{ if (arg1 > 10) { return 1; } return 0.1;}"
-	},
+  "FirstValueT":
+  {
+	"args": "v1,v2,v3",
+	"body": "{ return 1;}"
+  },
 
-	"ExpandFraction": 
-	{
-		"args": "arg0,arg1",
-		"body": "{ return 0.6;}"
-	},
+  "Length":
+  {
+	"args": "v1",
+	"body": "{ return 1;}"
+  },
 
-	"ExpandGrowth": 
-	{
-		"args": "value,arg2,arg3",
-		"body": "{ return value;}"
-	},
+  "MAX":
+  {
+	"args": "v1,v2",
+	"body": "{ return Math.max(v1, v2);}"
+  },
 
-	"AddMonth": 
-	{
-		"args": "value,offset",
-		"body": "{ return value + offset;}"
-	},
+  "OnER":
+  {
+	"args": "v,onerrv",
+	"body": "{ if (isNaN(v)) { return onerrv; } else { return v; }}"
+  },
 
-	"ExpandOriginalValue": 
-	{
-		"args": "arg0,arg1,arg2",
-		"body": "{ return arg0 + arg1 + arg2;}"
-	},
+  "OnZero":
+  {
+	"args": "v,onzerov",
+	"body": "{ if (v <= 0) { return onzerov; } return v;}"
+  },
 
-	"DMYtoDate": 
-	{
-		"args": "arg0,arg1,arg2",
-		"body": "{ return 1;}"
-	},
+  "If":
+  {
+	"args": "o,v1,v2",
+	"body": "{ if (o) { return v1; } else { return v2; }}"
+  },
 
-	"EvaluateAsString": 
-	{
-		"args": "arg0",
-		"body": "{ return arg0;}"
-	},
+  "NPV2":
+  {
+	"args": "arg0,arg1,arg2,arg3,arg4",
+	"body": "{ var total = 0; if (!isNaN(arg0)) { total += arg1; } if (!isNaN(arg2)) { total += arg3; } if (!isNaN(arg4)) { total += arg4; } return total;}"
+  },
 
-	"DateToYear": 
-	{
-		"args": "arg0",
-		"body": "{ return 2011;}"
-	},
+  "Max":
+  {
+	"args": "v1,v2",
+	"body": "{ return Math.max(v1, v2);}"
+  },
 
-	"NPV": 
-	{
-		"args": "arg0,arg1,arg2,arg3,arg4",
-		"body": "{ return EJS.NPV(arg0, arg1, arg2, arg3, arg4);}"
-	},
+  "Min":
+  {
+	"args": "v1,v2",
+	"body": "{ return Math.min(v1, v2);}"
+  },
 
-	"PMT": 
-	{
-		"args": "arg0,arg1,arg2",
-		"body": "{ return 1;}"
-	},
+  "Abs":
+  {
+	"args": "v",
+	"body": "{ return Math.abs(v);}"
+  },
 
-	"GetFrac": 
-	{
-		"args": "arg0,arg1",
-		"body": "{ if (arg0 == undefined || arg0 == 0 || isNaN(arg0)) { 0; } if (arg1 == undefined || arg1 == 0 || isNaN(arg1)) { 1; } return arg0 / arg1;}"
-	},
+  "OnNA":
+  {
+	"args": "v,onnav",
+	"body": "{ if (v == undefined || isNaN(v)) { return onnav; } return v;}"
+  },
 
-	"MAX": 
-	{
-		"args": "v1,v2",
-		"body": "{ return Math.max(v1, v2);}"
-	},
+  "Mut":
+  {
+	"args": "previousValue,currentValue",
+	"body": "{ return previousValue - currentValue;}"
+  },
 
-	"OnER": 
-	{
-		"args": "v,onerrv",
-		"body": "{ if (isNaN(v)) { return onerrv; } else { return v; }}"
-	},
+  "SUM":
+  {
+	"args": "args",
+	"body": "{ var total = 0; for (number in args) { total += args[number]; } return total;}"
+  },
 
-	"OnZero": 
-	{
-		"args": "v,onzerov",
-		"body": "{ if (v <= 0) { return onzerov; } return v;}"
-	},
+  "OnNeg":
+  {
+	"args": "arg0,arg1",
+	"body": "{ if (arg0 < 0) { return arg1; } return arg0;}"
+  },
 
-	"OnEr": 
-	{
-		"args": "v,onerrv",
-		"body": "{ if (isNaN(v)) { return v; } else { return onerrv; }}"
-	},
+  "OnZeroOrNA":
+  {
+	"args": "arg0,arg1",
+	"body": "{ if (arg0 == undefined || isNaN(arg0)) { return arg1; } return arg0;}"
+  },
 
-	"Max": 
-	{
-		"args": "v1,v2",
-		"body": "{ return Math.max(v1, v2);}"
-	},
+  "OnZeroOrNa":
+  {
+	"args": "v,arg1",
+	"body": "{ if (v == undefined || isNaN(v)) { return arg1; } return v;}"
+  },
 
-	"Min": 
-	{
-		"args": "v1,v2",
-		"body": "{ return Math.min(v1, v2);}"
-	},
+  "DateToMonth":
+  {
+	"args": "arg",
+	"body": "{ return 1;}"
+  },
 
-	"Abs": 
-	{
-		"args": "v",
-		"body": "{ return Math.abs(v);}"
-	},
+  "GuessTerm":
+  {
+	"args": "arg0,arg1,arg2,arg3,arg4",
+	"body": "{ var rand = Math.floor(Math.random() * 5); if (rand == 0) { return arg0; } else if (rand == 1) { return arg1; } else if (rand == 2) { return arg2; } else if (rand == 3) { return arg3; } return arg4;}"
+  },
 
-	"OnNA": 
-	{
-		"args": "v,onnav",
-		"body": "{ if (v == undefined || isNaN(v)) { return onnav; } return v;}"
-	},
+  "IRR":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ return 1;}"
+  },
 
-	"Mut": 
-	{
-		"args": "previousValue,currentValue",
-		"body": "{ return previousValue - currentValue;}"
-	},
+  "Exp":
+  {
+	"args": "v",
+	"body": "{ return Math.pow(v, 2);}"
+  },
 
-	"SUM": 
-	{
-		"args": "args",
-		"body": "{ var total = 0; for (number in args) { total += args[number]; } return total;}"
-	},
+  "PeriodFraction":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ if (arg1 > 10) { return 1; } return 0.1;}"
+  },
 
-	"OnNeg": 
-	{
-		"args": "arg0,arg1",
-		"body": "{ if (arg0 < 0) { return arg1; } return arg0;}"
-	},
+  "ExpandFraction":
+  {
+	"args": "arg0,arg1",
+	"body": "{ return 0.6;}"
+  },
 
-	"OnZeroOrNA": 
-	{
-		"args": "arg0,arg1",
-		"body": "{ if (arg0 == undefined || isNaN(arg0)) { return arg1; } return arg0;}"
-	},
+  "ExpandGrowth":
+  {
+	"args": "value,arg2,arg3",
+	"body": "{ return value;}"
+  },
 
-	"OnZeroOrNa": 
-	{
-		"args": "v,arg1",
-		"body": "{ if (v == undefined || isNaN(v)) { return arg1; } return v;}"
-	},
+  "AddMonth":
+  {
+	"args": "value,offset",
+	"body": "{ return value + offset;}"
+  },
 
-	"OnERorNA": 
-	{
-		"args": "v,onerrornav",
-		"body": "{ if (v == undefined || isNaN(v)) { return onerrornav; } return v;}"
-	},
+  "ExpandOriginalValue":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ return arg0 + arg1 + arg2;}"
+  },
 
-	"Round": 
-	{
-		"args": "v,decimals",
-		"body": "{ var pow = Math.pow(10, decimals); return Math.round(v * pow) / pow;}"
-	},
+  "OnERorNA":
+  {
+	"args": "v,onerrornav",
+	"body": "{ if (v == undefined || isNaN(v)) { return onerrornav; } return v;}"
+  },
 
-	"AVG": 
-	{
-		"args": "vs",
-		"body": "EJS.AVERAGE(vs)"
-	}
+  "DMYtoDate":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ return 1;}"
+  },
+
+  "EvaluateAsString":
+  {
+	"args": "arg0",
+	"body": "{ return arg0;}"
+  },
+
+  "DateToYear":
+  {
+	"args": "arg0",
+	"body": "{ return 2011;}"
+  },
+
+  "NPV":
+  {
+	"args": "arg0,arg1,arg2,arg3,arg4",
+	"body": "{ return EJS.NPV(arg0, arg1, arg2, arg3, arg4);}"
+  },
+
+  "Round":
+  {
+	"args": "v,decimals",
+	"body": "{ var pow = Math.pow(10, decimals); return Math.round(v * pow) / pow;}"
+  },
+
+  "PMT":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ return 1;}"
+  },
+
+  "GetFrac":
+  {
+	"args": "arg0,arg1",
+	"body": "{ if (arg0 == undefined || arg0 == 0 || isNaN(arg0)) { 0; } if (arg1 == undefined || arg1 == 0 || isNaN(arg1)) { 1; } return arg0 / arg1;}"
+  },
+
+  "AVG":
+  {
+	"args": "vs",
+	"body": "EJS.AVERAGE(vs)"
+  },
+
+  "VALUES":
+  {
+	"args": "variable,f,hIndex,from,to",
+	"body": "{ if (to.t < from.t) { to = from; } var values = []; var temp = to; while (temp.t >= from.t && temp.t != 0) { var value = variable.getValue(hIndex, f, temp); if (value != undefined && !isNaN(value)) { values[values.length] = value; } temp = temp.prev; } return values;}"
+  },
+
+  "Case":
+  {
+	"args": "number,variable,vars,hIndex,T",
+	"body": "{ if (number == undefined || isNaN(number)) { return undefined; } var choice = variable.evalchoices[parseInt(number)]; if (choice == undefined) { return undefined; } return choice(variable, vars, hIndex, T);}"
+  },
+
+  "TIMELINE_SUM":
+  {
+	"args": "hIndex,variable,T",
+	"body": "{ var value = 0; var tempTindex = T; while (tempTindex != undefined && tempTindex.t != undefined) { value += variable.getValue(hIndex, 0, tempTindex); tempTindex = tempTindex.prevTl; } return value;}"
+  },
+
+  "DATAENTERED":
+  {
+	"args": "variable,hIndex,T",
+	"body": "{ var t = hIndex.ti + T.t; var lookupValue = variable.values[t]; if (lookupValue == undefined || lookupValue.value == undefined) { return false; } return true;}"
+  },
+
+  "ANY_PROPERTY":
+  {
+	"args": "hIndex,fIndex,variable,T",
+	"body": "{ var tPrev = T.prev; var count = 0; while (tPrev != undefined && count < 5) { var value = variable.getValue(hIndex, fIndex, tPrev); if (value) { return true; } count++; tPrev = tPrev.prev; } return false;}"
+  },
+
+  "AGGREGATE":
+  {
+	"args": "hIndex,variable,T",
+	"body": "{ var total = 0; for (var i = 0; i < T.aggcols.length; i++) { var value = variable.getValue(hIndex, 0, T.aggcols[i]); if (value != undefined && !isNaN(value)) { total += value; } } return total;}"
+  },
+
+  "TSUM":
+  {
+	"args": "variable,T",
+	"body": "{ var value = 0; for (var i = 0; i < variable.hIndex.length; i++) { var tValue = variable.getValue(variable.hIndex[i], 0, T); if (!isNaN(tValue)) { value += tValue; } } return value;}"
+  },
+
+  "GetValue":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ return arg0;}"
+  },
+
+  "HSum":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ return arg0;}"
+  },
+
+  "YearInT":
+  {
+	"args": "arg0",
+	"body": "{ return 13;}"
+  },
+
+  "YearToT":
+  {
+	"args": "arg0,arg1",
+	"body": "{ return 1;}"
+  },
+
+  "getLastDateInT":
+  {
+	"args": "arg0",
+	"body": "{ return 1;}"
+  },
+
+  "DateToT":
+  {
+	"args": "arg0,arg1",
+	"body": "{ return arg0 + arg1;}"
+  },
+
+  "RelMut":
+  {
+	"args": "arg0",
+	"body": "{ return arg0;}"
+  },
+
+  "ExpandLevel":
+  {
+	"args": "arg0",
+	"body": "{ return 1;}"
+  },
+
+  "GetPoint":
+  {
+	"args": "arg0,arg1",
+	"body": "{ return 1;}"
+  },
+
+  "SelectDescendants":
+  {
+	"args": "arg0",
+	"body": "{ return 1;}"
+  },
+
+  "Count":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ return 10;}"
+  },
+
+  "InputRequired":
+  {
+	"args": "arg0",
+	"body": "{ return 1;}"
+  },
+
+  "Exists":
+  {
+	"args": "arg0,arg1,arg2",
+	"body": "{ return 1;}"
+  },
+
+  "DataAvailable":
+  {
+	"args": "arg0",
+	"body": "{ return 1;}"
+  },
+
+  "NA": 1e-10,
+  "ScaleFactor": 1,
+  "RiskFreeRate2Col": 1,
+  "LastHistYear": 1,
+  "Decimals": 2,
+  "ViewScaleFactor": 1,
+  "LastDateInT": 1,
+  "OnroerendGoed_tpGroter0": 0,
+  "OnroerendGoed_tpJonger6Mnd": 0,
+  "Omzetgroep_tpOmzet": 0,
+  "Omzetgroep_tpBrutowinst": 0,
+  "Zekerheid_tpDekkingsWaarde": 0,
+  "OVK_Lening_tpHoofdsom": 0,
+  "isLeaf": 0,
+  "getLayoutType": 0,
+  "tsy": 0,
+  "lastall": 0,
+  "firstnotrend": 0,
+  "firsttrend": 0,
+  "Firsttrend": 0,
+  "lasttrend": 0,
+  "firstinperiod": 0,
+  "lastinperiod": 0,
+  "lastbkyr": 0,
+  "firstall": 0,
+  "lastnotrend": 0,
+  "firsttrend_lastbkyr": 0
 }
+

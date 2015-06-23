@@ -1,168 +1,4906 @@
 {
-	"modelName": "V05",
-	"datatypeaccount": 
-	[
-		0,
-		15
-	],
-
-	"freqaccount": 
-	[
-		5,
-		15
-	],
-
-	"istupleaccount": 
-	[
-		9,
-		1
-	],
-
-	"calctypeaccount": 
-	[
-		10,
-		15
-	],
-
-	"dataTypes": 
-	[
-		"Object",
-		"Currency",
-		"Number",
-		"String",
-		"NoData"
-	],
-
-	"frequencies": 
-	[
-		"Detail",
-		"Period",
-		"Single",
-		"None"
-	],
-
-	"formulasets": 
-	[
-		"NoTrend",
-		"Trend",
-		"aggregation"
-	],
-
-	"calcTypes": 
-	[
-		"Sum",
-		"Ultimo",
-		"None",
-		"Calc",
-		"Max",
-		"Mean",
-		"MeanCalc"
-	],
-
-	"m": 
-	[
-		
-	],
-
-	"variables": 
-	[
-		{
-			"name": "FakeVariable",
-			"formula": 
-			[
-				"1000",
-				"default",
-				"default",
-				"default",
-				"default"
-			],
-
-			"account": 1058
-		},
-
-		{
-			"name": "OperatingProvisions",
-			"formula": 
-			[
-				"FakeVariable + 1+T.t",
-				"If(T.t==1,false,true)",
-				"default",
-				"default",
-				"default"
-			],
-
-			"account": 1058
-		},
-
-		{
-			"name": "Q_ROOT_MAP01",
-			"formula": 
-			[
-				"10",
-				"default",
-				"default",
-				"default",
-				"default"
-			],
-
-			"account": 1058
-		},
-
-		{
-			"name": "Q_ROOT",
-			"formula": 
-			[
-				[
-					"FakeVariable+FakeVariable",
-					"inherit",
-					"aggdefault"
-				],
-
-				"default",
-				"default",
-				"default",
-				"default"
-			],
-
-			"account": 2082
-		},
-
-		{
-			"name": "Root",
-			"formula": 
-			[
-				[
-					"T.t",
-					"inherit",
-					"aggdefault"
-				],
-
-				"FakeVariable>3",
-				"default",
-				"true",
-				"default"
-			],
-
-			"account": 2082
-		},
-
-		{
-			"name": "Q_ROOT_VARIABLE_ONE",
-			"formula": 
-			[
-				[
-					"T.t",
-					"inherit",
-					"aggdefault"
-				],
-
-				"default",
-				"default",
-				"default",
-				"default"
-			],
-
-			"account": 2082
-		}
-	]
+  "modelName": "SCORECARDTESTMODEL",
+  "datatypeaccount": [
+	0,
+	15
+  ],
+  "freqaccount": [
+	5,
+	15
+  ],
+  "istupleaccount": [
+	9,
+	1
+  ],
+  "calctypeaccount": [
+	10,
+	15
+  ],
+  "dataTypes": [
+	"Object",
+	"Currency",
+	"Number",
+	"String",
+	"NoData"
+  ],
+  "frequencies": [
+	"Detail",
+	"Single",
+	"None"
+  ],
+  "formulasets": [
+	"NoTrend",
+	"Trend",
+	"aggregation"
+  ],
+  "calcTypes": [
+	"Sum",
+	"Ultimo",
+	"None",
+	"Calc",
+	"Max"
+  ],
+  "variables": [
+	{
+	  "name": "FakeVariable",
+	  "formula": [
+		"2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "CashAndEquivalents",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "CostOfSales",
+	  "formula": [
+		[
+		  "default",
+		  "CostOfSales[prev]",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "CurrentDate",
+	  "formula": [
+		"42094.912175046",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "CurrentLiabilities",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "EmailAdres",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FES_BASECURRENCYPERIOD",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "FES_COLUMN_ORDER",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "FES_COLUMN_VISIBLE",
+	  "formula": [
+		[
+		  "1",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "FES_COLUMNTYPE",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "FES_ENDDATEPERIOD",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "FES_EXCHANGE_RATES",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2084
+	},
+	{
+	  "name": "FES_FLATINPUT",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "FES_LAYOUT",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FES_LAYOUTNR",
+	  "formula": [
+		"If(Pos('IFRS-EU',FES_LAYOUT)>0,1,If(Pos('IFRS-PL'&FES_LAYOUT)>0,48,If(Pos('IFRS-Intl',FES_LAYOUT)>0,2,0)))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "FES_PROJECTION_PROFILE",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "FES_STARTDATEPERIOD",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "FES_VIEWCURRENCYPERIOD",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "FinancialFixedAssets",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "FinanFullVersion",
+	  "formula": [
+		"'03.02.047.008'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_FINAN_USER",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_FINAN_USER_ROLES",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Accountmanager",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_BIK_CODE",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_BIK_Omschr",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_BvDID",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Emailadres",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_GridId",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Housenumber",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Kantoor",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_KVKnr",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Land",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Naam",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Postcode",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Provincie",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Rechtsvorm_nr",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Rechtsvorm_omschr",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Relatienummer",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Straat",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Telefoon",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "FPS_VAR_Woonplaats",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "GrossProfit",
+	  "formula": [
+		[
+		  "NetSales-CostOfSales",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "HULPVARS",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "IncomeStatement",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "InputminExclInputMaxExcl",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "InputminExclInputMaxIncl",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "InputminInclInputMaxExcl",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "InputminInclInputMaxIncl",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "IntangibleFixedAssets",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "Inventories",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "KolomT",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "MaterialFixedAssets",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "MatrixVersion",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "ModelCode",
+	  "formula": [
+		"'SCORECARDTESTMODEL'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "ModelType",
+	  "formula": [
+		"'TEST'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "ModelVersion",
+	  "formula": [
+		"'01.14.019.000'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "NetSales",
+	  "formula": [
+		[
+		  "default",
+		  "NetSales[prev]",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "NetSalesLock",
+	  "formula": [
+		[
+		  "default",
+		  "NetSales",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1059
+	},
+	{
+	  "name": "NetSalesLock2",
+	  "formula": [
+		[
+		  "default",
+		  "NetSales",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1059
+	},
+	{
+	  "name": "NetWorth",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "NonCurrentLiabilities",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "OffBalance",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "OmzetGroep",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1061
+	},
+	{
+	  "name": "Omzetgroep_tpBrutomarge",
+	  "formula": [
+		[
+		  "OnER((Omzetgroep_tpOmzet-Omzetgroep_tpInkoop)/Omzetgroep_tpOmzet,NA)",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 4131
+	},
+	{
+	  "name": "Omzetgroep_tpBrutowinst",
+	  "formula": [
+		[
+		  "Omzetgroep_tpOmzet-Omzetgroep_tpInkoop",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Omzetgroep_tpInkoop",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Omzetgroep_tpNaam",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Omzetgroep_tpOmzet",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "OnroerendGoed",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3141
+	},
+	{
+	  "name": "OnroerendGoed_tpAanschafjaar",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "OnroerendGoed_tpAanschafwaarde",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OnroerendGoed_tpAfschrijvingsmethode",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "OnroerendGoed_tpBoekwaarde",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OnroerendGoed_tpGroter0",
+	  "formula": [
+		"If(OnroerendGoed_tpAanschafwaarde>0,1,0)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OnroerendGoed_tpJonger6Mnd",
+	  "formula": [
+		"If((OnNA(Q_STATUS_FINAL_ON,Now)-(365/2))>OnroerendGoed_tpWOZwaardeDatum,0,1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OnroerendGoed_tpRegistratienummer",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "OnroerendGoed_tpVerschil",
+	  "formula": [
+		"(OnroerendGoed_tpAanschafwaarde-OnroerendGoed_tpWOZwaarde)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OnroerendGoed_tpWOZwaarde",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OnroerendGoed_tpWOZwaardeDatum",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OnroerendGoedTupleMax",
+	  "formula": [
+		"TupleMax(OnroerendGoed_tpAanschafwaarde)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OnroerendGoedTupleMin",
+	  "formula": [
+		"TupleMin(OnroerendGoed_tpAanschafwaarde)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OnroerendGoedTupleSum",
+	  "formula": [
+		"TupleSum(OnroerendGoed_tpAanschafwaarde)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OnroerendGoedTupleSumGroter0",
+	  "formula": [
+		"TupleSum(OnroerendGoed_tpGroter0)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OnroerendGoedTupleSumJonger6Mnd",
+	  "formula": [
+		"TupleSum(OnroerendGoed_tpJonger6Mnd)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OnroerendGoedTupleSumVerschil",
+	  "formula": [
+		"TupleSum(OnroerendGoed_tpVerschil)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3141
+	},
+	{
+	  "name": "OVK_Lening",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3141
+	},
+	{
+	  "name": "OVK_Lening_tpHoofdsom",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK_Lening_tpID",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "OVK_Lening_tpLooptijd",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OVK_Lening_tpNummer",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "OVK_Lening_tpRentepercentage",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OVK_Lening_tpRenteProduct",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OVK_Lening_tpTotaleDekkinngsPercentage",
+	  "formula": [
+		"OnER(OVK_Lening_tpZekerheidTotaal/OVK_Lening_tpHoofdsom,NA)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK_Lening_tpZekerheidGealloceerdTotaal",
+	  "formula": [
+		"TupleSum(OVK_Lening_Zekerheid_tpDekkingsWaarde)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK_Lening_tpZekerheidNietGealloceerd",
+	  "formula": [
+		"OnER(Zekerheid_DekkingsWaarde_SUM*(OVK_Lening_tpHoofdsom/OVK_LeningHoofdsomSum),NA)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK_Lening_tpZekerheidTotaal",
+	  "formula": [
+		"OVK_Lening_tpZekerheidGealloceerdTotaal+OVK_Lening_tpZekerheidNietGealloceerd",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK_Lening_Zekerheid",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3141
+	},
+	{
+	  "name": "OVK_Lening_Zekerheid_tpAllocatiePercentage",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OVK_Lening_Zekerheid_tpDekkingsPercentage",
+	  "formula": [
+		"If(OVK_Lening_Zekerheid_tpType==1,0.90,If(OVK_Lening_Zekerheid_tpType==2,0.40,If(OVK_Lening_Zekerheid_tpType==1,1,NA)))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OVK_Lening_Zekerheid_tpDekkingsWaarde",
+	  "formula": [
+		"OVK_Lening_Zekerheid_tpDekkingsPercentage*OVK_Lening_Zekerheid_tpAllocatiePercentage*OVK_Lening_Zekerheid_tpWaarde",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK_Lening_Zekerheid_tpID",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "OVK_Lening_Zekerheid_tpNaam",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "OVK_Lening_Zekerheid_tpType",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "OVK_Lening_Zekerheid_tpWaarde",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK_LeningHoofdsomSum",
+	  "formula": [
+		"TupleSum(OVK_Lening_tpHoofdsom)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "OVK_tpID",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "OVK_tpNaam",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "PhotoUpload",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Provisions",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "Q_CONCEPT_REPORT_VISIBLE",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_FINAL_REPORT_VISIBLE",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAKE_FINAL_VISIBLE",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01",
+	  "formula": [
+		"(Q_MAP01_ENTEREDREQUIREDVARS==Q_MAP01_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP01,Q_MAP01_Hulpvariabelen),InputRequired(X)&&DataAvailable(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP01_Paragraaf01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Paragraaf02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Paragraaf03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Paragraaf03_2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Paragraaf04",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Paragraaf05",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Paragraaf09",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_REQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP01,Q_MAP01_Hulpvariabelen),InputRequired(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP01_Verplicht",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP01_Vraag02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Vraag03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag04",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag05",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag06",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag07",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag08",
+	  "formula": [
+		"'Loremipsumdolorsitamet,consecteturadipisicingelit,seddoeiusmodtemporincididuntutlaboreetdoloremagnaaliqua.Utenimadminimveniam,quisnostrudexercitationullamcolaborisnisiutaliquipexeacommodoconsequat.Duisauteiruredolorinreprehenderitinvoluptatevelitessecillumdoloreeufugiatnullapariatur.Excepteursintoccaecatcupidatatnonproident,suntinculpaquiofficiadeseruntmollitanimidestlaborum.'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP01_Vraag11",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP01_Vraag12",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Vraag13",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag14",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag15",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag16",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag17",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag18",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP01_Vraag21",
+	  "formula": [
+		"'1'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP01_Vraag22",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP01_Vraag23",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag24",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag25",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag26",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag27",
+	  "formula": [
+		"DMYtoDate(23,8,1974)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP01_Vraag28",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "choices": [],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP01_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP02",
+	  "formula": [
+		"(Q_MAP02_ENTEREDREQUIREDVARS==Q_MAP02_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP02_A",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP02_B",
+	  "formula": [
+		"If(Q_MAP02_C.entered,Q_MAP02_C-Q_MAP02_A,NA)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP02_C",
+	  "formula": [
+		"Q_MAP02_A+Q_MAP02_B",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP02_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP02,Q_MAP02_Hulpvariabelen),InputRequired(X)&&DataAvailable(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP02_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP02_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP02_Paragraaf01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP02_Paragraaf02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP02_Paragraaf03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP02_Paragraaf09",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP02_REQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP02,Q_MAP02_Hulpvariabelen),InputRequired(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP02_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP02_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP02_X",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP02_Y",
+	  "formula": [
+		[
+		  "If(Q_MAP02_Z.entered,Q_MAP02_Z-Q_MAP02_X,NA)",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP02_Z",
+	  "formula": [
+		[
+		  "Q_MAP02_X+Q_MAP02_Y",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP03",
+	  "formula": [
+		"(Q_MAP03_ENTEREDREQUIREDVARS==Q_MAP03_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP03_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP03,Q_MAP03_Hulpvariabelen),InputRequired(X)&&DataAvailable(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP03_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP03_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf04",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf041",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf05",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf051",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf06",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf07",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "Q_MAP03_Paragraaf09",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP03_REQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP03,Q_MAP03_Hulpvariabelen),InputRequired(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP03_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP03_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP04",
+	  "formula": [
+		"(Q_MAP04_ENTEREDREQUIREDVARS==Q_MAP04_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP04_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP04,Q_MAP04_Hulpvariabelen),InputRequired(X)&&DataAvailable(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP04_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP04_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP04_Paragraaf01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP04_Paragraaf03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP04_Paragraaf04",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP04_Paragraaf05",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP04_Paragraaf09",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP04_REQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP04,Q_MAP04_Hulpvariabelen),InputRequired(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP04_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP04_Vraag01",
+	  "formula": [
+		"0",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP04_Vraag02",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP04_Vraag03",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP04_Vraag04",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP04_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05",
+	  "formula": [
+		"(Q_MAP05_ENTEREDREQUIREDVARS==Q_MAP05_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_A_ColIndex",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_A_MatrixLookupResult",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_A_Range",
+	  "formula": [
+		"'ZoekenNumeriek'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_A_SearchKey",
+	  "formula": [
+		"2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_A_XLS",
+	  "formula": [
+		"'G3_Parameters.xls'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_B_ColIndex",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_B_MatrixLookupResult",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_B_Range",
+	  "formula": [
+		"'ZoekenAlfanumeriek'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_B_SearchKey",
+	  "formula": [
+		"'twee'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_B_XLS",
+	  "formula": [
+		"'G3_Parameters.xls'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_Lijst01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_Lijst02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_Lijst03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_LijstTotaal",
+	  "formula": [
+		"Q_MAP05_Lijst01+Q_MAP05_Lijst02+Q_MAP05_Lijst03",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf04",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf05",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf06",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf06a",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf07",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf07Sub1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf07Sub1Sub3",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf07Sub1Sub3Sub3",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf08A",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf08B",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_Paragraaf09",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_REQUIREDVARS",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP05_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_Vraag01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_Vraag02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP05_Vraag03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP05_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP06",
+	  "formula": [
+		"(Q_MAP06_ENTEREDREQUIREDVARS==Q_MAP06_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP06_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP06,Q_MAP06_Hulpvariabelen),InputRequired(X)&&DataAvailable(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP06_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP06_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP06_P02Vraag01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP06_P02Vraag02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP06_P02Vraag03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP06_P02Vraag04",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP06_P02Vraag05",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP06_Paragraaf01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP06_Paragraaf02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP06_Paragraaf09",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP06_REQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP06,Q_MAP06_Hulpvariabelen),InputRequired(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP06_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP06_Vraag01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP06_Vraag02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP06_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP07",
+	  "formula": [
+		"(Q_MAP07_ENTEREDREQUIREDVARS==Q_MAP07_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP07,Q_MAP07_Hulpvariabelen),InputRequired(X)&&DataAvailable(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP07_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP07_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP07_Keuze",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par01",
+	  "formula": [
+		"111",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par01_Vr01",
+	  "formula": [
+		"111",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par01_Vr02",
+	  "formula": [
+		"111",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par02",
+	  "formula": [
+		"222",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par02_Vr01",
+	  "formula": [
+		"222",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par02_Vr02",
+	  "formula": [
+		"222",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03",
+	  "formula": [
+		"333",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03_Vr01",
+	  "formula": [
+		"333",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03_Vr01_sub1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03_Vr01_sub2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03_Vr01_totaal",
+	  "formula": [
+		"Q_MAP07_Par03_Vr01_sub1+Q_MAP07_Par03_Vr01_sub2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03_Vr02",
+	  "formula": [
+		"333",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03_Vr02_sub1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03_Vr02_sub2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par03_Vr02_totaal",
+	  "formula": [
+		"Q_MAP07_Par03_Vr02_sub1+Q_MAP07_Par03_Vr02_sub2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par04",
+	  "formula": [
+		"444",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par04_Vr01",
+	  "formula": [
+		"444",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par04_Vr02",
+	  "formula": [
+		"444",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par05",
+	  "formula": [
+		"555",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par05_Vr01",
+	  "formula": [
+		"555",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par05_Vr02",
+	  "formula": [
+		"555",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par06",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par06_Vr01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par06_Vr02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par07",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par07_Vr01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par07_Vr02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par11",
+	  "formula": [
+		[
+		  "111",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par11_Vr01",
+	  "formula": [
+		[
+		  "111",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par11_Vr02",
+	  "formula": [
+		[
+		  "111",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par12",
+	  "formula": [
+		[
+		  "222",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par12_Vr01",
+	  "formula": [
+		[
+		  "222",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par12_Vr02",
+	  "formula": [
+		[
+		  "222",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par13",
+	  "formula": [
+		[
+		  "333",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par13_Vr01",
+	  "formula": [
+		[
+		  "333",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par13_Vr01_sub1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par13_Vr01_sub2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par13_Vr01_totaal",
+	  "formula": [
+		"Q_MAP07_Par13_Vr01_sub1+Q_MAP07_Par13_Vr01_sub2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par13_Vr02",
+	  "formula": [
+		[
+		  "333",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par13_Vr02_sub1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par13_Vr02_sub2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par13_Vr02_totaal",
+	  "formula": [
+		"Q_MAP07_Par13_Vr02_sub1+Q_MAP07_Par13_Vr02_sub2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par14",
+	  "formula": [
+		[
+		  "444",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par14_Vr01",
+	  "formula": [
+		[
+		  "444",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par14_Vr01_sub1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par14_Vr01_sub2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par14_Vr01_totaal",
+	  "formula": [
+		"Q_MAP07_Par14_Vr01_sub1+Q_MAP07_Par14_Vr01_sub2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par14_Vr02",
+	  "formula": [
+		[
+		  "444",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par14_Vr02_sub1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par14_Vr02_sub2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par14_Vr02_totaal",
+	  "formula": [
+		"Q_MAP07_Par14_Vr02_sub1+Q_MAP07_Par14_Vr02_sub2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP07_Par15",
+	  "formula": [
+		[
+		  "555",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par15_Vr01",
+	  "formula": [
+		[
+		  "555",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par15_Vr02",
+	  "formula": [
+		[
+		  "555",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par16",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par16_Vr01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par16_Vr02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par17",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par17_Vr01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Par17_Vr02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "Q_MAP07_Paragraaf01",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP07_Paragraaf02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP07_Paragraaf03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "Q_MAP07_Paragraaf09",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP07_REQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP07,Q_MAP07_Hulpvariabelen),InputRequired(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP07_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP07_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP08",
+	  "formula": [
+		"(Q_MAP08_ENTEREDREQUIREDVARS==Q_MAP08_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP08_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP08_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP08_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP08_Paragraaf03",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP08_Paragraaf09",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP08_REQUIREDVARS",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP08_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP08_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP09",
+	  "formula": [
+		"(Q_MAP09_ENTEREDREQUIREDVARS==Q_MAP09_REQUIREDVARS)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_MAP09_ENTEREDREQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP09,Q_MAP09_Hulpvariabelen),InputRequired(X)&&DataAvailable(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP09_Hulpvariabelen",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP09_INFO",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP09_REQUIREDVARS",
+	  "formula": [
+		"Count(X,SelectDescendants(Q_MAP09,Q_MAP09_Hulpvariabelen),InputRequired(X))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Q_MAP09_VALIDATION",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_MAP09_WARNING",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_NEXT_BUTTON_VISIBLE",
+	  "formula": [
+		"2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_PREVIOUS_BUTTON_VISIBLE",
+	  "formula": [
+		"2",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_RESTRICTIES",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_RESTRICTIES_01",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_RESTRICTIES_02",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_RESTRICTIESTXT",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_RESULT",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_ROOT",
+	  "formula": [
+		"If((Q_MAP01==1)&&(Q_MAP02==1)&&(Q_MAP03==1)&&(Q_MAP04==1)&&(Q_MAP05==1)&&(Q_MAP06==1)&&(Q_MAP07==1)&&(Q_MAP08==1)||(Length(Q_WARNING_GLOBALTXT)>0),1,0)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_STATUS",
+	  "formula": [
+		"0",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_STATUS_FINAL_BY",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_STATUS_FINAL_BY_NAME",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_STATUS_FINAL_ON",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_STATUS_STARTED_BY",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_STATUS_STARTED_BY_NAME",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_STATUS_STARTED_ON",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Q_WARNING_01",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_WARNING_GLOBAL",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Q_WARNING_GLOBALTXT",
+	  "formula": [
+		"EvaluateAsString(1+1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Receivables2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "Root",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3173
+	},
+	{
+	  "name": "RootSub1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3173
+	},
+	{
+	  "name": "RootSub2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3173
+	},
+	{
+	  "name": "SOMOmzetgroepBrutowinst",
+	  "formula": [
+		"TupleSum(Omzetgroep_tpBrutowinst)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "SOMOmzetgroepOmzet",
+	  "formula": [
+		"TupleSum(Omzetgroep_tpOmzet)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 1058
+	},
+	{
+	  "name": "StringInputmax",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "StringInputmin",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "StringInputpattern",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "tclTestA",
+	  "formula": [
+		[
+		  "0",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestB",
+	  "formula": [
+		[
+		  "1",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestC",
+	  "formula": [
+		[
+		  "T.t==3",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestD",
+	  "formula": [
+		[
+		  "T.t<=3",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestE",
+	  "formula": [
+		[
+		  "T.t==1",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestF",
+	  "formula": [
+		[
+		  "T.t==2",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestG",
+	  "formula": [
+		[
+		  "T.t==3",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestH",
+	  "formula": [
+		[
+		  "T.t==4",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestI",
+	  "formula": [
+		[
+		  "T.t!==1",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestJ",
+	  "formula": [
+		[
+		  "T.t!==2",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestK",
+	  "formula": [
+		[
+		  "T.t!==3",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestL",
+	  "formula": [
+		[
+		  "T.t!==4",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestM",
+	  "formula": [
+		[
+		  "T.t<=ValueT(getlastbkyr(Firsttrend))",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestN",
+	  "formula": [
+		[
+		  "T.t==lasttrend.t",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestO",
+	  "formula": [
+		[
+		  "T.t!==lasttrend.t",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tclTestP",
+	  "formula": [
+		[
+		  "T.t<lasttrend.t",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tcvTest1",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tcvTest2",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tcvTest2String",
+	  "formula": [
+		"'zero\\r\\none\\r\\ntwo\\r\\nthree\\r\\nfour'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "tcvTest3",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tcvTest4City",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tcvTest4Country",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tcvTest5",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "TestChoiceVars",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "TestColumnFunctions",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "TestColumnLocking",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "TotalAssets2",
+	  "formula": [
+		[
+		  "IntangibleFixedAssets+MaterialFixedAssets+FinancialFixedAssets+Inventories+Receivables2+CashAndEquivalents",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "TotalEquityAndLiabilities",
+	  "formula": [
+		[
+		  "NetWorth+Provisions+NonCurrentLiabilities+CurrentLiabilities",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2082
+	},
+	{
+	  "name": "tplFirstT",
+	  "formula": [
+		"ValueT(1)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplFirstTInFormaSetNoTrend",
+	  "formula": [
+		"ValueT(FirstTInFormulaSet(NoTrend,MainPeriod))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplFirstTInFormaSetTrend",
+	  "formula": [
+		"ValueT(FirstTInFormulaSet(Trend,MainPeriod))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplFirstTInPeriod",
+	  "formula": [
+		"ValueT(FirstTinPeriod(MainPeriod))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplFirstValueT",
+	  "formula": [
+		[
+		  "ValueT(FirstValueT(tplValues,tplFirstT,tplLastT))",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tplLastT",
+	  "formula": [
+		"MaxT.t",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplLastTInFormaSetNoTrend",
+	  "formula": [
+		"ValueT(LastTInFormulaSet(NoTrend,MainPeriod))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplLastTInFormaSetTrend",
+	  "formula": [
+		"ValueT(LastTInFormulaSet(Trend,MainPeriod))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplLastTInPeriod",
+	  "formula": [
+		"ValueT(LastTinPeriod(MainPeriod))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplLastTinYear",
+	  "formula": [
+		[
+		  "ValueT(getlastbkyr(T))",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tplLastValueT",
+	  "formula": [
+		[
+		  "ValueT(FirstValueT(tplValues,tplFirstT,tplLastT))",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tplMaxT",
+	  "formula": [
+		"MaxT.t",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "tplT",
+	  "formula": [
+		[
+		  "T.t",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tplTsY",
+	  "formula": [
+		[
+		  "tsy",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "tplValues",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 2083
+	},
+	{
+	  "name": "ValCheck",
+	  "formula": [
+		[
+		  "Abs(TotalAssets2-TotalEquityAndLiabilities)",
+		  "inherit",
+		  "aggdefault"
+		],
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 5154
+	},
+	{
+	  "name": "WindowsUserName",
+	  "formula": [
+		"'r.vanaalderen'",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Zekerheid",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3141
+	},
+	{
+	  "name": "Zekerheid_DekkingsWaarde_SUM",
+	  "formula": [
+		"TupleSum(Zekerheid_tpDekkingsWaarde)",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Zekerheid_tpAllocatiePercentage",
+	  "formula": [
+		"1",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Zekerheid_tpDekkingsPercentage",
+	  "formula": [
+		"If(Zekerheid_tpType==1,0.90,If(Zekerheid_tpType==2,0.40,If(Zekerheid_tpType==1,1,NA)))",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Zekerheid_tpDekkingsWaarde",
+	  "formula": [
+		"Zekerheid_tpDekkingsPercentage*Zekerheid_tpAllocatiePercentage*Zekerheid_tpWaarde",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	},
+	{
+	  "name": "Zekerheid_tpID",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Zekerheid_tpNaam",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3140
+	},
+	{
+	  "name": "Zekerheid_tpType",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3139
+	},
+	{
+	  "name": "Zekerheid_tpWaarde",
+	  "formula": [
+		"default",
+		"default",
+		"default",
+		"default",
+		"default"
+	  ],
+	  "account": 3138
+	}
+  ]
 }
