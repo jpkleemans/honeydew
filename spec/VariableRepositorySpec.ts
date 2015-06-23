@@ -1,5 +1,5 @@
 /// <reference path="../type_definitions/jasmine/jasmine.d.ts" />
-/// <reference path="../src/entities/Variable.ts" />
+/// <reference path="../src/viewmodels/Variable.ts" />
 
 declare var json;
 
@@ -40,17 +40,17 @@ module Honeydew.Spec
 
         it("should find a variable by its key", () =>
         {
-            var variable = variables.findByKey("OperatingProvisions");
+            var variable = variables.find("OperatingProvisions");
             expect(variable).toEqual(jasmine.any(Variable));
 
-            var variable1 = variables.findByKey("FakeVariable");
+            var variable1 = variables.find("FakeVariable");
             expect(variable1).toEqual(jasmine.any(Variable));
         });
 
         it("should give an error when a variable is not found", () =>
         {
-            expect(() => variables.findByKey("ThisOneDoesntExist")).toThrowError("This variable does not exist");
-            expect(() => variables.findByKey("OperatingProvisions")).not.toThrowError();
+            expect(() => variables.find("ThisOneDoesntExist")).toThrowError("This variable does not exist");
+            expect(() => variables.find("OperatingProvisions")).not.toThrowError();
         });
     });
 }

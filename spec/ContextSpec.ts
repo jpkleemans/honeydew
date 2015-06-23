@@ -1,7 +1,7 @@
 /// <reference path="../type_definitions/jasmine/jasmine.d.ts" />
 /// <reference path="../type_definitions/fes/fes.d.ts" />
 /// <reference path="../src/repositories/VariableRepository.ts" />
-/// <reference path="../src/entities/Context.ts" />
+/// <reference path="../src/viewmodels/Context.ts" />
 
 declare var json;
 
