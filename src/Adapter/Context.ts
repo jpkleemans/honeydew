@@ -60,6 +60,11 @@ module Honeydew
             this._attributes.display = this.variableModel.getValue(this.variableModel['hIndex'][0], 1, this.column) ? undefined : 'none';
             this._attributes.width = (this.variableModel['account'] == 1058) ? '400px' : undefined;
         }
+
+        displayType()
+        {
+            return "div";
+        }
     }
 }
 

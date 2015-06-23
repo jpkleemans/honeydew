@@ -14,7 +14,7 @@ module Honeydew
          * Angular $injector
          */
         private $injector:angular.auto.IInjectorService;
-
+        public priority = 50;
         /**
          * Instantiate FesBindAttributes directive
          *
@@ -34,7 +34,6 @@ module Honeydew
                         var attributes = scope.$eval(key);
 
                         this.setAttributes(key, attributes, element);
-
                         element.removeAttr('bind-attributes');
                         $compile(element)(scope);
                     }
