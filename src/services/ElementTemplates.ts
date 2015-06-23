@@ -12,33 +12,33 @@ module Honeydew
             this.$templateCache = $templateCache;
         }
 
-        public getInput(variable):string
+        public getInput():string
         {
             var templateURL = 'defaultInput.html';
             if (this.$templateCache.get(templateURL)) {
                 return templateURL;
             }
-            this.$templateCache.put(templateURL, '<input type="text" />');
+            this.$templateCache.put(templateURL, '<input />');
             return templateURL;
         }
 
-        public getTextArea(variable):string
+        public getTextArea():string
         {
-            var templateURL = 'defaultTextArea' + variable + '.html';
+            var templateURL = 'defaultTextArea.html';
             if (this.$templateCache.get(templateURL)) {
                 return templateURL;
             }
-            this.$templateCache.put(templateURL, '<textarea rows="2" cols="20"></textarea>');
+            this.$templateCache.put(templateURL, '<textarea></textarea>');
             return templateURL;
         }
 
-        public getDiv(variable):string
+        public getDiv(key):string
         {
-            var templateURL = 'defaultDiv' + variable + '.html';
+            var templateURL = 'default'+key+'Div.html';
             if (this.$templateCache.get(templateURL)) {
                 return templateURL;
             }
-            this.$templateCache.put(templateURL, '<div>{{' + variable + '.key}} : {{' + variable + '.attributes.value}}</div>');
+            this.$templateCache.put(templateURL, '<div>{{' + key + '.attributes().value}}</div>');
             return templateURL;
         }
 

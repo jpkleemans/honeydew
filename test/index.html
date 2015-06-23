@@ -87,7 +87,7 @@
             <label class="form-row">
                     <span class="col-sm-12">
                         FakeVariable: <input class="form-control" fes-init="FakeVariable"
-                                             bind-attributes="FakeVariable.attributes()">
+                                             bind-attributes="FakeVariable.attributes()" fes-element="FakeVariable.displayType()">
                         Color FakeVariable: <input class="form-control"
                                                    ng-model="FakeVariable.attributes().style.color">
                         Color Q_ROOT: <input class="form-control" ng-model="Q_ROOT.attributes().style.color">
@@ -109,7 +109,7 @@
                         <span class="vertical-align">context {{$index}}:</span>
                     </span>
                     <span>
-                        <input class="form-control" bind-attributes="context.attributes()">
+                        <input class="form-control" bind-attributes="context.attributes()" fes-element="context.displayType()">
                     </span>
                 </label>
             </div>
@@ -130,7 +130,7 @@
                         </span>
 
                         <span ng-repeat="context in child.contexts(columnQuery)">
-                            <input class="form-control" bind-attributes="context.attributes()">
+                            <input class="form-control" bind-attributes="context.attributes()" fes-element="context.displayType()">
                         </span>
                     </label>
                 </div>
@@ -161,7 +161,7 @@
                         </span>
 
                         <span ng-repeat="context in child.contexts(columnQuery)">
-                            <input class="form-control" bind-attributes="context.attributes()">
+                            <input class="form-control" bind-attributes="context.attributes()" fes-element="context.displayType()">
                         </span>
 
                         <div ng-if="showChildren">
