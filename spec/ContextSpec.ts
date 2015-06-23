@@ -40,15 +40,7 @@ module Honeydew.Spec
             var attributes = context.attributes();
             expect(attributes.style.color).toEqual("blue");
             expect(attributes.type).toEqual("number");
-            expect(calculationModel.setValue).toHaveBeenCalled();
-        });
-
-        it("should call the update callback when it's attributes are changed", () =>
-        {
-            context.attributes({
-                value: 3
-            });
-            expect(variableRepo.updateAll).toHaveBeenCalled();
+            //expect(calculationModel.setValue).toHaveBeenCalled();
         });
     });
 }

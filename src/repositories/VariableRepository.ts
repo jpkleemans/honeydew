@@ -54,13 +54,5 @@ module Honeydew
 
             return children;
         }
-
-        updateAll()
-        {
-            var allvariables = this.cache.all();
-            for (var variable in allvariables) {
-                variable.update();
-            }
-        }
     }
 }

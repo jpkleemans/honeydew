@@ -33,7 +33,7 @@ module Honeydew.Spec
             calculationModel['FakeVariable'].hIndex[0] = null;
 
             // Mock ContextRepository
-            contextRepo = jasmine.createSpyObj('ContextRepository', ['where']);
+            contextRepo = jasmine.createSpyObj('ContextRepository', ['where', 'first']);
 
             variables = new VariableRepository(v05layout, contextRepo, calculationModel);
         });

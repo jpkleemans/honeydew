@@ -57,7 +57,6 @@ module Honeydew
             this._attributes = attributes; // TODO: maybe unnecessary
 
             this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.contextRepo.first(), parseFloat(attributes.value));
-            this.variableRepo.updateAll();
         }
 
         children():Array<Fes.IVariable>

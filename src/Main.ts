@@ -3,8 +3,8 @@
 /// <reference path="../src/factories/ServiceFactory.ts" />
 /// <reference path="repositories/VariableRepository.ts" />
 /// <reference path="repositories/ContextRepository.ts" />
-/// <reference path="entities/Context.ts" />
-/// <reference path="entities/Variable.ts" />
+/// <reference path="viewmodels/Context.ts" />
+/// <reference path="viewmodels/Variable.ts" />
 
 declare var json;
 
