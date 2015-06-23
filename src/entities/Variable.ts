@@ -1,4 +1,4 @@
-/// <reference path="ContextRepository.ts" />
+/// <reference path="../repositories/ContextRepository.ts" />
 
 module Honeydew
 {
@@ -63,18 +63,9 @@ module Honeydew
         children():Array<Fes.IVariable>
         {
             if (this._children.length === 0) {
-                var children = [];
-
-                var i;
-                var length = this.childrenKeys.length;
-                for (i = 0; i < length; i++) {
-                    var childKey = this.childrenKeys[i];
-                    var childVariable = this.variableRepo.findByKey(childKey);
-                    children.push(childVariable);
-                }
-
-                this._children = children;
+                this._children = this.variableRepo.findRange(this.childrenKeys);
             }
+
             return this._children;
         }
 

@@ -1,23 +1,23 @@
-/// <reference path="VariableCache.ts" />
+/// <reference path="../utilities/Cache.ts" />
 
 module Honeydew
 {
     export class VariableRepository implements Fes.IVariableRepository
     {
-        private v05layout:any;
+        private layout:any;
         private contextRepo:ContextRepository;
-        private cache:VariableCache;
+        private cache:Cache<Fes.IVariable>;
         private calculationModel;
 
-        constructor(v05layout:any, contextRepo:ContextRepository, calculationModel)
+        constructor(layout:any, contextRepo:ContextRepository, calculationModel)
         {
-            this.v05layout = v05layout;
+            this.layout = layout;
             this.contextRepo = contextRepo;
-            this.cache = new VariableCache();
+            this.cache = new Cache<Fes.IVariable>();
             this.calculationModel = calculationModel;
         }
 
-        findByKey(key:string):Fes.IVariable
+        find(key:string):Fes.IVariable
         {
             if (this.cache.has(key)) {
                 return this.cache.get(key);
@@ -30,28 +30,36 @@ module Honeydew
             }
 
             var childrenKeys = [];
-            if (this.v05layout[key] !== undefined) {
-                childrenKeys = Object.keys(this.v05layout[key]);
+            if (this.layout[key] !== undefined) {
+                childrenKeys = Object.keys(this.layout[key]);
             }
 
             var variable = new Variable(key, childrenKeys, this, this.contextRepo, variableModel);
 
-            this.cache.add(variable);
+            this.cache.add(key, variable);
             return variable;
         }
 
-        findRangeByKeys(keys:Array<string>)
+        findRange(keys:Array<string>)
         {
-            // TODO: to remove for-loop from Variable::children()
+            var children = [];
+
+            var i;
+            var length = keys.length;
+            for (i = 0; i < length; i++) {
+                var childKey = keys[i];
+                var childVariable = this.find(childKey);
+                children.push(childVariable);
+            }
+
+            return children;
         }
 
         updateAll()
         {
             var allvariables = this.cache.all();
             for (var variable in allvariables) {
-                // if (allvariables.hasOwnProperty(variable)) {
                 variable.update();
-                // }
             }
         }
     }

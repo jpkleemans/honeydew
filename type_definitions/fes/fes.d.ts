@@ -71,6 +71,6 @@ declare module Fes {
          * @param key
          * @returns {IVariable}
          */
-        findByKey(key: string): IVariable;
+        find(key: string): IVariable;
     }
 }

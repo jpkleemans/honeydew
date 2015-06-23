@@ -1,4 +1,4 @@
-/// <reference path="../type_definitions/Jasmine/jasmine.d.ts" />
+/// <reference path="../type_definitions/jasmine/jasmine.d.ts" />
 
 declare var testjson;
 
@@ -20,8 +20,8 @@ module Honeydew.Spec
             calculationModel.hIndex[0] = null;
 
             // Mock VariableRepository
-            variableRepo = jasmine.createSpyObj('VariableRepository', ['updateAll', 'findByKey']);
-            variableRepo.findByKey.and.callFake((key) =>
+            variableRepo = jasmine.createSpyObj('VariableRepository', ['updateAll', 'find']);
+            variableRepo.find.and.callFake((key) =>
             {
                 return {
                     key: () => key

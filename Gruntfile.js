@@ -44,7 +44,7 @@ module.exports = function (grunt) {
                     }
                 },
                 src: ['spec/json/*.json'],
-                dest: 'build/spec-json.js'
+                dest: 'build/json.spec.js'
             }
         },
         sass: {

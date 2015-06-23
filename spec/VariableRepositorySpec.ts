@@ -1,5 +1,5 @@
-/// <reference path="../type_definitions/Jasmine/jasmine.d.ts" />
-/// <reference path="../src/Adapter/Variable.ts" />
+/// <reference path="../type_definitions/jasmine/jasmine.d.ts" />
+/// <reference path="../src/entities/Variable.ts" />
 
 declare var json;
 
