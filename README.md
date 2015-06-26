@@ -1,5 +1,7 @@
 # Honeydew
 
+[![Build Status](https://magnum.travis-ci.com/jpkleemans/honeydew.svg?token=GXRf6ZhsQtqcnMx7Tnzu)](https://magnum.travis-ci.com/jpkleemans/honeydew)
+
 ## Install dependencies
 
 ``` bash
