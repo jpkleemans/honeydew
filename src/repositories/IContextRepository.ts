@@ -8,7 +8,7 @@ module Honeydew
          * @param key
          * @returns {IVariable}
          */
-        where(query:string) : Array<IContext>;
+        where(query:any) : Array<IContext>;
 
         /**
          * Find the first context
