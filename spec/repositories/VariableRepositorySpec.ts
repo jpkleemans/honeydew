@@ -1,4 +1,5 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
+/// <reference path="../../src/repositories/IVariableRepository.ts" />
 
 declare var json;
 
@@ -12,7 +13,7 @@ module Honeydew.Spec
     describe("VariableRepository", () =>
     {
         // SUT
-        var variableRepo:Fes.IVariableRepository;
+        var variableRepo:IVariableRepository;
 
         // Mocks
         var contextRepo, cache;

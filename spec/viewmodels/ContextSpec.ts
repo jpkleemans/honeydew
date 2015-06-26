@@ -1,5 +1,5 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
-/// <reference path="../../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../src/viewmodels/IContext.ts" />
 /// <reference path="../../src/viewmodels/Context.ts" />
 
 module Honeydew.Spec
@@ -7,7 +7,7 @@ module Honeydew.Spec
     describe("Context", () =>
     {
         // SUT
-        var context:Fes.IContext;
+        var context:IContext;
 
         // Mocks
         var calculationModel, variableRepo;

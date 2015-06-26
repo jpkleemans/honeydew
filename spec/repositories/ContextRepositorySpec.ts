@@ -1,18 +1,14 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
+/// <reference path="../../src/repositories/IContextRepository.ts" />
 
 declare var json;
-
-//declare class CalculationModel
-//{
-//    constructor(var1);
-//}
 
 module Honeydew.Spec
 {
     describe("ContextRepository", () =>
     {
         // SUT
-        var contextRepo:Fes.IContextRepository;
+        var contextRepo:IContextRepository;
 
         // Mocks
         //

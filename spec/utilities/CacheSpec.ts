@@ -1,5 +1,4 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
-/// <reference path="../../type_definitions/fes/fes.d.ts"/>
 /// <reference path="../../src/utilities/Cache.ts"/>
 
 module Honeydew.Spec

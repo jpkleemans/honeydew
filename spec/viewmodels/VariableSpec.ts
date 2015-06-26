@@ -1,5 +1,5 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
-/// <reference path="../../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../src/viewmodels/IVariable.ts" />
 /// <reference path="../../src/viewmodels/Variable.ts" />
 
 declare var testjson;
@@ -9,7 +9,7 @@ module Honeydew.Spec
     describe("Variable", () =>
     {
         // SUT
-        var variable:Fes.IVariable;
+        var variable:IVariable;
 
         // Mocks
         var variableRepo, contextRepo, variableModel;

@@ -1,7 +1,5 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
-/// <reference path="../../type_definitions/fes/fes.d.ts"/>
 /// <reference path="../../src/utilities/String.ts"/>
-
 
 module Honeydew.Spec
 {
