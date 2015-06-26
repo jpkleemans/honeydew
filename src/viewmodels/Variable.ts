@@ -109,6 +109,7 @@ module Honeydew
 
         displayType()
         {
+            // TODO: get displaytype from engine
             return "dropdown";
         }
     }

@@ -23,6 +23,7 @@ module Honeydew
             var variableModel = this.calculationModel[query.variableKey];
 
             if (variableModel === undefined) {
+                // TODO: throw new RangeError("This variable does not exist");
                 variableModel = this.calculationModel["Q_MAP02_VALIDATION"];
             }
 

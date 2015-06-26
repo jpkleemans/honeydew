@@ -12,7 +12,7 @@ module Honeydew.Spec
     describe("VariableRepository", () =>
     {
         // SUT
-        var variables:Fes.IVariableRepository;
+        var variableRepo:Fes.IVariableRepository;
 
         // Mocks
         var contextRepo, cache;
@@ -37,34 +37,34 @@ module Honeydew.Spec
             // Mock Cache
             cache = jasmine.createSpyObj('Cache', ['add', 'has', 'get', 'all']);
 
-            variables = new VariableRepository(v05layout, contextRepo, cache, calculationModel);
+            variableRepo = new VariableRepository(v05layout, contextRepo, cache, calculationModel);
         });
 
         it("finds a variable by its key", () =>
         {
-            var variable = variables.find("OperatingProvisions");
+            var variable = variableRepo.find("OperatingProvisions");
             expect(variable).toEqual(jasmine.any(Variable));
 
-            var variable1 = variables.find("FakeVariable");
+            var variable1 = variableRepo.find("FakeVariable");
             expect(variable1).toEqual(jasmine.any(Variable));
         });
 
         it("throws an error when a variable is not found", () =>
         {
-            expect(() => variables.find("ThisOneDoesntExist")).toThrowError("This variable does not exist");
-            expect(() => variables.find("OperatingProvisions")).not.toThrowError();
+            expect(() => variableRepo.find("ThisOneDoesntExist")).toThrowError("This variable does not exist");
+            expect(() => variableRepo.find("OperatingProvisions")).not.toThrowError();
         });
 
         it("finds a range of variables by their keys", () =>
         {
-            var variables = variables.findRange(["OperatingProvisions", "FakeVariable"]);
+            var variables = variableRepo.findRange(["OperatingProvisions", "FakeVariable"]);
             expect(variables.length).toEqual(2);
             expect(variables[0]).toEqual(jasmine.any(Variable));
         });
 
         it("caches found variables", () =>
         {
-            var variable = variables.find("OperatingProvisions");
+            variableRepo.find("OperatingProvisions");
             expect(cache.add).toHaveBeenCalled();
         });
     });
