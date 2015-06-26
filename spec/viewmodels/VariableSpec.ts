@@ -1,6 +1,6 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
 /// <reference path="../../type_definitions/fes/fes.d.ts" />
-/// <reference path="../../src/" />
+/// <reference path="../../src/viewmodels/Variable.ts" />
 
 declare var testjson;
 
@@ -93,6 +93,11 @@ module Honeydew.Spec
             expect(children[0].key()).toEqual("OperatingProvisions");
         });
 
+        it("checks if it has children", () =>
+        {
+            expect(variable.hasChildren()).toEqual(true);
+        });
+
         it("gets its contexts", () =>
         {
             var query = {
@@ -110,6 +115,11 @@ module Honeydew.Spec
             };
             var contexts = variable.contexts(query);
             expect(contexts.length).toEqual(6);
+        });
+
+        it("gets its displayType", () =>
+        {
+            expect(variable.displayType()).toEqual(DisplayType.Dropdown);
         });
     });
 }

@@ -1,4 +1,5 @@
 /// <reference path="../repositories/ContextRepository.ts" />
+/// <reference path="../repositories/VariableRepository.ts" />
 
 module Honeydew
 {
@@ -99,11 +100,6 @@ module Honeydew
             this._attributes.style = {
                 color: "red"
             };
-
-            this._contexts.forEach(function (context)
-            {
-                context.update();
-            });
         }
 
         hasChildren()
@@ -113,7 +109,7 @@ module Honeydew
 
         displayType()
         {
-            return "dropdown";
+            return DisplayType.Dropdown;
         }
     }
 }
