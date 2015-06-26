@@ -1,16 +1,18 @@
 declare module Fes {
-    interface IAttributes {
+    interface IContext {
         /**
-         * HTML attributes
+         * Get or set HTML attributes
          *
          * @param attributes
          * @returns {any}
          */
         attributes(attributes?: any): any;
-    }
-}
-declare module Fes {
-    interface IContext extends IAttributes, IUpdatable {
+        /**
+         * Get HTML display type
+         *
+         * @returns {string}
+         */
+        displayType(): string;
     }
 }
 declare module Fes {
@@ -22,40 +24,49 @@ declare module Fes {
          * @returns {IVariable}
          */
         where(query: string): Array<IContext>;
-    }
-}
-declare module Fes {
-    interface IUpdatable {
         /**
-         * Update HTML attributes
+         * Find the first context
          *
-         * @returns {void}
+         * @returns {IContext}
          */
-        update(): void;
+        first(): IContext;
     }
 }
 declare module Fes {
-    interface IVariable extends IAttributes, IUpdatable {
+    interface IVariable {
         /**
-         * Reference key
+         * Get reference key
          *
          * @returns {string}
          */
         key(): string;
         /**
-         * Title
+         * Get or set HTML attributes
+         *
+         * @param attributes
+         * @returns {any}
+         */
+        attributes(attributes?: any): any;
+        /**
+         * Get HTML display type
          *
          * @returns {string}
          */
-        title(): string;
+        displayType(): string;
         /**
-         * Children
+         * Get children
          *
          * @returns {Array<IVariable>}
          */
         children(): Array<IVariable>;
         /**
-         * All possible contexts
+         * Check if variable has children
+         *
+         * @returns {boolean}
+         */
+        hasChildren(): boolean;
+        /**
+         * Get contexts
          *
          * @param query
          * @returns {Array<IContext>}
@@ -72,5 +83,12 @@ declare module Fes {
          * @returns {IVariable}
          */
         find(key: string): IVariable;
+        /**
+         * Find multiple variables by their keys
+         *
+         * @param keys
+         * @returns {Arrray<IVariable>}
+         */
+        findRange(keys: Array<string>): Array<IVariable>;
     }
 }
