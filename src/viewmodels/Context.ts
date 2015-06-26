@@ -59,7 +59,7 @@ module Honeydew
 
         displayType()
         {
-            return "div";
+            return "input";
         }
     }
 }

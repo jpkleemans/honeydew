@@ -9,11 +9,11 @@ module Honeydew
         private cache:Cache<Fes.IVariable>;
         private calculationModel;
 
-        constructor(layout:any, contextRepo:ContextRepository, calculationModel)
+        constructor(layout:any, contextRepo:ContextRepository, cache:Cache<Fes.IVariable>, calculationModel)
         {
             this.layout = layout;
             this.contextRepo = contextRepo;
-            this.cache = new Cache<Fes.IVariable>();
+            this.cache = cache;
             this.calculationModel = calculationModel;
         }
 
@@ -26,12 +26,13 @@ module Honeydew
             var variableModel = this.calculationModel[key];
 
             if (variableModel === undefined) {
-                throw new RangeError("This variable does not exist");
+                variableModel = this.calculationModel["Q_MAP02_VALIDATION"];
+                //throw new RangeError("This variable does not exist");
             }
 
             var childrenKeys = [];
             if (this.layout[key] !== undefined) {
-                childrenKeys = Object.keys(this.layout[key]);
+                childrenKeys = this.layout[key].children;
             }
 
             var variable = new Variable(key, childrenKeys, this, this.contextRepo, variableModel);

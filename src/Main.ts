@@ -44,7 +44,8 @@ module Honeydew
             var calcDocument = new CalculationDocument(importData);
 
             var contextRepo = new ContextRepository(calcDocument, calcModel);
-            var variableRepository = new VariableRepository(v05layout, contextRepo, calcModel);
+            var cache = new Cache<Fes.IVariable>();
+            var variableRepository = new VariableRepository(v05layout, contextRepo, cache, calcModel);
 
             return angular.module('honeydew', [])
                 .factory('ElementTemplates', Honeydew.ServiceFactory.createElementTemplates())

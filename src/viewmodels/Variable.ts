@@ -109,7 +109,7 @@ module Honeydew
 
         displayType()
         {
-            return DisplayType.Dropdown;
+            return "dropdown";
         }
     }
 }

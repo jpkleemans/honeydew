@@ -1,9 +1,5 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
-/// <reference path="../type_definitions/fes/fes.d.ts" />
-/// <reference path="../src/repositories/VariableRepository.ts" />
-/// <reference path="../src/viewmodels/Context.ts" />
-
-declare var json;
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
 
 module Honeydew.Spec
 {
@@ -28,7 +24,7 @@ module Honeydew.Spec
             context = new Context(column, calculationModel);
         });
 
-        it("should be able to set and get it's attributes", () =>
+        it("sets and gets its attributes", () =>
         {
             context.attributes({
                 style: {
@@ -40,7 +36,11 @@ module Honeydew.Spec
             var attributes = context.attributes();
             expect(attributes.style.color).toEqual("blue");
             expect(attributes.type).toEqual("number");
-            //expect(calculationModel.setValue).toHaveBeenCalled();
+        });
+
+        it("gets its displayType", () =>
+        {
+            expect(context.displayType()).toEqual(DisplayType.Input);
         });
     });
 }

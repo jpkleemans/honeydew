@@ -1,5 +1,4 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
-/// <reference path="../src/viewmodels/Variable.ts" />
 
 declare var json;
 
@@ -16,7 +15,7 @@ module Honeydew.Spec
         var variables:Fes.IVariableRepository;
 
         // Mocks
-        var contextRepo;
+        var contextRepo, cache;
 
         beforeEach(() =>
         {
@@ -35,10 +34,13 @@ module Honeydew.Spec
             // Mock ContextRepository
             contextRepo = jasmine.createSpyObj('ContextRepository', ['where', 'first']);
 
-            variables = new VariableRepository(v05layout, contextRepo, calculationModel);
+            // Mock Cache
+            cache = jasmine.createSpyObj('Cache', ['add', 'has', 'get', 'all']);
+
+            variables = new VariableRepository(v05layout, contextRepo, cache, calculationModel);
         });
 
-        it("should find a variable by its key", () =>
+        it("finds a variable by its key", () =>
         {
             var variable = variables.find("OperatingProvisions");
             expect(variable).toEqual(jasmine.any(Variable));
@@ -47,10 +49,23 @@ module Honeydew.Spec
             expect(variable1).toEqual(jasmine.any(Variable));
         });
 
-        it("should give an error when a variable is not found", () =>
+        it("throws an error when a variable is not found", () =>
         {
             expect(() => variables.find("ThisOneDoesntExist")).toThrowError("This variable does not exist");
             expect(() => variables.find("OperatingProvisions")).not.toThrowError();
+        });
+
+        it("finds a range of variables by their keys", () =>
+        {
+            var variables = variables.findRange(["OperatingProvisions", "FakeVariable"]);
+            expect(variables.length).toEqual(2);
+            expect(variables[0]).toEqual(jasmine.any(Variable));
+        });
+
+        it("caches found variables", () =>
+        {
+            var variable = variables.find("OperatingProvisions");
+            expect(cache.add).toHaveBeenCalled();
         });
     });
 }
