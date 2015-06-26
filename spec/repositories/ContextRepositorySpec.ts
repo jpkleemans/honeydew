@@ -24,5 +24,15 @@ module Honeydew.Spec
             //
             //contextRepo = new ContextRepository();
         });
+
+        it("finds contexts by a query", () =>
+        {
+            // ¯\_(ツ)_/¯
+        });
+
+        it("finds the first context", () =>
+        {
+            // ¯\_(ツ)_/¯
+        });
     });
 }
