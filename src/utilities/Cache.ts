@@ -28,5 +28,10 @@ module Honeydew
         {
             return this.items;
         }
+
+        remove(key:string)
+        {
+            delete this.items[key];
+        }
     }
 }
