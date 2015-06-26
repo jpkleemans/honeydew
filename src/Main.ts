@@ -1,10 +1,10 @@
 /// <reference path="../src/factories/DirectiveFactory.ts" />
 /// <reference path="../src/factories/ControllerFactory.ts" />
 /// <reference path="../src/factories/ServiceFactory.ts" />
-/// <reference path="../src/Adapter/VariableRepository.ts" />
-/// <reference path="../src/Adapter/ContextRepository.ts" />
-/// <reference path="../src/Adapter/Context.ts" />
-/// <reference path="../src/Adapter/Variable.ts" />
+/// <reference path="repositories/VariableRepository.ts" />
+/// <reference path="repositories/ContextRepository.ts" />
+/// <reference path="viewmodels/Context.ts" />
+/// <reference path="viewmodels/Variable.ts" />
 
 declare var json;
 

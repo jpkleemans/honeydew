@@ -23,7 +23,7 @@ module Honeydew
                         var key = attrs['fesInit'];
 
                         if (scope[key] === undefined) {
-                            scope[key] = variables.findByKey(key);
+                            scope[key] = variables.find(key);
                         }
                     }
                 };
