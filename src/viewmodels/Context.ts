@@ -30,10 +30,6 @@ module Honeydew
             }
 
             this._attributes = attributes; // TODO: maybe unnecessary
-
-            //this.update();
-
-            //this.variableRepo.updateAll();
         }
 
         update()
