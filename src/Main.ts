@@ -13,9 +13,14 @@ module Honeydew
             var container = new ServiceContainer();
             var module = new RuntimeModule(container);
 
+            // TODO: Factory-classes worden nu gebruikt voor de dependency injection van angular.
+            // Echter kan dit waarschijnlijk ook zonder factory, maar d.m.v. de $inject property.
+            // Zie: http://kwilson.me.uk/blog/writing-cleaner-angularjs-with-typescript-and-controlleras/
+            // Mooist is om dit uiteindelijk via de ServiceContainer te regelen.
+
             return angular.module('honeydew', [])
-                .factory('ElementTemplates', Honeydew.ServiceFactory.createElementTemplates())
                 .constant('IVariableRepository', container.resolve('VariableRepository'))
+                .factory('ElementTemplates', Honeydew.ServiceFactory.createElementTemplates())
                 .controller('FesController', Honeydew.ControllerFactory.createFesController())
                 .directive('fesElement', Honeydew.DirectiveFactory.createFesElement())
                 .directive('fesInit', Honeydew.DirectiveFactory.createFesInit())
