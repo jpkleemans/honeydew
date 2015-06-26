@@ -15,7 +15,7 @@ module Honeydew
 
             return angular.module('honeydew', [])
                 .factory('ElementTemplates', Honeydew.ServiceFactory.createElementTemplates())
-                .constant('IVariableRepository', container.get('VariableRepository'))
+                .constant('IVariableRepository', container.resolve('VariableRepository'))
                 .controller('FesController', Honeydew.ControllerFactory.createFesController())
                 .directive('fesElement', Honeydew.DirectiveFactory.createFesElement())
                 .directive('fesInit', Honeydew.DirectiveFactory.createFesInit())

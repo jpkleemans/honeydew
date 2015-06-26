@@ -48,8 +48,8 @@ module Honeydew
             container.singleton('ContextRepository', function (container)
             {
                 return new ContextRepository(
-                    container.get('CalculationDocument'),
-                    container.get('CalculationModel')
+                    container.resolve('CalculationDocument'),
+                    container.resolve('CalculationModel')
                 );
             });
 
@@ -62,9 +62,9 @@ module Honeydew
             {
                 return new VariableRepository(
                     v05layout,
-                    container.get('ContextRepository'),
-                    container.get('VariableCache'),
-                    container.get('CalculationModel')
+                    container.resolve('ContextRepository'),
+                    container.resolve('VariableCache'),
+                    container.resolve('CalculationModel')
                 );
             });
         }

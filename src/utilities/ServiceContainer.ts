@@ -23,7 +23,7 @@ module Honeydew
             };
         }
 
-        get(key:string)
+        resolve(key:string)
         {
             if (typeof this.values[key] === 'undefined') {
                 throw new Error('Service does not exist');
