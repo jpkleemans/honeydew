@@ -119,7 +119,7 @@ module Honeydew.Spec
 
         it("gets its displayType", () =>
         {
-            expect(variable.displayType()).toEqual(DisplayType.Dropdown);
+            expect(variable.displayType()).toEqual("dropdown");
         });
     });
 }

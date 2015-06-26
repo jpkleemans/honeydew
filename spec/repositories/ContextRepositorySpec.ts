@@ -2,10 +2,10 @@
 
 declare var json;
 
-declare class CalculationModel
-{
-    constructor(var1);
-}
+//declare class CalculationModel
+//{
+//    constructor(var1);
+//}
 
 module Honeydew.Spec
 {

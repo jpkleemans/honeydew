@@ -8,16 +8,16 @@
 
 declare var json;
 
+// Onderstaande classes moeten in een typescript definition file komen
+// e_full.d.ts o.i.d.
 declare class CalculationDocument
 {
     constructor(var1);
 }
-
 declare class CalculationModel
 {
     constructor(var1);
 }
-
 declare class FormulaBootstrap
 {
     constructor(var1, var2);

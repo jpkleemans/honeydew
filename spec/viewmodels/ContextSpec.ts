@@ -1,5 +1,6 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
 /// <reference path="../../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../src/viewmodels/Context.ts" />
 
 module Honeydew.Spec
 {
@@ -40,7 +41,7 @@ module Honeydew.Spec
 
         it("gets its displayType", () =>
         {
-            expect(context.displayType()).toEqual(DisplayType.Input);
+            expect(context.displayType()).toEqual("input");
         });
     });
 }
