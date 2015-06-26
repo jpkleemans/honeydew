@@ -6,7 +6,7 @@ module.exports = function (grunt) {
                 dest: 'build/honeydew.js'
             },
             spec: {
-                src: ['spec/*.ts'],
+                src: ['spec/**/*.ts'],
                 dest: 'build/honeydew.spec.js'
             }
         },

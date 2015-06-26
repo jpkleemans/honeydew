@@ -1,4 +1,4 @@
-/// <reference path="../type_definitions/jasmine/jasmine.d.ts" />
+/// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
 /// <reference path="../src/viewmodels/Variable.ts" />
 
 declare var json;
