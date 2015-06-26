@@ -1,6 +1,3 @@
-/// <reference path="../../src/factories/DirectiveFactory.ts" />
-/// <reference path="../../src/factories/ControllerFactory.ts" />
-/// <reference path="../../src/factories/ServiceFactory.ts" />
 /// <reference path="../repositories/VariableRepository.ts" />
 /// <reference path="../repositories/ContextRepository.ts" />
 /// <reference path="../viewmodels/Context.ts" />
@@ -8,7 +5,7 @@
 
 declare var json;
 
-// Onderstaande classes moeten in een typescript definition file komen
+// TODO: Onderstaande classes moeten in een typescript definition file komen
 // e_full.d.ts o.i.d.
 declare class CalculationDocument
 {
