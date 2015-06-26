@@ -14,6 +14,7 @@ module Honeydew
          */
         private $injector:angular.auto.IInjectorService;
         public priority = 50;
+
         /**
          * Instantiate FesBindAttributes directive
          *
@@ -50,12 +51,14 @@ module Honeydew
         {
             for (var attr in attributes) {
                 if (attributes.hasOwnProperty(attr)) {
+                    // Check if attribute is an angular attribute
                     if (String.contains(attr, 'ng-')) {
                         element.attr(attr, attributes[attr]);
                     } else {
                         if (attr === 'value') {
                             element.attr('ng-model', key + '.value');
                         } else {
+                            // Check if attribute has angular counterpart
                             var directive = 'ng' + String.ucfirst(attr) + 'Directive';
                             if (this.$injector.has(directive)) {
                                 element.attr('ng-' + attr, key + '.' + attr);

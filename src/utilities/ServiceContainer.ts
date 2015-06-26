@@ -9,6 +9,12 @@ module Honeydew
             this.values = {};
         }
 
+        /**
+         * Register a service as singleton
+         *
+         * @param key
+         * @param callable
+         */
         singleton(key:string, callable:Function)
         {
             var object;
@@ -23,6 +29,12 @@ module Honeydew
             };
         }
 
+        /**
+         * Resolve service from container with dependencies
+         *
+         * @param key
+         * @returns {any}
+         */
         resolve(key:string)
         {
             if (typeof this.values[key] === 'undefined') {
@@ -32,11 +44,22 @@ module Honeydew
             return this.values[key](this);
         }
 
+        /**
+         * Check if service exist
+         *
+         * @param key
+         * @returns {boolean}
+         */
         has(key:string)
         {
             return (typeof this.values[key] !== "undefined");
         }
 
+        /**
+         * Remove service from container
+         *
+         * @param key
+         */
         remove(key:string)
         {
             delete this.values[key];

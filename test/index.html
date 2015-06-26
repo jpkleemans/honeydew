@@ -125,7 +125,7 @@
                 <div ng-repeat="child in Q_ROOT.children()">
                     <label class="form-row">
                         <span class="col-md-2">
-                            <span class="vertical-align">{{child.title()}}:</span>
+                            <span class="vertical-align">{{child.key()}}:</span>
                         </span>
 
                         <span ng-repeat="context in child.contexts(columnQuery)">
@@ -154,7 +154,7 @@
                                            ng-model="showChildren"
                                            ng-show="child.hasChildren()"
                                            ng-model-options="{ updateOn: 'default' }">
-                                    {{child.title()}}:
+                                    {{child.key()}}:
                                </span>
                             </span>
                         </span>

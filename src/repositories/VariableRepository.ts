@@ -17,6 +17,12 @@ module Honeydew
             this.calculationModel = calculationModel;
         }
 
+        /**
+         * Find a variable by its key
+         *
+         * @param key
+         * @returns {IVariable}
+         */
         find(key:string):IVariable
         {
             if (this.cache.has(key)) {
@@ -41,6 +47,12 @@ module Honeydew
             return variable;
         }
 
+        /**
+         * Find multiple variables by their keys
+         *
+         * @param keys
+         * @returns {Array<IVariable>}
+         */
         findRange(keys:Array<string>)
         {
             var children = [];

@@ -42,12 +42,12 @@ module Honeydew
 
         public static createFesElement()
         {
-            var directive = (ElementTemplates:ElementTemplates, $templateCache, $compile:angular.ICompileService) =>
+            var directive = (ElementTemplates:ElementTemplates) =>
             {
-                return new FesElement(ElementTemplates, $templateCache, $compile);
+                return new FesElement(ElementTemplates);
             };
 
-            directive['$inject'] = ['ElementTemplates', '$templateCache', '$compile'];
+            directive['$inject'] = ['ElementTemplates'];
 
             return directive;
         }

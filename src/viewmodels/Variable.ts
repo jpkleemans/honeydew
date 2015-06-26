@@ -39,16 +39,22 @@ module Honeydew
             this.update();
         }
 
+        /**
+         * Get reference key
+         *
+         * @returns {string}
+         */
         key():string
         {
             return this._key;
         }
 
-        title():string
-        {
-            return this._title;
-        }
-
+        /**
+         * Get or set HTML attributes
+         *
+         * @param attributes
+         * @returns {any}
+         */
         attributes(attributes?:any):any
         {
             if (typeof attributes === "undefined") {
@@ -60,6 +66,11 @@ module Honeydew
             this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.contextRepo.first(), parseFloat(attributes.value));
         }
 
+        /**
+         * Get children
+         *
+         * @returns {Array<IVariable>}
+         */
         children():Array<IVariable>
         {
             if (this._children.length === 0) {
@@ -69,6 +80,12 @@ module Honeydew
             return this._children;
         }
 
+        /**
+         * Get contexts
+         *
+         * @param query
+         * @returns {Array<IContext>}
+         */
         contexts(query:any = null):Array<IContext>
         {
             if (query !== this.prevQuery) {
@@ -86,6 +103,30 @@ module Honeydew
             return this._contexts;
         }
 
+        /**
+         * Check if variable has children
+         *
+         * @returns {boolean}
+         */
+        hasChildren()
+        {
+            return (this.childrenKeys.length > 0);
+        }
+
+        /**
+         * Get HTML display type
+         *
+         * @returns {string}
+         */
+        displayType()
+        {
+            // TODO: get displaytype from engine
+            return "dropdown";
+        }
+
+        /**
+         * Update attributes
+         */
         update()
         {
             this._attributes.value = (value) =>
@@ -100,17 +141,6 @@ module Honeydew
             this._attributes.style = {
                 color: "red"
             };
-        }
-
-        hasChildren()
-        {
-            return (this.childrenKeys.length > 0);
-        }
-
-        displayType()
-        {
-            // TODO: get displaytype from engine
-            return "dropdown";
         }
     }
 }

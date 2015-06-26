@@ -10,7 +10,9 @@ module Honeydew
     {
         public static main(angular)
         {
+            // create service container
             var container = new ServiceContainer();
+            // register runtime services
             var module = new RuntimeModule(container);
 
             // TODO: Factory-classes worden nu gebruikt voor de dependency injection van angular.

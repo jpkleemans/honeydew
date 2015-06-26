@@ -11,23 +11,20 @@ module Honeydew
         public replace = true;
         public templateUrl = '';
         public priority = 49;
-        constructor(ElementTemplates:ElementTemplates, $templateCache: angular.ITemplateCacheService, $compile:angular.ICompileService)
+
+        constructor(ElementTemplates:ElementTemplates)
         {
             this.link = (scope, element, attrs) =>
             {
-                //Naam van de variable op de scope.
+                // Naam van de variable op de scope.
                 var param = attrs['fesElement'];
                 var scopeName = param.split('.')[0];
                 var displaytype = scope.$eval(param);
                 if (displaytype == null) {
                     return;
                 }
-                /*
-                console.log('param: ' + param);
-                console.log('scope val: ' + scopeName);
-                console.log('displayType: ' + displaytype);
-                console.log('-----------------------');
-                */
+
+                // TODO: Eventueel een (TypeScript) enum aanmaken voor de verschillende displaytypes
                 switch (displaytype) {
                     case "input" :
                         this.templateUrl = ElementTemplates.getInput();

@@ -29,12 +29,14 @@ module Honeydew
     {
         constructor(container)
         {
+            // Load json and parse formulas
             var v05Instance = json['v05instance'];
             var userFormulas = json['defaultmath'];
             var importData = json['v05baseimportinstance'];
             var v05layout = json['v05layout'];
             new FormulaBootstrap(v05Instance, userFormulas);
 
+            // register services
             container.singleton('CalculationModel', function (container)
             {
                 return new CalculationModel(v05Instance);

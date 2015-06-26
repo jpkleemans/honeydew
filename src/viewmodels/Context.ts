@@ -5,8 +5,6 @@ module Honeydew
         private column;
         private variableModel;
 
-        //public attributes:any;
-
         // Backing fields
         private _attributes:any;
 
@@ -15,12 +13,17 @@ module Honeydew
             this.column = column;
             this.variableModel = variableModel;
 
-            //this.attributes = {};
             this._attributes = {};
 
             this.update();
         }
 
+        /**
+         * Get or set HTML attributes
+         *
+         * @param attributes
+         * @returns {any}
+         */
         attributes(attributes?:any):any
         {
             if (typeof attributes === "undefined") {
@@ -30,6 +33,20 @@ module Honeydew
             this._attributes = attributes; // TODO: maybe unnecessary
         }
 
+        /**
+         * Get HTML display type
+         *
+         * @returns {string}
+         */
+        displayType()
+        {
+            // TODO: get displaytype from engine
+            return "input";
+        }
+
+        /**
+         * Update attributes
+         */
         update()
         {
             this._attributes.value = (value) =>
@@ -53,12 +70,6 @@ module Honeydew
 
             this._attributes.display = this.variableModel.getValue(this.variableModel['hIndex'][0], 1, this.column) ? undefined : 'none';
             this._attributes.width = (this.variableModel['account'] == 1058) ? '400px' : undefined;
-        }
-
-        displayType()
-        {
-            // TODO: get displaytype from engine
-            return "input";
         }
     }
 }

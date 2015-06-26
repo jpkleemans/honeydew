@@ -11,6 +11,12 @@ module Honeydew
             this.calculationModel = calculationModel;
         }
 
+        /**
+         * Find contexts by query
+         *
+         * @param query
+         * @returns {Array<IContext>}
+         */
         where(query:any):Array<IContext>
         {
             var columns = this.calculationDocument.viewmodes.detl.columns[query.timeline];
@@ -35,6 +41,11 @@ module Honeydew
             return contexts;
         }
 
+        /**
+         * Find the first context
+         *
+         * @returns {any}
+         */
         first()
         {
             var timeline0Columns = this.calculationDocument.viewmodes.detl.columns[0];
