@@ -7,17 +7,11 @@ module Honeydew.Spec
 {
     describe("String", () =>
     {
-        var stringclass;
-
-        beforeEach(() =>
-        {
-            stringclass = new String();
-        });
-
         it("should capitalize the first character of a string", () =>
         {
-            expect(stringclass.ucfirst("text")).toEqual("Text");
-            expect(stringclass.ucfirst("Text")).toEqual("Text");
+            expect(String.ucfirst("text")).toEqual("Text");
+            expect(String.ucfirst("Text")).toEqual("Text");
+            expect(String.ucfirst("tEXT")).toEqual("TEXT");
         });
 
         it("should check if a string contains another string", () =>
@@ -26,8 +20,8 @@ module Honeydew.Spec
             var string2 = "str";
             var string3 = "param";
 
-            expect(stringclass.contains(string1, string2)).toEqual(true);
-            expect(stringclass.contains(string1, string3)).toEqual(false);
+            expect(String.contains(string1, string2)).toEqual(true);
+            expect(String.contains(string1, string3)).toEqual(false);
         });
     });
 }

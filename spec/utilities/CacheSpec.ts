@@ -17,7 +17,6 @@ module Honeydew.Spec
         {
             cacheclass.add("testint", 4);
             expect(cacheclass.get("testint")).toEqual(4);
-
         });
 
         it("should check if an item is cached", () =>
@@ -34,7 +33,9 @@ module Honeydew.Spec
             cacheclass.add("testvalue2", 409);
             cacheclass.add("testvalue3", 59763);
 
-            expect(cacheclass.all().length).toEqual(3);
+            var items = cacheclass.all();
+
+            expect(Object.keys(items).length).toEqual(3);
         });
 
         it("should remove items from the cache", () =>
@@ -43,8 +44,8 @@ module Honeydew.Spec
             cacheclass.add("testkey2", 39);
 
             expect(cacheclass.remove("testkey"));
-            expect(cacheclass.length()).toEqual(1);
 
+            expect(cacheclass.has("testkey")).toEqual(false);
             expect(cacheclass.has("testkey2")).toEqual(true);
         });
     });
