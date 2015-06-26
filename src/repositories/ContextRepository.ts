@@ -1,8 +1,6 @@
-/// <reference path="../../type_definitions/fes/fes.d.ts" />
-
 module Honeydew
 {
-    export class ContextRepository implements Fes.IContextRepository
+    export class ContextRepository implements IContextRepository
     {
         private calculationDocument;
         private calculationModel;
@@ -13,7 +11,7 @@ module Honeydew
             this.calculationModel = calculationModel;
         }
 
-        where(query:any):Array<Fes.IContext>
+        where(query:any):Array<IContext>
         {
             var columns = this.calculationDocument.viewmodes.detl.columns[query.timeline];
             var selection = columns.slice(query.start, query.end);

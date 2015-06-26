@@ -1,8 +1,6 @@
-/// <reference path="../../type_definitions/fes/fes.d.ts" />
-
 module Honeydew
 {
-    export class Context implements Fes.IContext
+    export class Context implements IContext
     {
         private column;
         private variableModel;

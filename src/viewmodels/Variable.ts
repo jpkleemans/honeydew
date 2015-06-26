@@ -3,11 +3,11 @@
 
 module Honeydew
 {
-    export class Variable implements Fes.IVariable
+    export class Variable implements IVariable
     {
         private childrenKeys:Array<string>;
-        private variableRepo:VariableRepository;
-        private contextRepo:ContextRepository;
+        private variableRepo:IVariableRepository;
+        private contextRepo:IContextRepository;
         private variableModel;
         private prevQuery:string;
 
@@ -15,13 +15,13 @@ module Honeydew
         private _key:string;
         private _title:string;
         private _attributes:any;
-        private _children:Array<Fes.IVariable>;
-        private _contexts:Array<Fes.IContext>;
+        private _children:Array<IVariable>;
+        private _contexts:Array<IContext>;
 
         constructor(key:string,
                     childrenKeys:Array<string>,
-                    variableRepo:VariableRepository,
-                    contextRepo:ContextRepository,
+                    variableRepo:IVariableRepository,
+                    contextRepo:IContextRepository,
                     variableModel)
         {
             this.childrenKeys = childrenKeys;
@@ -60,7 +60,7 @@ module Honeydew
             this.variableModel.setValue(this.variableModel['hIndex'][0], 0, this.contextRepo.first(), parseFloat(attributes.value));
         }
 
-        children():Array<Fes.IVariable>
+        children():Array<IVariable>
         {
             if (this._children.length === 0) {
                 this._children = this.variableRepo.findRange(this.childrenKeys);
@@ -69,7 +69,7 @@ module Honeydew
             return this._children;
         }
 
-        contexts(query:any = null):Array<Fes.IContext>
+        contexts(query:any = null):Array<IContext>
         {
             if (query !== this.prevQuery) {
                 this.prevQuery = query;

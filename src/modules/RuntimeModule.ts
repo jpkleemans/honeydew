@@ -55,7 +55,7 @@ module Honeydew
 
             container.singleton('VariableCache', function (container)
             {
-                return new Cache<Fes.IVariable>();
+                return new Cache<IVariable>();
             });
 
             container.singleton('VariableRepository', function (container)

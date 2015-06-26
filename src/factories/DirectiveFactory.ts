@@ -18,7 +18,7 @@ module Honeydew
 
         public static createFesInit()
         {
-            var directive = (variables:Fes.IVariableRepository) =>
+            var directive = (variables:IVariableRepository) =>
             {
                 return new FesInit(variables);
             };

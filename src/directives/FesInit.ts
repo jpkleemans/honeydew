@@ -1,5 +1,4 @@
 /// <reference path="../../type_definitions/angularjs/angular.d.ts" />
-/// <reference path="../../type_definitions/fes/fes.d.ts" />
 
 module Honeydew
 {
@@ -13,7 +12,7 @@ module Honeydew
          *
          * @param variables
          */
-        constructor(variables:Fes.IVariableRepository)
+        constructor(variables:IVariableRepository)
         {
             this.compile = () =>
             {

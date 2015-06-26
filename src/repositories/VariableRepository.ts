@@ -2,14 +2,14 @@
 
 module Honeydew
 {
-    export class VariableRepository implements Fes.IVariableRepository
+    export class VariableRepository implements IVariableRepository
     {
         private layout:any;
         private contextRepo:ContextRepository;
-        private cache:Cache<Fes.IVariable>;
+        private cache:Cache<IVariable>;
         private calculationModel;
 
-        constructor(layout:any, contextRepo:ContextRepository, cache:Cache<Fes.IVariable>, calculationModel)
+        constructor(layout:any, contextRepo:ContextRepository, cache:Cache<IVariable>, calculationModel)
         {
             this.layout = layout;
             this.contextRepo = contextRepo;
@@ -17,7 +17,7 @@ module Honeydew
             this.calculationModel = calculationModel;
         }
 
-        find(key:string):Fes.IVariable
+        find(key:string):IVariable
         {
             if (this.cache.has(key)) {
                 return this.cache.get(key);
