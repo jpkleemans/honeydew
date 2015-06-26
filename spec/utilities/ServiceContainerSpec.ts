@@ -43,7 +43,7 @@ module Honeydew.Spec
 
         it("should throw an error when a service does not exist", () =>
         {
-            expect(container.resolve('Service03')).toThrowError("Service does not exist");
+            expect(() => container.resolve('Service03')).toThrowError("Service does not exist");
         });
 
         it("should check if a service exists", () =>
