@@ -1,4 +1,6 @@
 /// <reference path="../../type_definitions/jasmine/jasmine.d.ts" />
+/// <reference path="../../type_definitions/fes/fes.d.ts" />
+/// <reference path="../../src/" />
 
 declare var testjson;
 
@@ -65,12 +67,12 @@ module Honeydew.Spec
             variable = new Variable("Q_ROOT", childrenKeys, variableRepo, contextRepo, variableModel);
         });
 
-        it("should have a key", () =>
+        it("gets its key", () =>
         {
             expect(variable.key()).toEqual("Q_ROOT");
         });
 
-        it("should be able to set and get it's attributes", () =>
+        it("sets and gets its attributes", () =>
         {
             variable.attributes({
                 value: 1058,
@@ -83,15 +85,7 @@ module Honeydew.Spec
             expect(variableModel.setValue).toHaveBeenCalled();
         });
 
-        //it("should call the update callback when it's attributes are changed", () =>
-        //{
-        //    variable.attributes({
-        //        value: 3
-        //    });
-        //    expect(variableRepo.updateAll).toHaveBeenCalled();
-        //});
-
-        it("should be able to get it's children", () =>
+        it("gets its children", () =>
         {
             var children = variable.children();
 
@@ -99,7 +93,7 @@ module Honeydew.Spec
             expect(children[0].key()).toEqual("OperatingProvisions");
         });
 
-        it("should be able to get it's contexts", () =>
+        it("gets its contexts", () =>
         {
             var query = {
                 "timeline": 0,
